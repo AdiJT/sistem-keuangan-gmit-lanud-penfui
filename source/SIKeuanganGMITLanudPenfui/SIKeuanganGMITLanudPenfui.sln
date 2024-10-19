@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIKeuanganGMITLanudPenfui.Web", "SIKeuanganGMITLanudPenfui.Web\SIKeuanganGMITLanudPenfui.Web.csproj", "{339FFA0E-CBB1-4D51-8DA4-1FA5916E831E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Web", "SIKeuanganGMITLanudPenfui.Web\SIKeuanganGMITLanudPenfui.Web.csproj", "{339FFA0E-CBB1-4D51-8DA4-1FA5916E831E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIKeuanganGMITLanudPenfui.Domain", "SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj", "{004C1AD2-7D93-44A3-855B-A9C1D45303D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Domain", "SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj", "{004C1AD2-7D93-44A3-855B-A9C1D45303D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIKeuanganGMITLanudPenfui.Application", "SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj", "{7BF8D650-FB2D-4874-93FD-67F7A180A35A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Application", "SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj", "{7BF8D650-FB2D-4874-93FD-67F7A180A35A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIKeuanganGMITLanudPenfui.Infrastructure", "SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj", "{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Infrastructure", "SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj", "{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
