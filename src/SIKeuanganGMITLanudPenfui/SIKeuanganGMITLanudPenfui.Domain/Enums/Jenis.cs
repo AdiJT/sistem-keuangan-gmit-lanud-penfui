@@ -2,5 +2,5 @@
 
 public enum Jenis
 {
-    Pendapatan, Belanja
+    Penerimaan, Belanja
 }
