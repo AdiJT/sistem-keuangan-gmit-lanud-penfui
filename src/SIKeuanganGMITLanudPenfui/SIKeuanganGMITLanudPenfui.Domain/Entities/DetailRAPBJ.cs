@@ -1,6 +1,4 @@
-﻿using SIKeuanganGMITLanudPenfui.Domain.Abstracts;
-
-namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
+﻿namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
 
 public class DetailRAPBJ
 {

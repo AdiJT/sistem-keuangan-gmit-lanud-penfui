@@ -3,7 +3,7 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 
 namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
 
-public class RAPBJ : Entity
+public class RAPBJ
 {
     public int Tahun { get; set; }
 
