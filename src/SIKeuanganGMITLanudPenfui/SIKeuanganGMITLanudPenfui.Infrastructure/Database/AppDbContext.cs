@@ -18,6 +18,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
+            modelBuilder.SeedingData();
 
             base.OnModelCreating(modelBuilder);
         }
