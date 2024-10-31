@@ -20,4 +20,8 @@
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Dashboard\Models\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,8 @@
-﻿namespace SIKeuanganGMITLanudPenfui.Domain.Repositories;
+﻿using SIKeuanganGMITLanudPenfui.Domain.Shared;
+
+namespace SIKeuanganGMITLanudPenfui.Domain.Repositories;
 
 public interface IUnitOfWork
 {
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    Task<Result<int>> SaveChangesAsync(CancellationToken cancellationToken);
 }

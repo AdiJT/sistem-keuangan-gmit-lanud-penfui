@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure;
 
@@ -18,6 +19,15 @@ public static class DependecyInjection
         });
 
         services.AddScoped<IUnitOfWork, AppDbContext>();
+        services.AddScoped<IRepositoriAkun, RepositoriAkun>();
+        services.AddScoped<IRepositoriJenisAkun, RepositoriJenisAkun>();
+        services.AddScoped<IRepositoriKelompokAkun, RepositoriKelompokAkun>();
+        services.AddScoped<IRepositoriGolonganAkun, RepositoriGolonganAkun>();
+        services.AddScoped<IRepositoriRAPBJ, RepositoriRAPBJ>();
+        services.AddScoped<IRepositoriDetailRAPBJ, RepositoriDetailRAPBJ>();
+        services.AddScoped<IRepositoriBelanja, RepositoriBelanja>();
+        services.AddScoped<IRepositoriPenerimaan, RepositoriPenerimaan>();
+        services.AddScoped<IRepositoriUser, RepositoriUser>();
 
         return services;
     }

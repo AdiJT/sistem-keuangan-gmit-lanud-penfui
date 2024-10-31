@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Domain.Shared;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Database
 {
     internal class AppDbContext : DbContext, IUnitOfWork
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        private readonly ILogger<AppDbContext> _logger;
+
+        public AppDbContext(DbContextOptions<AppDbContext> options, ILogger<AppDbContext> logger) : base(options)
         {
+            _logger = logger;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -15,6 +20,21 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Database
             modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public async new Task<Result<int>> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                return await base.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexpected Exception When Try SaveChanges. Message : {@message}. At : {@time}", ex.Message, DateTime.Now);
+
+                return new Error("SaveChangesAsync.Failed", 
+                    "Terjadi masalah tidak terduga saat coba simpan ke database. Laporkan masalah ke admin!");
+            }
         }
 
         public DbSet<Akun> TblAkun { get; set; }

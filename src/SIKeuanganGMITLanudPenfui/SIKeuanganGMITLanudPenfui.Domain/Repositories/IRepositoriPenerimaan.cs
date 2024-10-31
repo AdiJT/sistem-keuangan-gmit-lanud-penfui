@@ -5,10 +5,10 @@ namespace SIKeuanganGMITLanudPenfui.Domain.Repositories;
 public interface IRepositoriPenerimaan
 {
     Task<Penerimaan?> Get(int id);
-    Task<Penerimaan?> GetByTanggal(DateOnly dateOnly);
     Task<List<Penerimaan>> GetAll();
-    Task<List<Penerimaan>> GetAllByMonth(int month);
+    Task<List<Penerimaan>> GetAllByMonth(int bulan);
     Task<List<Penerimaan>> GetAllByTahun(int tahun);
+    Task<List<Penerimaan>> GetAllByTanggal(DateOnly tanggal);
 
     void Add(Penerimaan penerimaan);
     void Delete(Penerimaan penerimaan);

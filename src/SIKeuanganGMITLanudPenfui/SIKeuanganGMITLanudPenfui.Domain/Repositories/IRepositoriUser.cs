@@ -7,7 +7,7 @@ public interface IRepositoriUser
     Task<User?> Get(int id);
     Task<User?> GetByUserName(string userName);
     Task<List<User>> GetAll();
-    bool IsUserNameExist(string userName);
+    Task<bool> IsUserNameExist(string userName);
 
     void Add(User user);
     void Delete(User user);

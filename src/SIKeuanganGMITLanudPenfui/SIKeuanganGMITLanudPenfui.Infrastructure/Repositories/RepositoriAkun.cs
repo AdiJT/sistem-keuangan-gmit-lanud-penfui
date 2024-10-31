@@ -30,27 +30,24 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun)
         .Include(a => a.GolonganAkun)
-        .Where(a => a.JenisAkun.Id == jenis.Id)
+        .Where(a => a.JenisAkun == jenis)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByKelompok(KelompokAkun kelompok) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
-        .Where(a => a.KelompokAkun!= null && a.KelompokAkun.Id == kelompok.Id)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Where(a => a.KelompokAkun == kelompok || (a.GolonganAkun != null && a.GolonganAkun.KelompokAkun == kelompok))
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByGolongan(GolonganAkun golongan) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun)
         .Include(a => a.GolonganAkun)
-        .Where(a => a.GolonganAkun != null && a.GolonganAkun.Id == golongan.Id)
+        .Where(a => a.GolonganAkun != null && a.GolonganAkun == golongan)
         .ToListAsync();
 
-    public void Add(Akun akun)
-    {
-        _appDbContext.TblAkun.Add(akun);
-    }
+    public void Add(Akun akun) => _appDbContext.TblAkun.Add(akun);
 
     public void Delete(Akun akun)
     {
