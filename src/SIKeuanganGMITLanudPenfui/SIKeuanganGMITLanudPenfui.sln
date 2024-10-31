@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Domain", "SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj", "{004C1AD2-7D93-44A3-855B-A9C1D45303D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Application", "SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj", "{7BF8D650-FB2D-4874-93FD-67F7A180A35A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Infrastructure", "SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj", "{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{004C1AD2-7D93-44A3-855B-A9C1D45303D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{004C1AD2-7D93-44A3-855B-A9C1D45303D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{004C1AD2-7D93-44A3-855B-A9C1D45303D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BF8D650-FB2D-4874-93FD-67F7A180A35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BF8D650-FB2D-4874-93FD-67F7A180A35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BF8D650-FB2D-4874-93FD-67F7A180A35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BF8D650-FB2D-4874-93FD-67F7A180A35A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
