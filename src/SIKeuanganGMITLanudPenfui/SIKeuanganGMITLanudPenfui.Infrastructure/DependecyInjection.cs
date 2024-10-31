@@ -8,9 +8,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure;
 
 public static class DependecyInjection
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("default") ?? throw new ArgumentException("Connection String 'default' not found");
+        var connectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new ArgumentException("Connection String 'DefaultConnection' not found");
 
         services.AddDbContext<AppDbContext>(options => 
         {
