@@ -935,7 +935,930 @@ internal static class ModelBuilderExtension
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
             },
+            new
+            {
+                Id = 100,
+                Uraian = "Alat Tulis Kantor (ATK) dan Bahan Habis Pakai Lainnya ",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 101,
+                Uraian = "Biaya Penggandaan dan Cetak",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 102,
+                Uraian = "ATK, Biaya Penggandaan dan Cetak kegiatan sidang program tahun pelayanan 2025",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 103,
+                Uraian = "Biaya Listrik (Gereja dan Pastori)",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 104,
+                Uraian = "Air",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 105,
+                Uraian = "Telepon/Indihome/Wifi",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 106,
+                Uraian = "Alat & Bahan Kebersihan/Kesehatan",
+                JenisAkunId = 8,
+                KelompokAkunId = 12,
+            },
+            new
+            {
+                Id = 107,
+                Uraian = "Pengadaan Barang Inventaris (Keyboard)",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 108,
+                Uraian = "Pemeliharaan Barang Inventaris",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 109,
+                Uraian = "Pemeliharaan Gedung (Gereja, Pastori, dll)",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 110,
+                Uraian = "Pemeliharaan Mobil Pelayanan",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 111,
+                Uraian = "Pemeliharaan Instalasi Air dan Instalasi Listrik",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 112,
+                Uraian = "Bahan Bakar",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 113,
+                Uraian = "Pengadaan Buku Pedoman Organisasi & Buku Lainnya",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 114,
+                Uraian = "Pengadaan Surat Gerejawi",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 115,
+                Uraian = "Pengadaan poni gorden jendela gereja warna hijau",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 116,
+                Uraian = "Pengadaan meja",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 117,
+                Uraian = "Pengadaan CCTV",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 118,
+                Uraian = "Pengadaan gitar akustik",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 119,
+                Uraian = "Pengadaan Alat Musik (Kajon)",
+                JenisAkunId = 8,
+                KelompokAkunId = 13,
+            },
+            new
+            {
+                Id = 120,
+                Uraian = "Transport Pendeta & (MJH) mengikuti Rapat/Sidang",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 121,
+                Uraian = "Transport Pendeta Tamu",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 122,
+                Uraian = "Transport MKH/MSH atas undangan jemaat",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 123,
+                Uraian = "Transport Presbiter/BP/UPP, dll",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 124,
+                Uraian = "Transport MJH ke kantor Klasis/Sinode",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 125,
+                Uraian = "Transport Bendahara/TU ke Bank",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 126,
+                Uraian = "Transport Pemateri",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 127,
+                Uraian = "Transport Lainnya",
+                JenisAkunId = 8,
+                KelompokAkunId = 14,
+            },
+            new
+            {
+                Id = 128,
+                Uraian = "Setoran Sentralisasi Gaji Pokok (SGP)",
+                JenisAkunId = 8,
+                KelompokAkunId = 15,
+            },
+            new
+            {
+                Id = 129,
+                Uraian = "Setoran 10% Penerimaan (Dana Rutin)",
+                JenisAkunId = 8,
+                KelompokAkunId = 15,
+            },
+            new
+            {
+                Id = 130,
+                Uraian = "Setoran 10% Dana Pembangunan",
+                JenisAkunId = 8,
+                KelompokAkunId = 15,
+            },
+            new
+            {
+                Id = 131,
+                Uraian = "Setoran 2% Dana Pendidikan",
+                JenisAkunId = 8,
+                KelompokAkunId = 15,
+            },
+            new
+            {
+                Id = 132,
+                Uraian = "Setoran Dana Kebersamaan",
+                JenisAkunId = 8,
+                KelompokAkunId = 15,
+            },
+            new
+            {
+                Id = 133,
+                Uraian = "Perayaan Hari Ibu dan Natal",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 134,
+                Uraian = "Ibadah Gabungan LANSIA Teritori 2",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 135,
+                Uraian = "Ibadah Gabungan Persekutuan Doa Teritori 2",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 136,
+                Uraian = "Ibadah Kreatif Persekutuan Doa",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 137,
+                Uraian = "Ibadah Syukur Natal Pemuda Teritori 2",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 138,
+                Uraian = "Ibadah Gabungan Kaum Perempuan Teritori 2",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 139,
+                Uraian = "Ibadah Pemuda Teritori-dalam klasis-luar klasis",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 140,
+                Uraian = "Ibadah NATAL PART",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 141,
+                Uraian = "Ibadah PASUTRI JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 142,
+                Uraian = "Ibadah Padang memperingati HUT Reformasi dan GMIT",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 143,
+                Uraian = "Ibadah syukur HUT JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 144,
+                Uraian = "Ibadah syukur Natal JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 145,
+                Uraian = "Ibadah Kreatif BP, UPP dan BP JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 146,
+                Uraian = "Ibadah Kreatif Pemuda 3",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 147,
+                Uraian = "Ibadah Kreatif Pemuda 4",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 148,
+                Uraian = "Ibadah ke Rote (UPP Perempuan)",
+                JenisAkunId = 9,
+                KelompokAkunId = 16,
+            },
+            new
+            {
+                Id = 149,
+                Uraian = "Bakti Sosial PART",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 150,
+                Uraian = "Lomba PASKAH PART",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 151,
+                Uraian = "Lomba HUT RI PART",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 152,
+                Uraian = "Perayaan NATAL PART",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 153,
+                Uraian = "Pelatihan Kepemimpinan Pemuda",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 154,
+                Uraian = "Lomba Kreasi Salib memperingati PASKAH 2024",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 155,
+                Uraian = "Malam puji-pujian menyambut PASKAH",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 156,
+                Uraian = "Pawai PASKAH JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 157,
+                Uraian = "Lomba voly Putra-Putri antar Rayon memperingati Bulan keluarga",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 158,
+                Uraian = "Lomba memasak nasi goreng antar keluarga dari tiap rayon memperingati Bulan Keluarga",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 159,
+                Uraian = "Lomba VG Kaum Bapak Memperingati HUT JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 160,
+                Uraian = "Lomba CCA Keluarga antar Rayon",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 161,
+                Uraian = "Lomba Pohon Natal antar rayon di lingkungan gereja",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 162,
+                Uraian = "Insentif Pengajar Katekasasi (2 orang)",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 163,
+                Uraian = "Insentif Pengajar UPP PAR",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 164,
+                Uraian = "Memberikan Apresiasi kepada anak-anak (Sertifikat Naik Kelas, dll)",
+                JenisAkunId = 9,
+                KelompokAkunId = 17,
+            },
+            new
+            {
+                Id = 165,
+                Uraian = "Pengadaan Bahan Perjamuan Kudus",
+                JenisAkunId = 9,
+                KelompokAkunId = 18,
+            },
+
+            new
+            {
+                Id = 166,
+                Uraian = "Perbaikan peti keyboard",
+                JenisAkunId = 9,
+                KelompokAkunId = 18,
+            },
+            new
+            {
+                Id = 167,
+                Uraian = "Pengadaan meja operator slide",
+                JenisAkunId = 9,
+                KelompokAkunId = 18,
+            },
+            new
+            {
+                Id = 168,
+                Uraian = "Insentif songlider, musik dan operator slide ",
+                JenisAkunId = 9,
+                KelompokAkunId = 18,
+            },
+            new
+            {
+                Id = 169,
+                Uraian = "Insentif Soundman",
+                JenisAkunId = 9,
+                KelompokAkunId = 18,
+            },
+            new
+            {
+                Id = 170,
+                Uraian = "Diakonia Sakit",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 171,
+                Uraian = "Diakonia Duka Cita",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 172,
+                Uraian = "Diakonia bagi jemaat JLET yang tidak mampu",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 173,
+                Uraian = "Pemeriksaan Kesehatan bagi LANSIA",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 174,
+                Uraian = "Bingkisan Kasih Majelis Jemaat",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 175,
+                Uraian = "Pelatihan peningkatan kapasitas diaken dalam pelayanan diakonia holistik",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 176,
+                Uraian = "Pelatihan Ketrampilan (Vokasi) Bagi Jemaat (PEMUDA)",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 177,
+                Uraian = "Beasiswa pendidikan kepada anak berprestasi  yang kurang mampu.",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 178,
+                Uraian = "Pemberian bantuan dana pendidikan untuk calon mahasiswa musik gerejawi",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 179,
+                Uraian = "Bantuan bagi warga JLET yang mengalami bencana alam dan Non Alam",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 180,
+                Uraian = "Diakonia Lain-Lain",
+                JenisAkunId = 9,
+                KelompokAkunId = 19,
+            },
+            new
+            {
+                Id = 181,
+                Uraian = "Pemanfaatan pekarangan gereja (dapur hidup, apotik hidup)",
+                JenisAkunId = 9,
+                KelompokAkunId = 20,
+            },
+            new
+            {
+                Id = 182,
+                Uraian = "Pelatihan musik Kaum Bapak (transportasi pelatih)",
+                JenisAkunId = 9,
+                KelompokAkunId = 20,
+            },
+            new
+            {
+                Id = 183,
+                Uraian = "Pengurusan Sertifikat Tanah (Balik Nama)",
+                JenisAkunId = 9,
+                KelompokAkunId = 21,
+            },
+            new
+            {
+                Id = 184,
+                Uraian = "Pemasangan Identitas Mobil Pelayanan JLET",
+                JenisAkunId = 9,
+                KelompokAkunId = 21,
+            },
         };
+
+        var daftarAkunDenganGolonganAkun = new[]
+        {
+            new
+            {
+                Id = 185,
+                Uraian = "Tunjangan Struktural",
+                JenisAkunId = 8,
+                GolonganAkunId = 1,
+            },
+            new
+            {
+                Id = 186,
+                Uraian = "Tunjangan Kesejahteraan (Kesra)",
+                JenisAkunId = 8,
+                GolonganAkunId = 1,
+            },
+            new
+            {
+                Id = 187,
+                Uraian = "Tunjangan Kesehatan",
+                JenisAkunId = 8,
+                GolonganAkunId = 1,
+            },
+            new
+            {
+                Id = 188,
+                Uraian = "Tunjangan Lainnya",
+                JenisAkunId = 8,
+                GolonganAkunId = 1,
+            },
+            new
+            {
+                Id = 189,
+                Uraian = "Wakil Ketua",
+                JenisAkunId = 8,
+                GolonganAkunId = 2,
+            },
+            new
+            {
+                Id = 190,
+                Uraian = "Sekretaris",
+                JenisAkunId = 8,
+                GolonganAkunId = 2,
+            },
+            new
+            {
+                Id = 191,
+                Uraian = "Wakil Sekretaris",
+                JenisAkunId = 8,
+                GolonganAkunId = 2,
+            },
+            new
+            {
+                Id = 192,
+                Uraian = "Bendahara",
+                JenisAkunId = 8,
+                GolonganAkunId = 2,
+            },
+            new
+            {
+                Id = 193,
+                Uraian = "Wakil Bendahara",
+                JenisAkunId = 8,
+                GolonganAkunId = 2,
+            },
+            new
+            {
+                Id = 194,
+                Uraian = "Gaji Ke-13 KMJ",
+                JenisAkunId = 8,
+                GolonganAkunId = 3,
+            },
+            new
+            {
+                Id = 195,
+                Uraian = "Ketua Majelis Jemaat (KMJ)",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 196,
+                Uraian = "Wakil Ketua",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 197,
+                Uraian = "Sekretaris",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 198,
+                Uraian = "Wakil Sekretaris",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 199,
+                Uraian = "Bendahara",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 200,
+                Uraian = "Wakil Bendahara",
+                JenisAkunId = 8,
+                GolonganAkunId = 4,
+            },
+            new
+            {
+                Id = 201,
+                Uraian = "Konsumsi Pertemuan/Rapat Pendeta",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 202,
+                Uraian = "Konsumsi Pendeta Tamu dan Tamu Pendeta",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 203,
+                Uraian = "Konsumsi Lembur MJH",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 204,
+                Uraian = "Konsumsi UPP/BP/Tim Kerja, dll",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 205,
+                Uraian = "Rapat evaluasi program dan kegiatan lainnya",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 206,
+                Uraian = "Sidang Program Tahun Pelayanan 2025",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 207,
+                Uraian = "Konsumsi Lainnya",
+                JenisAkunId = 8,
+                GolonganAkunId = 5,
+            },
+            new
+            {
+                Id = 209,
+                Uraian = "Lumpsum Luar Daerah",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 210,
+                Uraian = "Penginapan",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 211,
+                Uraian = "Transportasi (luar daerah)",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 212,
+                Uraian = "Transportasi (dalam daerah)",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 213,
+                Uraian = "Lumpsum dalam Daerah",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 214,
+                Uraian = "Rekoleksi (Kupang - Siangapore PP)",
+                JenisAkunId = 8,
+                GolonganAkunId = 6,
+            },
+            new
+            {
+                Id = 215,
+                Uraian = "Pembangunan",
+                JenisAkunId = 9,
+                GolonganAkunId = 7,
+            },
+            new
+            {
+                Id = 216,
+                Uraian = "Pasang Ganti Penutup Atap",
+                JenisAkunId = 9,
+                GolonganAkunId = 7,
+            },
+            new
+            {
+                Id = 217,
+                Uraian = "Pasang Ganti Kuda - kuda",
+                JenisAkunId = 9,
+                GolonganAkunId = 7,
+            },
+            new
+            {
+                Id = 218,
+                Uraian = "Pasang Ganti Plafond",
+                JenisAkunId = 9,
+                GolonganAkunId = 7,
+            },
+            new
+            {
+                Id = 219,
+                Uraian = "Finishing Dinding",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 220,
+                Uraian = "Finishing Lantai",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 221,
+                Uraian = "Finishing Atap",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 222,
+                Uraian = "Pasang Baru Plafond",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 223,
+                Uraian = "Pasang Baru Penerangan dan Kelistrikan",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 224,
+                Uraian = "Pasang Baru Toilet dan Kelengkapan",
+                JenisAkunId = 9,
+                GolonganAkunId = 8,
+            },
+            new
+            {
+                Id = 225,
+                Uraian = "Perbaikan Atap",
+                JenisAkunId = 9,
+                GolonganAkunId = 9,
+            },
+            new
+            {
+                Id = 225,
+                Uraian = "Perbaikan Listrik",
+                JenisAkunId = 9,
+                GolonganAkunId = 9,
+            },
+            new
+            {
+                Id = 226,
+                Uraian = "Pasang Baru Penutup Gerbang",
+                JenisAkunId = 9,
+                GolonganAkunId = 10,
+            },
+            new
+            {
+                Id = 227,
+                Uraian = "Pasang Baru Railing Tangga Talud",
+                JenisAkunId = 9,
+                GolonganAkunId = 10,
+            },
+            new
+            {
+                Id = 228,
+                Uraian = "Pasang Baru Kanopi Parkiran",
+                JenisAkunId = 9,
+                GolonganAkunId = 10,
+            },
+            new
+            {
+                Id = 229,
+                Uraian = "Pasang Baru Pos Jaga",
+                JenisAkunId = 9,
+                GolonganAkunId = 10,
+            },
+            new
+            {
+                Id = 230,
+                Uraian = "Normalisasi Area Parkir",
+                JenisAkunId = 9,
+                GolonganAkunId = 10,
+            },
+        };
+        modelBuilder.Entity<Akun>().HasData(daftarAkunDenganJenisAkun, daftarAkunDenganKelompokAkun, daftarAkunDenganGolonganAkun);
         #endregion
 
         return modelBuilder;
