@@ -3,64 +3,87 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">SISTEM INFORMASI KEUANGAN GEREJA LANUD ELTARI KUPANG </h1>
-
-   @*  <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+    <h1 class="display-4">SISTEM INFORMASI KEUANGAN GEREJA LANUD ELTARI KUPANG</h1>
 </div>
+
+<style>
+    .header-section
+    {
+
+        background: linear-gradient(135deg,#6a89cc, #b8e994) padding: 60px 20px;
+        margin-bottom: 40px; 
+        color: #ffffff; 
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+     
+    }
+
+        .header-section h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem; 
+            letter-spacing: 1px; 
+
+</style>
+
+
 
 
 <div class="container my-5">
-    <!-- Financial Summary Section -->
+    <!-- bagian ringkasan finansial -->
     <div class="row text-center">
         <div class="col-md-4">
             <div class="card shadow-sm p-4">
                 <h3>Penerimaan Bulan September</h3>
                 <p class="display-6">Rp.000.000.000,00</p>
-                <a href="#">Readmore →</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    View Details
+                </button>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card shadow-sm p-4">
                 <h3>Penerimaan s.d September 2024</h3>
                 <p class="display-6">Rp.000.000.000,00</p>
-                <a href="#">Readmore →</a>      @* kita bisa taruh, mungkin detail penerimaan bulan begitu *@
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    Detail →
+                </button>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card shadow-sm p-4">
                 <h3>Penerimaan s.d September 2024</h3>
                 <p class="display-6">Rp.000.000.000,00</p>
-                <a href="#">Readmore →</a>   @* kita bisa taruh, mungkin detail penerimaan bulan begitu *@
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    Detail →
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Financial Chart Section -->
+    <!--  chart  finansial  -->
     <div class="row my-5">
         <div class="col-md-6">
             <div class="card p-4 shadow-sm">
                 <h3 class="text-center">Grafik Keuangan</h3>
-                <!-- Add Line Chart here -->
                 <canvas id="lineChart" width="400" height="300"></canvas>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card p-4 shadow-sm">
                 <h3 class="text-center">Distribusi Keuangan</h3>
-                <!-- Add Pie Chart here -->
                 <canvas id="pieChart" width="400" height="300"></canvas>
             </div>
         </div>
     </div>
 
-    <!-- Feedback Section -->
+    <!-- bagian feedback -->
     <div class="row my-5">
         <div class="col-md-6">
             <h4>Kritik & Saran</h4>
             <p>Contact us:</p>
             <address>
                 Jl. Wolter Monginsidi, Pasir Panjang, Kota Kupang, NTT<br>
-                Email: contact@example.com
+                Email: example@gmail.com
             </address>
         </div>
         <div class="col-md-6">
@@ -81,12 +104,38 @@
     </div>
 </div>
 
+<!-- modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Detail Penerimaan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> MASUKAN DETAIL KEUANGAN DISINI.</p>
+                <!--  konten atau detail bisa masukan disini -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
 <footer class="text-center py-3 bg-dark text-white">
     © Copyright Ilmu Komputer Universitas Nusa Cendana
 </footer>
 
 @section Scripts {
+    <!-- Bootstrap and jQuery for Modal functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <!-- Chart.js Script -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
