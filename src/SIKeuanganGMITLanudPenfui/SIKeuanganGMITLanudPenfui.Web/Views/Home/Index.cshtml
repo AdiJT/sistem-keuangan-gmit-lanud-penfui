@@ -3,6 +3,173 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">SISTEM INFORMASI KEUANGAN GEREJA LANUD ELTARI KUPANG</h1>
 </div>
+
+<style>
+    .header-section
+    {
+
+        background: linear-gradient(135deg,#6a89cc, #b8e994) padding: 60px 20px;
+        margin-bottom: 40px; 
+        color: #ffffff; 
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
+        border-radius: 10px;
+     
+    }
+
+        .header-section h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem; 
+            letter-spacing: 1px; 
+
+</style>
+
+
+
+
+<div class="container my-5">
+    <!-- bagian ringkasan finansial -->
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4">
+                <h3>Penerimaan Bulan September</h3>
+                <p class="display-6">Rp.000.000.000,00</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    View Details
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4">
+                <h3>Penerimaan s.d September 2024</h3>
+                <p class="display-6">Rp.000.000.000,00</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    Detail →
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-4">
+                <h3>Penerimaan s.d September 2024</h3>
+                <p class="display-6">Rp.000.000.000,00</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
+                    Detail →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--  chart  finansial  -->
+    <div class="row my-5">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h3 class="text-center">Grafik Keuangan</h3>
+                <canvas id="lineChart" width="400" height="300"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm">
+                <h3 class="text-center">Distribusi Keuangan</h3>
+                <canvas id="pieChart" width="400" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- bagian feedback -->
+    <div class="row my-5">
+        <div class="col-md-6">
+            <h4>Kritik & Saran</h4>
+            <p>Contact us:</p>
+            <address>
+                Jl. Wolter Monginsidi, Pasir Panjang, Kota Kupang, NTT<br>
+                Email: example@gmail.com
+            </address>
+        </div>
+        <div class="col-md-6">
+            <h4>Tulis Kritik & Saran Anda</h4>
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="4" placeholder="Kritik & Saran" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajukan →</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Detail Penerimaan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> MASUKAN DETAIL KEUANGAN DISINI.</p>
+                <!--  konten atau detail bisa masukan disini -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-3 bg-dark text-white">
+    © Copyright Ilmu Komputer Universitas Nusa Cendana
+</footer>
+
+@section Scripts {
+    <!-- Bootstrap and jQuery for Modal functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Line Chart
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                datasets: [{
+                    label: 'Penerimaan',
+                    data: [120, 200, 150, 170, 210, 250, 300, 280, 330],
+                    borderColor: '#007bff',
+                    fill: false
+                }, {
+                    label: 'Pengeluaran',
+                    data: [80, 100, 120, 130, 160, 180, 210, 220, 240],
+                    borderColor: '#dc3545',
+                    fill: false
+                }]
+            }
+        });
+
+        // Pie Chart
+        var ctxPie = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Ibadah Mingguan', 'Ibadah Rumah Tangga', 'Other Sources'],
+                datasets: [{
+                    data: [53, 27, 20],
+                    backgroundColor: ['#007bff', '#dc3545', '#ffc107']
+                }]
+            }
+        });
+    </script>
+}
