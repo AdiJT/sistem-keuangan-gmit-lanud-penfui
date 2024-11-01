@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 
@@ -1397,7 +1398,6 @@ internal static class ModelBuilderExtension
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
             },
-
             new
             {
                 Id = 166,
@@ -1817,48 +1817,148 @@ internal static class ModelBuilderExtension
             },
             new
             {
-                Id = 225,
+                Id = 226,
                 Uraian = "Perbaikan Listrik",
                 JenisAkunId = 9,
                 GolonganAkunId = 9,
             },
             new
             {
-                Id = 226,
+                Id = 227,
                 Uraian = "Pasang Baru Penutup Gerbang",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
             },
             new
             {
-                Id = 227,
+                Id = 228,
                 Uraian = "Pasang Baru Railing Tangga Talud",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
             },
             new
             {
-                Id = 228,
+                Id = 229,
                 Uraian = "Pasang Baru Kanopi Parkiran",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
             },
             new
             {
-                Id = 229,
+                Id = 230,
                 Uraian = "Pasang Baru Pos Jaga",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
             },
             new
             {
-                Id = 230,
+                Id = 231,
                 Uraian = "Normalisasi Area Parkir",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
             },
         };
-        modelBuilder.Entity<Akun>().HasData(daftarAkunDenganJenisAkun, daftarAkunDenganKelompokAkun, daftarAkunDenganGolonganAkun);
+
+        modelBuilder.Entity<Akun>().HasData(daftarAkunDenganJenisAkun);
+        modelBuilder.Entity<Akun>().HasData(daftarAkunDenganKelompokAkun);
+        modelBuilder.Entity<Akun>().HasData(daftarAkunDenganGolonganAkun);
+        #endregion
+
+        #region RAPBJ
+        modelBuilder.Entity<RAPBJ>().HasData(new RAPBJ { Tahun = 2024 });
+        #endregion
+
+        #region DetailRAPBJ
+        modelBuilder.Entity<DetailRAPBJ>().HasData(
+            daftarAkunDenganJenisAkun.Select(a => new DetailRAPBJ
+            {
+                TahunRAPBJ = 2024,
+                KodeAkun = a.Id,
+                Volume = 1,
+                Satuan = "kali",
+                HargaSatuan = 10000d
+            })
+        );
+
+        modelBuilder.Entity<DetailRAPBJ>().HasData(
+            daftarAkunDenganKelompokAkun.Select(a => new DetailRAPBJ
+            {
+                TahunRAPBJ = 2024,
+                KodeAkun = a.Id,
+                Volume = 1,
+                Satuan = "kali",
+                HargaSatuan = 10000d
+            })
+        );
+
+        modelBuilder.Entity<DetailRAPBJ>().HasData(
+            daftarAkunDenganGolonganAkun.Select(a => new DetailRAPBJ
+            {
+                TahunRAPBJ = 2024,
+                KodeAkun = a.Id,
+                Volume = 1,
+                Satuan = "kali",
+                HargaSatuan = 10000d
+            })
+        );
+        #endregion
+
+        #region Belanja
+        modelBuilder.Entity<Belanja>().HasData(
+            new
+            {
+                Id = 1,
+                Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7",
+                Jumlah = 500000d,
+                SaldoKas = 9713500d,
+                Tanggal = new DateOnly(2024, 1, 1),
+                AkunId = 171
+            },
+            new
+            {
+                Id = 2,
+                Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-",
+                Jumlah = 150000d,
+                SaldoKas = 9563500d,
+                Tanggal = new DateOnly(2024, 1, 2),
+                AkunId = 141
+            }
+        );
+        #endregion
+
+        #region Penerimaan
+        modelBuilder.Entity<Penerimaan>().HasData(
+            new
+            {
+                Id = 1,
+                Uraian = "Kolekte",
+                Jumlah = 930000d,
+                SaldoKas = 6961500d,
+                Tanggal = new DateOnly(2024, 1, 1),
+                AkunId = 51,
+            },
+            new
+            {
+                Id = 2,
+                Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1",
+                Jumlah = 30000d,
+                SaldoKas = 7141000d,
+                Tanggal = new DateOnly(2024, 1, 1),
+                AkunId = 21
+            }
+        );
+        #endregion
+
+        #region User
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = 1,
+                UserName = "Bendahara",
+                Role = UserRoles.Bendahara,
+                PasswordHash = new PasswordHasher<User>().HashPassword(null, "Bendahara")
+            }
+        );
         #endregion
 
         return modelBuilder;
