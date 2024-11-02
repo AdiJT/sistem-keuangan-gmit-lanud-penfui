@@ -24,17 +24,17 @@ var ctxLine = document.getElementById("lineChart").getContext("2d");
 var lineChart = new Chart(ctxLine, {
     type: "line",
     data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" , "Okt" , "Nov" , "Des"],
         datasets: [
             {
                 label: "Penerimaan",
-                data: [120, 200, 150, 170, 210, 250, 300, 280, 330],
+                data: [120, 200, 150, 170, 210, 250, 300, 280, 330 , 350 , 370, 390],
                 borderColor: "#007bff",
                 fill: false,
             },
             {
                 label: "Pengeluaran",
-                data: [80, 100, 120, 130, 160, 180, 210, 220, 240],
+                data: [80, 100, 120, 130, 160, 180, 210, 220, 240 , 250, 270 , 290],
                 borderColor: "#dc3545",
                 fill: false,
             },
