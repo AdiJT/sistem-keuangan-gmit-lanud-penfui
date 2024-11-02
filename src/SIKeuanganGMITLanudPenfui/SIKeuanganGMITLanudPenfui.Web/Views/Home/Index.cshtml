@@ -2,174 +2,167 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">SISTEM INFORMASI KEUANGAN GEREJA LANUD ELTARI KUPANG</h1>
-</div>
+<!--======================================================= HERO =======================================================-->
+<header class="section__container__hero header__container" id="home">
+    <img class="hias" src="~/assets/img/hero/gereja1.png" alt="header" />
+    <img class="hias" src="~/assets/img/hero/koin2.png" alt="header" />
+    <img class="hias" src="~/assets/img/hero/hati3.png" alt="header" />
+    <img class="hias" src="~/assets/img/hero/uang4.png" alt="header" />
+    <img class="hias" src="~/assets/img/hero/lonceng5.png" alt="header" />
+    <img class="hias" src="~/assets/img/hero/lilin6.png" alt="header" />
+    <h2>
+        <img src="~/assets/img/hero/bag.png" alt="laporan" /> Laporan Keuangan Gereja
+    </h2>
+    <h1>Sistem Informasi Keuangan<br /><span>GMIT Lanud El-Tari Penfui</span></h1>
+    <p>
+        Pantau keuangan gereja dengan mudah dan transparan. Laporan keuangan, data sumbangan,
+        dan data keuangan lainnya bisa diakses kapan saja.
+    </p>
+    <div class="header__btns">
+        <a href="#bulanan" class="btn">Laporan Bulanan</a>
+        <a href="https://youtu.be/denezXybxGI?si=NASI2RaA0S-IAXGY">
+            <span><i class="ri-play-fill"></i></span>
+            Cara menggunakan ?
+        </a>
+    </div>
+</header>
+<!--======================================================= AKHIR HERO =======================================================-->
+<!--======================================================= BULANAN =======================================================-->
+<section class="section__container__bulanan bulanan__container" id="bulanan">
+    <h2 class="section__header"><span>Laporan Keuangan</span> Bulanan</h2>
+    <p class="section__description">
+        Penerimaan dan Pengeluaran Bulan September
+    </p>
+    <div class="bulanan__grid">
 
-<style>
-    .header-section
-    {
-
-        background: linear-gradient(135deg,#6a89cc, #b8e994) padding: 60px 20px;
-        margin-bottom: 40px; 
-        color: #ffffff; 
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
-        border-radius: 10px;
-     
-    }
-
-        .header-section h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 2.8rem; 
-            letter-spacing: 1px; 
-
-</style>
-
-
-
-
-<div class="container my-5">
-    <!-- bagian ringkasan finansial -->
-    <div class="row text-center">
-        <div class="col-md-4">
-            <div class="card shadow-sm p-4">
-                <h3>Penerimaan Bulan September</h3>
-                <p class="display-6">Rp.000.000.000,00</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
-                    View Details
-                </button>
+        <!-- Card -->
+        <div class="bulanan__card">
+            <h4>Penerimaan Bulan September 2024</h4>
+            <p>
+                RP. 100.000.000,00
+            </p>
+            <div class="bulanan__card__footer">
+                <a href="#">
+                    Informasi Detail
+                    <i class="ri-arrow-right-line"></i>
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm p-4">
-                <h3>Penerimaan s.d September 2024</h3>
-                <p class="display-6">Rp.000.000.000,00</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
-                    Detail →
-                </button>
+        <!-- Akhir Card -->
+        <!-- Card -->
+        <div class="bulanan__card">
+            <h4>Penerimaan Bulan Januari - September 2024</h4>
+            <p>
+                RP. 100.000.000,00
+            </p>
+            <div class="bulanan__card__footer">
+                <a href="#">
+                    Informasi Detail
+                    <i class="ri-arrow-right-line"></i>
+                </a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm p-4">
-                <h3>Penerimaan s.d September 2024</h3>
-                <p class="display-6">Rp.000.000.000,00</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">
-                    Detail →
-                </button>
+        <!-- Akhir Card -->
+        <!-- Card -->
+        <div class="bulanan__card">
+            <h4>Pengeluaran Bulan Januari - September 2024</h4>
+            <p>
+                RP. 100.000.000,00
+            </p>
+            <div class="bulanan__card__footer">
+                <a href="#">
+                    Informasi Detail
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Akhir Card -->
+    </div>
+</section>
+<!--======================================================= AKHIR BULANAN =======================================================-->
+<!--======================================================= TREND GRAFIK =======================================================-->
+<section class="steps" id="about">
+    <div class="section__container__grafik steps__container">
+        <h2 class="section__header">
+            <span>Grafik Tren</span> Pemasukan dan Pengeluaran
+        </h2>
+        <p class="section__description">
+            Analisis visual untuk memahami tren arus kas secara menyeluruh.
+        </p>
+        <div class="steps__grid">
+            <div class="steps__card">
+                <span><i class="ri-line-chart-line"></i></span>
+                <h4>Grafik Pemasukan Tahun 2024</h4>
+                <canvas id="chartpemasukan"></canvas>
+            </div>
+            <div class="steps__card">
+                <span><i class="ri-line-chart-line"></i></span>
+                <h4>Grafik Pengeluaran Tahun 2024</h4>
+                <canvas id="chartpengeluaran"></canvas>
             </div>
         </div>
     </div>
-
-    <!--  chart  finansial  -->
-    <div class="row my-5">
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm">
-                <h3 class="text-center">Grafik Keuangan</h3>
-                <canvas id="lineChart" width="400" height="300"></canvas>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card p-4 shadow-sm">
-                <h3 class="text-center">Distribusi Keuangan</h3>
-                <canvas id="pieChart" width="400" height="300"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- bagian feedback -->
-    <div class="row my-5">
-        <div class="col-md-6">
-            <h4>Kritik & Saran</h4>
-            <p>Contact us:</p>
-            <address>
-                Jl. Wolter Monginsidi, Pasir Panjang, Kota Kupang, NTT<br>
-                Email: example@gmail.com
-            </address>
-        </div>
-        <div class="col-md-6">
-            <h4>Tulis Kritik & Saran Anda</h4>
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nama Anda" required>
+</section>
+<!--======================================================= AKHIR TREND GRAFIK =======================================================-->
+<!--======================================================= KONTAK =======================================================-->
+<section class="section__container__kontak offer__container" id="service">
+    <h2 class="section__header"><span>Umpan</span> Balik</h2>
+    <p class="section__description">
+        Berikan saran dan kritik Anda untuk meningkatkan transparansi dan akuntabilitas keuangan gereja
+    </p>
+    <!-- Section Contact -->
+    <div class="section__container" id="contact">
+        <div class="getin">
+            <div class="getin-details">
+                <h3>Alamat</h3>
+                <div>
+                    <i class="ri-home-8-line dpt"></i>
+                    <p>Jln. Antonov, Penfui, Kupang, Nusa tenggara Timur, Indonesia</p>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Subject" required>
+                <h3>Telepon</h3>
+                <div>
+                    <i class="ri-phone-line dpt"></i>
+                    <p>
+                        +62 2123 4567 89 <br /> +62 2123 4567 89
+                    </p>
                 </div>
-                <div class="form-group">
-                    <textarea class="form-control" rows="4" placeholder="Kritik & Saran" required></textarea>
+                <h3>Email Bantuan</h3>
+                <div>
+                    <i class="ri-mail-send-line dpt"></i>
+                    <p>contoh1@gmail.com <br />contoh2@gmail.com</p>
                 </div>
-                <button type="submit" class="btn btn-primary">Ajukan →</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- modal -->
-<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detailModalLabel">Detail Penerimaan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p> MASUKAN DETAIL KEUANGAN DISINI.</p>
-                <!--  konten atau detail bisa masukan disini -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <h3>Media Sosial</h3>
+                <div class="pro-links">
+                    <i class="ri-facebook-fill"></i>
+                    <i class="ri-instagram-fill"></i>
+                    <i class="ri-tiktok-fill"></i>
+                    <i class="ri-youtube-fill"></i>
+                </div>
             </div>
         </div>
+        <div class="formko">
+            <p>Kami sangat menghargai saran dan kritik Anda.</p>
+            <div class="form-row">
+                <input type="text" placeholder="Nama anda" />
+                <input type="text" placeholder="Email anda" />
+            </div>
+            <div class="form-col">
+                <input type="text" placeholder="Subjek atau Judul" />
+            </div>
+            <div class="form-col">
+                <textarea name="" id="" cols="30" rows="5" placeholder="Pesan anda"></textarea>
+            </div>
+            <div class="form-col">
+                <button>Kirim Pesan</button>
+            </div>
+        </div>
     </div>
-</div>
-
-<!-- Footer -->
-<footer class="text-center py-3 bg-dark text-white">
-    © Copyright Ilmu Komputer Universitas Nusa Cendana
-</footer>
-
-@section Scripts {
-    <!-- Bootstrap and jQuery for Modal functionality -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Chart.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Line Chart
-        var ctxLine = document.getElementById('lineChart').getContext('2d');
-        var lineChart = new Chart(ctxLine, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-                datasets: [{
-                    label: 'Penerimaan',
-                    data: [120, 200, 150, 170, 210, 250, 300, 280, 330, 350, 370, 390],
-                    borderColor: '#007bff',
-                    fill: false
-                }, {
-                    label: 'Pengeluaran',
-                    data: [80, 100, 120, 130, 160, 180, 210, 220, 240, 250, 270, 290],
-                    borderColor: '#dc3545',
-                    fill: false
-                }]
-            }
-        });
-
-        // Pie Chart
-        var ctxPie = document.getElementById('pieChart').getContext('2d');
-        var pieChart = new Chart(ctxPie, {
-            type: 'pie',
-            data: {
-                labels: ['Ibadah Mingguan', 'Ibadah Rumah Tangga', 'Other Sources'],
-                datasets: [{
-                    data: [53, 27, 20],
-                    backgroundColor: ['#007bff', '#dc3545', '#ffc107']
-                }]
-            }
-        });
-    </script>
-}
+    <!-- Akhir Section Contact -->
+</section>
+<!--======================================================= AKHIR KONTAK =======================================================-->
+<!--======================================================= PETA =======================================================-->
+<section id="peta">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.9948038033326!2d123.65462027461788!3d-10.181076689933729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c568488aef228ff%3A0xa09c4a302e01718!2sGMIT%20Jemaat%20Lanud%20Eltari!5e0!3m2!1sid!2sid!4v1730518471748!5m2!1sid!2sid"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+<!--======================================================= AKHIR PETA =======================================================-->

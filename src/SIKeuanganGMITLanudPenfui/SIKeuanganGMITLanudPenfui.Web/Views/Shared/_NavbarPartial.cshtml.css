@@ -1,0 +1,96 @@
+﻿/*-----------------------------------*\
+  #NAVBAR
+\*-----------------------------------*/
+nav {
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    z-index: 9;
+}
+
+.nav__header {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--extra-light);
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.nav__links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--extra-light);
+    transition: 0.5s;
+    z-index: -1;
+    transform: translateY(-100%);
+}
+
+    .nav__links.open {
+        transform: translateY(0);
+    }
+
+    .nav__links a {
+        font-weight: 500;
+        color: var(--text-dark);
+    }
+
+        .nav__links a:hover {
+            color: var(--primary-color);
+        }
+
+
+@media (min-width: 768px) {
+    /*-----------------------------------*\
+    #NAVBAR
+    \*-----------------------------------*/
+    nav {
+        position: static;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .nav__links a {
+        font-weight: 500;
+        color: var(--text-dark);
+        font-size: .9rem;
+    }
+
+    .nav__header {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .nav__menu__btn {
+        display: none;
+    }
+
+    .nav__links {
+        position: static;
+        padding: 0;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: transparent;
+        transform: none;
+    }
+
+}

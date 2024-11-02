@@ -1,58 +1,15 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
 
-// Write your JavaScript code.
+menuBtn.addEventListener("click", (e) => {
+    navLinks.classList.toggle("open");
 
-
-// Fade-in effect on page load
-document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector(".header-section");
-    header.style.opacity = 1;
+    const isOpen = navLinks.classList.contains("open");
+    menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
 });
 
-// Background color change on hover
-const header = document.querySelector(".header-section");
-header.addEventListener("mouseover", function () {
-    header.style.background = "linear-gradient(135deg, #34ace0, #ffb142)";
-});
-header.addEventListener("mouseout", function () {
-    header.style.background = "linear-gradient(135deg, #6a89cc, #b8e994)";
-});
-
-// Line Chart
-var ctxLine = document.getElementById("lineChart").getContext("2d");
-var lineChart = new Chart(ctxLine, {
-    type: "line",
-    data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" , "Okt" , "Nov" , "Des"],
-        datasets: [
-            {
-                label: "Penerimaan",
-                data: [120, 200, 150, 170, 210, 250, 300, 280, 330 , 350 , 370, 390],
-                borderColor: "#007bff",
-                fill: false,
-            },
-            {
-                label: "Pengeluaran",
-                data: [80, 100, 120, 130, 160, 180, 210, 220, 240 , 250, 270 , 290],
-                borderColor: "#dc3545",
-                fill: false,
-            },
-        ],
-    },
-});
-
-// Pie Chart
-var ctxPie = document.getElementById("pieChart").getContext("2d");
-var pieChart = new Chart(ctxPie, {
-    type: "pie",
-    data: {
-        labels: ["Ibadah Mingguan", "Ibadah Rumah Tangga", "Other Sources"],
-        datasets: [
-            {
-                data: [53, 27, 20],
-                backgroundColor: ["#007bff", "#dc3545", "#ffc107"],
-            },
-        ],
-    },
+navLinks.addEventListener("click", (e) => {
+    navLinks.classList.remove("open");
+    menuBtnIcon.setAttribute("class", "ri-menu-line");
 });

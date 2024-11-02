@@ -4,26 +4,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SIKeuanganGMITLanudPenfui.Web</title>
+
+    @* REMIXICON *@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
+
+    @* BOOTSTRAP *@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @* CSS GLOBAL *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SIKeuanganGMITLanudPenfui.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
     <partial name="_NavbarPartial" />
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - SIKeuanganGMITLanudPenfui.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer">
+        <div class="footer__bar">
+            Copyright © 2024 Ilmu Komputer Undana. All rights reserved.
         </div>
     </footer>
+    @* JQUERY *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    @* CHART.JS *@
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+
+    @* BOOTSTRAP *@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @* JAVASCRIPT GLOBAL *@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/chart.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
