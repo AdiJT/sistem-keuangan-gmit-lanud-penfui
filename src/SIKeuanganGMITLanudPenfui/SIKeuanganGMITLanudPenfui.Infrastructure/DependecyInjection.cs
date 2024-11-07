@@ -18,7 +18,7 @@ public static class DependecyInjection
             options.UseNpgsql(connectionString).EnableDetailedErrors().EnableSensitiveDataLogging();
         });
 
-        services.AddScoped<IUnitOfWork, AppDbContext>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IRepositoriAkun, RepositoriAkun>();
         services.AddScoped<IRepositoriJenisAkun, RepositoriJenisAkun>();
         services.AddScoped<IRepositoriKelompokAkun, RepositoriKelompokAkun>();

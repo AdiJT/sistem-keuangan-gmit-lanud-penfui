@@ -10,5 +10,6 @@ internal class BelanjaConfiguration : IEntityTypeConfiguration<Belanja>
     {
         builder.HasKey(b => b.Id);
         builder.HasOne(b => b.Akun).WithMany();
+        builder.HasOne(b => b.Kas).WithMany();
     }
 }

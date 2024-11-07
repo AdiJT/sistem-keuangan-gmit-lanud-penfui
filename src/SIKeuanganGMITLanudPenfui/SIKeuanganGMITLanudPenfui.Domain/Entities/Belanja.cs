@@ -2,12 +2,15 @@
 
 namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
 
-public class Belanja : Entity
+public class Belanja : Entity, IAuditableEntity
 {
     public DateOnly Tanggal { get; set; }
     public string Uraian { get; set; } = string.Empty;
     public double Jumlah { get; set; }
     public double SaldoKas { get; set; }
+    public DateTime TanggalDitambahkan { get; set; }
+    public DateTime TanggalDiubah { get; set; }
 
     public Akun Akun { get; set; }
+    public Kas Kas { get; set; }
 }

@@ -1868,6 +1868,19 @@ internal static class ModelBuilderExtension
         modelBuilder.Entity<RAPBJ>().HasData(new RAPBJ { Tahun = 2024 });
         #endregion
 
+        #region Kas
+        modelBuilder.Entity<Kas>().HasData(
+            new Kas
+            {
+                Id = 1,
+                Uraian = "Kas Bank GMIT Lanud",
+                Saldo = 6031500d,
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 2)
+            }
+        );
+        #endregion
+
         #region DetailRAPBJ
         modelBuilder.Entity<DetailRAPBJ>().HasData(
             daftarAkunDenganJenisAkun.Select(a => new DetailRAPBJ
@@ -1912,7 +1925,10 @@ internal static class ModelBuilderExtension
                 Jumlah = 500000d,
                 SaldoKas = 9713500d,
                 Tanggal = new DateOnly(2024, 1, 1),
-                AkunId = 171
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                AkunId = 171,
+                KasId = 1
             },
             new
             {
@@ -1921,7 +1937,10 @@ internal static class ModelBuilderExtension
                 Jumlah = 150000d,
                 SaldoKas = 9563500d,
                 Tanggal = new DateOnly(2024, 1, 2),
-                AkunId = 141
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                AkunId = 141,
+                KasId = 1
             }
         );
         #endregion
@@ -1935,7 +1954,10 @@ internal static class ModelBuilderExtension
                 Jumlah = 930000d,
                 SaldoKas = 6961500d,
                 Tanggal = new DateOnly(2024, 1, 1),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
                 AkunId = 51,
+                KasId = 1
             },
             new
             {
@@ -1944,7 +1966,10 @@ internal static class ModelBuilderExtension
                 Jumlah = 30000d,
                 SaldoKas = 7141000d,
                 Tanggal = new DateOnly(2024, 1, 1),
-                AkunId = 21
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                AkunId = 21,
+                KasId = 1
             }
         );
         #endregion
