@@ -10,6 +10,7 @@ internal class PenerimaanConfiguration : IEntityTypeConfiguration<Penerimaan>
     {
         builder.HasKey(p => p.Id);
         builder.HasOne(p => p.Akun).WithMany();
-        builder.HasOne(b => b.Kas).WithMany();
+        builder.HasOne(p => p.Kas).WithMany();
+        builder.HasOne(p => p.BuktiTransaksi).WithOne().HasForeignKey(nameof(Penerimaan), "BuktiTransaksiId");
     }
 }

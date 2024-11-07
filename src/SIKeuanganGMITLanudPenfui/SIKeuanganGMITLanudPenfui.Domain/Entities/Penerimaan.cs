@@ -13,4 +13,5 @@ public class Penerimaan : Entity, IAuditableEntity
 
     public Akun Akun { get; set; }
     public Kas Kas { get; set; }
+    public BuktiTransaksi BuktiTransaksi { get; set; }
 }

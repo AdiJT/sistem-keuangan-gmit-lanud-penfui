@@ -1868,19 +1868,6 @@ internal static class ModelBuilderExtension
         modelBuilder.Entity<RAPBJ>().HasData(new RAPBJ { Tahun = 2024 });
         #endregion
 
-        #region Kas
-        modelBuilder.Entity<Kas>().HasData(
-            new Kas
-            {
-                Id = 1,
-                Uraian = "Kas Bank GMIT Lanud",
-                Saldo = 6031500d,
-                TanggalDitambahkan = new DateTime(2024, 1, 1),
-                TanggalDiubah = new DateTime(2024, 1, 2)
-            }
-        );
-        #endregion
-
         #region DetailRAPBJ
         modelBuilder.Entity<DetailRAPBJ>().HasData(
             daftarAkunDenganJenisAkun.Select(a => new DetailRAPBJ
@@ -1916,6 +1903,76 @@ internal static class ModelBuilderExtension
         );
         #endregion
 
+        #region Kas
+        modelBuilder.Entity<Kas>().HasData(
+            new Kas
+            {
+                Id = 1,
+                Uraian = "Kas Bank GMIT Lanud",
+                Saldo = 6031500d,
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 2)
+            }
+        );
+        #endregion
+
+        #region BuktiTransaksi
+        modelBuilder.Entity<BuktiTransaksi>().HasData(
+            new BuktiTransaksi
+            {
+                Id = 1,
+                Uraian = "Bukti Transaksi Belanja 1",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/1"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 2,
+                Uraian = "Bukti Transaksi Belanja 2",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/2"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 2)
+            },
+            new BuktiTransaksi
+            {
+                Id = 3,
+                Uraian = "Bukti Transaksi Penerimaan 1",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/3"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 4,
+                Uraian = "Bukti Transaksi Penerimaan 2",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/4"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 2)
+            }
+        );
+        #endregion
+
         #region Belanja
         modelBuilder.Entity<Belanja>().HasData(
             new
@@ -1928,7 +1985,8 @@ internal static class ModelBuilderExtension
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 AkunId = 171,
-                KasId = 1
+                KasId = 1,
+                BuktiTransaksiId = 1,
             },
             new
             {
@@ -1940,7 +1998,8 @@ internal static class ModelBuilderExtension
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 AkunId = 141,
-                KasId = 1
+                KasId = 1,
+                BuktiTransaksiId = 2,
             }
         );
         #endregion
@@ -1957,7 +2016,8 @@ internal static class ModelBuilderExtension
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 AkunId = 51,
-                KasId = 1
+                KasId = 1,
+                BuktiTransaksiId = 3
             },
             new
             {
@@ -1969,7 +2029,8 @@ internal static class ModelBuilderExtension
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 AkunId = 21,
-                KasId = 1
+                KasId = 1,
+                BuktiTransaksiId = 4
             }
         );
         #endregion

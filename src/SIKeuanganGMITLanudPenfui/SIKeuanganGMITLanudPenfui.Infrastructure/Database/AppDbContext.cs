@@ -40,4 +40,5 @@ internal class AppDbContext : DbContext
     public DbSet<Penerimaan> TblPenerimaan { get; set; }
     public DbSet<User> TblUser { get; set; }
     public DbSet<Kas> TblKas { get; set; }
+    public DbSet<BuktiTransaksi> TblBuktiTransaksi { get; set; }
 }
