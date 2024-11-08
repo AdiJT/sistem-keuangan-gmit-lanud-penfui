@@ -28,6 +28,8 @@ public static class DependecyInjection
         services.AddScoped<IRepositoriBelanja, RepositoriBelanja>();
         services.AddScoped<IRepositoriPenerimaan, RepositoriPenerimaan>();
         services.AddScoped<IRepositoriUser, RepositoriUser>();
+        services.AddScoped<IRepositoriKas, RepositoriKas>();
+        services.AddScoped<IRepositoriBuktiTransaksi, RepositoriBuktiTransaksi>();
 
         return services;
     }
