@@ -1,0 +1,17 @@
+﻿@model (KelompokAkun kelompokAkun, string kodeJenisAkun)
+
+<li>@(Model.kodeJenisAkun).@(Model.kelompokAkun.Kode) @Model.kelompokAkun.Uraian</li>
+
+<ul>
+    @foreach (var akun in Model.kelompokAkun.DaftarAkun)
+    {
+        <li>@(Model.kodeJenisAkun).@akun.Kode @akun.Uraian</li>
+    }
+</ul>
+
+<ul>
+    @foreach(var golonganAkun in Model.kelompokAkun.DaftarGolonganAkun)
+    {
+        <partial name="_GolonganAkunPartial" model="(golonganAkun, Model.kodeJenisAkun)" />
+    }
+</ul>

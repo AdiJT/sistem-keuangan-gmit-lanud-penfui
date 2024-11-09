@@ -20,6 +20,18 @@ internal class RepositoriGolonganAkun : IRepositoriGolonganAkun
         .Include(g => g.KelompokAkun)
         .FirstOrDefaultAsync(g => g.Id == id);
 
+    public async Task<List<GolonganAkun>> GetAllPenerimaan() => await _appDbContext.TblGolonganAkun
+        .Include(g => g.DaftarAkun)
+        .Include(g => g.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Where(g => g.KelompokAkun.JenisAkun.Jenis == Jenis.Penerimaan)
+        .ToListAsync();
+
+    public async Task<List<GolonganAkun>> GetAllBelanja() => await _appDbContext.TblGolonganAkun
+        .Include(g => g.DaftarAkun)
+        .Include(g => g.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Where(g => g.KelompokAkun.JenisAkun.Jenis == Jenis.Belanja)
+        .ToListAsync();
+
     public async Task<List<GolonganAkun>> GetAll() => await _appDbContext.TblGolonganAkun
         .Include(g => g.DaftarAkun)
         .Include(g => g.KelompokAkun).ToListAsync();

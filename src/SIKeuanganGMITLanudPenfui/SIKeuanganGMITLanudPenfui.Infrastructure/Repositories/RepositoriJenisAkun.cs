@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 
@@ -18,6 +19,23 @@ internal class RepositoriJenisAkun : IRepositoriJenisAkun
         .Include(j => j.DaftarAkun)
         .Include(j => j.DaftarKelompokAkun)
         .FirstOrDefaultAsync(j => j.Id == id);
+
+    public async Task<JenisAkun?> GetByUraian(string uraian) => await _appDbContext.TblJenisAkun
+        .Include(j => j.DaftarAkun)
+        .Include(j => j.DaftarKelompokAkun)
+        .FirstOrDefaultAsync(j => j.Uraian == uraian);
+
+    public async Task<List<JenisAkun>> GetAllPenerimaan() => await _appDbContext.TblJenisAkun
+        .Include(j => j.DaftarAkun)
+        .Include(j => j.DaftarKelompokAkun)
+        .Where(j => j.Jenis == Jenis.Penerimaan)
+        .ToListAsync();
+
+    public async Task<List<JenisAkun>> GetAllBelanja() => await _appDbContext.TblJenisAkun
+        .Include(j => j.DaftarAkun)
+        .Include(j => j.DaftarKelompokAkun)
+        .Where(j => j.Jenis == Jenis.Belanja)
+        .ToListAsync();
 
     public async Task<List<JenisAkun>> GetAll() => await _appDbContext.TblJenisAkun
         .Include(j => j.DaftarAkun)

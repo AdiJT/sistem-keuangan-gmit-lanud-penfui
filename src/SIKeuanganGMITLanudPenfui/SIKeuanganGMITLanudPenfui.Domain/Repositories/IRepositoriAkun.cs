@@ -6,6 +6,8 @@ public interface IRepositoriAkun
 {
     Task<Akun?> Get(int id);
     Task<List<Akun>> GetAll();
+    Task<List<Akun>> GetAllPenerimaan();
+    Task<List<Akun>> GetAllBelanja();
     Task<List<Akun>> GetAllByJenis(JenisAkun jenis);
     Task<List<Akun>> GetAllByKelompok(KelompokAkun kelompok);
     Task<List<Akun>> GetAllByGolongan(GolonganAkun golongan);

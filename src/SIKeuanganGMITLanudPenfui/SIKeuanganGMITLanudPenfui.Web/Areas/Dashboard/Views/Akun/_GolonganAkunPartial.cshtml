@@ -1,0 +1,9 @@
+﻿@model (GolonganAkun golonganAkun, string kodeJenisAkun)
+
+<li>@(Model.kodeJenisAkun).@(Model.golonganAkun.Kode) @Model.golonganAkun.Uraian</li>
+<ul>
+    @foreach(var akun in Model.golonganAkun.DaftarAkun)
+    {
+        <li>@(Model.kodeJenisAkun).@(akun.Kode) @akun.Uraian</li>
+    }
+</ul>

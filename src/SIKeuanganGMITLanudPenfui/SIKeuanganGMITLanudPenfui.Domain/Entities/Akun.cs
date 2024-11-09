@@ -9,6 +9,15 @@ public class Akun : Entity
     public string Uraian { get; set; } = string.Empty;
     public double? PresentaseSetoran { get; set; }
 
+    public string Kode =>
+        this switch
+        {
+            { KelompokAkun : null, GolonganAkun : null }  => $"{JenisAkun.DaftarAkun.IndexOf(this) + 1}",
+            { KelompokAkun : not null, GolonganAkun : null } => $"{KelompokAkun.Kode}.{KelompokAkun.DaftarAkun.IndexOf(this) + 1}",
+            { KelompokAkun : null, GolonganAkun : not null } => $"{GolonganAkun.Kode}.{GolonganAkun.DaftarAkun.IndexOf(this) + 1}",
+            _ => throw new NotImplementedException()
+        };
+
     public JenisAkun JenisAkun { get; set; }
     public KelompokAkun? KelompokAkun { get; set; }
     public GolonganAkun? GolonganAkun { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 
@@ -19,6 +20,20 @@ internal class RepositoriKelompokAkun : IRepositoriKelompokAkun
         .Include(k => k.DaftarAkun)
         .Include(k => k.DaftarGolonganAkun)
         .FirstOrDefaultAsync(k => k.Id == id);
+
+    public async Task<List<KelompokAkun>> GetAllPenerimaan() => await _appDbContext.TblKelompokAkun
+        .Include(k => k.JenisAkun)
+        .Include(k => k.DaftarAkun)
+        .Include(k => k.DaftarGolonganAkun)
+        .Where(k => k.JenisAkun.Jenis == Jenis.Penerimaan)
+        .ToListAsync();
+
+    public async Task<List<KelompokAkun>> GetAllBelanja() => await _appDbContext.TblKelompokAkun
+        .Include(k => k.JenisAkun)
+        .Include(k => k.DaftarAkun)
+        .Include(k => k.DaftarGolonganAkun)
+        .Where(k => k.JenisAkun.Jenis == Jenis.Belanja)
+        .ToListAsync();
 
     public async Task<List<KelompokAkun>> GetAll() => await _appDbContext.TblKelompokAkun
         .Include(k => k.JenisAkun)
