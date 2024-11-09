@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
@@ -38,9 +42,11 @@ public static class DependecyInjection
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
-                options.EventsType = typeof(CustomCookieAuthenticationEvents);
+                options.LoginPath = new PathString("/Dashboard/Home/Login");
             });
 
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
         services.AddScoped<ISignInManager, SignInManager>();
 
         return services;
