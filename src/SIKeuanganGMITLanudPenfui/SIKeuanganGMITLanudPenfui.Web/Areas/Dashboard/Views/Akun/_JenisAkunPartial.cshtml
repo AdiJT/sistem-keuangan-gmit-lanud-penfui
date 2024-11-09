@@ -5,7 +5,7 @@
 <ul>
     @foreach (var akun in Model.JenisAkun.DaftarAkun.Where(a => a.KelompokAkun is null && a.GolonganAkun is null))
     {
-        <li>@(Model.KodeJenisAkun).@akun.Kode @akun.Uraian</li>
+        <partial name="_AkunPartial" model="(akun, Model.KodeJenisAkun)" />
     }
 </ul>
 

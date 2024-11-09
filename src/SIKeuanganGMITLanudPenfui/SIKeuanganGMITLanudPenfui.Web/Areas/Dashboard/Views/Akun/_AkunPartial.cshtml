@@ -1,0 +1,3 @@
+﻿@model (Akun akun, string kodeJenisAkun)
+
+<li>@(Model.kodeJenisAkun).@Model.akun.Kode @Model.akun.Uraian@(Model.akun.PresentaseSetoran is not null ? $" {Model.akun.PresentaseSetoran:P2}" : "")</li>

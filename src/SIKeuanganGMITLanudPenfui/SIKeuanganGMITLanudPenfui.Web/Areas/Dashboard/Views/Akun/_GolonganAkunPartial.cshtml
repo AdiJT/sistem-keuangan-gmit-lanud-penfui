@@ -4,6 +4,6 @@
 <ul>
     @foreach(var akun in Model.golonganAkun.DaftarAkun)
     {
-        <li>@(Model.kodeJenisAkun).@(akun.Kode) @akun.Uraian</li>
+        <partial name="_AkunPartial" model="(akun, Model.kodeJenisAkun)" />
     }
 </ul>
