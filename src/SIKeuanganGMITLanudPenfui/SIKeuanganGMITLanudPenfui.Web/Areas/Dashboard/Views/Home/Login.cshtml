@@ -1,0 +1,24 @@
+﻿@model LoginVM
+
+<div class="login-container">
+    <h1>Sistem Informasi Keuangan Gereja</h1>
+    <form asp-action="Login" asp-controller="Home" asp-area="Dashboard" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger form-text"></div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Username">Username</label>
+            <input class="form-control" asp-for="@Model.Username">
+            <span class="text-danger form-text" asp-validation-for="@Model.Username"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Password">Password</label>
+            <input class="form-control" asp-for="@Model.Password">
+            <span class="text-danger form-text" asp-validation-for="@Model.Password"></span>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

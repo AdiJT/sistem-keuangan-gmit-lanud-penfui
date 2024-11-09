@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
 
@@ -30,6 +32,16 @@ public static class DependecyInjection
         services.AddScoped<IRepositoriUser, RepositoriUser>();
         services.AddScoped<IRepositoriKas, RepositoriKas>();
         services.AddScoped<IRepositoriBuktiTransaksi, RepositoriBuktiTransaksi>();
+
+        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                options.SlidingExpiration = true;
+                options.EventsType = typeof(CustomCookieAuthenticationEvents);
+            });
+
+        services.AddScoped<ISignInManager, SignInManager>();
 
         return services;
     }

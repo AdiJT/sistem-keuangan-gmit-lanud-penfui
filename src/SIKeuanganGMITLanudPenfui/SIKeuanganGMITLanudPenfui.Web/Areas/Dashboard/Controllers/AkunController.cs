@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
+[Authorize(Roles = UserRoles.Bendahara)]
 public class AkunController : Controller
 {
     private readonly IRepositoriAkun _repositoriAkun;
