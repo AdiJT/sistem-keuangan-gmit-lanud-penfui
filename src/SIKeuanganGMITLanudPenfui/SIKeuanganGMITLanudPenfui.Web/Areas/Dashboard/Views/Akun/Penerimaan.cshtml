@@ -4,6 +4,23 @@
     ViewData["Title"] = "Akun | Penerimaan";
 }
 
+<div class="row">
+    <h3>Tahun : </h3>
+    <select id="tahun">
+        @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+        {
+            if (tahun == Model.Tahun)
+            {
+                <option value="@tahun" selected="true">@tahun</option>
+            }
+            else
+            {
+                <option value="@tahun">@tahun</option>
+            }
+        }
+    </select>
+</div>
+
 <h1>Jenis Akun</h1>
 <table class="table">
     <thead>
@@ -81,8 +98,19 @@
 </table>
 
 <ul>
-    @foreach(var jenisAkun in Model.DaftarJenisAkun)
+    @foreach (var jenisAkun in Model.DaftarJenisAkun)
     {
         <partial name="_JenisAkunPartial" model="(jenisAkun, Model.KodeJenisAkun(jenisAkun))" />
     }
 </ul>
+
+@section Scripts {
+    <script type="text/javascript">
+        $("select#tahun").on('change', function () {
+        const url = '/Dashboard/Akun/Penerimaan';
+        const tahun = $('select#tahun').val()
+
+            location.href = url + `/${tahun}`;
+        });
+    </script>
+}

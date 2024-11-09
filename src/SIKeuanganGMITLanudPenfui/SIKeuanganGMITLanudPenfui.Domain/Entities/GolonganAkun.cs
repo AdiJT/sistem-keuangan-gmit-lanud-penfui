@@ -1,10 +1,12 @@
 ﻿using SIKeuanganGMITLanudPenfui.Domain.Abstracts;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 
 namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
 
 public class GolonganAkun : Entity
 {
     public string Uraian { get; set; } = string.Empty;
+    public Tahun Tahun { get; set; }
 
     public string Kode =>
         $"{KelompokAkun.Kode}." +

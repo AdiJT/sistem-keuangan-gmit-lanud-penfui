@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
@@ -27,8 +28,15 @@ public class AkunController : Controller
         _repositoriGolonganAkun = repositoriGolonganAkun;
     }
 
-    public async Task<IActionResult> Penerimaan()
+    [Route("[area]/[controller]/[action]/{tahun:int?}")]
+    public async Task<IActionResult> Penerimaan(int? tahun)
     {
+        tahun ??= DateTime.Now.Year;
+        var rTahun = Tahun.Create(tahun.Value);
+
+        if (rTahun.IsFailure)
+            return BadRequest();
+
         var daftarAkun = await _repositoriAkun.GetAllPenerimaan();
         var daftarJenisAkun = await _repositoriJenisAkun.GetAllPenerimaan();
         var daftarKelompokAkun = await _repositoriKelompokAkun.GetAllPenerimaan();
@@ -36,15 +44,23 @@ public class AkunController : Controller
 
         return View(new PenerimaanVM
         {
-            DaftarAkun = daftarAkun,
-            DaftarJenisAkun = daftarJenisAkun,
-            DaftarKelompokAkun = daftarKelompokAkun,
-            DaftarGolonganAkun = daftarGolonganAkun
+            Tahun = tahun.Value,
+            DaftarAkun = daftarAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarJenisAkun = daftarJenisAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarKelompokAkun = daftarKelompokAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList()
         });
     }
 
-    public async Task<IActionResult> Belanja()
+    [Route("[area]/[controller]/[action]/{tahun:int?}")]
+    public async Task<IActionResult> Belanja(int? tahun)
     {
+        tahun ??= DateTime.Now.Year;
+        var rTahun = Tahun.Create(tahun.Value);
+
+        if (rTahun.IsFailure)
+            return BadRequest();
+
         var daftarAkun = await _repositoriAkun.GetAllBelanja();
         var daftarJenisAkun = await _repositoriJenisAkun.GetAllBelanja();
         var daftarKelompokAkun = await _repositoriKelompokAkun.GetAllBelanja();
@@ -52,10 +68,11 @@ public class AkunController : Controller
 
         return View(new BelanjaVM
         {
-            DaftarAkun = daftarAkun,
-            DaftarJenisAkun = daftarJenisAkun,
-            DaftarKelompokAkun = daftarKelompokAkun,
-            DaftarGolonganAkun = daftarGolonganAkun
+            Tahun = tahun.Value,
+            DaftarAkun = daftarAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarJenisAkun = daftarJenisAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarKelompokAkun = daftarKelompokAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList() 
         });
     }
 }

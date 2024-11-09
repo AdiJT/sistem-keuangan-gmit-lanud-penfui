@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241109080019_TambahPresentaseSetoranDiAkun2")]
+    partial class TambahPresentaseSetoranDiAkun2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,9 +45,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<double?>("PresentaseSetoran")
                         .HasColumnType("double precision");
 
-                    b.Property<int>("Tahun")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -65,7 +65,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 1,
                             JenisAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rutin"
                         },
                         new
@@ -73,7 +72,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 2,
                             JenisAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
@@ -81,7 +79,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 3,
                             JenisAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Dana Cadangan"
                         },
                         new
@@ -89,7 +86,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 4,
                             JenisAkunId = 2,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Utama Minggu (2 kali/minggu)"
                         },
                         new
@@ -97,7 +93,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 5,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Kelulusan"
                         },
                         new
@@ -105,7 +100,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 6,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Rayon"
                         },
                         new
@@ -113,7 +107,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 7,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Keluarga"
                         },
                         new
@@ -121,7 +114,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 8,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Kategorial Lainnya"
                         },
                         new
@@ -129,7 +121,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 9,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Pernikahan"
                         },
                         new
@@ -137,7 +128,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 10,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Lepas Kabung"
                         },
                         new
@@ -145,7 +135,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 11,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Kelahiran"
                         },
                         new
@@ -153,7 +142,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 12,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah HUT Perempuan GMIT JLET Penfui"
                         },
                         new
@@ -161,7 +149,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 13,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah HUT GMIT JLET Penfui"
                         },
                         new
@@ -169,7 +156,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 14,
                             JenisAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Lainnya"
                         },
                         new
@@ -177,7 +163,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 15,
                             JenisAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar Kebaktian Minggu"
                         },
                         new
@@ -185,7 +170,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 16,
                             JenisAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar Baptisan Kudus"
                         },
                         new
@@ -193,7 +177,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 17,
                             JenisAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar Peneguhan Sidi Baru"
                         },
                         new
@@ -201,7 +184,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 18,
                             JenisAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar Pemberkatan Nikah"
                         },
                         new
@@ -209,7 +191,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 19,
                             JenisAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar Khusus"
                         },
                         new
@@ -217,7 +198,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 20,
                             JenisAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Persepuluhan Kebaktian Minggu"
                         },
                         new
@@ -225,7 +205,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 21,
                             JenisAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Persepuluhan Lainnya"
                         },
                         new
@@ -233,7 +212,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 22,
                             JenisAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Nazar, Persepuluhan dan Syukur Lainnya"
                         },
                         new
@@ -241,7 +219,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 23,
                             JenisAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Syukur Kebaktian Minggu"
                         },
                         new
@@ -249,7 +226,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 24,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "10% Tangguk Kolekte Pembangunan"
                         },
                         new
@@ -257,7 +233,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 25,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Tangguk Persembahan di Kebaktian Utama Minggu"
                         },
                         new
@@ -265,7 +240,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 26,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Sumbangan Spontanitas Jemaat"
                         },
                         new
@@ -273,7 +247,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 27,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Hasil Usaha Panitia/Tim Kerja"
                         },
                         new
@@ -281,7 +254,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 28,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Sumbangan Pembangunan Wajib KK (200KK x 12 bln)"
                         },
                         new
@@ -289,7 +261,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 29,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Tunggakan Sumbangan"
                         },
                         new
@@ -297,7 +268,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 30,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Hasil Lelang Natura"
                         },
                         new
@@ -305,77 +275,66 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 31,
                             JenisAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Sumbangan Pembangunan Pihak Lain"
                         },
                         new
                         {
                             Id = 32,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Dana Cadangan"
                         },
                         new
                         {
                             Id = 33,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Administrasi Bank"
                         },
                         new
                         {
                             Id = 34,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Pajak Bunga Bank"
                         },
                         new
                         {
                             Id = 35,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Biaya cetak rekening giro"
                         },
                         new
                         {
                             Id = 36,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Pajak Mobil Pelayanan"
                         },
                         new
                         {
                             Id = 37,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Belanja Pisah/Sambut Pendeta"
                         },
                         new
                         {
                             Id = 38,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Sumbangan Rutin Teritori II K3T"
                         },
                         new
                         {
                             Id = 39,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Kontribusi Kegiatan"
                         },
                         new
                         {
                             Id = 40,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Sumbangan Lainnya"
                         },
                         new
                         {
                             Id = 41,
                             JenisAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Belanja Lainnya"
                         },
                         new
@@ -383,7 +342,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 232,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Administrasi Baptisan"
                         },
                         new
@@ -391,7 +349,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 233,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Administrasi Peneguhan Sidi Baru"
                         },
                         new
@@ -399,7 +356,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 234,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Administrasi Pemberkatan Nikah"
                         },
                         new
@@ -407,7 +363,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 235,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Bunga Bank"
                         },
                         new
@@ -415,7 +370,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 236,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.0,
-                            Tahun = 2024,
                             Uraian = "Hasil Lelang"
                         },
                         new
@@ -423,7 +377,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 237,
                             JenisAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Penerimaan Lainnya"
                         },
                         new
@@ -432,7 +385,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Hari Reformasi & HUT GMIT"
                         },
                         new
@@ -441,7 +393,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Malam NATAL"
                         },
                         new
@@ -450,7 +401,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Malam NATAL (Keluarga)"
                         },
                         new
@@ -459,7 +409,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL"
                         },
                         new
@@ -468,7 +417,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Syukur NATAL"
                         },
                         new
@@ -477,7 +425,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL JLET"
                         },
                         new
@@ -486,7 +433,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL PAR"
                         },
                         new
@@ -495,7 +441,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Kunci Tahun"
                         },
                         new
@@ -504,7 +449,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Kunci Tahun (Keluarga)"
                         },
                         new
@@ -513,7 +457,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Tahun Baru "
                         },
                         new
@@ -522,7 +465,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Jumat Agung"
                         },
                         new
@@ -531,7 +473,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Paskah"
                         },
                         new
@@ -540,7 +481,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Syukur Paskah"
                         },
                         new
@@ -549,7 +489,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 2,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Perjamuan Kudus"
                         },
                         new
@@ -558,7 +497,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 2,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Sakramen Perjamuan Kudus"
                         },
                         new
@@ -567,7 +505,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Baptisan Kudus"
                         },
                         new
@@ -576,7 +513,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 3,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Sakramen Baptisan Kudus"
                         },
                         new
@@ -585,7 +521,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Peneguhan Sidi Baru"
                         },
                         new
@@ -594,7 +529,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 4,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Peneguhan Anggota Sidi Baru"
                         },
                         new
@@ -603,7 +537,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Pastoral"
                         },
                         new
@@ -612,7 +545,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan/Penggembalaan"
                         },
                         new
@@ -621,7 +553,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kebaktian Pemberkatan Nikah"
                         },
                         new
@@ -630,7 +561,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 1"
                         },
                         new
@@ -639,7 +569,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 2"
                         },
                         new
@@ -648,7 +577,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 3"
                         },
                         new
@@ -657,7 +585,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 4"
                         },
                         new
@@ -666,7 +593,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 5"
                         },
                         new
@@ -675,7 +601,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 6"
                         },
                         new
@@ -684,7 +609,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Rayon 7"
                         },
                         new
@@ -693,7 +617,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah PAR"
                         },
                         new
@@ -702,7 +625,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Pemuda"
                         },
                         new
@@ -711,7 +633,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kaum Perempuan"
                         },
                         new
@@ -720,7 +641,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kaum Bapak"
                         },
                         new
@@ -729,7 +649,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Lansia"
                         },
                         new
@@ -738,7 +657,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kunci Usbuh"
                         },
                         new
@@ -747,7 +665,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Katekasasi Reguler"
                         },
                         new
@@ -756,7 +673,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Katekasasi Pra Nikah"
                         },
                         new
@@ -765,7 +681,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Persekutuan Doa"
                         },
                         new
@@ -774,7 +689,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah PS/VG"
                         },
                         new
@@ -783,7 +697,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
                             PresentaseSetoran = 0.5,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Lainnya"
                         },
                         new
@@ -791,7 +704,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 82,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Uang Harian"
                         },
                         new
@@ -799,7 +711,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 83,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Konsumsi Rapat"
                         },
                         new
@@ -807,7 +718,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 84,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pembuatan LHPP"
                         },
                         new
@@ -815,7 +725,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 85,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Gaji Koster"
                         },
                         new
@@ -823,7 +732,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 86,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Gaji Tata Usaha (TU) Gereja"
                         },
                         new
@@ -831,7 +739,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 87,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Gaji Sopir"
                         },
                         new
@@ -839,7 +746,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 88,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Insentif Calon Vicaris (CAVIK)"
                         },
                         new
@@ -847,7 +753,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 89,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Insentif Song Leader/Prokantor (2 orang)"
                         },
                         new
@@ -855,7 +760,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 90,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Insentif Organis/Sound System (2 orang)"
                         },
                         new
@@ -863,7 +767,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 91,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Insentif Operator LCD"
                         },
                         new
@@ -871,7 +774,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 92,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
-                            Tahun = 2024,
                             Uraian = "Jasa sopir tidak tetap"
                         },
                         new
@@ -879,7 +781,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 93,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Koster"
                         },
                         new
@@ -887,7 +788,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 94,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus TU Gereja"
                         },
                         new
@@ -895,7 +795,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 95,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Sopir"
                         },
                         new
@@ -903,7 +802,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 96,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Calon Vicaris (CAVIK)"
                         },
                         new
@@ -911,7 +809,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 97,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Organis/Sound Systim"
                         },
                         new
@@ -919,7 +816,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 98,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Operator LCD"
                         },
                         new
@@ -927,7 +823,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 99,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Presbiter"
                         },
                         new
@@ -935,7 +830,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 100,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Alat Tulis Kantor (ATK) dan Bahan Habis Pakai Lainnya "
                         },
                         new
@@ -943,7 +837,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 101,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Biaya Penggandaan dan Cetak"
                         },
                         new
@@ -951,7 +844,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 102,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "ATK, Biaya Penggandaan dan Cetak kegiatan sidang program tahun pelayanan 2025"
                         },
                         new
@@ -959,7 +851,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 103,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Biaya Listrik (Gereja dan Pastori)"
                         },
                         new
@@ -967,7 +858,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 104,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Air"
                         },
                         new
@@ -975,7 +865,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 105,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Telepon/Indihome/Wifi"
                         },
                         new
@@ -983,7 +872,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 106,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Alat & Bahan Kebersihan/Kesehatan"
                         },
                         new
@@ -991,7 +879,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 107,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan Barang Inventaris (Keyboard)"
                         },
                         new
@@ -999,7 +886,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 108,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pemeliharaan Barang Inventaris"
                         },
                         new
@@ -1007,7 +893,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 109,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pemeliharaan Gedung (Gereja, Pastori, dll)"
                         },
                         new
@@ -1015,7 +900,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 110,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pemeliharaan Mobil Pelayanan"
                         },
                         new
@@ -1023,7 +907,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 111,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pemeliharaan Instalasi Air dan Instalasi Listrik"
                         },
                         new
@@ -1031,7 +914,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 112,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Bahan Bakar"
                         },
                         new
@@ -1039,7 +921,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 113,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan Buku Pedoman Organisasi & Buku Lainnya"
                         },
                         new
@@ -1047,7 +928,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 114,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan Surat Gerejawi"
                         },
                         new
@@ -1055,7 +935,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 115,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan poni gorden jendela gereja warna hijau"
                         },
                         new
@@ -1063,7 +942,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 116,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan meja"
                         },
                         new
@@ -1071,7 +949,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 117,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan CCTV"
                         },
                         new
@@ -1079,7 +956,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 118,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan gitar akustik"
                         },
                         new
@@ -1087,7 +963,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 119,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
-                            Tahun = 2024,
                             Uraian = "Pengadaan Alat Musik (Kajon)"
                         },
                         new
@@ -1095,7 +970,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 120,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Pendeta & (MJH) mengikuti Rapat/Sidang"
                         },
                         new
@@ -1103,7 +977,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 121,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Pendeta Tamu"
                         },
                         new
@@ -1111,7 +984,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 122,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport MKH/MSH atas undangan jemaat"
                         },
                         new
@@ -1119,7 +991,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 123,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Presbiter/BP/UPP, dll"
                         },
                         new
@@ -1127,7 +998,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 124,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport MJH ke kantor Klasis/Sinode"
                         },
                         new
@@ -1135,7 +1005,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 125,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Bendahara/TU ke Bank"
                         },
                         new
@@ -1143,7 +1012,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 126,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Pemateri"
                         },
                         new
@@ -1151,7 +1019,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 127,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Transport Lainnya"
                         },
                         new
@@ -1159,7 +1026,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 128,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
-                            Tahun = 2024,
                             Uraian = "Setoran Sentralisasi Gaji Pokok (SGP)"
                         },
                         new
@@ -1167,7 +1033,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 129,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
-                            Tahun = 2024,
                             Uraian = "Setoran 10% Penerimaan (Dana Rutin)"
                         },
                         new
@@ -1175,7 +1040,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 130,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
-                            Tahun = 2024,
                             Uraian = "Setoran 10% Dana Pembangunan"
                         },
                         new
@@ -1183,7 +1047,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 131,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
-                            Tahun = 2024,
                             Uraian = "Setoran 2% Dana Pendidikan"
                         },
                         new
@@ -1191,7 +1054,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 132,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
-                            Tahun = 2024,
                             Uraian = "Setoran Dana Kebersamaan"
                         },
                         new
@@ -1199,7 +1061,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 133,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Perayaan Hari Ibu dan Natal"
                         },
                         new
@@ -1207,7 +1068,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 134,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan LANSIA Teritori 2"
                         },
                         new
@@ -1215,7 +1075,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 135,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan Persekutuan Doa Teritori 2"
                         },
                         new
@@ -1223,7 +1082,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 136,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Persekutuan Doa"
                         },
                         new
@@ -1231,7 +1089,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 137,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Syukur Natal Pemuda Teritori 2"
                         },
                         new
@@ -1239,7 +1096,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 138,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan Kaum Perempuan Teritori 2"
                         },
                         new
@@ -1247,7 +1103,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 139,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Pemuda Teritori-dalam klasis-luar klasis"
                         },
                         new
@@ -1255,7 +1110,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 140,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah NATAL PART"
                         },
                         new
@@ -1263,7 +1117,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 141,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah PASUTRI JLET"
                         },
                         new
@@ -1271,7 +1124,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 142,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Padang memperingati HUT Reformasi dan GMIT"
                         },
                         new
@@ -1279,7 +1131,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 143,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah syukur HUT JLET"
                         },
                         new
@@ -1287,7 +1138,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 144,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah syukur Natal JLET"
                         },
                         new
@@ -1295,7 +1145,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 145,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif BP, UPP dan BP JLET"
                         },
                         new
@@ -1303,7 +1152,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 146,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Pemuda 3"
                         },
                         new
@@ -1311,7 +1159,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 147,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Pemuda 4"
                         },
                         new
@@ -1319,7 +1166,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 148,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
-                            Tahun = 2024,
                             Uraian = "Ibadah ke Rote (UPP Perempuan)"
                         },
                         new
@@ -1327,7 +1173,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 149,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Bakti Sosial PART"
                         },
                         new
@@ -1335,7 +1180,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 150,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba PASKAH PART"
                         },
                         new
@@ -1343,7 +1187,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 151,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba HUT RI PART"
                         },
                         new
@@ -1351,7 +1194,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 152,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Perayaan NATAL PART"
                         },
                         new
@@ -1359,7 +1201,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 153,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Pelatihan Kepemimpinan Pemuda"
                         },
                         new
@@ -1367,7 +1208,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 154,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba Kreasi Salib memperingati PASKAH 2024"
                         },
                         new
@@ -1375,7 +1215,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 155,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Malam puji-pujian menyambut PASKAH"
                         },
                         new
@@ -1383,7 +1222,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 156,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Pawai PASKAH JLET"
                         },
                         new
@@ -1391,7 +1229,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 157,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba voly Putra-Putri antar Rayon memperingati Bulan keluarga"
                         },
                         new
@@ -1399,7 +1236,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 158,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba memasak nasi goreng antar keluarga dari tiap rayon memperingati Bulan Keluarga"
                         },
                         new
@@ -1407,7 +1243,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 159,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba VG Kaum Bapak Memperingati HUT JLET"
                         },
                         new
@@ -1415,7 +1250,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 160,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba CCA Keluarga antar Rayon"
                         },
                         new
@@ -1423,7 +1257,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 161,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Lomba Pohon Natal antar rayon di lingkungan gereja"
                         },
                         new
@@ -1431,7 +1264,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 162,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Insentif Pengajar Katekasasi (2 orang)"
                         },
                         new
@@ -1439,7 +1271,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 163,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Insentif Pengajar UPP PAR"
                         },
                         new
@@ -1447,7 +1278,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 164,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
-                            Tahun = 2024,
                             Uraian = "Memberikan Apresiasi kepada anak-anak (Sertifikat Naik Kelas, dll)"
                         },
                         new
@@ -1455,7 +1285,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 165,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
-                            Tahun = 2024,
                             Uraian = "Pengadaan Bahan Perjamuan Kudus"
                         },
                         new
@@ -1463,7 +1292,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 166,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
-                            Tahun = 2024,
                             Uraian = "Perbaikan peti keyboard"
                         },
                         new
@@ -1471,7 +1299,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 167,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
-                            Tahun = 2024,
                             Uraian = "Pengadaan meja operator slide"
                         },
                         new
@@ -1479,7 +1306,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 168,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
-                            Tahun = 2024,
                             Uraian = "Insentif songlider, musik dan operator slide "
                         },
                         new
@@ -1487,7 +1313,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 169,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
-                            Tahun = 2024,
                             Uraian = "Insentif Soundman"
                         },
                         new
@@ -1495,7 +1320,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 170,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Diakonia Sakit"
                         },
                         new
@@ -1503,7 +1327,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 171,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Diakonia Duka Cita"
                         },
                         new
@@ -1511,7 +1334,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 172,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Diakonia bagi jemaat JLET yang tidak mampu"
                         },
                         new
@@ -1519,7 +1341,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 173,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Pemeriksaan Kesehatan bagi LANSIA"
                         },
                         new
@@ -1527,7 +1348,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 174,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Bingkisan Kasih Majelis Jemaat"
                         },
                         new
@@ -1535,7 +1355,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 175,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Pelatihan peningkatan kapasitas diaken dalam pelayanan diakonia holistik"
                         },
                         new
@@ -1543,7 +1362,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 176,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Pelatihan Ketrampilan (Vokasi) Bagi Jemaat (PEMUDA)"
                         },
                         new
@@ -1551,7 +1369,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 177,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Beasiswa pendidikan kepada anak berprestasi  yang kurang mampu."
                         },
                         new
@@ -1559,7 +1376,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 178,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Pemberian bantuan dana pendidikan untuk calon mahasiswa musik gerejawi"
                         },
                         new
@@ -1567,7 +1383,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 179,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Bantuan bagi warga JLET yang mengalami bencana alam dan Non Alam"
                         },
                         new
@@ -1575,7 +1390,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 180,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
-                            Tahun = 2024,
                             Uraian = "Diakonia Lain-Lain"
                         },
                         new
@@ -1583,7 +1397,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 181,
                             JenisAkunId = 9,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Pemanfaatan pekarangan gereja (dapur hidup, apotik hidup)"
                         },
                         new
@@ -1591,7 +1404,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 182,
                             JenisAkunId = 9,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Pelatihan musik Kaum Bapak (transportasi pelatih)"
                         },
                         new
@@ -1599,7 +1411,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 183,
                             JenisAkunId = 9,
                             KelompokAkunId = 21,
-                            Tahun = 2024,
                             Uraian = "Pengurusan Sertifikat Tanah (Balik Nama)"
                         },
                         new
@@ -1607,7 +1418,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 184,
                             JenisAkunId = 9,
                             KelompokAkunId = 21,
-                            Tahun = 2024,
                             Uraian = "Pemasangan Identitas Mobil Pelayanan JLET"
                         },
                         new
@@ -1615,7 +1425,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 185,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Struktural"
                         },
                         new
@@ -1623,7 +1432,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 186,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Kesejahteraan (Kesra)"
                         },
                         new
@@ -1631,7 +1439,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 187,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Kesehatan"
                         },
                         new
@@ -1639,7 +1446,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 188,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Lainnya"
                         },
                         new
@@ -1647,7 +1453,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 189,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Ketua"
                         },
                         new
@@ -1655,7 +1460,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 190,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Sekretaris"
                         },
                         new
@@ -1663,7 +1467,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 191,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Sekretaris"
                         },
                         new
@@ -1671,7 +1474,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 192,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Bendahara"
                         },
                         new
@@ -1679,7 +1481,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 193,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Bendahara"
                         },
                         new
@@ -1687,7 +1488,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 194,
                             GolonganAkunId = 3,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Gaji Ke-13 KMJ"
                         },
                         new
@@ -1695,7 +1495,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 195,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Ketua Majelis Jemaat (KMJ)"
                         },
                         new
@@ -1703,7 +1502,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 196,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Ketua"
                         },
                         new
@@ -1711,7 +1509,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 197,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Sekretaris"
                         },
                         new
@@ -1719,7 +1516,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 198,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Sekretaris"
                         },
                         new
@@ -1727,7 +1523,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 199,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Bendahara"
                         },
                         new
@@ -1735,7 +1530,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 200,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Wakil Bendahara"
                         },
                         new
@@ -1743,7 +1537,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 201,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Konsumsi Pertemuan/Rapat Pendeta"
                         },
                         new
@@ -1751,7 +1544,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 202,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Konsumsi Pendeta Tamu dan Tamu Pendeta"
                         },
                         new
@@ -1759,7 +1551,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 203,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Konsumsi Lembur MJH"
                         },
                         new
@@ -1767,7 +1558,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 204,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Konsumsi UPP/BP/Tim Kerja, dll"
                         },
                         new
@@ -1775,7 +1565,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 205,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Rapat evaluasi program dan kegiatan lainnya"
                         },
                         new
@@ -1783,7 +1572,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 206,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Sidang Program Tahun Pelayanan 2025"
                         },
                         new
@@ -1791,7 +1579,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 207,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Konsumsi Lainnya"
                         },
                         new
@@ -1799,7 +1586,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 209,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Lumpsum Luar Daerah"
                         },
                         new
@@ -1807,7 +1593,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 210,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Penginapan"
                         },
                         new
@@ -1815,7 +1600,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 211,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Transportasi (luar daerah)"
                         },
                         new
@@ -1823,7 +1607,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 212,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Transportasi (dalam daerah)"
                         },
                         new
@@ -1831,7 +1614,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 213,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Lumpsum dalam Daerah"
                         },
                         new
@@ -1839,7 +1621,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 214,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Rekoleksi (Kupang - Siangapore PP)"
                         },
                         new
@@ -1847,7 +1628,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 215,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
@@ -1855,7 +1635,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 216,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Ganti Penutup Atap"
                         },
                         new
@@ -1863,7 +1642,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 217,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Ganti Kuda - kuda"
                         },
                         new
@@ -1871,7 +1649,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 218,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Ganti Plafond"
                         },
                         new
@@ -1879,7 +1656,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 219,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Finishing Dinding"
                         },
                         new
@@ -1887,7 +1663,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 220,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Finishing Lantai"
                         },
                         new
@@ -1895,7 +1670,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 221,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Finishing Atap"
                         },
                         new
@@ -1903,7 +1677,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 222,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Plafond"
                         },
                         new
@@ -1911,7 +1684,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 223,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Penerangan dan Kelistrikan"
                         },
                         new
@@ -1919,7 +1691,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 224,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Toilet dan Kelengkapan"
                         },
                         new
@@ -1927,7 +1698,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 225,
                             GolonganAkunId = 9,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Perbaikan Atap"
                         },
                         new
@@ -1935,7 +1705,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 226,
                             GolonganAkunId = 9,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Perbaikan Listrik"
                         },
                         new
@@ -1943,7 +1712,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 227,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Penutup Gerbang"
                         },
                         new
@@ -1951,7 +1719,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 228,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Railing Tangga Talud"
                         },
                         new
@@ -1959,7 +1726,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 229,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Kanopi Parkiran"
                         },
                         new
@@ -1967,7 +1733,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 230,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Pasang Baru Pos Jaga"
                         },
                         new
@@ -1975,7 +1740,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 231,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Normalisasi Area Parkir"
                         });
                 });
@@ -4050,9 +3814,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int>("KelompokAkunId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Tahun")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -4068,70 +3829,60 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             KelompokAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Ketua Majelis Jemaat (KMJ)"
                         },
                         new
                         {
                             Id = 2,
                             KelompokAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Insentif MJH"
                         },
                         new
                         {
                             Id = 3,
                             KelompokAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus MJH"
                         },
                         new
                         {
                             Id = 4,
                             KelompokAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Gaji Ke-13"
                         },
                         new
                         {
                             Id = 5,
                             KelompokAkunId = 12,
-                            Tahun = 2024,
                             Uraian = "Biaya Konsumsi"
                         },
                         new
                         {
                             Id = 6,
                             KelompokAkunId = 14,
-                            Tahun = 2024,
                             Uraian = "Biaya Perjalanan Dinas Pendeta"
                         },
                         new
                         {
                             Id = 7,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Renovasi Gedung Ibadah"
                         },
                         new
                         {
                             Id = 8,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Renovasi Gedung Pusat Kegiatan PART, Pemuda dan Serba Guna"
                         },
                         new
                         {
                             Id = 9,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Renovasi Rumah Pastori"
                         },
                         new
                         {
                             Id = 10,
                             KelompokAkunId = 20,
-                            Tahun = 2024,
                             Uraian = "Renovasi Pertamanan"
                         });
                 });
@@ -4147,9 +3898,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int>("Jenis")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Tahun")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -4163,70 +3911,60 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Sisa lebih perhitungan tahun (Surplus)"
                         },
                         new
                         {
                             Id = 2,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Kolekte/Persembahan"
                         },
                         new
                         {
                             Id = 3,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur"
                         },
                         new
                         {
                             Id = 4,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Nazar"
                         },
                         new
                         {
                             Id = 5,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Persepuluhan dan Syukur"
                         },
                         new
                         {
                             Id = 6,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
                         {
                             Id = 7,
                             Jenis = 0,
-                            Tahun = 2024,
                             Uraian = "Penerimaan Lain-Lain"
                         },
                         new
                         {
                             Id = 8,
                             Jenis = 1,
-                            Tahun = 2024,
                             Uraian = "Belanja Rutin"
                         },
                         new
                         {
                             Id = 9,
                             Jenis = 1,
-                            Tahun = 2024,
                             Uraian = "Belanja Program Pelayanan"
                         },
                         new
                         {
                             Id = 10,
                             Jenis = 1,
-                            Tahun = 2024,
                             Uraian = "Belanja Lain-Lain"
                         });
                 });
@@ -4278,9 +4016,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int>("JenisAkunId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Tahun")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -4296,147 +4031,126 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Hari Raya Gerejawi"
                         },
                         new
                         {
                             Id = 2,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Sakramen Perjamuan Kudus"
                         },
                         new
                         {
                             Id = 3,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Baptisan Kudus"
                         },
                         new
                         {
                             Id = 4,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru"
                         },
                         new
                         {
                             Id = 5,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru"
                         },
                         new
                         {
                             Id = 6,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Rumah Tangga"
                         },
                         new
                         {
                             Id = 7,
                             JenisAkunId = 2,
-                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kategorial/Fungsional, dll"
                         },
                         new
                         {
                             Id = 8,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Pos Penghasilan Pendeta dan MJH"
                         },
                         new
                         {
                             Id = 9,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja BPPPJ"
                         },
                         new
                         {
                             Id = 10,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja Karyawan"
                         },
                         new
                         {
                             Id = 11,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Karyawan/Presbiter"
                         },
                         new
                         {
                             Id = 12,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja Kantor"
                         },
                         new
                         {
                             Id = 13,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja Pengadaan & Pemeliharaan"
                         },
                         new
                         {
                             Id = 14,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja Perjalanan"
                         },
                         new
                         {
                             Id = 15,
                             JenisAkunId = 8,
-                            Tahun = 2024,
                             Uraian = "Belanja Tanggungan Rutin Jemaat"
                         },
                         new
                         {
                             Id = 16,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Koinonia"
                         },
                         new
                         {
                             Id = 17,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Marturia"
                         },
                         new
                         {
                             Id = 18,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Liturgia"
                         },
                         new
                         {
                             Id = 19,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Diakonia"
                         },
                         new
                         {
                             Id = 20,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Oikonomia"
                         },
                         new
                         {
                             Id = 21,
                             JenisAkunId = 9,
-                            Tahun = 2024,
                             Uraian = "Bidang Umum dan Rekomendasi"
                         });
                 });
@@ -4564,7 +4278,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEE7MmboN6aGpSbwSJpjkOqy0nJQVowsFu3fnUjyeWJ+eZiFQkQLikf6T2EQlBqAAPw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAjcLoz1cHWptdT+4Lv6kpOUlRFZM2wRt2Oe9WmHqUuMyzdlGtVSyt9vUUnA+sAOBg==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });

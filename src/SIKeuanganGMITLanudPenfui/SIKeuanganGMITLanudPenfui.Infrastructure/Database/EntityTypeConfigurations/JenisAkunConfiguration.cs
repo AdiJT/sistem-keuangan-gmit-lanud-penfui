@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Database.ValueConverters;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Database.EntityTypeConfigurations;
 
@@ -11,5 +12,6 @@ internal class JenisAkunConfiguration : IEntityTypeConfiguration<JenisAkun>
         builder.HasKey(j => j.Id);
         builder.HasMany(j => j.DaftarAkun).WithOne(a => a.JenisAkun).IsRequired();
         builder.HasMany(j => j.DaftarKelompokAkun).WithOne(k => k.JenisAkun).IsRequired();
+        builder.Property(j => j.Tahun).HasConversion<TahunIntConverter>();
     }
 }
