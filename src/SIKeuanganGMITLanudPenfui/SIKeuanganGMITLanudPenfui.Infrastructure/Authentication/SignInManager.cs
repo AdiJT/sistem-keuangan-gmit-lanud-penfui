@@ -4,7 +4,6 @@ using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
-using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 using System.Security.Claims;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Authentication;
@@ -42,10 +41,10 @@ internal class SignInManager : ISignInManager
 
         //Buat claim
         var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, user.Role)
-            };
+        {
+            new(ClaimTypes.Name, user.UserName),
+            new(ClaimTypes.Role, user.Role)
+        };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
