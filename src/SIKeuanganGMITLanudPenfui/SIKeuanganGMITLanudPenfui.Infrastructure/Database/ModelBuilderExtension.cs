@@ -526,6 +526,42 @@ internal static class ModelBuilderExtension
                 Uraian = "Belanja Lainnya",
                 JenisAkunId = 10,
             },
+            new
+            {
+                Id = 232,
+                Uraian = "Administrasi Baptisan",
+                JenisAkunId = 7,
+            },
+            new
+            {
+                Id = 233,
+                Uraian = "Administrasi Peneguhan Sidi Baru",
+                JenisAkunId = 7,
+            },
+            new
+            {
+                Id = 234,
+                Uraian = "Administrasi Pemberkatan Nikah",
+                JenisAkunId = 7,
+            },
+            new
+            {
+                Id = 235,
+                Uraian = "Bunga Bank",
+                JenisAkunId = 7,
+            },
+            new
+            {
+                Id = 236,
+                Uraian = "Hasil Lelang",
+                JenisAkunId = 7,
+            },
+            new
+            {
+                Id = 237,
+                Uraian = "Penerimaan Lainnya",
+                JenisAkunId = 7,
+            }
         };
 
         var daftarAkunDenganKelompokAkun = new[]
