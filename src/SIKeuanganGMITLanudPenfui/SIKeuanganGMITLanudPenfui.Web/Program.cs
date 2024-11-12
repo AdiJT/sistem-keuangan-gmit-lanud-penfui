@@ -1,9 +1,12 @@
+using SIKeuanganGMITLanudPenfui.Application;
 using SIKeuanganGMITLanudPenfui.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
