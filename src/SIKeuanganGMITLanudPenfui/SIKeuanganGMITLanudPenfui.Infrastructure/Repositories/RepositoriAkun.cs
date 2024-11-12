@@ -2,6 +2,7 @@
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
@@ -61,6 +62,19 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.GolonganAkun)
         .Where(a => a.GolonganAkun != null && a.GolonganAkun == golongan)
         .ToListAsync();
+
+    public async Task<List<Akun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblAkun
+        .Include(a => a.JenisAkun)
+        .Include(a => a.KelompokAkun)
+        .Include(a => a.GolonganAkun)
+        .Where(a => a.Tahun == tahun)
+        .ToListAsync();
+
+    public async Task<bool> IsExistOnTahun(Tahun tahun) => 
+        await _appDbContext.TblAkun.AnyAsync(a => a.Tahun == tahun) &&
+        await _appDbContext.TblJenisAkun.AnyAsync(j => j.Tahun == tahun) &&
+        await _appDbContext.TblKelompokAkun.AnyAsync(k => k.Tahun == tahun) &&
+        await _appDbContext.TblGolonganAkun.AnyAsync(g => g.Tahun == tahun);
 
     public void Add(Akun akun) => _appDbContext.TblAkun.Add(akun);
 

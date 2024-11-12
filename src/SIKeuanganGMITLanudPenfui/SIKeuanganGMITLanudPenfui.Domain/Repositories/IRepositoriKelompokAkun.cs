@@ -1,4 +1,5 @@
 ﻿using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 
 namespace SIKeuanganGMITLanudPenfui.Domain.Repositories;
 
@@ -9,6 +10,7 @@ public interface IRepositoriKelompokAkun
     Task<List<KelompokAkun>> GetAllPenerimaan();
     Task<List<KelompokAkun>> GetAllBelanja();
     Task<List<KelompokAkun>> GetAllByJenis(JenisAkun jenis);
+    Task<List<KelompokAkun>> GetAllByTahun(Tahun tahun);
 
     void Add(KelompokAkun kelompokAkun);
     void Delete(KelompokAkun kelompokAkun);

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIKeuanganGMITLanudPenfui.Infrastructure", "SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj", "{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIKeuanganGMITLanudPenfui.Application", "SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj", "{14F1CBEE-812B-4224-B1B7-722F0025CE05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45DA1CE9-3C0A-463A-8811-D83D6E8D1FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F1CBEE-812B-4224-B1B7-722F0025CE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F1CBEE-812B-4224-B1B7-722F0025CE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F1CBEE-812B-4224-B1B7-722F0025CE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F1CBEE-812B-4224-B1B7-722F0025CE05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,88 +21,96 @@
     </select>
 </div>
 
-<h1>Jenis Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
+@if (Model.DaftarAkun.Count == 0 && Model.DaftarJenisAkun.Count == 0 && Model.DaftarKelompokAkun.Count == 0 && Model.DaftarGolonganAkun.Count == 0)
+{
+    <h1>Tidak Akun untuk Tahun @Model.Tahun</h1>
+}
+else
+{
+    <h1>Jenis Akun</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Uraian</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var jenisAkun in Model.DaftarJenisAkun)
+            {
+                <tr>
+                    <td>@Model.KodeJenisAkun(jenisAkun)</td>
+                    <td>@jenisAkun.Uraian</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h1>Kelompok Akun</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Uraian</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kelompokAkun in Model.DaftarKelompokAkun)
+            {
+                <tr>
+                    <td>@Model.KodeJenisAkun(kelompokAkun.JenisAkun).@kelompokAkun.Kode</td>
+                    <td>@kelompokAkun.Uraian</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h1>Golongan Akun</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Uraian</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var golonganAkun in Model.DaftarGolonganAkun)
+            {
+                <tr>
+                    <td>@Model.KodeJenisAkun(golonganAkun.KelompokAkun.JenisAkun).@golonganAkun.Kode</td>
+                    <td>@golonganAkun.Uraian</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h1>Akun</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Uraian</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var akun in Model.DaftarAkun)
+            {
+                <tr>
+                    <td>@Model.KodeJenisAkun(akun.JenisAkun).@akun.Kode</td>
+                    <td>@akun.Uraian</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <ul>
         @foreach (var jenisAkun in Model.DaftarJenisAkun)
         {
-            <tr>
-                <td>@Model.KodeJenisAkun(jenisAkun)</td>
-                <td>@jenisAkun.Uraian</td>
-            </tr>
+            <partial name="_JenisAkunPartial" model="(jenisAkun, Model.KodeJenisAkun(jenisAkun))" />
         }
-    </tbody>
-</table>
+    </ul>
+}
 
-<h1>Kelompok Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var kelompokAkun in Model.DaftarKelompokAkun)
-        {
-            <tr>
-                <td>@Model.KodeJenisAkun(kelompokAkun.JenisAkun).@kelompokAkun.Kode</td>
-                <td>@kelompokAkun.Uraian</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<h1>Golongan Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var golonganAkun in Model.DaftarGolonganAkun)
-        {
-            <tr>
-                <td>@Model.KodeJenisAkun(golonganAkun.KelompokAkun.JenisAkun).@golonganAkun.Kode</td>
-                <td>@golonganAkun.Uraian</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<h1>Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var akun in Model.DaftarAkun)
-        {
-            <tr>
-                <td>@Model.KodeJenisAkun(akun.JenisAkun).@akun.Kode</td>
-                <td>@akun.Uraian</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<ul>
-    @foreach(var jenisAkun in Model.DaftarJenisAkun)
-    {
-        <partial name="_JenisAkunPartial" model="(jenisAkun, Model.KodeJenisAkun(jenisAkun))" />
-    }
-</ul>
 
 @section Scripts {
     <script type="text/javascript">

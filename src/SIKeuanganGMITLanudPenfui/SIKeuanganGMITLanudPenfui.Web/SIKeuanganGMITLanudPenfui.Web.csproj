@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj" />
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj" />
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj" />
   </ItemGroup>

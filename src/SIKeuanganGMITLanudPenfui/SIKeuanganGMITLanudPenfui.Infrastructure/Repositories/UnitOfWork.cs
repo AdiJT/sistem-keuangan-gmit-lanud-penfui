@@ -30,7 +30,7 @@ internal class UnitOfWork : IUnitOfWork
             _logger.LogError("Unexpected Exception When Try SaveChanges. Message : {@message}. At : {@time}", ex.Message, DateTime.Now);
 
             return new Error("SaveChangesAsync.Failed",
-                "Terjadi masalah tidak terduga saat coba simpan ke database. Laporkan masalah ke admin!");
+                "Terjadi masalah tidak terduga saat coba menyimpan perubahan ke database. Laporkan masalah ini ke admin/developer!");
         }
     }
 

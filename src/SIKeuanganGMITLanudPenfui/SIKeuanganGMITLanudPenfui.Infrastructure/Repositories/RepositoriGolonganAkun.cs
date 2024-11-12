@@ -2,6 +2,7 @@
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
@@ -46,6 +47,12 @@ internal class RepositoriGolonganAkun : IRepositoriGolonganAkun
         .Include(g => g.DaftarAkun)
         .Include(g => g.KelompokAkun)
         .Where(g => g.KelompokAkun == kelompok)
+        .ToListAsync();
+
+    public async Task<List<GolonganAkun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblGolonganAkun
+        .Include(g => g.DaftarAkun)
+        .Include(g => g.KelompokAkun)
+        .Where(g => g.Tahun == tahun)
         .ToListAsync();
 
     public void Add(GolonganAkun golonganAkun) => _appDbContext.TblGolonganAkun.Add(golonganAkun);

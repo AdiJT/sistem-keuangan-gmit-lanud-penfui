@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj" />
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj" />
   </ItemGroup>
 
