@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateGolonganAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateJenisAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateKelompokAkun;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
@@ -8,6 +9,8 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -20,6 +23,7 @@ public class AkunController : Controller
     private readonly IRepositoriKelompokAkun _repositoriKelompokAkun;
     private readonly IRepositoriGolonganAkun _repositoriGolonganAkun;
     private readonly ISender _sender;
+    private readonly JsonSerializerOptions serializerSettings = new(){ ReferenceHandler = ReferenceHandler.IgnoreCycles };
 
     public AkunController(
         IRepositoriAkun repositoriAkun,
@@ -83,7 +87,7 @@ public class AkunController : Controller
         });
     }
 
-    [Route("[area]/[controller]/{jenis}/{tahun:int}/TambahJenisAkun")]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public IActionResult TambahJenisAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
@@ -100,7 +104,7 @@ public class AkunController : Controller
     }
 
     [HttpPost]
-    [Route("[area]/[controller]/{jenis}/{tahun:int}/TambahJenisAkun")]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahJenisAkun([FromForm]TambahJenisAkunVM tambahJenisAkunVM, [FromRoute]Jenis jenis, [FromRoute]int tahun)
     {
         if(tambahJenisAkunVM.Jenis != jenis || tambahJenisAkunVM.Tahun != tahun)
@@ -118,7 +122,7 @@ public class AkunController : Controller
         return Redirect(tambahJenisAkunVM.ReturnUrl);
     }
 
-    [Route("[area]/[controller]/{jenis}/{tahun:int}/TambahKelompokAkun")]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public IActionResult TambahKelompokAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
@@ -133,7 +137,7 @@ public class AkunController : Controller
     }
 
     [HttpPost]
-    [Route("[area]/[controller]/{jenis}/{tahun:int}/TambahKelompokAkun")]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahKelompokAkun([FromForm] TambahKelompokAkunVM vm, [FromRoute] Jenis jenis, [FromRoute] int tahun)
     {
         if (vm.Tahun != tahun || vm.Jenis != jenis)
@@ -148,5 +152,59 @@ public class AkunController : Controller
         }
 
         return Redirect(vm.ReturnURL);
+    }
+
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public IActionResult TambahGolonganAkun(Jenis jenis, int tahun)
+    {
+        if(Tahun.Create(tahun).IsFailure)
+            return BadRequest();
+
+        return View(new TambahGolonganAkunVM(_repositoriJenisAkun)
+        {
+            Jenis = jenis,
+            Tahun = tahun,
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun})!
+        });
+    }
+
+    [HttpPost]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> TambahGolonganAkun([FromForm]TambahGolonganAkunVM vm, [FromRoute]Jenis jenis, [FromRoute] int tahun)
+    {
+        if (vm.Tahun != tahun || vm.Jenis != jenis)
+            return BadRequest();
+
+        var command = new CreateGolonganAkunCommand(vm.Uraian, vm.Tahun, vm.IdKelompokAkun);
+        var result = await _sender.Send(command);
+        if(result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
+            return View(vm);
+        }
+
+        return Redirect(vm.ReturnURL);
+    }
+
+    public async Task<IActionResult> KelompokAkun(int idJenisAkun)
+    {
+        var jenisAkun = await _repositoriJenisAkun.Get(idJenisAkun);
+        if(jenisAkun is null)
+            return StatusCode(StatusCodes.Status400BadRequest);
+
+        var daftarKelompokAkun = await _repositoriKelompokAkun.GetAllByJenis(jenisAkun);
+
+        return Json(daftarKelompokAkun, serializerSettings);
+    }
+
+    public async Task<IActionResult> GolonganAkun(int idKelompokAkun)
+    {
+        var kelompokAkun = await _repositoriKelompokAkun.Get(idKelompokAkun);
+        if (kelompokAkun is null)
+            return StatusCode(StatusCodes.Status400BadRequest);
+
+        var daftarGolonganAkun = await _repositoriGolonganAkun.GetAllByKelompokAkun(kelompokAkun);
+
+        return Json(daftarGolonganAkun, serializerSettings);
     }
 }
