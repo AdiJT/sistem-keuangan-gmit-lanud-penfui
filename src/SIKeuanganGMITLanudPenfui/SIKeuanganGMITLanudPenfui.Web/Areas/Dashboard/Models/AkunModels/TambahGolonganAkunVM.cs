@@ -7,13 +7,6 @@ namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
 
 public class TambahGolonganAkunVM
 {
-    private readonly IRepositoriJenisAkun _repositoriJenisAkun;
-
-    public TambahGolonganAkunVM(IRepositoriJenisAkun repositoriJenisAkun)
-    {
-        _repositoriJenisAkun = repositoriJenisAkun;
-    }
-
     [Display(Name = "Uraian")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public string Uraian { get; set; } = string.Empty;
@@ -33,8 +26,5 @@ public class TambahGolonganAkunVM
     [Required]
     public required string ReturnURL { get; set; }
 
-    public async Task<List<JenisAkun>> DaftarJenisAkun() => 
-        (await _repositoriJenisAkun.GetAll())
-        .Where(j => j.Tahun.Value == Tahun && j.Jenis == Jenis)
-        .ToList();
+    public List<JenisAkun> DaftarJenisAkun { get; set; } = [];
 }

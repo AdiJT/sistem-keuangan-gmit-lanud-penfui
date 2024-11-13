@@ -1,4 +1,5 @@
-﻿using SIKeuanganGMITLanudPenfui.Domain.Enums;
+﻿using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,13 +7,6 @@ namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
 
 public class TambahAkunVM
 {
-    private readonly IRepositoriJenisAkun _repositoriJenisAkun;
-
-    public TambahAkunVM(IRepositoriJenisAkun repositoriJenisAkun)
-    {
-        _repositoriJenisAkun = repositoriJenisAkun;
-    }
-
     [Display(Name = "Uraian")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public string Uraian { get; set; } = string.Empty;
@@ -26,7 +20,8 @@ public class TambahAkunVM
     public required int Tahun { get; set; }
 
     [Display(Name = "Setoran Sinode")]
-    public double? PresentaseSetoranSinode { get; set;}
+    [Range(0, 100, ErrorMessage = "{0} harus antara {1}% dan {2}%")]
+    public int? PresentaseSetoranSinode { get; set;}
 
     [Required]
     public required string ReturnURL { get; set; }
@@ -40,4 +35,6 @@ public class TambahAkunVM
 
     [Display(Name = "Golongan Akun")]
     public int? IdGolonganAkun { get; set; }
+
+    public List<JenisAkun> DaftarJenisAkun { get; set; } = [];
 }

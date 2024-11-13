@@ -124,16 +124,17 @@ public class AkunController : Controller
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public IActionResult TambahKelompokAkun(Jenis jenis, int tahun)
+    public async Task<IActionResult> TambahKelompokAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
             return BadRequest();
 
-        return View(new TambahKelompokAkunVM(_repositoriJenisAkun)
+        return View(new TambahKelompokAkunVM
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun, jenis})!
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun, jenis })!,
+            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
         });
     }
 
@@ -149,6 +150,7 @@ public class AkunController : Controller
         if(result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
+            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
 
@@ -156,16 +158,17 @@ public class AkunController : Controller
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public IActionResult TambahGolonganAkun(Jenis jenis, int tahun)
+    public async Task<IActionResult> TambahGolonganAkun(Jenis jenis, int tahun)
     {
         if(Tahun.Create(tahun).IsFailure)
             return BadRequest();
 
-        return View(new TambahGolonganAkunVM(_repositoriJenisAkun)
+        return View(new TambahGolonganAkunVM
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun})!
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun})!,
+            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
         });
     }
 
@@ -181,6 +184,7 @@ public class AkunController : Controller
         if(result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
+            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
 
@@ -188,16 +192,17 @@ public class AkunController : Controller
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public IActionResult TambahAkun(Jenis jenis, int tahun)
+    public async Task<IActionResult> TambahAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
             return BadRequest();
 
-        return View(new TambahAkunVM(_repositoriJenisAkun)
+        return View(new TambahAkunVM
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!,
+            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
         });
     }
 
@@ -211,14 +216,16 @@ public class AkunController : Controller
         if(jenis == Jenis.Penerimaan && vm.PresentaseSetoranSinode is null)
         {
             ModelState.AddModelError(nameof(TambahAkunVM.PresentaseSetoranSinode), "Untuk akun Penerimaan, presentase setoran sinode harus diisi");
+            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
 
-        var command = new CreateAkunCommand(vm.Uraian, vm.Tahun, vm.PresentaseSetoranSinode, vm.IdJenisAkun, vm.IdKelompokAkun, vm.IdGolonganAkun);
+        var command = new CreateAkunCommand(vm.Uraian, vm.Tahun, vm.PresentaseSetoranSinode / 100d, vm.IdJenisAkun, vm.IdKelompokAkun, vm.IdGolonganAkun);
         var result = await _sender.Send(command);
         if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
+            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
 
