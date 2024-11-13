@@ -44,6 +44,27 @@ $('#save-stage').DataTable({
     "scrollX": true,
     stateSave: true
 });
+$('#table-akun-1').DataTable({
+    "columnDefs": [
+        { "sortable": false, "targets": [2] }
+    ]
+});
+$('#table-akun-2').DataTable({
+    "columnDefs": [
+        { "sortable": false, "targets": [2] }
+    ]
+});
+$('#table-akun-3').DataTable({
+    "columnDefs": [
+        { "sortable": false, "targets": [2] }
+    ]
+});
+$('#table-akun-4').DataTable({
+    "columnDefs": [
+        { "sortable": false, "targets": [2] }
+    ]
+});
+
 $('#tableExport').DataTable({
     dom: 'Bfrtip',
     buttons: [
