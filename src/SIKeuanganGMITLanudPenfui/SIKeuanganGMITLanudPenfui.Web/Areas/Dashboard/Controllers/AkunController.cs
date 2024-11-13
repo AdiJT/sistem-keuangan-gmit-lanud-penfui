@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateGolonganAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateJenisAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateKelompokAkun;
@@ -98,7 +99,7 @@ public class AkunController : Controller
             {
                 Tahun = tahun,
                 Jenis = Jenis.Penerimaan,
-                ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!
+                ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", values: new { Area = "Dashboard", tahun })!
             }
         );
     }
@@ -178,6 +179,44 @@ public class AkunController : Controller
         var command = new CreateGolonganAkunCommand(vm.Uraian, vm.Tahun, vm.IdKelompokAkun);
         var result = await _sender.Send(command);
         if(result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
+            return View(vm);
+        }
+
+        return Redirect(vm.ReturnURL);
+    }
+
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public IActionResult TambahAkun(Jenis jenis, int tahun)
+    {
+        if (Tahun.Create(tahun).IsFailure)
+            return BadRequest();
+
+        return View(new TambahAkunVM(_repositoriJenisAkun)
+        {
+            Jenis = jenis,
+            Tahun = tahun,
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!
+        });
+    }
+
+    [HttpPost]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> TambahAkun([FromForm] TambahAkunVM vm, [FromRoute] Jenis jenis, [FromRoute] int tahun)
+    {
+        if (vm.Tahun != tahun || vm.Jenis != jenis)
+            return BadRequest();
+
+        if(jenis == Jenis.Penerimaan && vm.PresentaseSetoranSinode is null)
+        {
+            ModelState.AddModelError(nameof(TambahAkunVM.PresentaseSetoranSinode), "Untuk akun Penerimaan, presentase setoran sinode harus diisi");
+            return View(vm);
+        }
+
+        var command = new CreateAkunCommand(vm.Uraian, vm.Tahun, vm.PresentaseSetoranSinode, vm.IdJenisAkun, vm.IdKelompokAkun, vm.IdGolonganAkun);
+        var result = await _sender.Send(command);
+        if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
             return View(vm);
