@@ -2015,9 +2015,9 @@ internal static class ModelBuilderExtension
             {
                 Id = 1,
                 Uraian = "Kas Bank GMIT Lanud",
-                Saldo = 6031500d,
+                Saldo = 10852500d,
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
-                TanggalDiubah = new DateTime(2024, 1, 2)
+                TanggalDiubah = new DateTime(2024, 1, 6)
             }
         );
         #endregion
@@ -2074,8 +2074,868 @@ internal static class ModelBuilderExtension
                     Path = "/file/4"
                 }.Uri,
                 Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 2)
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 5,
+                Uraian = "Bukti Transaksi Penerimaan 3",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/5"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 6,
+                Uraian = "Bukti Transaksi Penerimaan 4",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/6"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 7,
+                Uraian = "Bukti Transaksi Penerimaan 5",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/7"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 8,
+                Uraian = "Bukti Transaksi Penerimaan 6",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/8"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 9,
+                Uraian = "Bukti Transaksi Penerimaan 7",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/9"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 10,
+                Uraian = "Bukti Transaksi Penerimaan 8",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/10"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 11,
+                Uraian = "Bukti Transaksi Penerimaan 9",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/11"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 12,
+                Uraian = "Bukti Transaksi Penerimaan 10",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/12"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 13,
+                Uraian = "Bukti Transaksi Penerimaan 11",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/13"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 14,
+                Uraian = "Bukti Transaksi Penerimaan 12",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/14"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 15,
+                Uraian = "Bukti Transaksi Penerimaan 13",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/15"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 16,
+                Uraian = "Bukti Transaksi Penerimaan 14",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/16"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 17,
+                Uraian = "Bukti Transaksi Penerimaan 15",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/17"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 18,
+                Uraian = "Bukti Transaksi Penerimaan 16",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/18"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 19,
+                Uraian = "Bukti Transaksi Penerimaan 17",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/19"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 20,
+                Uraian = "Bukti Transaksi Penerimaan 18",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/20"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 21,
+                Uraian = "Bukti Transaksi Penerimaan 19",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/21"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 22,
+                Uraian = "Bukti Transaksi Penerimaan 20",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/22"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 23,
+                Uraian = "Bukti Transaksi Penerimaan 21",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/23"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 24,
+                Uraian = "Bukti Transaksi Penerimaan 22",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/24"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 25,
+                Uraian = "Bukti Transaksi Penerimaan 23",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/25"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 26,
+                Uraian = "Bukti Transaksi Penerimaan 24",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/26"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 27,
+                Uraian = "Bukti Transaksi Penerimaan 25",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/27"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 28,
+                Uraian = "Bukti Transaksi Penerimaan 26",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/28"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 29,
+                Uraian = "Bukti Transaksi Penerimaan 27",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/29"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 30,
+                Uraian = "Bukti Transaksi Penerimaan 28",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/30"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 31,
+                Uraian = "Bukti Transaksi Penerimaan 29",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/31"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 32,
+                Uraian = "Bukti Transaksi Penerimaan 30",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/32"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 33,
+                Uraian = "Bukti Transaksi Penerimaan 31",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/33"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 34,
+                Uraian = "Bukti Transaksi Penerimaan 32",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/34"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 35,
+                Uraian = "Bukti Transaksi Penerimaan 33",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/35"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 36,
+                Uraian = "Bukti Transaksi Penerimaan 34",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/36"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 37,
+                Uraian = "Bukti Transaksi Penerimaan 35",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/37"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 38,
+                Uraian = "Bukti Transaksi Penerimaan 36",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/38"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 39,
+                Uraian = "Bukti Transaksi Penerimaan 37",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/39"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 40,
+                Uraian = "Bukti Transaksi Penerimaan 38",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/40"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 41,
+                Uraian = "Bukti Transaksi Penerimaan 39",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/41"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 42,
+                Uraian = "Bukti Transaksi Penerimaan 40",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/42"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 43,
+                Uraian = "Bukti Transaksi Penerimaan 41",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/43"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 44,
+                Uraian = "Bukti Transaksi Penerimaan 42",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/44"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 45,
+                Uraian = "Bukti Transaksi Penerimaan 43",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/45"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 46,
+                Uraian = "Bukti Transaksi Penerimaan 44",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/46"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 47,
+                Uraian = "Bukti Transaksi Penerimaan 45",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/47"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 48,
+                Uraian = "Bukti Transaksi Penerimaan 46",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/48"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 49,
+                Uraian = "Bukti Transaksi Penerimaan 47",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/49"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 50,
+                Uraian = "Bukti Transaksi Penerimaan 48",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/50"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 51,
+                Uraian = "Bukti Transaksi Penerimaan 49",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/51"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 52,
+                Uraian = "Bukti Transaksi Penerimaan 50",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/52"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 53,
+                Uraian = "Bukti Transaksi Penerimaan 51",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/53"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 54,
+                Uraian = "Bukti Transaksi Penerimaan 52",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/54"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 55,
+                Uraian = "Bukti Transaksi Penerimaan 53",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/55"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 56,
+                Uraian = "Bukti Transaksi Penerimaan 54",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/56"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 57,
+                Uraian = "Bukti Transaksi Penerimaan 55",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/57"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 58,
+                Uraian = "Bukti Transaksi Penerimaan 56",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/58"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 59,
+                Uraian = "Bukti Transaksi Penerimaan 57",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/59"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 60,
+                Uraian = "Bukti Transaksi Penerimaan 58",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/60"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 61,
+                Uraian = "Bukti Transaksi Penerimaan 59",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/61"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 62,
+                Uraian = "Bukti Transaksi Penerimaan 60",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/62"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            }, new BuktiTransaksi
+            {
+                Id = 63,
+                Uraian = "Bukti Transaksi Penerimaan 61",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/63"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 64,
+                Uraian = "Bukti Transaksi Penerimaan 62",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/64"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 1)
+            },
+            new BuktiTransaksi
+            {
+                Id = 65,
+                Uraian = "Bukti Transaksi Penerimaan 63",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/65"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 3)
+            },
+            new BuktiTransaksi
+            {
+                Id = 66,
+                Uraian = "Bukti Transaksi Penerimaan 64",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/66"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 5)
+            },
+            new BuktiTransaksi
+            {
+                Id = 67,
+                Uraian = "Bukti Transaksi Penerimaan 65",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/67"
+                }.Uri,
+                Jenis = Jenis.Penerimaan,
+                TanggalDitambahkan = new DateTime(2024, 1, 5)
+            },
+            new BuktiTransaksi
+            {
+                Id = 68,
+                Uraian = "Bukti Transaksi Belanja 3",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/68"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 5)
+            },
+            new BuktiTransaksi
+            {
+                Id = 69,
+                Uraian = "Bukti Transaksi Belanja 4",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/69"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 5)
+            },
+            new BuktiTransaksi
+            {
+                Id = 70,
+                Uraian = "Bukti Transaksi Belanja 5",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/70"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 6)
+            },
+            new BuktiTransaksi
+            {
+                Id = 71,
+                Uraian = "Bukti Transaksi Belanja 6",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/71"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 6)
+            },
+            new BuktiTransaksi
+            {
+                Id = 72,
+                Uraian = "Bukti Transaksi Belanja 7",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/72"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 6)
+            },
+            new BuktiTransaksi
+            {
+                Id = 73,
+                Uraian = "Bukti Transaksi Belanja 8",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/73"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 6)
+            },
+            new BuktiTransaksi
+            {
+                Id = 74,
+                Uraian = "Bukti Transaksi Belanja 9",
+                FileBukti = new UriBuilder
+                {
+                    Host = "locahost",
+                    Port = 1704,
+                    Path = "/file/74"
+                }.Uri,
+                Jenis = Jenis.Belanja,
+                TanggalDitambahkan = new DateTime(2024, 1, 6)
             }
+
         );
         #endregion
 
@@ -2103,10 +2963,102 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 2),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
-                AkunId = 141,
+                AkunId = 101,
                 KasId = 1,
                 BuktiTransaksiId = 2,
+            },
+            new
+            {
+                Id = 3,
+                Uraian = "Beli 1 pcs MCB Broco 6A",
+                Jumlah = 40000d,
+                SaldoKas = 11286500d,
+                Tanggal = new DateOnly(2024, 1, 5),
+                TanggalDitambahkan = new DateTime(2024, 1, 5),
+                TanggalDiubah = new DateTime(2024, 1, 5),
+                AkunId = 109,
+                KasId = 1,
+                BuktiTransaksiId = 68,
+            },
+            new
+            {
+                Id = 4,
+                Uraian = "Beli 1 pcs Box MCB",
+                Jumlah = 5000d,
+                SaldoKas = 11281500d,
+                Tanggal = new DateOnly(2024, 1, 5),
+                TanggalDitambahkan = new DateTime(2024, 1, 5),
+                TanggalDiubah = new DateTime(2024, 1, 5),
+                AkunId = 109,
+                KasId = 1,
+                BuktiTransaksiId = 69,
+            },
+            new
+            {
+                Id = 5,
+                Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-",
+                Jumlah = 71600d,
+                SaldoKas = 11209900d,
+                Tanggal = new DateOnly(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                AkunId = 100,
+                KasId = 1,
+                BuktiTransaksiId = 70,
+            },
+            new
+            {
+                Id = 6,
+                Uraian = "Beli 1 pcs teh sariwangi (50P)",
+                Jumlah = 12500d,
+                SaldoKas = 11197400d,
+                Tanggal = new DateOnly(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                AkunId = 100,
+                KasId = 1,
+                BuktiTransaksiId = 71,
+            },
+            new
+            {
+                Id = 7,
+                Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)",
+                Jumlah = 59900d,
+                SaldoKas = 11137500d,
+                Tanggal = new DateOnly(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                AkunId = 100,
+                KasId = 1,
+                BuktiTransaksiId = 72,
+            },
+            new
+            {
+                Id = 8,
+                Uraian = "Beli 30 potong kue @Rp. 1.000,-",
+                Jumlah = 30000d,
+                SaldoKas = 11107500d,
+                Tanggal = new DateOnly(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                AkunId = 100,
+                KasId = 1,
+                BuktiTransaksiId = 73,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-",
+                Jumlah = 255000d,
+                SaldoKas = 10852500d,
+                Tanggal = new DateOnly(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                AkunId = 101,
+                KasId = 1,
+                BuktiTransaksiId = 74,
             }
+
         );
         #endregion
 
@@ -2128,16 +3080,834 @@ internal static class ModelBuilderExtension
             new
             {
                 Id = 2,
-                Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1",
-                Jumlah = 30000d,
-                SaldoKas = 7141000d,
+                Uraian = "Terima nazar Tanpa Nama 1",
+                Jumlah = 5000d,
+                SaldoKas = 6966500d,
                 Tanggal = new DateOnly(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
-                AkunId = 21,
+                AkunId = 16,
                 KasId = 1,
                 BuktiTransaksiId = 4
-            }
+            },
+            new
+            {
+                Id = 3,
+                Uraian = "Terima nazar Tanpa Nama 2",
+                Jumlah = 10000d,
+                SaldoKas = 6976500d,
+                Tanggal = new DateOnly(2024, 1, 1),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                AkunId = 16,
+                KasId = 1,
+                BuktiTransaksiId = 5
+            },
+             new
+             {
+                 Id = 4,
+                 Uraian = "Terima nazar Tanpa Nama 3",
+                 Jumlah = 100000d,
+                 SaldoKas = 7076500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 18,
+                 KasId = 1,
+                 BuktiTransaksiId = 6
+             },
+             new
+             {
+                 Id = 5,
+                 Uraian = "Terima nazar Tanpa Nama 4",
+                 Jumlah = 10000d,
+                 SaldoKas = 7086500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 19,
+                 KasId = 1,
+                 BuktiTransaksiId = 7
+             },
+             new
+             {
+                 Id = 6,
+                 Uraian = "Terima nazar Tanpa Nama 5",
+                 Jumlah = 5000d,
+                 SaldoKas = 7091500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 16,
+                 KasId = 1,
+                 BuktiTransaksiId = 8
+             },
+             new
+             {
+                 Id = 7,
+                 Uraian = "Terima nazar Tanpa Nama 6",
+                 Jumlah = 20000d,
+                 SaldoKas = 7111500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 17,
+                 KasId = 1,
+                 BuktiTransaksiId = 9
+             },
+             new
+             {
+                 Id = 8,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1",
+                 Jumlah = 30000d,
+                 SaldoKas = 7141500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 10
+             },
+             new
+             {
+                 Id = 9,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2",
+                 Jumlah = 50000d,
+                 SaldoKas = 7191500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 11
+             },
+             new
+             {
+                 Id = 10,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3",
+                 Jumlah = 10000d,
+                 SaldoKas = 7201500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 12
+             },
+             new
+             {
+                 Id = 11,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4",
+                 Jumlah = 9000d,
+                 SaldoKas = 7210500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 13
+             },
+             new
+             {
+                 Id = 12,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5",
+                 Jumlah = 5000d,
+                 SaldoKas = 7215500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 14
+             },
+             new
+             {
+                 Id = 13,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6",
+                 Jumlah = 10000d,
+                 SaldoKas = 7225500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 15
+             },
+             new
+             {
+                 Id = 14,
+                 Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7",
+                 Jumlah = 50000d,
+                 SaldoKas = 7275500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 21,
+                 KasId = 1,
+                 BuktiTransaksiId = 16
+             },
+             new
+             {
+                 Id = 15,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 1",
+                 Jumlah = 10000d,
+                 SaldoKas = 7285500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 17
+             },
+             new
+             {
+                 Id = 16,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 2",
+                 Jumlah = 5000d,
+                 SaldoKas = 7290500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 18
+             },
+             new
+             {
+                 Id = 17,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 3",
+                 Jumlah = 10000d,
+                 SaldoKas = 7300500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 19
+             },
+             new
+             {
+                 Id = 18,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 4",
+                 Jumlah = 50000d,
+                 SaldoKas = 7350500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 20
+             },
+             new
+             {
+                 Id = 19,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 5",
+                 Jumlah = 50000d,
+                 SaldoKas = 7400500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 21
+             },
+             new
+             {
+                 Id = 20,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 6",
+                 Jumlah = 100000d,
+                 SaldoKas = 7500500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 22
+             },
+             new
+             {
+                 Id = 21,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 7",
+                 Jumlah = 10000d,
+                 SaldoKas = 7510500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 23
+             },
+             new
+             {
+                 Id = 22,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 8",
+                 Jumlah = 10000d,
+                 SaldoKas = 7520500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 24
+             },
+             new
+             {
+                 Id = 23,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 9",
+                 Jumlah = 10000d,
+                 SaldoKas = 7530500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 25
+             },
+             new
+             {
+                 Id = 24,
+                 Uraian = "Terima persembahan syukur Tanpa Nama 10",
+                 Jumlah = 10000d,
+                 SaldoKas = 7540500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 22,
+                 KasId = 1,
+                 BuktiTransaksiId = 26
+             },
+             new
+             {
+                 Id = 25,
+                 Uraian = "Bpk. Oktovianus Metboki Rayon 5",
+                 Jumlah = 50000d,
+                 SaldoKas = 7590500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 27
+             },
+             new
+             {
+                 Id = 26,
+                 Uraian = "Oma. Elisabeth Tualaka Rayon 7",
+                 Jumlah = 77000d,
+                 SaldoKas = 7667500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 28
+             },
+             new
+             {
+                 Id = 27,
+                 Uraian = "Kel AS Rayon 2",
+                 Jumlah = 72000d,
+                 SaldoKas = 7739500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 29
+             },
+             new
+             {
+                 Id = 28,
+                 Uraian = "Oma. Aranci Suek Rayon 4",
+                 Jumlah = 10000d,
+                 SaldoKas = 7749500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 30
+             },
+             new
+             {
+                 Id = 29,
+                 Uraian = " Bpk. Dominggus Kole Rayon 7",
+                 Jumlah = 50000d,
+                 SaldoKas = 7799500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 31
+             },
+             new
+             {
+                 Id = 30,
+                 Uraian = "Kel. IB Rayon 4",
+                 Jumlah = 300000d,
+                 SaldoKas = 8099500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 32
+             },
+             new
+             {
+                 Id = 31,
+                 Uraian = "Oma. Naomi A. Henuk Rayon 2",
+                 Jumlah = 50000d,
+                 SaldoKas = 8149500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 33
+             },
+             new
+             {
+                 Id = 32,
+                 Uraian = "Tanpa nama Rayon 7",
+                 Jumlah = 100000d,
+                 SaldoKas = 8249500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 34
+             },
+             new
+             {
+                 Id = 33,
+                 Uraian = "Bpk. Marcus Baria Rayon 7",
+                 Jumlah = 69000d,
+                 SaldoKas = 8318500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 35
+             },
+             new
+             {
+                 Id = 34,
+                 Uraian = "Oma. Annie M. Malonda Rayon 7",
+                 Jumlah = 150000d,
+                 SaldoKas = 8468500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 36
+             },
+             new
+             {
+                 Id = 35,
+                 Uraian = "Bpk. Mikhael Nenotek Rayon 5",
+                 Jumlah = 50000d,
+                 SaldoKas = 8518500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 37
+             },
+             new
+             {
+                 Id = 36,
+                 Uraian = "Tanpa nama Rayon 7",
+                 Jumlah = 50000d,
+                 SaldoKas = 8568500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 38
+             },
+             new
+             {
+                 Id = 37,
+                 Uraian = "Tanpa nama Rayon 7",
+                 Jumlah = 50000d,
+                 SaldoKas = 8618500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 39
+             },
+             new
+             {
+                 Id = 38,
+                 Uraian = "Bpk. A.J. Sinaga Rayon 2",
+                 Jumlah = 30000d,
+                 SaldoKas = 8648500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 40
+             },
+             new
+             {
+                 Id = 39,
+                 Uraian = "Bpk. Melkisedek Kasse Rayon 4",
+                 Jumlah = 10000d,
+                 SaldoKas = 8658500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 41
+             },
+             new
+             {
+                 Id = 40,
+                 Uraian = "Bpk. Nur M. Tasrap Rayon 5",
+                 Jumlah = 57000d,
+                 SaldoKas = 8715500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 42
+             },
+             new
+             {
+                 Id = 41,
+                 Uraian = "Bpk. Marthen Patipellohy Rayon 5",
+                 Jumlah = 16000d,
+                 SaldoKas = 8731500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 43
+             },
+             new
+             {
+                 Id = 42,
+                 Uraian = "Bpk. Benyamin Sua Rayon 3",
+                 Jumlah = 60000d,
+                 SaldoKas = 8791500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 44
+             },
+             new
+             {
+                 Id = 43,
+                 Uraian = "Tanpa Nama Rayon 7",
+                 Jumlah = 100000d,
+                 SaldoKas = 8891500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 45
+             },
+             new
+             {
+                 Id = 44,
+                 Uraian = "Bpk. Daud Ludji Rayon 4",
+                 Jumlah = 50000d,
+                 SaldoKas = 8941500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 46
+             },
+             new
+             {
+                 Id = 45,
+                 Uraian = "Tanpa Nama 1",
+                 Jumlah = 10000d,
+                 SaldoKas = 8951500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 47
+             },
+             new
+             {
+                 Id = 46,
+                 Uraian = "Tanpa Nama 2",
+                 Jumlah = 111000d,
+                 SaldoKas = 9062500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 48
+             },
+             new
+             {
+                 Id = 47,
+                 Uraian = "Tanpa Nama 3",
+                 Jumlah = 10000d,
+                 SaldoKas = 9072500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 49
+             },
+             new
+             {
+                 Id = 48,
+                 Uraian = "Tanpa Nama 4",
+                 Jumlah = 10000d,
+                 SaldoKas = 9082500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 50
+             },
+             new
+             {
+                 Id = 49,
+                 Uraian = "Tanpa Nama 5",
+                 Jumlah = 10000d,
+                 SaldoKas = 9092500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 51
+             },
+             new
+             {
+                 Id = 50,
+                 Uraian = "Tanpa Nama 6",
+                 Jumlah = 20000d,
+                 SaldoKas = 9112500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 52
+             },
+             new
+             {
+                 Id = 51,
+                 Uraian = "Tanpa Nama 7",
+                 Jumlah = 2000d,
+                 SaldoKas = 9114500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 53
+             },
+             new
+             {
+                 Id = 52,
+                 Uraian = "Tanpa Nama 8",
+                 Jumlah = 64000d,
+                 SaldoKas = 9178500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 54
+             },
+             new
+             {
+                 Id = 53,
+                 Uraian = "Tanpa Nama 9",
+                 Jumlah = 10000d,
+                 SaldoKas = 9188500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 55
+             },
+             new
+             {
+                 Id = 54,
+                 Uraian = "Tanpa Nama 10",
+                 Jumlah = 10000d,
+                 SaldoKas = 9198500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 56
+             },
+             new
+             {
+                 Id = 55,
+                 Uraian = "Tanpa Nama 11",
+                 Jumlah = 10000d,
+                 SaldoKas = 9208500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 50,
+                 KasId = 1,
+                 BuktiTransaksiId = 57
+             },
+             new
+             {
+                 Id = 56,
+                 Uraian = "Tanpa Nama",
+                 Jumlah = 100000d,
+                 SaldoKas = 9308500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 58
+             },
+             new
+             {
+                 Id = 57,
+                 Uraian = "Bpk. A.J. Sinaga Rayon 2",
+                 Jumlah = 30000d,
+                 SaldoKas = 9338500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 59
+             },
+             new
+             {
+                 Id = 58,
+                 Uraian = "Ibu. Febei Nuban Rayon 7",
+                 Jumlah = 25000d,
+                 SaldoKas = 9363500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 60
+             },
+             new
+             {
+                 Id = 59,
+                 Uraian = "Bpk. Kristian Walu Logo Rayon 1",
+                 Jumlah = 100000d,
+                 SaldoKas = 9463500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 61
+             },
+             new
+             {
+                 Id = 60,
+                 Uraian = "Bpk. Max Warruw Rayon 7",
+                 Jumlah = 250000d,
+                 SaldoKas = 9713500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 62
+             },
+             new
+             {
+                 Id = 61,
+                 Uraian = "Terima persembahan syukur ULTAH ke-79",
+                 Jumlah = 100000d,
+                 SaldoKas = 9813500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 14,
+                 KasId = 1,
+                 BuktiTransaksiId = 63
+             },
+             new
+             {
+                 Id = 62,
+                 Uraian = "Terima kolekte ibadah keluarga dirumah Bpk. Mexi Bekabel Rayon 4",
+                 Jumlah = 400000d,
+                 SaldoKas = 10213500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 1),
+                 TanggalDiubah = new DateTime(2024, 1, 1),
+                 AkunId = 44,
+                 KasId = 1,
+                 BuktiTransaksiId = 64
+             },
+             new
+             {
+                 Id = 63,
+                 Uraian = "Terima kolekte ibadah lepas kabung di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
+                 Jumlah = 791000d,
+                 SaldoKas = 10354500d,
+                 Tanggal = new DateOnly(2024, 1, 1),
+                 TanggalDitambahkan = new DateTime(2024, 1, 3),
+                 TanggalDiubah = new DateTime(2024, 1, 3),
+                 AkunId = 10,
+                 KasId = 1,
+                 BuktiTransaksiId = 65
+             },
+             new
+             {
+                 Id = 64,
+                 Uraian = "Terima kolekte ibadah penggembalaan Majelis Jemaat Periode 2024-2027 diGereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
+                 Jumlah = 643000d,
+                 SaldoKas = 10997500d,
+                 Tanggal = new DateOnly(2024, 1, 3),
+                 TanggalDitambahkan = new DateTime(2024, 1, 3),
+                 TanggalDiubah = new DateTime(2024, 1, 3),
+                 AkunId = 81,
+                 KasId = 1,
+                 BuktiTransaksiId = 66
+             }, new
+             {
+                 Id = 65,
+                 Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
+                 Jumlah = 329000d,
+                 SaldoKas = 11326500d,
+                 Tanggal = new DateOnly(2024, 1, 5),
+                 TanggalDitambahkan = new DateTime(2024, 1, 5),
+                 TanggalDiubah = new DateTime(2024, 1, 5),
+                 AkunId = 14,
+                 KasId = 1,
+                 BuktiTransaksiId = 67
+             }
         );
         #endregion
 
