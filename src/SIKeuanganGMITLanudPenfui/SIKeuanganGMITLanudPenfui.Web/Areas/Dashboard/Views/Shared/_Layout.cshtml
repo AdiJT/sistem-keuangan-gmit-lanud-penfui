@@ -4,17 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SIKeuanganGMITLanudPenfui.Web</title>
-@*     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="~/css/app.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/datatables.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/component.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/theme.css"/>
-    <link rel="stylesheet" href="/css/datatables.css">
-    <link rel="stylesheet" href="~/SIKeuanganGMITLanudPenfui.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    @*     <link rel="stylesheet" href="~/SIKeuanganGMITLanudPenfui.Web.styles.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <partial name="_NavbarPartial" />
@@ -25,7 +24,8 @@
                     <main role="main">
                         @RenderBody()
                     </main>
-                </div>                
+                </div>
+                   
                 <partial name="_ModalPartial" />
                 <partial name="_SettingsthemePartial" />
             </div>
@@ -33,9 +33,10 @@
     </div>
    
     <script src="~/js/app.min.js" asp-append-version="true"></script>
-    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/datatables.min.js" asp-append-version="true"></script>
     <script src="~/js/datatables.js" asp-append-version="true"></script>
-    <script src="~/js/datatables1.min.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

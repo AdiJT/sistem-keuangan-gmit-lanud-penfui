@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Shared\Test.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.7" />
@@ -19,6 +23,14 @@
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Application\SIKeuanganGMITLanudPenfui.Application.csproj" />
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Domain\SIKeuanganGMITLanudPenfui.Domain.csproj" />
     <ProjectReference Include="..\SIKeuanganGMITLanudPenfui.Infrastructure\SIKeuanganGMITLanudPenfui.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\Test.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Test.cshtml" />
   </ItemGroup>
 
 </Project>
