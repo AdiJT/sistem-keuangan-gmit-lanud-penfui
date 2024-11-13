@@ -1,1 +1,8 @@
-﻿
+﻿@model TambahKelompokAkunVM
+
+<ul>
+    @foreach (var j in await Model.DaftarJenisAkun())
+    {
+        <li>@j.Jenis, @j.Tahun.Value</li>
+    }
+</ul>
