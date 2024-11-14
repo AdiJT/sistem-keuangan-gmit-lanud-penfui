@@ -32,7 +32,7 @@
         <div class="col mb-3">
             <label asp-for="@Model.IdKelompokAkun" class="form-label"></label>
             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control">
-                @foreach (var kelompokAkun in await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]))
+                @foreach (var kelompokAkun in Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>())
                 {
                     <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
                 }

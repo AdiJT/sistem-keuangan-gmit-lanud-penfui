@@ -7,8 +7,8 @@
 
 @{
     ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Tambah Akun";
-    var daftarKelompokAkun = await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]);
-    var daftarGolonganAkun = await RepositoriGolonganAkun.GetAllByKelompokAkun(daftarKelompokAkun[0]);
+    var daftarKelompokAkun = Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>();
+    var daftarGolonganAkun = daftarKelompokAkun.Count > 0 ? await RepositoriGolonganAkun.GetAllByKelompokAkun(daftarKelompokAkun[0]) : new List<GolonganAkun>();
 }
 
 <h1>Tambah Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
