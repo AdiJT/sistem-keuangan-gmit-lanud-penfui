@@ -47,14 +47,28 @@
                             <i class="fas fa-plus"></i> Tambah Jenis Akun
                         </a>
                     </div>
-                    <div class="mb-3"><a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Sebelumnya</a></div>
+                    @if (Model.DaftarJenisAkun.Count == 0 &&
+                         Model.DaftarKelompokAkun.Count == 0 &&
+                         Model.DaftarGolonganAkun.Count == 0 &&
+                         Model.DaftarAkun.Count == 0)
+                    {
+                        <div class="mb-3">
+                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
+                        </div>
+                    }
                     <div class="ml-auto mr-3">
-                        <select id="inputState" class="form-control">
-                            <option selected>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
+                        <select id="tahunJenisAkun" class="form-control">
+                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                            {
+                                @if (tahun == Model.Tahun)
+                                {
+                                    <option selected value="@tahun">@tahun</option>
+                                }
+                                else
+                                {
+                                    <option value="@tahun">@tahun</option>
+                                }
+                            }
                         </select>
                     </div>
                 </div>
@@ -96,14 +110,28 @@
                             <i class="fas fa-plus"></i> Tambah Kelompok Akun
                         </a>
                     </div>
-                    <div class="mb-3"><a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Sebelumnya</a></div>
+                    @if (Model.DaftarJenisAkun.Count == 0 &&
+                         Model.DaftarKelompokAkun.Count == 0 &&
+                         Model.DaftarGolonganAkun.Count == 0 &&
+                         Model.DaftarAkun.Count == 0)
+                    {
+                        <div class="mb-3">
+                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
+                        </div>
+                    }
                     <div class="ml-auto mr-3">
-                        <select id="inputState" class="form-control">
-                            <option selected>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
+                        <select id="tahunKelompokAkun" class="form-control">
+                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                            {
+                                @if (tahun == Model.Tahun)
+                                {
+                                    <option selected value="@tahun">@tahun</option>
+                                }
+                                else
+                                {
+                                    <option value="@tahun">@tahun</option>
+                                }
+                            }
                         </select>
                     </div>
                 </div>
@@ -144,14 +172,28 @@
                             <i class="fas fa-plus"></i> Tambah Golongan Akun
                         </a>
                     </div>
-                    <div class="mb-3"><a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Sebelumnya</a></div>
+                    @if (Model.DaftarJenisAkun.Count == 0 &&
+                         Model.DaftarKelompokAkun.Count == 0 &&
+                         Model.DaftarGolonganAkun.Count == 0 &&
+                         Model.DaftarAkun.Count == 0)
+                    {
+                        <div class="mb-3">
+                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
+                        </div>
+                    }
                     <div class="ml-auto mr-3">
-                        <select id="inputState" class="form-control">
-                            <option selected>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
+                        <select id="tahunGolonganAkun" class="form-control">
+                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                            {
+                                @if (tahun == Model.Tahun)
+                                {
+                                    <option selected value="@tahun">@tahun</option>
+                                }
+                                else
+                                {
+                                    <option value="@tahun">@tahun</option>
+                                }
+                            }
                         </select>
                     </div>
                 </div>
@@ -192,14 +234,28 @@
                             <i class="fas fa-plus"></i> Tambah Akun
                         </a>
                     </div>
-                    <div class="mb-3"><a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Sebelumnya</a></div>
+                    @if (Model.DaftarJenisAkun.Count == 0 &&
+                         Model.DaftarKelompokAkun.Count == 0 &&
+                         Model.DaftarGolonganAkun.Count == 0 &&
+                         Model.DaftarAkun.Count == 0)
+                    {
+                        <div class="mb-3">
+                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
+                        </div>
+                    }
                     <div class="ml-auto mr-3">
-                        <select id="inputState" class="form-control">
-                            <option selected>2024</option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
+                        <select id="tahunAkun" class="form-control">
+                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                            {
+                                @if (tahun == Model.Tahun)
+                                {
+                                    <option selected value="@tahun">@tahun</option>
+                                }
+                                else
+                                {
+                                    <option value="@tahun">@tahun</option>
+                                }
+                            }
                         </select>
                     </div>
                 </div>
@@ -219,7 +275,7 @@
                                 <tr>
                                     <td>@Model.KodeJenisAkun(akun.JenisAkun).@akun.Kode</td>
                                     <td>@akun.Uraian</td>
-                                    <td>@akun.PresentaseSetoran</td>
+                                    <td>@akun.PresentaseSetoran!.Value.ToString("P2")</td>
                                     <td>
                                         <a href="" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
@@ -252,79 +308,37 @@
     </div>
 </div>
 
-@*
-<h1>Jenis Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var jenisAkun in Model.DaftarJenisAkun)
-        {
-            <tr>
-                <td>@Model.KodeJenisAkun(jenisAkun)</td>
-                <td>@jenisAkun.Uraian</td>
-            </tr>
-        }
-    </tbody>
-</table>
+@section Scripts {
+    <script type="text/javascript">
+        const selectTahunJenisAkun = $('select#tahunJenisAkun');
+        const selectTahunKelompokAkun = $('select#tahunKelompokAkun');
+        const selectTahunGolonganAkun = $('select#tahunGolonganAkun');
+        const selectTahunAkun = $('select#tahunAkun');
+        const url = '/Dashboard/Akun/Penerimaan';
 
-    <h1>Kelompok Akun</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Kode</th>
-                <th>Uraian</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var kelompokAkun in Model.DaftarKelompokAkun)
-            {
-                <tr>
-                    <td>@Model.KodeJenisAkun(kelompokAkun.JenisAkun).@kelompokAkun.Kode</td>
-                    <td>@kelompokAkun.Uraian</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        $(selectTahunJenisAkun).on('change', function () {
+            const tahun = $(selectTahunJenisAkun).val()
 
-    <h1>Golongan Akun</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Kode</th>
-                <th>Uraian</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var golonganAkun in Model.DaftarGolonganAkun)
-            {
-                <tr>
-                    <td>@Model.KodeJenisAkun(golonganAkun.KelompokAkun.JenisAkun).@golonganAkun.Kode</td>
-                    <td>@golonganAkun.Uraian</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+            location.href = `${url}/${tahun}#jenisakun`;
+        });
 
-<h1>Akun</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kode</th>
-            <th>Uraian</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var akun in Model.DaftarAkun)
-        {
-            <tr>
-                <td>@Model.KodeJenisAkun(akun.JenisAkun).@akun.Kode</td>
-                <td>@akun.Uraian</td>
-            </tr>
-        }
-    </tbody>
-</table> *@
+        $(selectTahunKelompokAkun).on('change', function () {
+            const tahun = $(selectTahunKelompokAkun).val()
+
+            location.href = `${url}/${tahun}#kelompokakun`;
+        });
+
+        $(selectTahunGolonganAkun).on('change', function () {
+            const tahun = $(selectTahunGolonganAkun).val()
+
+            location.href = `${url}/${tahun}#golonganakun`;
+        });
+
+        $(selectTahunAkun).on('change', function () {
+            const tahun = $(selectTahunAkun).val()
+
+            location.href = `${url}/${tahun}#akun`;
+        });
+
+    </script>
+}
