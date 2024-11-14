@@ -42,7 +42,7 @@ public static class DependecyInjection
             {
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 options.SlidingExpiration = true;
-                options.LoginPath = new PathString("/Dashboard/Home/Login");
+                options.LoginPath = new PathString("/Dashboard/Login");
             });
 
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
