@@ -23,6 +23,7 @@ public class HomeController : Controller
     }
 
     [AllowAnonymous]
+    [Route("[area]/[action]")]
     public IActionResult Login(string? returnUrl = null)
     {
         return View(new LoginVM
@@ -33,6 +34,7 @@ public class HomeController : Controller
 
     [AllowAnonymous]
     [HttpPost]
+    [Route("[area]/[action]")]
     public async Task<IActionResult> Login(LoginVM loginVM)
     {
         if(!ModelState.IsValid) return View(loginVM);
