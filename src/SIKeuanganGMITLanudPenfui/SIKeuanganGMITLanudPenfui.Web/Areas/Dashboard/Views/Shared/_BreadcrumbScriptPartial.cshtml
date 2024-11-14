@@ -1,0 +1,26 @@
+﻿<script type="text/javascript">
+    $(function () {
+        const breadCrumbList = $('ol#breadcrumb');
+        const breadCrumb = location.pathname.split('/');
+
+        console.log(breadCrumb);
+
+        breadCrumbList.html('');
+        for (let i = 2; i < breadCrumb.length; i++) {
+            const b = breadCrumb[i];
+
+            if (i == breadCrumb.length - 1) {
+                breadCrumbList.append(`<li class="breadcrumb-item" aria-current="page">${b}</li>`);
+            }
+            else {
+                let href = '';
+
+                for (let j = 1; j <= i; j++) {
+                    href += ('/' + breadCrumb[j]);
+                }
+
+                breadCrumbList.append(`<li class="breadcrumb-item"><a href="${href}">${b}</a></li>`);
+            }
+        }
+    });
+</script>

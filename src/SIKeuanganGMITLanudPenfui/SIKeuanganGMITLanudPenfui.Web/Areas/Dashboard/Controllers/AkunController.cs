@@ -109,7 +109,7 @@ public class AkunController : Controller
             new TambahJenisAkunVM
             {
                 Tahun = tahun,
-                Jenis = Jenis.Penerimaan,
+                Jenis = jenis,
                 ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", values: new { Area = "Dashboard", tahun })!
             }
         );

@@ -9,12 +9,7 @@
 
 <!-- Breadcrumb -->
 <div class="row">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Akun</a></li>
-            <li class="breadcrumb-item" aria-current="page">Penerimaan</li>
-        </ol>
-    </nav>
+    <partial name="_BreadcrumbPartial" />
 </div>
 
 <div class="card card-danger">
@@ -355,6 +350,8 @@
 </div>
 
 @section Scripts {
+    <partial name="_BreadcrumbScriptPartial" />
+
     <script type="text/javascript">
         const selectTahunJenisAkun = $('select#tahunJenisAkun');
         const selectTahunKelompokAkun = $('select#tahunKelompokAkun');
