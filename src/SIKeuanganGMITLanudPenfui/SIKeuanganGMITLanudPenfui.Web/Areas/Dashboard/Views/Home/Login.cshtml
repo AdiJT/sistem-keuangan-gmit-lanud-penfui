@@ -4,7 +4,97 @@
     Layout = null;
 }
 
-<div class="login-container">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SIKeuanganGMITLanudPenfui.Web</title>
+    <link rel="stylesheet" href="~/css/app.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/datatables.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/component.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    @*     <link rel="stylesheet" href="~/SIKeuanganGMITLanudPenfui.Web.styles.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="loader"></div>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                        <div class="login-brand">
+                            Sistem Informasi Keuangan Gereja
+                        </div>
+                        <div class="card card-primary">
+                            <div class="row m-0">
+                                <div class="col-12 col-md-12 col-lg-5 p-0">
+                                    <div class="card-header text-center">
+                                        <h4>Dashboard Admin</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form asp-action="Login" asp-controller="Home" asp-area="Dashboard" method="post">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger form-text"></div>
+
+                                            <div class="form-group floating-addon">
+                                                <label asp-for="@Model.Username">Username</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="far fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input asp-for="@Model.Username" type="text" class="form-control" autofocus placeholder="Username">
+                                                </div>
+                                                <span class="text-danger form-text" asp-validation-for="@Model.Username"></span>
+                                            </div>
+                                            <div class="form-group floating-addon mb-5">
+                                                <label asp-for="@Model.Password">Password</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-lock"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input asp-for="@Model.Password" type="password" class="form-control" placeholder="Password">
+                                                </div>
+                                                <span class="text-danger form-text" asp-validation-for="@Model.Password"></span>
+                                            </div>
+
+                                            <input asp-for="@Model.ReturnUrl" hidden />
+
+                                            <div class="form-group text-center">
+                                                <button type="submit" class="btn btn-lg btn-primary">
+                                                    Login
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-7 p-0">
+                                    <div id="map" class="contact-map">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1744.0123272579!2d123.65819668866342!3d-10.180670282136797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c568488aef228ff%3A0xa09c4a302e01718!2sGMIT%20Jemaat%20Lanud%20Eltari!5e0!3m2!1sid!2sid!4v1731592907275!5m2!1sid!2sid" width="100%" height="100%" style="border:0; border-radius: 10px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simple-footer">
+                            Copyright &copy; Kerja Praktek 2024
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="~/js/app.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/datatables.min.js" asp-append-version="true"></script>
+    <script src="~/js/datatables.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+</body>
+
+
+@* <div class="login-container">
     <h1>Sistem Informasi Keuangan Gereja</h1>
     <form asp-action="Login" asp-controller="Home" asp-area="Dashboard" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger form-text"></div>
@@ -23,7 +113,7 @@
         <input asp-for="@Model.ReturnUrl" hidden/>
         <button type="submit" class="btn btn-primary mt-3">Login</button>
     </form>
-</div>
+</div> *@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
