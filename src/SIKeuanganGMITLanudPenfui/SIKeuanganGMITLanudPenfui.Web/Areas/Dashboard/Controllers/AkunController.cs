@@ -69,7 +69,8 @@ public class AkunController : Controller
             DaftarAkun = daftarAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
             DaftarJenisAkun = daftarJenisAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
             DaftarKelompokAkun = daftarKelompokAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
-            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList()
+            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            IsAkunExist = await _repositoriAkun.IsExistOnTahun(rTahun.Value)
         });
     }
      
@@ -93,7 +94,8 @@ public class AkunController : Controller
             DaftarAkun = daftarAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
             DaftarJenisAkun = daftarJenisAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
             DaftarKelompokAkun = daftarKelompokAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
-            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList() 
+            DaftarGolonganAkun = daftarGolonganAkun.Where(a => a.Tahun == rTahun.Value).ToList(),
+            IsAkunExist = await _repositoriAkun.IsExistOnTahun(rTahun.Value)
         });
     }
 

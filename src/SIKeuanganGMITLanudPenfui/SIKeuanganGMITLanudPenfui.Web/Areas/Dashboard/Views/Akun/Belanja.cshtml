@@ -48,10 +48,7 @@
                             <i class="fas fa-plus"></i> Tambah Jenis Akun
                         </a>
                     </div>
-                    @if (Model.DaftarJenisAkun.Count == 0 &&
-                    Model.DaftarKelompokAkun.Count == 0 &&
-                    Model.DaftarGolonganAkun.Count == 0 &&
-                    Model.DaftarAkun.Count == 0)
+                    @if (!Model.IsAkunExist)
                     {
                         <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Belanja" asp-route-tahun="@Model.Tahun">
                             <div class="mb-3">
@@ -125,10 +122,7 @@
                             <i class="fas fa-plus"></i> Tambah Kelompok Akun
                         </a>
                     </div>
-                    @if (Model.DaftarJenisAkun.Count == 0 &&
-                    Model.DaftarKelompokAkun.Count == 0 &&
-                    Model.DaftarGolonganAkun.Count == 0 &&
-                    Model.DaftarAkun.Count == 0)
+                    @if (!Model.IsAkunExist)
                     {
                         <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Belanja" asp-route-tahun="@Model.Tahun">
                             <div class="mb-3">
@@ -202,10 +196,7 @@
                             <i class="fas fa-plus"></i> Tambah Golongan Akun
                         </a>
                     </div>
-                    @if (Model.DaftarJenisAkun.Count == 0 &&
-                    Model.DaftarKelompokAkun.Count == 0 &&
-                    Model.DaftarGolonganAkun.Count == 0 &&
-                    Model.DaftarAkun.Count == 0)
+                    @if (!Model.IsAkunExist)
                     {
                         <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Belanja" asp-route-tahun="@Model.Tahun">
                             <div class="mb-3">
@@ -279,10 +270,7 @@
                             <i class="fas fa-plus"></i> Tambah Akun
                         </a>
                     </div>
-                    @if (Model.DaftarJenisAkun.Count == 0 &&
-                    Model.DaftarKelompokAkun.Count == 0 &&
-                    Model.DaftarGolonganAkun.Count == 0 &&
-                    Model.DaftarAkun.Count == 0)
+                    @if (!Model.IsAkunExist)
                     {
                         <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Belanja" asp-route-tahun="@Model.Tahun">
                             <div class="mb-3">
