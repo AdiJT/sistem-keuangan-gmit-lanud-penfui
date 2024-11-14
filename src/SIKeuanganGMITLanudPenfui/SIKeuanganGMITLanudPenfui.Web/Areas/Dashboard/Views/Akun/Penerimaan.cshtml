@@ -1,4 +1,6 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
+@using SIKeuanganGMITLanudPenfui.Domain.Repositories
+@inject IRepositoriAkun RepositoriAkun
 @model PenerimaanVM
 
 @{
@@ -48,13 +50,25 @@
                         </a>
                     </div>
                     @if (Model.DaftarJenisAkun.Count == 0 &&
-                         Model.DaftarKelompokAkun.Count == 0 &&
-                         Model.DaftarGolonganAkun.Count == 0 &&
-                         Model.DaftarAkun.Count == 0)
+                    Model.DaftarKelompokAkun.Count == 0 &&
+                    Model.DaftarGolonganAkun.Count == 0 &&
+                    Model.DaftarAkun.Count == 0)
                     {
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
-                        </div>
+                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                            <div class="mb-3">
+                                <select id="tahunSumber" name="tahunSumber" class="form-control">
+                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                    {
+                                        <option value="@tahun">@tahun</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-icon icon-left btn-light">
+                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
+                                </button>
+                            </div>
+                        </form>
                     }
                     <div class="ml-auto mr-3">
                         <select id="tahunJenisAkun" class="form-control">
@@ -88,12 +102,14 @@
                                     <td>@Model.KodeJenisAkun(jenisAkun)</td>
                                     <td>@jenisAkun.Uraian</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                                        <a asp-action="EditJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2" title="Delete">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form style="display:inline" asp-action="HapusJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id">
+                                            <button type="submit" class="btn btn-danger btn-action">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -111,13 +127,25 @@
                         </a>
                     </div>
                     @if (Model.DaftarJenisAkun.Count == 0 &&
-                         Model.DaftarKelompokAkun.Count == 0 &&
-                         Model.DaftarGolonganAkun.Count == 0 &&
-                         Model.DaftarAkun.Count == 0)
+                    Model.DaftarKelompokAkun.Count == 0 &&
+                    Model.DaftarGolonganAkun.Count == 0 &&
+                    Model.DaftarAkun.Count == 0)
                     {
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
-                        </div>
+                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                            <div class="mb-3">
+                                <select id="tahunSumber" name="tahunSumber" class="form-control">
+                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                    {
+                                        <option value="@tahun">@tahun</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-icon icon-left btn-light">
+                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
+                                </button>
+                            </div>
+                        </form>
                     }
                     <div class="ml-auto mr-3">
                         <select id="tahunKelompokAkun" class="form-control">
@@ -151,12 +179,14 @@
                                     <td>@Model.KodeJenisAkun(kelompokAkun.JenisAkun).@kelompokAkun.Kode</td>
                                     <td>@kelompokAkun.Uraian</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                                        <a asp-action="EditKelompokAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@kelompokAkun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2" title="Delete">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form style="display:inline" asp-action="HapusKelompokAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@kelompokAkun.Id">
+                                            <button type="submit" class="btn btn-danger btn-action">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -173,13 +203,25 @@
                         </a>
                     </div>
                     @if (Model.DaftarJenisAkun.Count == 0 &&
-                         Model.DaftarKelompokAkun.Count == 0 &&
-                         Model.DaftarGolonganAkun.Count == 0 &&
-                         Model.DaftarAkun.Count == 0)
+                    Model.DaftarKelompokAkun.Count == 0 &&
+                    Model.DaftarGolonganAkun.Count == 0 &&
+                    Model.DaftarAkun.Count == 0)
                     {
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
-                        </div>
+                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                            <div class="mb-3">
+                                <select id="tahunSumber" name="tahunSumber" class="form-control">
+                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                    {
+                                        <option value="@tahun">@tahun</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-icon icon-left btn-light">
+                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
+                                </button>
+                            </div>
+                        </form>
                     }
                     <div class="ml-auto mr-3">
                         <select id="tahunGolonganAkun" class="form-control">
@@ -213,12 +255,14 @@
                                     <td>@Model.KodeJenisAkun(golonganAkun.KelompokAkun.JenisAkun).@golonganAkun.Kode</td>
                                     <td>@golonganAkun.Uraian</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                                        <a asp-action="EditGolonganAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@golonganAkun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2" title="Delete">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form style="display:inline" asp-action="HapusGolonganAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@golonganAkun.Id">
+                                            <button type="submit" class="btn btn-danger btn-action">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -235,13 +279,25 @@
                         </a>
                     </div>
                     @if (Model.DaftarJenisAkun.Count == 0 &&
-                         Model.DaftarKelompokAkun.Count == 0 &&
-                         Model.DaftarGolonganAkun.Count == 0 &&
-                         Model.DaftarAkun.Count == 0)
+                    Model.DaftarKelompokAkun.Count == 0 &&
+                    Model.DaftarGolonganAkun.Count == 0 &&
+                    Model.DaftarAkun.Count == 0)
                     {
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-icon icon-left btn-light"><i class="fas fa-file-import"></i> Import Dari Tahun Lainnya</a>
-                        </div>
+                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                            <div class="mb-3">
+                                <select id="tahunSumber" name="tahunSumber" class="form-control">
+                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                    {
+                                        <option value="@tahun">@tahun</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-icon icon-left btn-light">
+                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
+                                </button>
+                            </div>
+                        </form>
                     }
                     <div class="ml-auto mr-3">
                         <select id="tahunAkun" class="form-control">
@@ -277,12 +333,14 @@
                                     <td>@akun.Uraian</td>
                                     <td>@akun.PresentaseSetoran!.Value.ToString("P2")</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                                        <a asp-action="EditAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <a class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2" title="Delete">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <form style="display:inline" asp-action="HapusAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id">
+                                            <button type="submit" class="btn btn-danger btn-action">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             }

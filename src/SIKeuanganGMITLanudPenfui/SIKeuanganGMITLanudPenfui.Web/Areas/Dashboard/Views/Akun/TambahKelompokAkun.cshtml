@@ -1,7 +1,7 @@
 ﻿@model TambahKelompokAkunVM
 
 @{
-    ViewData["Title"] = "Akun | Penerimaan - Tambah Kelompok Akun";
+    ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Tambah Kelompok Akun";
 }
 
 <h1>Tambah Kelompok Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>

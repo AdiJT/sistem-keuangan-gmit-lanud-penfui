@@ -1,16 +1,17 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.Repositories
-@model TambahGolonganAkunVM
+@model EditGolonganAkunVM
 
 @inject IRepositoriKelompokAkun RepositoriKelompokAkun;
 
 @{
-    ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Tambah Golongan Akun";
+    ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Edit Golongan Akun";
+    var jenisAkunR = (await RepositoriKelompokAkun.Get(Model.IdKelompokAkun))!.JenisAkun;
 }
 
-<h1>Tambah Golongan Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
+<h1>Edit Golongan Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
 
 <div class="row">
-    <form asp-action="TambahGolonganAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
+    <form asp-action="EditGolonganAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.Id">
         <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
 
         <div class="col mb-3">
@@ -24,6 +25,10 @@
             <select class="form-control" id="idJenisAkun">
                 @foreach (var jenisAkun in Model.DaftarJenisAkun)
                 {
+                    @if (jenisAkun.Id == jenisAkunR.Id)
+                    {
+                        <option selected value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                    }
                     <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
                 }
             </select>
@@ -32,7 +37,7 @@
         <div class="col mb-3">
             <label asp-for="@Model.IdKelompokAkun" class="form-label"></label>
             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control">
-                @foreach (var kelompokAkun in await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]))
+                @foreach (var kelompokAkun in await RepositoriKelompokAkun.GetAllByJenis(jenisAkunR))
                 {
                     <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
                 }
@@ -44,7 +49,7 @@
 
         <input asp-for="@Model.Tahun" class="form-control" readonly hidden />
 
-        <input asp-for="@Model.ReturnURL" readonly hidden />
+        <input asp-for="@Model.ReturnUrl" readonly hidden />
 
         <div class="col mb-3">
             <button class="btn btn-primary">
@@ -67,7 +72,7 @@
             try {
                 const response = await fetch(`${url}?idJenisAkun=${idJenisAkun}`);
 
-                if(response.ok) {
+                if (response.ok) {
                     const json = await response.json();
 
                     selectIdKelompokAkun.html('');

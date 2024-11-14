@@ -44,7 +44,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
         if (jenisAkun.Jenis != akun.JenisAkun.Jenis)
             return new Error("EditAkunCommandHandler.JenisJenisAkunDifferent", "Jenis dari Jenis Akun baru berbeda dengan yang lama");
 
-        if (request.IdKelompokAkun is not null)
+        if (request.IdKelompokAkun is not null && request.IdGolonganAkun is null)
         {
             var kelompokAkun = await _repositoriKelompokAkun.Get(request.IdKelompokAkun.Value);
             if (kelompokAkun is null)
@@ -58,8 +58,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
 
             akun.KelompokAkun = kelompokAkun;
         }
-
-        if (request.IdGolonganAkun is not null && request.IdKelompokAkun is null)
+        else if (request.IdGolonganAkun is not null && request.IdKelompokAkun is null)
         {
             var golonganAkun = await _repositoriGolonganAkun.Get(request.IdGolonganAkun.Value);
             if(golonganAkun is null)
@@ -72,6 +71,22 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
                 return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
 
             akun.GolonganAkun = golonganAkun;
+            akun.KelompokAkun = null;
+        }
+        else if(request.IdGolonganAkun is not null && request.IdKelompokAkun is not null)
+        {
+            var golonganAkun = await _repositoriGolonganAkun.Get(request.IdGolonganAkun.Value);
+            if (golonganAkun is null)
+                return new Error("EditAkunCommandHandler.GolonganAkunNotFound", $"Golongan Akun dengan Id : {request.IdGolonganAkun} tidak ditemukan");
+
+            if (golonganAkun.Tahun != akun.Tahun)
+                return new Error("EditAkunCommandHandler.GolonganAkunTahunDifferent", "Tahun Golongan Akun berbeda dengan tahun input");
+
+            if (golonganAkun.KelompokAkun.JenisAkun != jenisAkun)
+                return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
+
+            akun.GolonganAkun = golonganAkun;
+            akun.KelompokAkun = null;
         }
 
         if (jenisAkun.Jenis == Jenis.Belanja && request.PresentaseSetoranSinode is not null)

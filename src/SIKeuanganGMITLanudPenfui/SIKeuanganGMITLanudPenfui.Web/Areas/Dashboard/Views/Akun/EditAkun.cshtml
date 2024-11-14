@@ -1,20 +1,23 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
 @using SIKeuanganGMITLanudPenfui.Domain.Repositories
-@model TambahAkunVM
+@model EditAkunVM
 
 @inject IRepositoriKelompokAkun RepositoriKelompokAkun;
 @inject IRepositoriGolonganAkun RepositoriGolonganAkun;
 
 @{
-    ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Tambah Akun";
-    var daftarKelompokAkun = await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]);
-    var daftarGolonganAkun = await RepositoriGolonganAkun.GetAllByKelompokAkun(daftarKelompokAkun[0]);
+    ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Edit Akun";
+    var jenisAkunDB = Model.DaftarJenisAkun.FirstOrDefault(j => j.Id == Model.IdJenisAkun)!;
+    var daftarKelompokAkun = await RepositoriKelompokAkun.GetAllByJenis(jenisAkunDB);
+
+    var kelompokAkunDB = daftarKelompokAkun.FirstOrDefault(k => k.Id == Model.IdKelompokAkun);
+    var daftarGolonganAkun = kelompokAkunDB is null ? new List<GolonganAkun>() : await RepositoriGolonganAkun.GetAllByKelompokAkun(kelompokAkunDB);
 }
 
-<h1>Tambah Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
+<h1>Edit Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
 
 <div class="row">
-    <form asp-action="TambahAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
+    <form asp-action="EditAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.Id">
         <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
 
         <div class="col mb-3">
@@ -71,7 +74,7 @@
 
         <input asp-for="@Model.Tahun" class="form-control" readonly hidden />
 
-        <input asp-for="@Model.ReturnURL" readonly hidden />
+        <input asp-for="@Model.ReturnUrl" readonly hidden />
 
         <div class="col mb-3">
             <button class="btn btn-primary">

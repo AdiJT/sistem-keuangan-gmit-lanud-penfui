@@ -18,7 +18,7 @@ public class Akun : Entity
                 $"{JenisAkun.DaftarAkun.Where(a => a is { KelompokAkun : null, GolonganAkun : null }).ToList().IndexOf(this) + 1}",
             { KelompokAkun : not null, GolonganAkun : null } => $"{KelompokAkun.Kode}.{KelompokAkun.DaftarAkun.IndexOf(this) + 1}",
             { KelompokAkun : null, GolonganAkun : not null } => $"{GolonganAkun.Kode}.{GolonganAkun.DaftarAkun.IndexOf(this) + 1}",
-            _ => throw new NotImplementedException()
+            _ => $"{GolonganAkun.Kode}.{GolonganAkun.DaftarAkun.IndexOf(this) + 1}"
         };
 
     public required JenisAkun JenisAkun { get; set; }

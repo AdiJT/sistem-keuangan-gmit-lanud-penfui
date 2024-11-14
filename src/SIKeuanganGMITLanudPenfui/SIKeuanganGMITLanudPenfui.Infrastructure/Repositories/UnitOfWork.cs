@@ -18,7 +18,7 @@ internal class UnitOfWork : IUnitOfWork
         _logger = logger;
     }
 
-    public async Task<Result<int>> SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task<Result<int>> SaveChangesAsync(CancellationToken cancellationToken=default)
     {
         try
         {

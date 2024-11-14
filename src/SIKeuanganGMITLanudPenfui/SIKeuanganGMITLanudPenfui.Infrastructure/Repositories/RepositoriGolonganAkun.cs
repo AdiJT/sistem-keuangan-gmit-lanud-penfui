@@ -18,7 +18,7 @@ internal class RepositoriGolonganAkun : IRepositoriGolonganAkun
 
     public async Task<GolonganAkun?> Get(int id) => await _appDbContext.TblGolonganAkun
         .Include(g => g.DaftarAkun)
-        .Include(g => g.KelompokAkun)
+        .Include(g => g.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .FirstOrDefaultAsync(g => g.Id == id);
 
     public async Task<List<GolonganAkun>> GetAllPenerimaan() => await _appDbContext.TblGolonganAkun
@@ -45,13 +45,13 @@ internal class RepositoriGolonganAkun : IRepositoriGolonganAkun
 
     public async Task<List<GolonganAkun>> GetAllByKelompokAkun(KelompokAkun kelompok) => await _appDbContext.TblGolonganAkun
         .Include(g => g.DaftarAkun)
-        .Include(g => g.KelompokAkun)
+        .Include(g => g.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Where(g => g.KelompokAkun == kelompok)
         .ToListAsync();
 
     public async Task<List<GolonganAkun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblGolonganAkun
         .Include(g => g.DaftarAkun)
-        .Include(g => g.KelompokAkun)
+        .Include(g => g.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Where(g => g.Tahun == tahun)
         .ToListAsync();
 
