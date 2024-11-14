@@ -71,9 +71,9 @@ internal class RepositoriAkun : IRepositoriAkun
         .ToListAsync();
 
     public async Task<bool> IsExistOnTahun(Tahun tahun) => 
-        await _appDbContext.TblAkun.AnyAsync(a => a.Tahun == tahun) &&
-        await _appDbContext.TblJenisAkun.AnyAsync(j => j.Tahun == tahun) &&
-        await _appDbContext.TblKelompokAkun.AnyAsync(k => k.Tahun == tahun) &&
+        await _appDbContext.TblAkun.AnyAsync(a => a.Tahun == tahun) ||
+        await _appDbContext.TblJenisAkun.AnyAsync(j => j.Tahun == tahun) ||
+        await _appDbContext.TblKelompokAkun.AnyAsync(k => k.Tahun == tahun) ||
         await _appDbContext.TblGolonganAkun.AnyAsync(g => g.Tahun == tahun);
 
     public void Add(Akun akun) => _appDbContext.TblAkun.Add(akun);
