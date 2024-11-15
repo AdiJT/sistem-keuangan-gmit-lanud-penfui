@@ -14,7 +14,102 @@
     var daftarGolonganAkun = kelompokAkunDB is null ? new List<GolonganAkun>() : await RepositoriGolonganAkun.GetAllByKelompokAkun(kelompokAkunDB);
 }
 
-<h1>Edit Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
+<!-- Breadcrumb -->
+<div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Akun</a></li>
+                <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Akun" asp-action="@Model.Jenis">@Model.Jenis</a></li>
+                <li class="breadcrumb-item" aria-current="page">Edit Akun</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="section-body">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="card card-primary">
+                <div class="card-header" style="padding-top: 20px;">
+                    <h4>Edit Akun - @Model.Jenis.ToString() - @Model.Tahun</h4>
+                </div>
+
+                <form asp-action="EditAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.Id">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Uraian">Uraian<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Uraian" type="text" class="form-control" autofocus placeholder="Uraian...">
+                            <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.IdJenisAkun">Jenis Akun<span class="text-danger">*</span></label>
+                            <select asp-for="@Model.IdJenisAkun" class="form-control selectric" id="idJenisAkun">
+                                <option value="@null">Pilih Jenis Akun...</option>
+                                @foreach (var jenisAkun in Model.DaftarJenisAkun)
+                                {
+                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.IdKelompokAkun">Kelompok Akun<span class="text-danger">*</span></label>
+                            <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control selectric">
+                                <option value="@null">Pilih Kelompok Akun...</option>
+                                @foreach (var kelompokAkun in Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>())
+                                {
+                                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.IdGolonganAkun">Golongan Akun<span class="text-danger">*</span></label>
+                            <select asp-for="@Model.IdGolonganAkun" id="idGolonganAkun" class="form-control selectric">
+                                <option value="@null">Pilih Golongan Akun...</option>
+                                @foreach (var kelompokAkun in Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>())
+                                {
+                                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
+                                }
+                            </select>
+                        </div>
+
+                        @if (Model.Jenis == Jenis.Penerimaan)
+                        {
+                            <div class="form-group">
+                                <label asp-for="@Model.PresentaseSetoranSinode">Setoran Sinode</label>
+                                <div class="input-group mb-2">
+                                    <input asp-for="@Model.PresentaseSetoranSinode" type="number" class="form-control" autofocus placeholder="Presentase Setoran Sinode...">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">%</div>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="@Model.PresentaseSetoranSinode" class="form-text text-danger"></span>
+                            </div>
+                        }
+
+                        <input asp-for="@Model.Jenis" class="form-control" readonly hidden />
+
+                        <input asp-for="@Model.Tahun" class="form-control" readonly hidden />
+
+                        <input asp-for="@Model.ReturnUrl" readonly hidden />
+                    </div>
+
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#basicModal2" type="reset">Batal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <h1>Edit Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
 
 <div class="row">
     <form asp-action="EditAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.Id">
@@ -82,7 +177,7 @@
             </button>
         </div>
     </form>
-</div>
+</div> *@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
