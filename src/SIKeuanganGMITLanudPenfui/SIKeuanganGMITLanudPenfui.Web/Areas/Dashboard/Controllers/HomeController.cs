@@ -54,6 +54,6 @@ public class HomeController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.Logout();
-        return RedirectToAction("Login");
+        return RedirectToAction("Index", "Home", new {Area=""});
     }
 }

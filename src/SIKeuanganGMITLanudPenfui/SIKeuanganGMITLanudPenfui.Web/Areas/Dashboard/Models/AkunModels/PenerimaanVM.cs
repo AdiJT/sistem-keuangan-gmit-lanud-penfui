@@ -12,5 +12,5 @@ public class PenerimaanVM
 
     public required bool IsAkunExist { get; set; }
 
-    public string KodeJenisAkun(JenisAkun jenisAkun) => $"1.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
+    public string KodeJenisAkun(JenisAkun jenisAkun) => $"I.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
 }

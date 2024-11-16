@@ -12,5 +12,5 @@ public class BelanjaVM
 
     public required bool IsAkunExist { get; set; }
 
-    public string KodeJenisAkun(JenisAkun jenisAkun) => $"2.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
+    public string KodeJenisAkun(JenisAkun jenisAkun) => $"II.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
 }

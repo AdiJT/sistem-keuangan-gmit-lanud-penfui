@@ -40,29 +40,29 @@
                     </div>
                 </div>
                 @* <div class="dropdown-list-content dropdown-list-message">
-                    <a href="#" class="dropdown-item">
-                        <span class="dropdown-item-desc">
-                            <span class="message-user">Umbu Kondatana</span>
-                            <span class="time messege-text">Telah menyelesaikan pembayaran.</span>
-                            <span class="time">5 Menit Lalu</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item">
+                <span class="dropdown-item-desc">
+                <span class="message-user">Umbu Kondatana</span>
+                <span class="time messege-text">Telah menyelesaikan pembayaran.</span>
+                <span class="time">5 Menit Lalu</span>
+                </span>
+                </a>
 
-                    <a href="#" class="dropdown-item">
-                        <span class="dropdown-item-desc">
-                            <span class="message-user">Beni Liufeto</span>
-                            <span class="time messege-text">Pesanan telah diterima.</span>
-                            <span class="time">2 Jam Lalu</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item">
+                <span class="dropdown-item-desc">
+                <span class="message-user">Beni Liufeto</span>
+                <span class="time messege-text">Pesanan telah diterima.</span>
+                <span class="time">2 Jam Lalu</span>
+                </span>
+                </a>
 
-                    <a href="#" class="dropdown-item">
-                        <span class="dropdown-item-desc">
-                            <span class="message-user">Bernard Pa</span>
-                            <span class="time messege-text">Mengajukan permintaan pengembalian dana.</span>
-                            <span class="time">Kemarin</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item">
+                <span class="dropdown-item-desc">
+                <span class="message-user">Bernard Pa</span>
+                <span class="time messege-text">Mengajukan permintaan pengembalian dana.</span>
+                <span class="time">Kemarin</span>
+                </span>
+                </a>
 
                 </div> *@
                 <div class="dropdown-footer text-center">
@@ -84,29 +84,29 @@
                     </div>
                 </div>
                 @* <div class="dropdown-list-content dropdown-list-icons">
-                    <a href="#" class="dropdown-item dropdown-item-unread">
-                        <span class="dropdown-item-icon bg-warning text-white"><i class="fas fa-exclamation-circle"></i></span>
-                        <span class="dropdown-item-desc">
-                            Stok <b>Kopi Flores</b> hampir habis! Tersisa 5 item.
-                            <span class="time">10 Menit Lalu</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                <span class="dropdown-item-icon bg-warning text-white"><i class="fas fa-exclamation-circle"></i></span>
+                <span class="dropdown-item-desc">
+                Stok <b>Kopi Flores</b> hampir habis! Tersisa 5 item.
+                <span class="time">10 Menit Lalu</span>
+                </span>
+                </a>
 
-                    <a href="#" class="dropdown-item">
-                        <span class="dropdown-item-icon bg-success text-white"><i class="fas fa-check"></i></span>
-                        <span class="dropdown-item-desc">
-                            <b>Oswaldus</b> telah memesan <b>Kain Tenun Ikat</b>.
-                            <span class="time">2 Jam Lalu</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon bg-success text-white"><i class="fas fa-check"></i></span>
+                <span class="dropdown-item-desc">
+                <b>Oswaldus</b> telah memesan <b>Kain Tenun Ikat</b>.
+                <span class="time">2 Jam Lalu</span>
+                </span>
+                </a>
 
-                    <a href="#" class="dropdown-item">
-                        <span class="dropdown-item-icon bg-danger text-white"><i class="fas fa-box"></i></span>
-                        <span class="dropdown-item-desc">
-                            Stok <b>Minyak Sopi</b> hanya tersisa 3 botol. Segera lakukan restock.
-                            <span class="time">Kemarin</span>
-                        </span>
-                    </a>
+                <a href="#" class="dropdown-item">
+                <span class="dropdown-item-icon bg-danger text-white"><i class="fas fa-box"></i></span>
+                <span class="dropdown-item-desc">
+                Stok <b>Minyak Sopi</b> hanya tersisa 3 botol. Segera lakukan restock.
+                <span class="time">Kemarin</span>
+                </span>
+                </a>
                 </div> *@
                 <div class="dropdown-footer text-center">
                     <a href="#">View All <i class="fas fa-chevron-right"></i></a>
@@ -129,10 +129,11 @@
                     Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </a>
+                <form asp-action="Logout">
+                    <button type="submit" class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </form>
             </div>
         </li>
     </ul>
