@@ -1,0 +1,50 @@
+﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
+
+@inject IRepositoriAkun RepositoriAkun
+
+@model RAPBJVM
+
+@{
+    ViewData["Title"] = "RAPBJ | Penerimaan Lainya";
+}
+
+<h1>RAPBJ - Penerimaan Lainya - @Model.Tahun</h1>
+
+@if (Model.RAPBJ is not null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kode Akun</th>
+                <th>Uraian</th>
+                <th>Volume</th>
+                <th>Satuan</th>
+                <th>Harga Satuan</th>
+                <th>Jumlah</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var daftarDetailRAPBJ = Model.RAPBJ.DaftarDetailRAPBJ
+                    .Where(d => d.Akun.JenisAkun.Jenis == Jenis.Penerimaan && d.Akun.JenisAkun.Uraian == "Penerimaan Lain-Lain");
+            }
+            @foreach (var detail in daftarDetailRAPBJ)
+            {
+                <tr>
+                    <td>@(await RepositoriAkun.GetKode(detail.Akun))</td>
+                    <td>@detail.Akun.Uraian</td>
+                    <td>@detail.Volume</td>
+                    <td>@detail.Satuan</td>
+                    <td>@detail.HargaSatuan</td>
+                    <td>@detail.Jumlah</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>Tidak Ada RAPBJ di Tahun @Model.Tahun</h4>
+}

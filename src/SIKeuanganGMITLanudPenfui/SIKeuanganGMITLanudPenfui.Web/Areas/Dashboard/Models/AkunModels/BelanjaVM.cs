@@ -11,6 +11,4 @@ public class BelanjaVM
     public List<GolonganAkun> DaftarGolonganAkun { get; set; } = [];
 
     public required bool IsAkunExist { get; set; }
-
-    public string KodeJenisAkun(JenisAkun jenisAkun) => $"II.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
 }

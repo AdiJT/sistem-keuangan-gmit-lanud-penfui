@@ -11,6 +11,4 @@ public class PenerimaanVM
     public List<GolonganAkun> DaftarGolonganAkun { get; set; } = [];
 
     public required bool IsAkunExist { get; set; }
-
-    public string KodeJenisAkun(JenisAkun jenisAkun) => $"I.{DaftarJenisAkun.IndexOf(jenisAkun) + 1}";
 }

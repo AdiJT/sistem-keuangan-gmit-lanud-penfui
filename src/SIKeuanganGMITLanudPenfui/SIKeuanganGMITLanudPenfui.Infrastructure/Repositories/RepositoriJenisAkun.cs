@@ -49,6 +49,17 @@ internal class RepositoriJenisAkun : IRepositoriJenisAkun
         .Where(j => j.Tahun == tahun)
         .ToListAsync();
 
+    public async Task<string> GetKode(JenisAkun jenisAkun)
+    {
+        var daftarJenisAkun = await _appDbContext
+            .TblJenisAkun
+            .Where(j => j.Jenis == jenisAkun.Jenis && j.Tahun == jenisAkun.Tahun)
+            .OrderBy(j => j.Id)
+            .ToListAsync();
+
+        return $"{(jenisAkun.Jenis == Jenis.Penerimaan ? "I" : "II")}.{daftarJenisAkun.IndexOf(jenisAkun) + 1}";
+    }
+
     public void Add(JenisAkun jenisAkun) => _appDbContext.TblJenisAkun.Add(jenisAkun);
 
     public void Delete(JenisAkun jenisAkun) => _appDbContext.TblJenisAkun.Remove(jenisAkun);

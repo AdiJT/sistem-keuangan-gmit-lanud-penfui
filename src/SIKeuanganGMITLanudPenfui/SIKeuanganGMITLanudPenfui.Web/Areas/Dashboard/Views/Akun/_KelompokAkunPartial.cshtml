@@ -1,17 +1,19 @@
-﻿@model (KelompokAkun kelompokAkun, string kodeJenisAkun)
+﻿@inject IRepositoriKelompokAkun RepositoriKelompokAkun
 
-<li>@(Model.kodeJenisAkun).@(Model.kelompokAkun.Kode) @Model.kelompokAkun.Uraian</li>
+@model KelompokAkun
+
+<li>@(await RepositoriKelompokAkun.GetKode(Model)) @Model.Uraian</li>
 
 <ul>
-    @foreach (var akun in Model.kelompokAkun.DaftarAkun)
+    @foreach (var akun in Model.DaftarAkun.OrderBy(a => a.Id))
     {
-        <partial name="_AkunPartial" model="(akun, Model.kodeJenisAkun)" />
+        <partial name="_AkunPartial" model="akun" />
     }
 </ul>
 
 <ul>
-    @foreach(var golonganAkun in Model.kelompokAkun.DaftarGolonganAkun)
+    @foreach(var golonganAkun in Model.DaftarGolonganAkun.OrderBy(g => g.Id))
     {
-        <partial name="_GolonganAkunPartial" model="(golonganAkun, Model.kodeJenisAkun)" />
+        <partial name="_GolonganAkunPartial" model="golonganAkun" />
     }
 </ul>

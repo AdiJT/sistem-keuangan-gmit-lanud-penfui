@@ -12,6 +12,7 @@ public interface IRepositoriJenisAkun
     Task<List<JenisAkun>> GetAllBelanja();
     Task<bool> IsUraianUnique(string uraian, Tahun tahun);
     Task<List<JenisAkun>> GetAllByTahun(Tahun tahun);
+    Task<string> GetKode(JenisAkun jenisAkun);
 
     void Add(JenisAkun jenisAkun);
     void Delete(JenisAkun jenisAkun);

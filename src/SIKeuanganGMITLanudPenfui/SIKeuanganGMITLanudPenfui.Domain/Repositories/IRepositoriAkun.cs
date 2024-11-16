@@ -14,6 +14,7 @@ public interface IRepositoriAkun
     Task<List<Akun>> GetAllByGolongan(GolonganAkun golongan);
     Task<List<Akun>> GetAllByTahun(Tahun tahun);
     Task<bool> IsExistOnTahun(Tahun tahun);
+    Task<string> GetKode(Akun akun);
 
     void Add(Akun akun);
     void Delete(Akun akun);

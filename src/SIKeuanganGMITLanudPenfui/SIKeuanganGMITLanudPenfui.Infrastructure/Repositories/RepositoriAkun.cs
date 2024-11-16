@@ -10,10 +10,20 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
 internal class RepositoriAkun : IRepositoriAkun
 {
     private readonly AppDbContext _appDbContext;
+    private readonly IRepositoriJenisAkun _repositoriJenisAkun;
+    private readonly IRepositoriKelompokAkun _repositoriKelompokAkun;
+    private readonly IRepositoriGolonganAkun _repositoriGolonganAkun;
 
-    public RepositoriAkun(AppDbContext appDbContext)
+    public RepositoriAkun(
+        AppDbContext appDbContext,
+        IRepositoriJenisAkun repositoriJenisAkun,
+        IRepositoriKelompokAkun repositoriKelompokAkun,
+        IRepositoriGolonganAkun repositoriGolonganAkun)
     {
         _appDbContext = appDbContext;
+        _repositoriJenisAkun = repositoriJenisAkun;
+        _repositoriKelompokAkun = repositoriKelompokAkun;
+        _repositoriGolonganAkun = repositoriGolonganAkun;
     }
 
     public async Task<Akun?> Get(int id) => await _appDbContext.TblAkun
@@ -75,6 +85,40 @@ internal class RepositoriAkun : IRepositoriAkun
         await _appDbContext.TblJenisAkun.AnyAsync(j => j.Tahun == tahun) ||
         await _appDbContext.TblKelompokAkun.AnyAsync(k => k.Tahun == tahun) ||
         await _appDbContext.TblGolonganAkun.AnyAsync(g => g.Tahun == tahun);
+
+    public async Task<string> GetKode(Akun akun)
+    {
+        if(akun.KelompokAkun is null && akun.GolonganAkun is null)
+        {
+            var kodeJenisAkun = await _repositoriJenisAkun.GetKode(akun.JenisAkun);
+            var daftarAkun = await _appDbContext.TblAkun
+                .Where(a => a.JenisAkun == akun.JenisAkun && a.KelompokAkun == null && a.GolonganAkun == null)
+                .OrderBy(a => a.Id)
+                .ToListAsync();
+
+            return $"{kodeJenisAkun}.{daftarAkun.IndexOf(akun) + 1}";
+        } 
+        else if(akun.KelompokAkun is not null && akun.GolonganAkun is null)
+        {
+            var kodeKelompokAkun = await _repositoriKelompokAkun.GetKode(akun.KelompokAkun);
+            var daftarAkun = await _appDbContext.TblAkun
+                .Where(a => a.KelompokAkun == akun.KelompokAkun)
+                .OrderBy(a => a.Id)
+                .ToListAsync();
+
+            return $"{kodeKelompokAkun}.{daftarAkun.IndexOf(akun) + 1}";
+        }
+        else
+        {
+            var kodeGolonganAkun = await _repositoriGolonganAkun.GetKode(akun.GolonganAkun!);
+            var daftarAkun = await _appDbContext.TblAkun
+                .Where(a => a.GolonganAkun == akun.GolonganAkun)
+                .OrderBy(a => a.Id)
+                .ToListAsync();
+
+            return $"{kodeGolonganAkun}.{daftarAkun.IndexOf(akun) + 1}";
+        }
+    }
 
     public void Add(Akun akun) => _appDbContext.TblAkun.Add(akun);
 

@@ -10,10 +10,12 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
 internal class RepositoriKelompokAkun : IRepositoriKelompokAkun
 {
     private readonly AppDbContext _appDbContext;
+    private readonly IRepositoriJenisAkun _repositoriJenisAkun;
 
-    public RepositoriKelompokAkun(AppDbContext appDbContext)
+    public RepositoriKelompokAkun(AppDbContext appDbContext, IRepositoriJenisAkun repositoriJenisAkun)
     {
         _appDbContext = appDbContext;
+        _repositoriJenisAkun = repositoriJenisAkun;
     }
 
     public async Task<KelompokAkun?> Get(int id) => await _appDbContext.TblKelompokAkun
@@ -54,6 +56,24 @@ internal class RepositoriKelompokAkun : IRepositoriKelompokAkun
         .Include(k => k.DaftarGolonganAkun)
         .Where(k => k.Tahun == tahun)
         .ToListAsync();
+
+    public async Task<string> GetKode(KelompokAkun kelompokAkun)
+    {
+        var kodeJenisAkun = await _repositoriJenisAkun.GetKode(kelompokAkun.JenisAkun);
+
+        var daftarKelompokAkun = await _appDbContext
+            .TblKelompokAkun
+            .Where(k => k.JenisAkun == kelompokAkun.JenisAkun)
+            .OrderBy(k => k.Id)
+            .ToListAsync();
+
+        var jumlahAkun = await _appDbContext
+            .TblAkun
+            .Where(a => a.JenisAkun == kelompokAkun.JenisAkun && a.KelompokAkun == null && a.GolonganAkun == null)
+            .CountAsync();
+
+        return $"{kodeJenisAkun}.{jumlahAkun + daftarKelompokAkun.IndexOf(kelompokAkun) + 1}";
+    }
 
     public void Add(KelompokAkun kelompokAkun) => _appDbContext.TblKelompokAkun.Add(kelompokAkun);
 

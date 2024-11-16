@@ -12,6 +12,7 @@ public interface IRepositoriGolonganAkun
     Task<List<GolonganAkun>> GetAllByKelompokAkun(KelompokAkun kelompok);
     Task<List<GolonganAkun>> GetAllByJenisAkun(JenisAkun jenis);
     Task<List<GolonganAkun>> GetAllByTahun(Tahun tahun);
+    Task<string> GetKode(GolonganAkun golonganAkun);
 
     void Add(GolonganAkun golonganAkun);
     void Delete(GolonganAkun golonganAkun);

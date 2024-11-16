@@ -1,3 +1,5 @@
-﻿@model (Akun akun, string kodeJenisAkun)
+﻿@inject IRepositoriAkun RepositoriAkun
 
-<li>@(Model.kodeJenisAkun).@Model.akun.Kode @Model.akun.Uraian@(Model.akun.PresentaseSetoran is not null ? $" {Model.akun.PresentaseSetoran:P2}" : "")</li>
+@model Akun
+
+<li>@(await RepositoriAkun.GetKode(Model)) @Model.Uraian@(Model.PresentaseSetoran is not null ? $" {Model.PresentaseSetoran:P2}" : "")</li>

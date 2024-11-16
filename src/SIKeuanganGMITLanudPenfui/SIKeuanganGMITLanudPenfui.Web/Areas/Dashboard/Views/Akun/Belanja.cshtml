@@ -1,6 +1,8 @@
-﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
-@using SIKeuanganGMITLanudPenfui.Domain.Repositories
-@inject IRepositoriAkun RepositoriAkun
+﻿@inject IRepositoriAkun RepositoriAkun
+@inject IRepositoriJenisAkun RepositoriJenisAkun
+@inject IRepositoriKelompokAkun RepositoriKelompokAkun
+@inject IRepositoriGolonganAkun RepositoriGolonganAkun
+
 @model BelanjaVM
 
 @{
@@ -9,12 +11,7 @@
 
 <!-- Breadcrumb -->
 <div class="row">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="">Akun</a></li>
-            <li class="breadcrumb-item" aria-current="page">Belanja</li>
-        </ol>
-    </nav>
+    <partial name="_BreadcrumbPartial" />
 </div>
 
 <div class="card card-danger">
@@ -95,7 +92,7 @@
                             @foreach (var jenisAkun in Model.DaftarJenisAkun)
                             {
                                 <tr>
-                                    <td>@Model.KodeJenisAkun(jenisAkun)</td>
+                                    <td>@(await RepositoriJenisAkun.GetKode(jenisAkun))</td>
                                     <td>@jenisAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditJenisAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -169,7 +166,7 @@
                             @foreach (var kelompokAkun in Model.DaftarKelompokAkun)
                             {
                                 <tr>
-                                    <td>@Model.KodeJenisAkun(kelompokAkun.JenisAkun).@kelompokAkun.Kode</td>
+                                    <td>@(await RepositoriKelompokAkun.GetKode(kelompokAkun))</td>
                                     <td>@kelompokAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditKelompokAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -243,7 +240,7 @@
                             @foreach (var golonganAkun in Model.DaftarGolonganAkun)
                             {
                                 <tr>
-                                    <td>@Model.KodeJenisAkun(golonganAkun.KelompokAkun.JenisAkun).@golonganAkun.Kode</td>
+                                    <td>@(await RepositoriGolonganAkun.GetKode(golonganAkun))</td>
                                     <td>@golonganAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditGolonganAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -317,7 +314,7 @@
                             @foreach (var akun in Model.DaftarAkun)
                             {
                                 <tr>
-                                    <td>@Model.KodeJenisAkun(akun.JenisAkun).@akun.Kode</td>
+                                    <td>@(await RepositoriAkun.GetKode(akun))</td>
                                     <td>@akun.Uraian</td>
                                     <td>
                                         <a asp-action="EditAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -348,7 +345,7 @@
         <ul>
             @foreach (var jenisAkun in Model.DaftarJenisAkun)
             {
-                <partial name="_JenisAkunPartial" model="(jenisAkun, Model.KodeJenisAkun(jenisAkun))" />
+                <partial name="_JenisAkunPartial" model="jenisAkun" />
             }
         </ul>
     </div>
@@ -356,6 +353,8 @@
 
 
 @section Scripts {
+    <partial name="_BreadcrumbScriptPartial" />
+
     <script type="text/javascript">
         $("select#tahun").on('change', function () {
             const url = '/Dashboard/Akun/Belanja';

@@ -11,6 +11,7 @@ public interface IRepositoriKelompokAkun
     Task<List<KelompokAkun>> GetAllBelanja();
     Task<List<KelompokAkun>> GetAllByJenis(JenisAkun jenis);
     Task<List<KelompokAkun>> GetAllByTahun(Tahun tahun);
+    Task<string> GetKode(KelompokAkun kelompokAkun);
 
     void Add(KelompokAkun kelompokAkun);
     void Delete(KelompokAkun kelompokAkun);
