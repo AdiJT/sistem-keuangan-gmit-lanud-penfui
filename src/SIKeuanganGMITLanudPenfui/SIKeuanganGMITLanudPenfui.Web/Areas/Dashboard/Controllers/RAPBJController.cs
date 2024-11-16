@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateRAPBJ;
+using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteRAPBJ;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
@@ -125,7 +126,17 @@ public class RAPBJController : Controller
         var command = new CreateRAPBJCommand(tahun);
         var result = await _sender.Send(command);
 
-        if(result.IsFailure) return BadRequest();
+        if (result.IsFailure) return BadRequest();
+
+        return Redirect(returnUrl);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> HapusRAPBJ(int tahun, string returnUrl)
+    {
+        var command = new DeleteRAPBJCommand(tahun);
+        var result = await _sender.Send(command);
+        if (result.IsFailure) return BadRequest();
 
         return Redirect(returnUrl);
     }

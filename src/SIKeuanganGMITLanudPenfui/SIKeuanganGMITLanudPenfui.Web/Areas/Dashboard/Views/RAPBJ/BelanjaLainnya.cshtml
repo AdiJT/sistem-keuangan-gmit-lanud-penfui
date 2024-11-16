@@ -10,6 +10,10 @@
 
 @if (Model.RAPBJ is not null)
 {
+    <form asp-action="HapusRAPBJ" asp-route-tahun="@Model.Tahun"
+          asp-route-returnUrl="@Url.Action("BelanjaLainnya", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun})">
+        <button type="submit" class="btn btn-danger">Hapus RAPBJ</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
