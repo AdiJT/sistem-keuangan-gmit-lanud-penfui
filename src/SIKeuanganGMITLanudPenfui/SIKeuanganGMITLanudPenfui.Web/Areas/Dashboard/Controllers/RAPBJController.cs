@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateRAPBJ;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
@@ -13,8 +15,7 @@ public class RAPBJController : Controller
     private readonly IRepositoriDetailRAPBJ _repositoriDetailRAPBJ;
     private readonly IRepositoriAkun _repositoriAkun;
     private readonly IRepositoriJenisAkun _repositoriJenisAkun;
-    private readonly IRepositoriKelompokAkun _repositoriKelompokAkun;
-    private readonly IRepositoriGolonganAkun _repositoriGolonganAkun;
+    private readonly ISender _sender;
     private readonly IUnitOfWork _unitOfWork;
 
     public RAPBJController(
@@ -22,17 +23,15 @@ public class RAPBJController : Controller
         IRepositoriDetailRAPBJ repositoriDetailRAPBJ,
         IRepositoriAkun repositoriAkun,
         IRepositoriJenisAkun repositoriJenisAkun,
-        IRepositoriKelompokAkun repositoriKelompokAkun,
-        IRepositoriGolonganAkun repositoriGolonganAkun,
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork,
+        ISender sender)
     {
         _repositoriRAPBJ = repositoriRAPBJ;
         _repositoriDetailRAPBJ = repositoriDetailRAPBJ;
         _repositoriAkun = repositoriAkun;
         _repositoriJenisAkun = repositoriJenisAkun;
-        _repositoriKelompokAkun = repositoriKelompokAkun;
-        _repositoriGolonganAkun = repositoriGolonganAkun;
         _unitOfWork = unitOfWork;
+        _sender = sender;
     }
 
     public async Task<IActionResult> Penerimaan(int? tahun = null)
@@ -42,7 +41,7 @@ public class RAPBJController : Controller
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
-        var rapbj = await _repositoriRAPBJ.Get(tahun.Value);
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
         return View(new RAPBJVM
         {
@@ -59,7 +58,7 @@ public class RAPBJController : Controller
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
-        var rapbj = await _repositoriRAPBJ.Get(tahun.Value);
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
         return View(new RAPBJVM
         {
@@ -76,7 +75,7 @@ public class RAPBJController : Controller
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
-        var rapbj = await _repositoriRAPBJ.Get(tahun.Value);
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
         return View(new RAPBJVM
         {
@@ -93,7 +92,7 @@ public class RAPBJController : Controller
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
-        var rapbj = await _repositoriRAPBJ.Get(tahun.Value);
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
         return View(new RAPBJVM
         {
@@ -110,7 +109,7 @@ public class RAPBJController : Controller
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
-        var rapbj = await _repositoriRAPBJ.Get(tahun.Value);
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
         return View(new RAPBJVM
         {
@@ -118,5 +117,16 @@ public class RAPBJController : Controller
             RAPBJ = rapbj,
             DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Belanja).ToList()
         });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> TambahRAPBJ(int tahun, string returnUrl)
+    {
+        var command = new CreateRAPBJCommand(tahun);
+        var result = await _sender.Send(command);
+
+        if(result.IsFailure) return BadRequest();
+
+        return Redirect(returnUrl);
     }
 }

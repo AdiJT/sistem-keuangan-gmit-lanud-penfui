@@ -48,7 +48,6 @@
                         <div class="form-group">
                             <label asp-for="@Model.IdJenisAkun">Jenis Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdJenisAkun" class="form-control selectric" id="idJenisAkun">
-                                <option value="@null">Pilih Jenis Akun...</option>
                                 @foreach (var jenisAkun in Model.DaftarJenisAkun)
                                 {
                                     <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
@@ -101,83 +100,13 @@
 
                     <div class="card-footer text-right">
                         <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#basicModal2" type="reset">Batal</button>
+                        <a class="btn btn-danger" href="@Model.ReturnUrl">Batal</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-@* <h1>Edit Akun - @Model.Jenis.ToString() - @Model.Tahun</h1>
-
-<div class="row">
-    <form asp-action="EditAkun" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.Id">
-        <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
-
-        <div class="col mb-3">
-            <label asp-for="@Model.Uraian" class="form-label"></label>
-            <input asp-for="@Model.Uraian" class="form-control" />
-            <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
-        </div>
-
-        @if(Model.Jenis == Jenis.Penerimaan)
-        {
-            <div class="col mb-3">
-                <label asp-for="@Model.PresentaseSetoranSinode" class="form-label"></label>
-                <input asp-for="@Model.PresentaseSetoranSinode" class="form-control" />
-                <span asp-validation-for="@Model.PresentaseSetoranSinode" class="form-text text-danger"></span>
-            </div>
-        }
-
-        <div class="col mb-3">
-            <label class="form-label" asp-for="@Model.IdJenisAkun">Jenis Akun</label>
-            <select class="form-control" asp-for="@Model.IdJenisAkun" id="idJenisAkun">
-                @foreach (var jenisAkun in Model.DaftarJenisAkun)
-                {
-                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
-                }
-            </select>
-            <span asp-validation-for="@Model.IdJenisAkun" class="form-text text-danger"></span>
-        </div>
-
-        <div class="col mb-3">
-            <label asp-for="@Model.IdKelompokAkun" class="form-label"></label>
-            <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control">
-                <option value="@null">Pilih Kelompok Akun</option>
-                @foreach (var kelompokAkun in daftarKelompokAkun)
-                {
-                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
-                }
-            </select>
-            <span asp-validation-for="@Model.IdKelompokAkun" class="form-text text-danger"></span>
-        </div>
-
-        <div class="col mb-3">
-            <label asp-for="@Model.IdGolonganAkun" class="form-label"></label>
-            <select asp-for="@Model.IdGolonganAkun" id="idGolonganAkun" class="form-control">
-                <option value="@null">Pilih Golongan Akun</option>
-                @foreach (var golonganAkun in daftarGolonganAkun)
-                {
-                    <option value="@golonganAkun.Id">@golonganAkun.Uraian</option>
-                }
-            </select>
-            <span asp-validation-for="@Model.IdGolonganAkun" class="form-text text-danger"></span>
-        </div>
-
-        <input asp-for="@Model.Jenis" class="form-control" readonly hidden />
-
-        <input asp-for="@Model.Tahun" class="form-control" readonly hidden />
-
-        <input asp-for="@Model.ReturnUrl" readonly hidden />
-
-        <div class="col mb-3">
-            <button class="btn btn-primary">
-                Simpan
-            </button>
-        </div>
-    </form>
-</div> *@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
@@ -192,13 +121,17 @@
             const idJenisAkun = selectIdJenisAkun.val();
 
             try {
+                selectIdKelompokAkun.html('');
+                selectIdKelompokAkun.append(`<option value="null">Pilih Kelompok Akun...</option>`);
+
+                selectIdGolonganAkun.html('');
+                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun...</option>`);
+
                 const response = await fetch(`${urlKelompokAkun}?idJenisAkun=${idJenisAkun}`);
 
                 if (response.ok) {
                     const json = await response.json();
 
-                    selectIdKelompokAkun.html('');
-                    selectIdKelompokAkun.append(`<option value="null">Pilih Kelompok Akun</option>`);
                     for (let kelompokAkun of json) {
                         selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.Uraian}</option>`);
                     }
@@ -214,14 +147,12 @@
 
             try {
                 selectIdGolonganAkun.html('');
-                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun</option>`);
+                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun...</option>`);
+
                 const response = await fetch(`${urlGolonganAkun}?idKelompokAkun=${idKelompokAkun}`);
 
                 if (response.ok) {
                     const json = await response.json();
-
-                    selectIdGolonganAkun.html('');
-                    selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun</option>`);
                     for (let golonganAkun of json) {
                         selectIdGolonganAkun.append(`<option value="${golonganAkun.Id}">${golonganAkun.Uraian}</option>`);
                     }

@@ -1971,14 +1971,14 @@ internal static class ModelBuilderExtension
         #endregion
 
         #region RAPBJ
-        modelBuilder.Entity<RAPBJ>().HasData(new RAPBJ { Tahun = 2024 });
+        modelBuilder.Entity<RAPBJ>().HasData(new RAPBJ { Tahun = tahun });
         #endregion
 
         #region DetailRAPBJ
         modelBuilder.Entity<DetailRAPBJ>().HasData(
             daftarAkunDenganJenisAkun.Select(a => new DetailRAPBJ
             {
-                TahunRAPBJ = 2024,
+                TahunRAPBJ = tahun,
                 KodeAkun = a.Id,
                 Volume = 1,
                 Satuan = "kali",
@@ -1989,7 +1989,7 @@ internal static class ModelBuilderExtension
         modelBuilder.Entity<DetailRAPBJ>().HasData(
             daftarAkunDenganKelompokAkun.Select(a => new DetailRAPBJ
             {
-                TahunRAPBJ = 2024,
+                TahunRAPBJ = tahun,
                 KodeAkun = a.Id,
                 Volume = 1,
                 Satuan = "kali",
@@ -2000,7 +2000,7 @@ internal static class ModelBuilderExtension
         modelBuilder.Entity<DetailRAPBJ>().HasData(
             daftarAkunDenganGolonganAkun.Select(a => new DetailRAPBJ
             {
-                TahunRAPBJ = 2024,
+                TahunRAPBJ = tahun,
                 KodeAkun = a.Id,
                 Volume = 1,
                 Satuan = "kali",

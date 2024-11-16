@@ -45,4 +45,8 @@
 else
 {
     <h4>Tidak Ada RAPBJ di Tahun @Model.Tahun</h4>
+    <form asp-action="TambahRAPBJ" asp-route-tahun="@Model.Tahun"
+          asp-route-returnUrl="@Url.Action("Penerimaan", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun})">
+        <button type="submit" class="btn btn-primary">Tambah RAPBJ di Tahun @Model.Tahun</button>
+    </form>
 }

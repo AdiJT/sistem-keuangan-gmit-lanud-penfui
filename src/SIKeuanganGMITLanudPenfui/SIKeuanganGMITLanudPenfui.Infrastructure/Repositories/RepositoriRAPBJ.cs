@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
+using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
@@ -14,7 +15,7 @@ internal class RepositoriRAPBJ : IRepositoriRAPBJ
         _appDbContext = appDbContext;
     }
 
-    public async Task<RAPBJ?> Get(int tahun) => await _appDbContext.TblRAPBJ
+    public async Task<RAPBJ?> Get(Tahun tahun) => await _appDbContext.TblRAPBJ
         .Include(r => r.DaftarDetailRAPBJ)
         .ThenInclude(d => d.Akun)
         .ThenInclude(a => a.JenisAkun)
@@ -24,6 +25,8 @@ internal class RepositoriRAPBJ : IRepositoriRAPBJ
 
     public async Task<List<RAPBJ>> GetAll() => await _appDbContext.TblRAPBJ
         .Include(r => r.DaftarDetailRAPBJ).ToListAsync();
+
+    public async Task<bool> IsExist(Tahun tahun) => await _appDbContext.TblRAPBJ.AnyAsync(r => r.Tahun == tahun);
 
     public void Add(RAPBJ rapbj) => _appDbContext.Add(rapbj);
 
