@@ -35,88 +35,20 @@ public class RAPBJController : Controller
         _sender = sender;
     }
 
-    public async Task<IActionResult> Penerimaan(int? tahun = null)
+    [Route("[area]/[controller]/{jenis}/{tahun:int?}")]
+    public async Task<IActionResult> Index(Jenis jenis, int? tahun = null)
     {
         tahun ??= DateTime.Now.Year;
-
         var rTahun = Tahun.Create(tahun.Value);
         if (rTahun.IsFailure) return BadRequest();
 
         var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
 
-        return View(new RAPBJVM
+        return View(new IndexVM
         {
             Tahun = tahun.Value,
-            RAPBJ = rapbj,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Penerimaan).ToList()
-        });
-    }
-
-    public async Task<IActionResult> PenerimaanLainnya(int? tahun = null)
-    {
-        tahun ??= DateTime.Now.Year;
-
-        var rTahun = Tahun.Create(tahun.Value);
-        if (rTahun.IsFailure) return BadRequest();
-
-        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
-
-        return View(new RAPBJVM
-        {
-            Tahun = tahun.Value,
-            RAPBJ = rapbj,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Penerimaan).ToList()
-        });
-    }
-
-    public async Task<IActionResult> BelanjaRutin(int? tahun = null)
-    {
-        tahun ??= DateTime.Now.Year;
-
-        var rTahun = Tahun.Create(tahun.Value);
-        if (rTahun.IsFailure) return BadRequest();
-
-        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
-
-        return View(new RAPBJVM
-        {
-            Tahun = tahun.Value,
-            RAPBJ = rapbj,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Belanja).ToList()
-        });
-    }
-
-    public async Task<IActionResult> BelanjaProgramPelayanan(int? tahun = null)
-    {
-        tahun ??= DateTime.Now.Year;
-
-        var rTahun = Tahun.Create(tahun.Value);
-        if (rTahun.IsFailure) return BadRequest();
-
-        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
-
-        return View(new RAPBJVM
-        {
-            Tahun = tahun.Value,
-            RAPBJ = rapbj,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Belanja).ToList()
-        });
-    }
-
-    public async Task<IActionResult> BelanjaLainnya(int? tahun = null)
-    {
-        tahun ??= DateTime.Now.Year;
-
-        var rTahun = Tahun.Create(tahun.Value);
-        if (rTahun.IsFailure) return BadRequest();
-
-        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
-
-        return View(new RAPBJVM
-        {
-            Tahun = tahun.Value,
-            RAPBJ = rapbj,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == Jenis.Belanja).ToList()
+            Jenis = jenis,
+            RAPBJ = rapbj
         });
     }
 

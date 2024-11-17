@@ -1,20 +1,18 @@
-﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
+﻿@inject IRepositoriAkun RepositoriAkun
 
-@inject IRepositoriAkun RepositoriAkun
-
-@model RAPBJVM
+@model IndexVM
 
 @{
-    ViewData["Title"] = "RAPBJ | Penerimaan Lainya";
+    ViewData["Title"] = $"RAPBJ | {Model.Jenis.ToString()}";
 }
 
-<h1>RAPBJ - Penerimaan Lainya - @Model.Tahun</h1>
+<h1>RAPBJ - @Model.Jenis.ToString() - @Model.Tahun</h1>
 
 @if (Model.RAPBJ is not null)
 {
     <form asp-action="HapusRAPBJ" asp-route-tahun="@Model.Tahun"
-          asp-route-returnUrl="@Url.Action("PenerimaanLainnya", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun})">
-          <button type="submit" class="btn btn-danger">Hapus RAPBJ</button>
+          asp-route-returnUrl="@Url.Action("Index", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun, jenis=Model.Jenis})">
+        <button type="submit" class="btn btn-danger">Hapus RAPBJ</button>
     </form>
     <table class="table">
         <thead>
@@ -30,8 +28,7 @@
         </thead>
         <tbody>
             @{
-                var daftarDetailRAPBJ = Model.RAPBJ.DaftarDetailRAPBJ
-                .Where(d => d.Akun.JenisAkun.Jenis == Jenis.Penerimaan && d.Akun.JenisAkun.Uraian == "Penerimaan Lain-Lain");
+                var daftarDetailRAPBJ = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Model.Jenis);
             }
             @foreach (var detail in daftarDetailRAPBJ)
             {
@@ -52,7 +49,7 @@ else
 {
     <h4>Tidak Ada RAPBJ di Tahun @Model.Tahun</h4>
     <form asp-action="TambahRAPBJ" asp-route-tahun="@Model.Tahun"
-          asp-route-returnUrl="@Url.Action("PenerimaanLainnya", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun})">
+          asp-route-returnUrl="@Url.Action("Index", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun, jenis=Model.Jenis})">
         <button type="submit" class="btn btn-primary">Tambah RAPBJ di Tahun @Model.Tahun</button>
     </form>
 }

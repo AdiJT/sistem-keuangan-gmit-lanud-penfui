@@ -15,21 +15,8 @@
             <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">RAPBJ</li>
-            <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="package"></i><span>Penerimaan</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" asp-action="Penerimaan" asp-controller="RAPBJ" asp-area="Dashboard">Penerimaan</a></li>
-                    <li><a class="nav-link" asp-action="PenerimaanLainnya" asp-controller="RAPBJ" asp-area="Dashboard">Penerimaan Lainnya</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="shopping-bag"></i><span>Belanja</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" asp-action="BelanjaRutin" asp-controller="RAPBJ" asp-area="Dashboard">Belanja Rutin</a></li>
-                    <li><a class="nav-link" asp-action="BelanjaProgramPelayanan" asp-controller="RAPBJ" asp-area="Dashboard">Belanja Program Pelayanan</a></li>
-                    <li><a class="nav-link" asp-action="BelanjaLainnya" asp-controller="RAPBJ" asp-area="Dashboard">Belanja Lainnya</a></li>
-                </ul>
-            </li>
+            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Penerimaan" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Belanja" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">Realisasi</li>
             <li><a href="" class="nav-link"><i data-feather="shopping-bag"></i><span>Bukti Transaksi</span></a></li>
