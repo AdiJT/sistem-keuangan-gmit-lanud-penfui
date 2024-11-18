@@ -11,73 +11,118 @@
     <partial name="_BreadcrumbPartial" />
 </div>
 
-@if (Model.RAPBJ is not null)
-{
-    <div class="card card-danger">
-        <div class="card-header">
-            <h4>RAPBJ - @Model.Jenis.ToString() - @Model.Tahun</h4>
-        </div>
-        <div class="padding-20">
-            <form asp-action="HapusRAPBJ" asp-route-tahun="@Model.Tahun"
-                  asp-route-returnUrl="@Url.Action("Index", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun, jenis=Model.Jenis})">
-                <div class="d-flex justify-content-start ml-auto mr-3 mb-3">
-                    <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
-                </div>
+<div class="card card-danger">
+    <div class="card-header">
+        <h4>RAPBJ - @Model.Jenis.ToString() - @Model.Tahun</h4>
+    </div>
+    <div class="padding-20">
+        <div class="d-flex justify-content-start ml-auto mr-3 mb-3">
+            <div class="mb-3 pl-3 pr-2">
+                <a class="btn btn-icon icon-left btn-primary" asp-action="TambahDetailRAPBJ"
+                   asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
+                    <i class="fas fa-plus"></i> Tambah
+                </a>
+            </div>
 
-            </form>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover" id="table-akun-1" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Kode Akun</th>
-                            <th>Uraian</th>
-                            <th>Volume</th>
-                            <th>Satuan</th>
-                            <th>Harga Satuan</th>
-                            <th>Jumlah</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                            var daftarDetailRAPBJ = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Model.Jenis);
-                        }
-                        @foreach (var detail in daftarDetailRAPBJ)
+            @if (Model.RAPBJ is not null)
+            {
+                <form asp-action="HapusRAPBJ"
+                      asp-controller="RAPBJ"
+                      asp-area="Dashboard"
+                      asp-route-tahun="@Model.Tahun"
+                      asp-route-jenis="@Model.Jenis"
+                      method="post">
+                    <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
+                </form>
+            }
+
+            @if (Model.RAPBJ is null)
+            {
+                <form asp-action="TambahRAPBJ"
+                      asp-controller="RAPBJ"
+                      asp-area="Dashboard"
+                      asp-route-tahun="@Model.Tahun"
+                      asp-route-jenis="@Model.Jenis"
+                      method="post">
+                    <button type="submit" class="btn btn-primary">Tambah RAPBJ</button>
+                </form>
+            }
+
+            <div class="ml-auto mr-3">
+                <select id="tahun" class="form-control">
+                    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                    {
+                        @if (tahun == Model.Tahun)
                         {
-                            <tr>
-                                <td>@(await RepositoriAkun.GetKode(detail.Akun))</td>
-                                <td>@detail.Akun.Uraian</td>
-                                <td>@detail.Volume</td>
-                                <td>@detail.Satuan</td>
-                                <td>@detail.HargaSatuan</td>
-                                <td>@detail.Jumlah</td>
-                                <td>
-                                    <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                    <form style="display:inline">
-                                        <button type="submit" class="btn btn-danger btn-action">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                            <option selected value="@tahun">@tahun</option>
                         }
-                    </tbody>
-                </table>
+                        else
+                        {
+                            <option value="@tahun">@tahun</option>
+                        }
+                    }
+                </select>
             </div>
         </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" id="table-akun-1" width="100%">
+                <thead>
+                    <tr>
+                        <th>Kode Akun</th>
+                        <th>Uraian</th>
+                        <th>Volume</th>
+                        <th>Satuan</th>
+                        <th>Harga Satuan</th>
+                        <th>Jumlah</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var daftarDetailRAPBJ = Model.RAPBJ?.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Model.Jenis) ?? [];
+                    }
+                    @foreach (var detail in daftarDetailRAPBJ)
+                    {
+                        <tr>
+                            <td>@(await RepositoriAkun.GetKode(detail.Akun))</td>
+                            <td>@detail.Akun.Uraian</td>
+                            <td>@detail.Volume</td>
+                            <td>@detail.Satuan</td>
+                            <td>@detail.HargaSatuan</td>
+                            <td>@detail.Jumlah</td>
+                            <td>
+                                <a asp-action="EditDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                                   asp-route-id="@detail.Akun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <form style="display:inline" asp-action="HapusDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                                      asp-route-id="@detail.Akun.Id">
+                                    <button type="submit" class="btn btn-danger btn-action">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-}
-else
-{
-    <h4>Tidak Ada RAPBJ di Tahun @Model.Tahun</h4>
-    <form asp-action="TambahRAPBJ" asp-route-tahun="@Model.Tahun"
-          asp-route-returnUrl="@Url.Action("Index", "RAPBJ", new { Area="Dashboard", tahun=Model.Tahun, jenis=Model.Jenis})">
-        <button type="submit" class="btn btn-primary">Tambah RAPBJ di Tahun @Model.Tahun</button>
-    </form>
-}
+</div>
+
 
 @section Scripts {
     <partial name="_BreadcrumbScriptPartial" />
+
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+        const url = '@Url.Action("Index", "RAPBJ", new { Area = "Dashboard", Jenis = Model.Jenis })';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+
+            location.href = `${url}/${tahun}`;
+        });
+    </script>
 }

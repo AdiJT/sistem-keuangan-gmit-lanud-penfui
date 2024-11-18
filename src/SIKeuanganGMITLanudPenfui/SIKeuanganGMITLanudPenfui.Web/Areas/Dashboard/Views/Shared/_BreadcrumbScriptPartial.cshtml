@@ -3,8 +3,6 @@
         const breadCrumbList = $('ol#breadcrumb');
         const breadCrumb = location.pathname.split('/');
 
-        console.log(breadCrumb);
-
         breadCrumbList.html('');
         for (let i = 2; i < breadCrumb.length; i++) {
             const b = breadCrumb[i];

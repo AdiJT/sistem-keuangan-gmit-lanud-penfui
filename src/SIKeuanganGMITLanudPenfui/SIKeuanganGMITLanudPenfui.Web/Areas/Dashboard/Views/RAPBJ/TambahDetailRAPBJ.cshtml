@@ -1,0 +1,69 @@
+﻿@using SIKeuanganGMITLanudPenfui.Domain.ValueObjects
+@inject IRepositoriAkun RepositoriAkun
+@inject IRepositoriRAPBJ RepositoriRAPBJ
+
+@model TambahDetailRAPBJVM
+
+@{
+    ViewData["Title"] = $"RAPBJ | {Model.Jenis} - Tambah";
+    var rapbj = await RepositoriRAPBJ.Get(Tahun.Create(Model.Tahun).Value);
+    var daftarAkun = (await RepositoriAkun.GetAllByTahun(Tahun.Create(Model.Tahun).Value)).Where(a => a.JenisAkun.Jenis == Model.Jenis).ToList();
+}
+
+<h1>Tambah RAPBJ @Model.Jenis.ToString() Tahun @Model.Tahun</h1>
+
+<form asp-action="TambahDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
+    <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="@Model.IdAkun" class="form-label"></label>
+            <select asp-for="@Model.IdAkun" class="form-control">
+                @foreach (var akun in daftarAkun)
+                {
+                    @if(!rapbj!.DaftarDetailRAPBJ.Any(d => d.Akun == akun))
+                    {
+                        <option value="@akun.Id">@(await RepositoriAkun.GetKode(akun)) @akun.Uraian</option>
+                    }
+                }
+            </select>
+            <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="@Model.Satuan" class="form-label"></label>
+            <input asp-for="@Model.Satuan" class="form-control" />
+            <span asp-validation-for="@Model.Satuan" class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="@Model.Volume" class="form-label"></label>
+            <input asp-for="@Model.Volume" class="form-control" />
+            <span asp-validation-for="@Model.Volume" class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="@Model.HargaSatuan" class="form-label"></label>
+            <input asp-for="@Model.HargaSatuan" class="form-control" />
+            <span asp-validation-for="@Model.HargaSatuan" class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <input asp-for="@Model.Tahun" hidden />
+    <input asp-for="@Model.Jenis" hidden />
+
+    <div class="row mb-3">
+        <button class="btn btn-primary">Submit</button>
+        <a asp-action="Index" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-danger">Batal</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
