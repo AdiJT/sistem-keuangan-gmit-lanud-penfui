@@ -5860,6 +5860,19 @@ a.dropdown-item {
         color: #666666 !important
     }
 
+button.dropdown-item {
+    padding: 10px 25px;
+    font-weight: 500;
+    line-height: 0.7;
+}
+
+    button.dropdown-item:focus, button.dropdown-item:active, button.dropdown-item.active {
+        background-color: #e9e9e9;
+        color: #666666 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
 .dropdown-divider {
     border-top-color: #f9f9f9
 }

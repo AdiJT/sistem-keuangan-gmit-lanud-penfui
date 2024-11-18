@@ -10,7 +10,86 @@
     var daftarAkun = (await RepositoriAkun.GetAllByTahun(Tahun.Create(Model.Tahun).Value)).Where(a => a.JenisAkun.Jenis == Model.Jenis).ToList();
 }
 
-<h1>Tambah RAPBJ @Model.Jenis.ToString() Tahun @Model.Tahun</h1>
+<!-- Breadcrumb -->
+<div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">RAPBJ</a></li>
+                <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="@Model.Jenis">@Model.Jenis</a></li>
+                <li class="breadcrumb-item" aria-current="page">Tambah Detail Akun</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="section-body">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="card card-primary">
+                <div class="card-header" style="padding-top: 20px;">
+                    <h4>Tambah RAPBJ @Model.Jenis.ToString() Tahun @Model.Tahun</h4>
+                </div>
+
+                <form asp-action="TambahDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.IdAkun">Akun<span class="text-danger">*</span></label>
+                            <select asp-for="@Model.IdAkun" class="form-control select2">
+                                @foreach (var akun in daftarAkun)
+                                {
+                                    @if (!rapbj!.DaftarDetailRAPBJ.Any(d => d.Akun == akun))
+                                    {
+                                        <option value="@null">Pilih Akun...</option>
+                                        <option value="@akun.Id">@(await RepositoriAkun.GetKode(akun)) @akun.Uraian</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Satuan">Satuan<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Satuan" type="text" class="form-control" autofocus placeholder="Satuan...">
+                            <span asp-validation-for="@Model.Satuan" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Volume">Volume<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Volume" type="number" class="form-control" autofocus placeholder="Volume...">
+                            <span asp-validation-for="@Model.Volume" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.HargaSatuan">Harga Satuan<span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        Rp
+                                    </div>
+                                </div>
+                                <input asp-for="@Model.HargaSatuan" type="text" class="form-control" autofocus placeholder="Harga Satuan...">
+                            </div>
+                            <span asp-validation-for="@Model.HargaSatuan" class="form-text text-danger"></span>
+                        </div>                                                                                             
+
+                        <input asp-for="@Model.Tahun" hidden />
+                        <input asp-for="@Model.Jenis" hidden />
+
+                    </div>
+
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                        <a class="btn btn-danger" asp-action="Index" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">Batal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <h1>Tambah RAPBJ @Model.Jenis.ToString() Tahun @Model.Tahun</h1>
 
 <form asp-action="TambahDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
     <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
@@ -63,7 +142,7 @@
         <a asp-action="Index" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-danger">Batal</a>
     </div>
 </form>
-
+ *@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
