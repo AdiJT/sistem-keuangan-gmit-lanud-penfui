@@ -9,7 +9,7 @@ public class Penerimaan : Entity, IAuditableEntity
     public double Jumlah { get; set; }
     public double SaldoKas { get; set; }
     public DateTime TanggalDitambahkan { get; set; }
-    public DateTime TanggalDiubah { get; set; }
+    public DateTime? TanggalDiubah { get; set; }
 
     public Akun Akun { get; set; }
     public Kas Kas { get; set; }

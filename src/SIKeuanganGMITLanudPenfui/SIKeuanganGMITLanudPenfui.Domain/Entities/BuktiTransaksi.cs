@@ -9,5 +9,5 @@ public class BuktiTransaksi : Entity, IAuditableEntity
     public string Uraian { get; set; }
     public Uri FileBukti { get; set; }
     public DateTime TanggalDitambahkan { get; set; }
-    public DateTime TanggalDiubah { get; set; }
+    public DateTime? TanggalDiubah { get; set; }
 }
