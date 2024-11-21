@@ -69,13 +69,20 @@
             <table class="table table-striped table-hover" id="table-akun-1" width="100%">
                 <thead>
                     <tr>
+                        <th class="text-center pt-3">
+                            <div class="custom-checkbox custom-checkbox-table custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
+                                       class="custom-control-input" id="checkbox-all">
+                                <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                            </div>
+                        </th>
                         <th>Kode Akun</th>
-                        <th>Uraian</th>
-                        <th>Volume</th>
+                        <th style="max-width: 400px;">Uraian</th>
+                        <th class="text-right">Volume</th>
                         <th>Satuan</th>
-                        <th>Harga Satuan</th>
-                        <th>Jumlah</th>
-                        <th>Aksi</th>
+                        <th class="text-right">Harga Satuan</th>
+                        <th class="text-right">Jumlah</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,20 +92,27 @@
                     @foreach (var detail in daftarDetailRAPBJ)
                     {
                         <tr>
+                            <td class="text-center pt-2">
+                                <div class="custom-checkbox custom-control">
+                                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
+                                           id="checkbox-1">
+                                    <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                                </div>
+                            </td>
                             <td>@(await RepositoriAkun.GetKode(detail.Akun))</td>
                             <td>@detail.Akun.Uraian</td>
-                            <td>@detail.Volume</td>
+                            <td class="text-right">@detail.Volume</td>
                             <td>@detail.Satuan</td>
-                            <td>@detail.HargaSatuan</td>
-                            <td>@detail.Jumlah</td>
-                            <td>
+                            <td class="text-right">@detail.HargaSatuan</td>
+                            <td class="text-right">@detail.Jumlah</td>
+                            <td class="text-center">
                                 <a asp-action="EditDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
                                    asp-route-id="@detail.Akun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
                                 <form style="display:inline" asp-action="HapusDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
                                       asp-route-id="@detail.Akun.Id">
-                                    <button type="submit" class="btn btn-danger btn-action">
+                                    <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
