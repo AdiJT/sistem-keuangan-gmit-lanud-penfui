@@ -16,33 +16,28 @@ internal class RepositoriBelanja : IRepositoriBelanja
 
     public async Task<Belanja?> Get(int id) => await _appDbContext.TblBelanja
         .Include(b => b.Akun)
-        .Include(b => b.BuktiTransaksi)
         .Include(b => b.Kas)
         .FirstOrDefaultAsync(b => b.Id == id);
 
     public async Task<List<Belanja>> GetAll() => await _appDbContext.TblBelanja
         .Include(b => b.Akun)
-        .Include(b => b.BuktiTransaksi)
         .Include(b => b.Kas)
         .ToListAsync();
 
     public async Task<List<Belanja>> GetAllByMonth(int bulan) => await _appDbContext.TblBelanja
         .Include(b => b.Akun)
-        .Include(b => b.BuktiTransaksi)
         .Include(b => b.Kas)
         .Where(b => b.Tanggal.Month == bulan)
         .ToListAsync();
 
     public async Task<List<Belanja>> GetAllByTahun(int tahun) => await _appDbContext.TblBelanja
         .Include(b => b.Akun)
-        .Include(b => b.BuktiTransaksi)
         .Include(b => b.Kas)
         .Where(b => b.Tanggal.Year == tahun)
         .ToListAsync();
 
     public async Task<List<Belanja>> GetAllByTanggal(DateOnly tanggal) => await _appDbContext.TblBelanja
         .Include(b => b.Akun)
-        .Include(b => b.BuktiTransaksi)
         .Include(b => b.Kas)
         .Where(b => b.Tanggal == tanggal)
         .ToListAsync();

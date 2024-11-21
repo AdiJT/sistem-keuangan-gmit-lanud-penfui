@@ -2022,923 +2022,6 @@ internal static class ModelBuilderExtension
         );
         #endregion
 
-        #region BuktiTransaksi
-        modelBuilder.Entity<BuktiTransaksi>().HasData(
-            new BuktiTransaksi
-            {
-                Id = 1,
-                Uraian = "Bukti Transaksi Belanja 1",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/1"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 2,
-                Uraian = "Bukti Transaksi Belanja 2",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/2"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 2)
-            },
-            new BuktiTransaksi
-            {
-                Id = 3,
-                Uraian = "Bukti Transaksi Penerimaan 1",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/3"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 4,
-                Uraian = "Bukti Transaksi Penerimaan 2",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/4"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 5,
-                Uraian = "Bukti Transaksi Penerimaan 3",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/5"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 6,
-                Uraian = "Bukti Transaksi Penerimaan 4",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/6"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 7,
-                Uraian = "Bukti Transaksi Penerimaan 5",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/7"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 8,
-                Uraian = "Bukti Transaksi Penerimaan 6",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/8"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 9,
-                Uraian = "Bukti Transaksi Penerimaan 7",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/9"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 10,
-                Uraian = "Bukti Transaksi Penerimaan 8",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/10"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 11,
-                Uraian = "Bukti Transaksi Penerimaan 9",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/11"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 12,
-                Uraian = "Bukti Transaksi Penerimaan 10",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/12"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 13,
-                Uraian = "Bukti Transaksi Penerimaan 11",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/13"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 14,
-                Uraian = "Bukti Transaksi Penerimaan 12",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/14"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 15,
-                Uraian = "Bukti Transaksi Penerimaan 13",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/15"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 16,
-                Uraian = "Bukti Transaksi Penerimaan 14",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/16"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 17,
-                Uraian = "Bukti Transaksi Penerimaan 15",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/17"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 18,
-                Uraian = "Bukti Transaksi Penerimaan 16",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/18"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 19,
-                Uraian = "Bukti Transaksi Penerimaan 17",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/19"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 20,
-                Uraian = "Bukti Transaksi Penerimaan 18",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/20"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 21,
-                Uraian = "Bukti Transaksi Penerimaan 19",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/21"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 22,
-                Uraian = "Bukti Transaksi Penerimaan 20",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/22"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 23,
-                Uraian = "Bukti Transaksi Penerimaan 21",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/23"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 24,
-                Uraian = "Bukti Transaksi Penerimaan 22",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/24"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 25,
-                Uraian = "Bukti Transaksi Penerimaan 23",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/25"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 26,
-                Uraian = "Bukti Transaksi Penerimaan 24",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/26"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 27,
-                Uraian = "Bukti Transaksi Penerimaan 25",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/27"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 28,
-                Uraian = "Bukti Transaksi Penerimaan 26",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/28"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 29,
-                Uraian = "Bukti Transaksi Penerimaan 27",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/29"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 30,
-                Uraian = "Bukti Transaksi Penerimaan 28",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/30"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 31,
-                Uraian = "Bukti Transaksi Penerimaan 29",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/31"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 32,
-                Uraian = "Bukti Transaksi Penerimaan 30",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/32"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 33,
-                Uraian = "Bukti Transaksi Penerimaan 31",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/33"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 34,
-                Uraian = "Bukti Transaksi Penerimaan 32",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/34"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 35,
-                Uraian = "Bukti Transaksi Penerimaan 33",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/35"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 36,
-                Uraian = "Bukti Transaksi Penerimaan 34",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/36"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 37,
-                Uraian = "Bukti Transaksi Penerimaan 35",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/37"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 38,
-                Uraian = "Bukti Transaksi Penerimaan 36",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/38"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 39,
-                Uraian = "Bukti Transaksi Penerimaan 37",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/39"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 40,
-                Uraian = "Bukti Transaksi Penerimaan 38",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/40"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 41,
-                Uraian = "Bukti Transaksi Penerimaan 39",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/41"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 42,
-                Uraian = "Bukti Transaksi Penerimaan 40",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/42"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 43,
-                Uraian = "Bukti Transaksi Penerimaan 41",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/43"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 44,
-                Uraian = "Bukti Transaksi Penerimaan 42",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/44"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 45,
-                Uraian = "Bukti Transaksi Penerimaan 43",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/45"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 46,
-                Uraian = "Bukti Transaksi Penerimaan 44",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/46"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 47,
-                Uraian = "Bukti Transaksi Penerimaan 45",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/47"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 48,
-                Uraian = "Bukti Transaksi Penerimaan 46",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/48"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 49,
-                Uraian = "Bukti Transaksi Penerimaan 47",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/49"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 50,
-                Uraian = "Bukti Transaksi Penerimaan 48",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/50"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 51,
-                Uraian = "Bukti Transaksi Penerimaan 49",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/51"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 52,
-                Uraian = "Bukti Transaksi Penerimaan 50",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/52"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 53,
-                Uraian = "Bukti Transaksi Penerimaan 51",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/53"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 54,
-                Uraian = "Bukti Transaksi Penerimaan 52",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/54"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 55,
-                Uraian = "Bukti Transaksi Penerimaan 53",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/55"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 56,
-                Uraian = "Bukti Transaksi Penerimaan 54",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/56"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 57,
-                Uraian = "Bukti Transaksi Penerimaan 55",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/57"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 58,
-                Uraian = "Bukti Transaksi Penerimaan 56",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/58"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 59,
-                Uraian = "Bukti Transaksi Penerimaan 57",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/59"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 60,
-                Uraian = "Bukti Transaksi Penerimaan 58",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/60"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 61,
-                Uraian = "Bukti Transaksi Penerimaan 59",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/61"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 62,
-                Uraian = "Bukti Transaksi Penerimaan 60",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/62"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            }, new BuktiTransaksi
-            {
-                Id = 63,
-                Uraian = "Bukti Transaksi Penerimaan 61",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/63"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 64,
-                Uraian = "Bukti Transaksi Penerimaan 62",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/64"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 1)
-            },
-            new BuktiTransaksi
-            {
-                Id = 65,
-                Uraian = "Bukti Transaksi Penerimaan 63",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/65"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 3)
-            },
-            new BuktiTransaksi
-            {
-                Id = 66,
-                Uraian = "Bukti Transaksi Penerimaan 64",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/66"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 5)
-            },
-            new BuktiTransaksi
-            {
-                Id = 67,
-                Uraian = "Bukti Transaksi Penerimaan 65",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/67"
-                }.Uri,
-                Jenis = Jenis.Penerimaan,
-                TanggalDitambahkan = new DateTime(2024, 1, 5)
-            },
-            new BuktiTransaksi
-            {
-                Id = 68,
-                Uraian = "Bukti Transaksi Belanja 3",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/68"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 5)
-            },
-            new BuktiTransaksi
-            {
-                Id = 69,
-                Uraian = "Bukti Transaksi Belanja 4",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/69"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 5)
-            },
-            new BuktiTransaksi
-            {
-                Id = 70,
-                Uraian = "Bukti Transaksi Belanja 5",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/70"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 6)
-            },
-            new BuktiTransaksi
-            {
-                Id = 71,
-                Uraian = "Bukti Transaksi Belanja 6",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/71"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 6)
-            },
-            new BuktiTransaksi
-            {
-                Id = 72,
-                Uraian = "Bukti Transaksi Belanja 7",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/72"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 6)
-            },
-            new BuktiTransaksi
-            {
-                Id = 73,
-                Uraian = "Bukti Transaksi Belanja 8",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/73"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 6)
-            },
-            new BuktiTransaksi
-            {
-                Id = 74,
-                Uraian = "Bukti Transaksi Belanja 9",
-                FileBukti = new UriBuilder
-                {
-                    Host = "locahost",
-                    Port = 1704,
-                    Path = "/file/74"
-                }.Uri,
-                Jenis = Jenis.Belanja,
-                TanggalDitambahkan = new DateTime(2024, 1, 6)
-            }
-
-        );
-        #endregion
-
         #region Belanja
         modelBuilder.Entity<Belanja>().HasData(
             new
@@ -2950,9 +2033,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 171,
-                KasId = 1,
-                BuktiTransaksiId = 1,
+                KasId = 1
             },
             new
             {
@@ -2963,9 +2046,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 2),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 101,
-                KasId = 1,
-                BuktiTransaksiId = 2,
+                KasId = 1
             },
             new
             {
@@ -2976,9 +2059,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 5),
                 TanggalDitambahkan = new DateTime(2024, 1, 5),
                 TanggalDiubah = new DateTime(2024, 1, 5),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 109,
                 KasId = 1,
-                BuktiTransaksiId = 68,
             },
             new
             {
@@ -2989,9 +2072,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 5),
                 TanggalDitambahkan = new DateTime(2024, 1, 5),
                 TanggalDiubah = new DateTime(2024, 1, 5),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 109,
                 KasId = 1,
-                BuktiTransaksiId = 69,
             },
             new
             {
@@ -3002,9 +2085,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 100,
                 KasId = 1,
-                BuktiTransaksiId = 70,
             },
             new
             {
@@ -3015,9 +2098,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 100,
                 KasId = 1,
-                BuktiTransaksiId = 71,
             },
             new
             {
@@ -3028,9 +2111,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 100,
                 KasId = 1,
-                BuktiTransaksiId = 72,
             },
             new
             {
@@ -3041,9 +2124,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 100,
                 KasId = 1,
-                BuktiTransaksiId = 73,
             },
             new
             {
@@ -3054,9 +2137,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 101,
                 KasId = 1,
-                BuktiTransaksiId = 74,
             }
 
         );
@@ -3073,9 +2156,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 51,
                 KasId = 1,
-                BuktiTransaksiId = 3
             },
             new
             {
@@ -3086,9 +2169,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 16,
                 KasId = 1,
-                BuktiTransaksiId = 4
             },
             new
             {
@@ -3099,9 +2182,9 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateOnly(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
                 AkunId = 16,
                 KasId = 1,
-                BuktiTransaksiId = 5
             },
              new
              {
@@ -3112,9 +2195,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 18,
                  KasId = 1,
-                 BuktiTransaksiId = 6
              },
              new
              {
@@ -3125,9 +2208,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 19,
                  KasId = 1,
-                 BuktiTransaksiId = 7
              },
              new
              {
@@ -3138,9 +2221,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 16,
                  KasId = 1,
-                 BuktiTransaksiId = 8
              },
              new
              {
@@ -3151,9 +2234,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 17,
                  KasId = 1,
-                 BuktiTransaksiId = 9
              },
              new
              {
@@ -3164,9 +2247,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 10
              },
              new
              {
@@ -3177,6 +2260,7 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
                  BuktiTransaksiId = 11
@@ -3190,9 +2274,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 12
              },
              new
              {
@@ -3203,9 +2287,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 13
              },
              new
              {
@@ -3216,9 +2300,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 14
              },
              new
              {
@@ -3229,9 +2313,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 15
              },
              new
              {
@@ -3242,9 +2326,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 16
              },
              new
              {
@@ -3255,9 +2339,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 17
              },
              new
              {
@@ -3268,9 +2352,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 18
              },
              new
              {
@@ -3281,9 +2365,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 19
              },
              new
              {
@@ -3294,9 +2378,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 20
              },
              new
              {
@@ -3307,9 +2391,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 21
              },
              new
              {
@@ -3320,9 +2404,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 22
              },
              new
              {
@@ -3333,9 +2417,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 23
              },
              new
              {
@@ -3346,9 +2430,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 24
              },
              new
              {
@@ -3359,9 +2443,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 25
              },
              new
              {
@@ -3372,9 +2456,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 22,
                  KasId = 1,
-                 BuktiTransaksiId = 26
              },
              new
              {
@@ -3385,9 +2469,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 27
              },
              new
              {
@@ -3398,9 +2482,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 28
              },
              new
              {
@@ -3411,9 +2495,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 29
              },
              new
              {
@@ -3424,6 +2508,7 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
                  BuktiTransaksiId = 30
@@ -3437,9 +2522,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 31
              },
              new
              {
@@ -3450,9 +2535,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 32
              },
              new
              {
@@ -3463,9 +2548,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 33
              },
              new
              {
@@ -3476,9 +2561,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 34
              },
              new
              {
@@ -3489,9 +2574,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 35
              },
              new
              {
@@ -3502,9 +2587,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 36
              },
              new
              {
@@ -3515,9 +2600,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 37
              },
              new
              {
@@ -3528,9 +2613,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 38
              },
              new
              {
@@ -3541,9 +2626,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 39
              },
              new
              {
@@ -3554,9 +2639,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 40
              },
              new
              {
@@ -3567,9 +2652,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 41
              },
              new
              {
@@ -3580,9 +2665,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 42
              },
              new
              {
@@ -3593,9 +2678,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 43
              },
              new
              {
@@ -3606,9 +2691,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 44
              },
              new
              {
@@ -3619,9 +2704,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 45
              },
              new
              {
@@ -3632,9 +2717,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 46
              },
              new
              {
@@ -3645,9 +2730,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 47
              },
              new
              {
@@ -3658,9 +2743,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 48
              },
              new
              {
@@ -3671,9 +2756,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 49
              },
              new
              {
@@ -3684,9 +2769,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 50
              },
              new
              {
@@ -3697,9 +2782,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 51
              },
              new
              {
@@ -3710,9 +2795,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 52
              },
              new
              {
@@ -3723,9 +2808,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 53
              },
              new
              {
@@ -3736,9 +2821,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 54
              },
              new
              {
@@ -3749,9 +2834,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 55
              },
              new
              {
@@ -3762,9 +2847,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 56
              },
              new
              {
@@ -3775,9 +2860,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 57
              },
              new
              {
@@ -3788,9 +2873,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 58
              },
              new
              {
@@ -3801,9 +2886,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 59
              },
              new
              {
@@ -3814,9 +2899,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 60
              },
              new
              {
@@ -3827,9 +2912,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 61
              },
              new
              {
@@ -3840,9 +2925,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 62
              },
              new
              {
@@ -3853,9 +2938,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 14,
                  KasId = 1,
-                 BuktiTransaksiId = 63
              },
              new
              {
@@ -3866,9 +2951,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 44,
                  KasId = 1,
-                 BuktiTransaksiId = 64
              },
              new
              {
@@ -3879,9 +2964,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 3),
                  TanggalDiubah = new DateTime(2024, 1, 3),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 10,
                  KasId = 1,
-                 BuktiTransaksiId = 65
              },
              new
              {
@@ -3892,10 +2977,11 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 3),
                  TanggalDitambahkan = new DateTime(2024, 1, 3),
                  TanggalDiubah = new DateTime(2024, 1, 3),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 81,
                  KasId = 1,
-                 BuktiTransaksiId = 66
-             }, new
+             }, 
+             new
              {
                  Id = 65,
                  Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
@@ -3904,9 +2990,9 @@ internal static class ModelBuilderExtension
                  Tanggal = new DateOnly(2024, 1, 5),
                  TanggalDitambahkan = new DateTime(2024, 1, 5),
                  TanggalDiubah = new DateTime(2024, 1, 5),
+                 FileBukti = new Uri("https://file/1"),
                  AkunId = 14,
                  KasId = 1,
-                 BuktiTransaksiId = 67
              }
         );
         #endregion

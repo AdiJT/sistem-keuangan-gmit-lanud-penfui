@@ -8,10 +8,10 @@ public class Penerimaan : Entity, IAuditableEntity
     public string Uraian { get; set; } = string.Empty;
     public double Jumlah { get; set; }
     public double SaldoKas { get; set; }
+    public Uri FileBukti { get; set; }
     public DateTime TanggalDitambahkan { get; set; }
     public DateTime? TanggalDiubah { get; set; }
 
     public Akun Akun { get; set; }
     public Kas Kas { get; set; }
-    public BuktiTransaksi BuktiTransaksi { get; set; }
 }
