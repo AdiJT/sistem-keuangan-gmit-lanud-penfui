@@ -26,14 +26,11 @@ internal class CreateJenisAkunCommandHandler : ICommandHandler<CreateJenisAkunCo
             return new Error("CreateJenisAkunCommandHandler.UraianNotUnique",
                 $"Sudah ada jenis akun dengan uraian : {request.Uraian} dan tahun : {request.Tahun}");
 
-        var jenisAkun = new JenisAkun
-        {
-            Uraian = request.Uraian,
-            Tahun = tahun.Value,
-            Jenis = request.jenis,
-        };
+        var jenisAkun = await JenisAkun.Create(request.Uraian, tahun.Value, request.Jenis, request.Kode, _repositoriJenisAkun);
+        if (jenisAkun.IsFailure)
+            return jenisAkun.Error;
 
-        _repositoriJenisAkun.Add(jenisAkun);
+        _repositoriJenisAkun.Add(jenisAkun.Value);
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
         if (result.IsFailure)
             return result.Error;

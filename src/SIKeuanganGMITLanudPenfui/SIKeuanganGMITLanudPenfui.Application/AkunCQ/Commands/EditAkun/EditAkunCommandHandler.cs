@@ -2,7 +2,6 @@
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
-using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 
 namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.EditAkun;
 
@@ -56,7 +55,11 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
             if (kelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.KelompokAkunDifferentJenisAkun", "Jenis Akun dari Kelompok Akun berbeda dengan Jenis Akun");
 
+            if (kelompokAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+                return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di kelompok akun {kelompokAkun.Uraian}");
+
             akun.KelompokAkun = kelompokAkun;
+            akun.GolonganAkun = null;
         }
         else if (request.IdGolonganAkun is not null && request.IdKelompokAkun is null)
         {
@@ -69,6 +72,9 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
 
             if(golonganAkun.KelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
+
+            if (golonganAkun.DaftarAkun.Any(a => a.Kode == request.Kode))
+                return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di golongan akun {golonganAkun.Uraian}");
 
             akun.GolonganAkun = golonganAkun;
             akun.KelompokAkun = null;
@@ -85,8 +91,19 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
             if (golonganAkun.KelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
 
+            if (golonganAkun.DaftarAkun.Any(a => a.Kode == request.Kode))
+                return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di golongan akun {golonganAkun.Uraian}");
+
             akun.GolonganAkun = golonganAkun;
             akun.KelompokAkun = null;
+        } 
+        else
+        {
+            if(jenisAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+                return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di jenis akun {jenisAkun.Uraian}");
+
+            akun.KelompokAkun = null;
+            akun.GolonganAkun = null;
         }
 
         if (jenisAkun.Jenis == Jenis.Belanja && request.PresentaseSetoranSinode is not null)
@@ -96,6 +113,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
         akun.PresentaseSetoran = request.PresentaseSetoranSinode;
         akun.JenisAkun = jenisAkun;
         akun.Uraian = request.Uraian;
+        akun.Kode = request.Kode;
 
         _repositoriAkun.Update(akun);
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.AddAllAkun;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateDetailRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteDetailRAPBJ;
@@ -160,6 +161,18 @@ public class RAPBJController : Controller
     public async Task<IActionResult> TambahRAPBJ(Jenis jenis, int tahun)
     {
         var command = new CreateRAPBJCommand(tahun);
+        var result = await _sender.Send(command);
+
+        if (result.IsFailure) return BadRequest();
+
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
+    }
+
+    [HttpPost]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> TambahSemuaAkun(Jenis jenis, int tahun)
+    {
+        var command = new AddAllAkunCommand(tahun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure) return BadRequest();

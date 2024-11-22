@@ -1,19 +1,17 @@
-﻿@inject IRepositoriJenisAkun RepositoriJenisAkun
+﻿@model JenisAkun
 
-@model JenisAkun
-
-<li>@(await RepositoriJenisAkun.GetKode(Model)) @Model.Uraian</li>
+<li>@Model.KodeAkun @Model.Uraian</li>
 
 <ul>
-    @foreach (var akun in Model.DaftarAkun.Where(a => a.KelompokAkun is null && a.GolonganAkun is null).OrderBy(a => a.Id))
+    @foreach(var iakun in Model.DaftarIAkun)
     {
-        <partial name="_AkunPartial" model="akun" />
-    }
-</ul>
-
-<ul>
-    @foreach (var kelompokAkun in Model.DaftarKelompokAkun.OrderBy(k => k.Id))
-    {
-        <partial name="_KelompokAkunPartial" model="kelompokAkun" />
+        @if(iakun is Akun akun)
+        {
+            <partial name="_AkunPartial" model="akun" />
+        } 
+        else if(iakun is KelompokAkun kelompokAkun)
+        {
+            <partial name="_KelompokAkunPartial" model="kelompokAkun" />
+        }
     }
 </ul>

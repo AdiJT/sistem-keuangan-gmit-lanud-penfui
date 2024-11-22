@@ -1,4 +1,5 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.ValueObjects
+
 @inject IRepositoriAkun RepositoriAkun
 
 @model EditDetailRAPBJVM
@@ -36,7 +37,7 @@
                         <div class="form-group">
                             <label asp-for="@Model.IdAkun">Akun<span class="text-danger">*</span></label>
                             <input asp-for="@Model.IdAkun" class="form-control" hidden />
-                            <input value="@($"{await RepositoriAkun.GetKode(akun!)} {akun!.Uraian}")" class="form-control" readonly />
+                            <input value="@akun!.KodeAkun @akun!.Uraian" class="form-control" readonly />
                             <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
                         </div>
 

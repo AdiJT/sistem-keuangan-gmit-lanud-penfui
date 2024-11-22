@@ -36,8 +36,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label asp-for="@Model.Kode">Kode<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Kode" id="Kode" type="text" class="form-control" autofocus placeholder="Uraian...">
+                            <span asp-validation-for="@Model.Kode" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
                             <label asp-for="@Model.IdJenisAkun">Jenis Akun<span class="text-danger">*</span></label>
-                            <select asp-for="@Model.IdJenisAkun" class="form-control selectric">
+                            <select asp-for="@Model.IdJenisAkun" id="jenisAkun" class="form-control selectric">
                                 <option value="@null">Pilih Jenis Akun...</option>
                                 @foreach (var jenisAkun in Model.DaftarJenisAkun)
                                 {
@@ -65,4 +71,22 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    @* <script type="text/javascript">
+        const selectJenisAkun = $("select#jenisAkun");
+        const inputKode = $("input#Kode");
+
+        const url = '@(Url.Action("JenisAkunKodeBaru"))';
+
+        $(selectJenisAkun).on('change', async function () {
+            const idJenisAkun = $(selectJenisAkun).val();
+
+            const response = await fetch(`${url}?idJenisAkun=${idJenisAkun}`);
+
+            if (response.ok) {
+                const kodeBaru = await response.json();
+                inputKode.val(kodeBaru);
+            }
+        });
+    </script> *@
 }

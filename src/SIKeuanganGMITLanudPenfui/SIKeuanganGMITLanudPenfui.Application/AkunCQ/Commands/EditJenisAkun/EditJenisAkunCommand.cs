@@ -2,4 +2,4 @@
 
 namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.EditJenisAkun;
 
-public record EditJenisAkunCommand(int IdJenisAkun, string Uraian) : ICommand {}
+public record EditJenisAkunCommand(int IdJenisAkun, string Uraian, int Kode) : ICommand {}

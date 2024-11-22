@@ -1,7 +1,4 @@
 ﻿@inject IRepositoriAkun RepositoriAkun
-@inject IRepositoriJenisAkun RepositoriJenisAkun
-@inject IRepositoriKelompokAkun RepositoriKelompokAkun
-@inject IRepositoriGolonganAkun RepositoriGolonganAkun
 
 @model BelanjaVM
 
@@ -92,7 +89,7 @@
                             @foreach (var jenisAkun in Model.DaftarJenisAkun)
                             {
                                 <tr>
-                                    <td>@(await RepositoriJenisAkun.GetKode(jenisAkun))</td>
+                                    <td>@jenisAkun.KodeAkun</td>
                                     <td>@jenisAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditJenisAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -166,7 +163,7 @@
                             @foreach (var kelompokAkun in Model.DaftarKelompokAkun)
                             {
                                 <tr>
-                                    <td>@(await RepositoriKelompokAkun.GetKode(kelompokAkun))</td>
+                                    <td>@kelompokAkun.KodeAkun</td>
                                     <td>@kelompokAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditKelompokAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -240,7 +237,7 @@
                             @foreach (var golonganAkun in Model.DaftarGolonganAkun)
                             {
                                 <tr>
-                                    <td>@(await RepositoriGolonganAkun.GetKode(golonganAkun))</td>
+                                    <td>@golonganAkun.KodeAkun</td>
                                     <td>@golonganAkun.Uraian</td>
                                     <td>
                                         <a asp-action="EditGolonganAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"
@@ -314,7 +311,7 @@
                             @foreach (var akun in Model.DaftarAkun)
                             {
                                 <tr>
-                                    <td>@(await RepositoriAkun.GetKode(akun))</td>
+                                    <td>@akun.KodeAkun</td>
                                     <td>@akun.Uraian</td>
                                     <td>
                                         <a asp-action="EditAkun" asp-route-tahun="@Model.Tahun" asp-route-jenis="@Jenis.Belanja"

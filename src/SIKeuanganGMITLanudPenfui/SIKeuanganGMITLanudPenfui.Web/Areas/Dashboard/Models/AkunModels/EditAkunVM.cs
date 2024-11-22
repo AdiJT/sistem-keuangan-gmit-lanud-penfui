@@ -14,6 +14,11 @@ public class EditAkunVM
     [Required(ErrorMessage = "{0} harus diisi")]
     public required string Uraian { get; set; }
 
+    [Display(Name = "Kode")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    [Range(0, int.MaxValue, ErrorMessage = "{0} minimal {1}")]
+    public required int Kode { get; set; }
+
     [Display(Name = "Setoran Sinode")]
     public required int? PresentaseSetoranSinode { get; set; }
 

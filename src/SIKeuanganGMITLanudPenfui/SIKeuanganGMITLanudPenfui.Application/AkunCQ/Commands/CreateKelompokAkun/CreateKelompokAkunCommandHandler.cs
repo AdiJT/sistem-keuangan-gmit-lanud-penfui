@@ -31,7 +31,7 @@ internal class CreateKelompokAkunCommandHandler : ICommandHandler<CreateKelompok
         if (jenisAkun is null)
             return new Error("CreateKelompokAkunCommand.JenisAkunNotFound", $"Jenis Akun dengan Id : {request.IdJenisAkun} tidak ditemukan");
 
-        var kelompokAkun = KelompokAkun.Create(request.Uraian, tahun.Value, jenisAkun);
+        var kelompokAkun = KelompokAkun.Create(request.Uraian, tahun.Value, request.Kode, jenisAkun);
         if (kelompokAkun.IsFailure) return kelompokAkun.Error;
 
         _repositoriKelompokAkun.Add(kelompokAkun.Value);

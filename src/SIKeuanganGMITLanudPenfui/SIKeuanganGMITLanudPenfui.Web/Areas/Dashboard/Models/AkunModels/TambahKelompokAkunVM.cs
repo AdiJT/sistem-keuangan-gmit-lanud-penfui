@@ -19,6 +19,11 @@ public class TambahKelompokAkunVM
     [Required(ErrorMessage = "{0} harus diisi")]
     public required int Tahun { get; set; }
 
+    [Display(Name = "Kode")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    [Range(0, int.MaxValue, ErrorMessage = "{0} minimal {1}")]
+    public int Kode { get; set; }
+
     [Display(Name = "Jenis Akun")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public int IdJenisAkun { get; set; }

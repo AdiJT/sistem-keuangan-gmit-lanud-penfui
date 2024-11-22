@@ -38,12 +38,12 @@
                         <div class="form-group">
                             <label asp-for="@Model.IdAkun">Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdAkun" class="form-control select2">
+                                <option value="@null">Pilih Akun...</option>
                                 @foreach (var akun in daftarAkun)
                                 {
                                     @if (!rapbj!.DaftarDetailRAPBJ.Any(d => d.Akun == akun))
                                     {
-                                        <option value="@null">Pilih Akun...</option>
-                                        <option value="@akun.Id">@(await RepositoriAkun.GetKode(akun)) @akun.Uraian</option>
+                                        <option value="@akun.Id">@akun.KodeAkun @akun.Uraian</option>
                                     }
                                 }
                             </select>
@@ -72,7 +72,7 @@
                                 <input asp-for="@Model.HargaSatuan" type="text" class="form-control" autofocus placeholder="Harga Satuan...">
                             </div>
                             <span asp-validation-for="@Model.HargaSatuan" class="form-text text-danger"></span>
-                        </div>                                                                                             
+                        </div>
 
                         <input asp-for="@Model.Tahun" hidden />
                         <input asp-for="@Model.Jenis" hidden />

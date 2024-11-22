@@ -3,6 +3,6 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 
 namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateJenisAkun;
 
-public record CreateJenisAkunCommand(string Uraian, int Tahun, Jenis jenis) : ICommand
+public record CreateJenisAkunCommand(string Uraian, int Tahun, Jenis Jenis, int Kode) : ICommand
 {
 }

@@ -1,10 +1,8 @@
-﻿@inject IRepositoriGolonganAkun RepositoriGolonganAkun
+﻿@model GolonganAkun
 
-@model GolonganAkun
-
-<li>@(await RepositoriGolonganAkun.GetKode(Model)) @Model.Uraian</li>
+<li>@Model.KodeAkun @Model.Uraian</li>
 <ul>
-    @foreach(var akun in Model.DaftarAkun.OrderBy(a => a.Id)    )
+    @foreach(var akun in Model.DaftarAkun.OrderBy(a => a.Id))
     {
         <partial name="_AkunPartial" model="akun" />
     }

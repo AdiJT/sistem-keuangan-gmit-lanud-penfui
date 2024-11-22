@@ -2,6 +2,6 @@
 
 namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateKelompokAkun;
 
-public record CreateKelompokAkunCommand(string Uraian, int Tahun, int IdJenisAkun) : ICommand
+public record CreateKelompokAkunCommand(string Uraian, int Tahun, int Kode, int IdJenisAkun) : ICommand
 {
 }

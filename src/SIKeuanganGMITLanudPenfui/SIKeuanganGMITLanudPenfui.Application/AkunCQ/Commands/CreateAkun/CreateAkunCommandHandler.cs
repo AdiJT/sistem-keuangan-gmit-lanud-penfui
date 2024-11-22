@@ -40,7 +40,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
         if (tahun.IsFailure)
             return tahun.Error;
 
-        var akun = await CreateAkunAsync(request, tahun.Value, jenisAkun);
+        var akun = await CreateAkunAsync(request, tahun.Value, jenisAkun, request.Kode);
         if (akun.IsFailure)
             return akun.Error;
 
@@ -53,7 +53,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
         return Result.Success();
     }
 
-    private async Task<Result<Akun>> CreateAkunAsync(CreateAkunCommand request, Tahun tahun, JenisAkun jenisAkun)
+    private async Task<Result<Akun>> CreateAkunAsync(CreateAkunCommand request, Tahun tahun, JenisAkun jenisAkun, int kode)
     {
         if (request is { IdKelompokAkun: null, IdGolonganAkun: null })
         {
@@ -61,6 +61,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
                 request.Uraian,
                 tahun,
                 request.PresentaseSetoranSinode,
+                kode,
                 jenisAkun);
         }
         else if (request is { IdKelompokAkun: not null, IdGolonganAkun: null })
@@ -74,6 +75,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
                 request.Uraian,
                 tahun,
                 request.PresentaseSetoranSinode,
+                kode,
                 kelompokAkun);
         }
         else if (request is { IdKelompokAkun: null, IdGolonganAkun: not null })
@@ -87,6 +89,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
                 request.Uraian,
                 tahun,
                 request.PresentaseSetoranSinode,
+                kode,
                 golonganAkun);
         }
         else
@@ -100,6 +103,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
                 request.Uraian,
                 tahun,
                 request.PresentaseSetoranSinode,
+                kode,
                 golonganAkun);
         }
     }
