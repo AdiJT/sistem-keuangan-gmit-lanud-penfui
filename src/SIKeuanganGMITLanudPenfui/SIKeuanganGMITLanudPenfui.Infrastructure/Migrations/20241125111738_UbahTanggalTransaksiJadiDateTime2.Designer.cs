@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241125111738_UbahTanggalTransaksiJadiDateTime2")]
+    partial class UbahTanggalTransaksiJadiDateTime2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4660,7 +4663,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 12500.0,
                             KasId = 1,
                             SaldoKas = 11197400.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 1, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs teh sariwangi (50P)"
@@ -4674,7 +4677,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 59900.0,
                             KasId = 1,
                             SaldoKas = 11137500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 2, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 1, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)"
@@ -4688,7 +4691,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 30000.0,
                             KasId = 1,
                             SaldoKas = 11107500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 3, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 2, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 30 potong kue @Rp. 1.000,-"
@@ -4702,7 +4705,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 255000.0,
                             KasId = 1,
                             SaldoKas = 10852500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 4, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 0, 0, 3, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-"
@@ -4716,7 +4719,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 930000.0,
                             KasId = 1,
                             SaldoKas = 6961500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 5, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 4, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kolekte"
@@ -4730,7 +4733,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 6966500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 6, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 5, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 1"
@@ -4744,7 +4747,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 6976500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 7, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 6, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 2"
@@ -4758,7 +4761,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 7076500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 8, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 7, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 3"
@@ -4772,7 +4775,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7086500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 9, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 8, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 4"
@@ -4786,7 +4789,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 7091500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 10, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 9, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 5"
@@ -4800,7 +4803,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 20000.0,
                             KasId = 1,
                             SaldoKas = 7111500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 11, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 10, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 6"
@@ -4814,7 +4817,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 30000.0,
                             KasId = 1,
                             SaldoKas = 7141500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 12, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 11, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1"
@@ -4828,7 +4831,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7191500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 13, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 12, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2"
@@ -4842,7 +4845,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7201500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 14, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 13, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3"
@@ -4856,7 +4859,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 9000.0,
                             KasId = 1,
                             SaldoKas = 7210500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 15, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 14, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4"
@@ -4870,7 +4873,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 7215500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 16, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 15, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5"
@@ -4884,7 +4887,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7225500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 17, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 16, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6"
@@ -4898,7 +4901,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7275500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 18, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 17, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7"
@@ -4912,7 +4915,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7285500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 19, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 18, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 1"
@@ -4926,7 +4929,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 7290500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 20, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 19, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 2"
@@ -4940,7 +4943,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7300500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 21, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 20, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 3"
@@ -4954,7 +4957,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7350500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 22, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 21, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 4"
@@ -4968,7 +4971,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7400500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 23, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 22, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 5"
@@ -4982,7 +4985,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 7500500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 24, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 23, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 6"
@@ -4996,7 +4999,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7510500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 25, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 24, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 7"
@@ -5010,7 +5013,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7520500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 26, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 25, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 8"
@@ -5024,7 +5027,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7530500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 27, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 26, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 9"
@@ -5038,7 +5041,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7540500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 28, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 27, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur Tanpa Nama 10"
@@ -5052,7 +5055,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7590500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 29, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 28, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Oktovianus Metboki Rayon 5"
@@ -5066,7 +5069,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 77000.0,
                             KasId = 1,
                             SaldoKas = 7667500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 30, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 29, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Oma. Elisabeth Tualaka Rayon 7"
@@ -5080,7 +5083,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 72000.0,
                             KasId = 1,
                             SaldoKas = 7739500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 31, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 30, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kel AS Rayon 2"
@@ -5094,7 +5097,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 7749500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 32, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 31, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Oma. Aranci Suek Rayon 4"
@@ -5108,7 +5111,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 7799500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 33, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 32, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = " Bpk. Dominggus Kole Rayon 7"
@@ -5122,7 +5125,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 300000.0,
                             KasId = 1,
                             SaldoKas = 8099500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 34, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 33, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kel. IB Rayon 4"
@@ -5136,7 +5139,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 8149500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 35, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 34, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Oma. Naomi A. Henuk Rayon 2"
@@ -5150,7 +5153,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 8249500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 36, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 35, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa nama Rayon 7"
@@ -5164,7 +5167,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 69000.0,
                             KasId = 1,
                             SaldoKas = 8318500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 37, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 36, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Marcus Baria Rayon 7"
@@ -5178,7 +5181,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 150000.0,
                             KasId = 1,
                             SaldoKas = 8468500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 38, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 37, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Oma. Annie M. Malonda Rayon 7"
@@ -5192,7 +5195,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 8518500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 39, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 38, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Mikhael Nenotek Rayon 5"
@@ -5206,7 +5209,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 8568500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 40, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 39, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa nama Rayon 7"
@@ -5220,7 +5223,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 8618500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 41, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 40, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa nama Rayon 7"
@@ -5234,7 +5237,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 30000.0,
                             KasId = 1,
                             SaldoKas = 8648500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 42, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 41, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. A.J. Sinaga Rayon 2"
@@ -5248,7 +5251,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 8658500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 43, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 42, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Melkisedek Kasse Rayon 4"
@@ -5262,7 +5265,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 57000.0,
                             KasId = 1,
                             SaldoKas = 8715500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 44, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 43, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Nur M. Tasrap Rayon 5"
@@ -5276,7 +5279,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 16000.0,
                             KasId = 1,
                             SaldoKas = 8731500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 45, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 44, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Marthen Patipellohy Rayon 5"
@@ -5290,7 +5293,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 60000.0,
                             KasId = 1,
                             SaldoKas = 8791500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 46, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 45, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Benyamin Sua Rayon 3"
@@ -5304,7 +5307,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 8891500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 47, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 46, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama Rayon 7"
@@ -5318,7 +5321,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 50000.0,
                             KasId = 1,
                             SaldoKas = 8941500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 48, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 47, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Daud Ludji Rayon 4"
@@ -5332,7 +5335,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 8951500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 49, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 48, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 1"
@@ -5346,7 +5349,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 111000.0,
                             KasId = 1,
                             SaldoKas = 9062500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 50, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 49, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 2"
@@ -5360,7 +5363,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9072500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 51, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 50, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 3"
@@ -5374,7 +5377,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9082500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 52, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 51, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 4"
@@ -5388,7 +5391,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9092500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 53, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 52, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 5"
@@ -5402,7 +5405,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 20000.0,
                             KasId = 1,
                             SaldoKas = 9112500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 54, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 53, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 6"
@@ -5416,7 +5419,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 2000.0,
                             KasId = 1,
                             SaldoKas = 9114500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 55, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 54, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 7"
@@ -5430,7 +5433,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 64000.0,
                             KasId = 1,
                             SaldoKas = 9178500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 56, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 55, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 8"
@@ -5444,7 +5447,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9188500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 57, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 56, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 9"
@@ -5458,7 +5461,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9198500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 58, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 57, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 10"
@@ -5472,7 +5475,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 10000.0,
                             KasId = 1,
                             SaldoKas = 9208500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 59, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 58, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama 11"
@@ -5486,7 +5489,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 9308500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 0, 59, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tanpa Nama"
@@ -5500,7 +5503,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 30000.0,
                             KasId = 1,
                             SaldoKas = 9338500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 1, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. A.J. Sinaga Rayon 2"
@@ -5514,7 +5517,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 25000.0,
                             KasId = 1,
                             SaldoKas = 9363500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 2, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 1, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Ibu. Febei Nuban Rayon 7"
@@ -5528,7 +5531,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 9463500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 3, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 2, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Kristian Walu Logo Rayon 1"
@@ -5542,7 +5545,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 250000.0,
                             KasId = 1,
                             SaldoKas = 9713500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 4, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 3, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Bpk. Max Warruw Rayon 7"
@@ -5556,7 +5559,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 100000.0,
                             KasId = 1,
                             SaldoKas = 9813500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 5, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 4, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima persembahan syukur ULTAH ke-79"
@@ -5570,7 +5573,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 400000.0,
                             KasId = 1,
                             SaldoKas = 10213500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 6, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 5, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah keluarga dirumah Bpk. Mexi Bekabel Rayon 4"
@@ -5584,7 +5587,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 500000.0,
                             KasId = 1,
                             SaldoKas = 9713500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 7, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 6, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7"
@@ -5598,7 +5601,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 150000.0,
                             KasId = 1,
                             SaldoKas = 9563500.0,
-                            Tanggal = new DateTime(2024, 1, 2, 0, 1, 8, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 2, 0, 1, 7, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-"
@@ -5612,7 +5615,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 791000.0,
                             KasId = 1,
                             SaldoKas = 10354500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 9, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 8, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah lepas kabung di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
@@ -5626,7 +5629,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 643000.0,
                             KasId = 1,
                             SaldoKas = 10997500.0,
-                            Tanggal = new DateTime(2024, 1, 3, 0, 1, 10, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 3, 0, 1, 9, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah penggembalaan Majelis Jemaat Periode 2024-2027 diGereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
@@ -5640,7 +5643,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 329000.0,
                             KasId = 1,
                             SaldoKas = 11326500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 11, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 10, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
@@ -5654,7 +5657,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 40000.0,
                             KasId = 1,
                             SaldoKas = 11286500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 12, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 11, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs MCB Broco 6A"
@@ -5668,7 +5671,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 11281500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 13, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 0, 1, 12, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs Box MCB"
@@ -5682,7 +5685,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jumlah = 71600.0,
                             KasId = 1,
                             SaldoKas = 11209900.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 1, 14, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 0, 1, 13, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-"
@@ -5720,7 +5723,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEODdjhSniP3pqgwivWHbd5m4uvQ2ASbfUnSCdktAova9Yh4b8VwcfOpsJiv0sRcM6g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM6/iHKQRzoqw7TIyIBBus8hpsYZVENWH9QVabOFyTA1VBZG/sBk8j2cCw424HGnTA==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });
