@@ -21,4 +21,6 @@ public static class AkunErrors
 
     public static readonly Error GolonganAkunTahunBeda = new(
         "Akun.GolonganAkunTahunBeda", "Tahun dari Golongan Akun beda dengan Tahun Akun");
+
+    public static readonly Error KodeNotUnique = new("Akun.KodeNotUnique", "Kode akun tidak unik");
 }

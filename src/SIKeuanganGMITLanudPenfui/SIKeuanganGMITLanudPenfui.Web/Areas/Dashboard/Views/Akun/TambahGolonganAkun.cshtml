@@ -1,4 +1,5 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.Repositories
+@using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers
 @model TambahGolonganAkunVM
 
 @inject IRepositoriKelompokAkun RepositoriKelompokAkun;
@@ -36,6 +37,12 @@
                             <label asp-for="@Model.Uraian">Uraian<span class="text-danger">*</span></label>
                             <input asp-for="@Model.Uraian" type="text" class="form-control" autofocus placeholder="Uraian...">
                             <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Kode">Kode<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Kode" id="Kode" type="text" class="form-control" autofocus placeholder="Uraian...">
+                            <span asp-validation-for="@Model.Kode" class="form-text text-danger"></span>
                         </div>
 
                         <div class="form-group">
@@ -80,6 +87,8 @@
     <script>
         const selectIdJenisAkun = $('select#idJenisAkun');
         const selectIdKelompokAkun = $('select#idKelompokAkun');
+        const inputKode = $('input#Kode');
+        const urlKodeBaru = '@(Url.Action(nameof(AkunController.GolonganAkunKodeBaru)))';
         const url = '@(Url.ActionLink("KelompokAkun"))';
 
         $(selectIdJenisAkun).on('change', async function () {

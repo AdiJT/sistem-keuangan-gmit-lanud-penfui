@@ -119,10 +119,17 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahJenisAkun([FromForm]TambahJenisAkunVM tambahJenisAkunVM, [FromRoute]Jenis jenis, [FromRoute]int tahun)
     {
+        if (!ModelState.IsValid) return View(tambahJenisAkunVM);
+
         if(tambahJenisAkunVM.Jenis != jenis || tambahJenisAkunVM.Tahun != tahun)
             return BadRequest();
 
-        var createJenisAkunCommand = new CreateJenisAkunCommand(tambahJenisAkunVM.Uraian, tambahJenisAkunVM.Tahun, tambahJenisAkunVM.Jenis);
+        var createJenisAkunCommand = new CreateJenisAkunCommand(
+            tambahJenisAkunVM.Uraian,
+            tambahJenisAkunVM.Tahun,
+            tambahJenisAkunVM.Jenis,
+            tambahJenisAkunVM.Kode);
+
         var result = await _sender.Send(createJenisAkunCommand);
 
         if(result.IsFailure)
@@ -153,10 +160,12 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahKelompokAkun([FromForm] TambahKelompokAkunVM vm, [FromRoute] Jenis jenis, [FromRoute] int tahun)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Tahun != tahun || vm.Jenis != jenis)
             return BadRequest();
 
-        var command = new CreateKelompokAkunCommand(vm.Uraian, vm.Tahun, vm.IdJenisAkun);
+        var command = new CreateKelompokAkunCommand(vm.Uraian, vm.Tahun, vm.Kode, vm.IdJenisAkun);
         var result = await _sender.Send(command);
         if(result.IsFailure)
         {
@@ -187,10 +196,12 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahGolonganAkun([FromForm]TambahGolonganAkunVM vm, [FromRoute]Jenis jenis, [FromRoute] int tahun)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Tahun != tahun || vm.Jenis != jenis)
             return BadRequest();
 
-        var command = new CreateGolonganAkunCommand(vm.Uraian, vm.Tahun, vm.IdKelompokAkun);
+        var command = new CreateGolonganAkunCommand(vm.Uraian, vm.Tahun, vm.Kode, vm.IdKelompokAkun);
         var result = await _sender.Send(command);
         if(result.IsFailure)
         {
@@ -221,6 +232,8 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
     public async Task<IActionResult> TambahAkun([FromForm] TambahAkunVM vm, [FromRoute] Jenis jenis, [FromRoute] int tahun)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Tahun != tahun || vm.Jenis != jenis)
             return BadRequest();
 
@@ -231,7 +244,15 @@ public class AkunController : Controller
             return View(vm);
         }
 
-        var command = new CreateAkunCommand(vm.Uraian, vm.Tahun, vm.PresentaseSetoranSinode / 100d, vm.IdJenisAkun, vm.IdKelompokAkun, vm.IdGolonganAkun);
+        var command = new CreateAkunCommand(
+            vm.Uraian,
+            vm.Tahun,
+            vm.PresentaseSetoranSinode / 100d,
+            vm.Kode,
+            vm.IdJenisAkun,
+            vm.IdKelompokAkun,
+            vm.IdGolonganAkun);
+
         var result = await _sender.Send(command);
         if (result.IsFailure)
         {
@@ -260,6 +281,7 @@ public class AkunController : Controller
             Id = id,
             Jenis = jenis,
             Tahun = tahun,
+            Kode = jenisAkun.Kode,
             Uraian = jenisAkun.Uraian,
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area="Dashboard"})!
         };
@@ -271,9 +293,11 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> EditJenisAkun(Jenis jenis, int tahun, int id, EditJenisAkunVM vm)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Jenis != jenis || vm.Tahun != tahun || id != vm.Id) return BadRequest();
 
-        var command = new EditJenisAkunCommand(vm.Id, vm.Uraian);
+        var command = new EditJenisAkunCommand(vm.Id, vm.Uraian, vm.Kode);
         var result = await _sender.Send(command);
 
         if(result.IsFailure)
@@ -303,6 +327,7 @@ public class AkunController : Controller
             Jenis = jenis,
             Tahun = tahun,
             Uraian = kelompokAkun.Uraian,
+            Kode = kelompokAkun.Kode,
             IdJenisAkun = kelompokAkun.JenisAkun.Id,
             DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList(),
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
@@ -315,9 +340,11 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> EditKelompokAkun(Jenis jenis, int tahun, int id, EditKelompokAkunVM vm)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Jenis != jenis || vm.Tahun != tahun || id != vm.Id) return BadRequest();
 
-        var command = new EditKelompokAkunCommand(vm.Id, vm.Uraian, vm.IdJenisAkun);
+        var command = new EditKelompokAkunCommand(vm.Id, vm.Uraian, vm.Kode, vm.IdJenisAkun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure)
@@ -347,6 +374,7 @@ public class AkunController : Controller
             Jenis = jenis,
             Tahun = tahun,
             Uraian = golonganAkun.Uraian,
+            Kode = golonganAkun.Kode,
             IdKelompokAkun = golonganAkun.KelompokAkun.Id,
             DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList(),
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
@@ -359,9 +387,11 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> EditGolonganAkun(Jenis jenis, int tahun, int id, EditGolonganAkunVM vm)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Jenis != jenis || vm.Tahun != tahun || id != vm.Id) return BadRequest();
 
-        var command = new EditGolonganAkunCommand(vm.Id, vm.Uraian, vm.IdKelompokAkun);
+        var command = new EditGolonganAkunCommand(vm.Id, vm.Uraian, vm.Kode, vm.IdKelompokAkun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure)
@@ -392,6 +422,7 @@ public class AkunController : Controller
             Tahun = tahun,
             Uraian = akun.Uraian,
             PresentaseSetoranSinode = (int?)(akun.PresentaseSetoran * 100),
+            Kode = akun.Kode,
             IdJenisAkun = akun.JenisAkun.Id,
             IdKelompokAkun = akun.KelompokAkun?.Id,
             IdGolonganAkun = akun.GolonganAkun?.Id,
@@ -406,9 +437,19 @@ public class AkunController : Controller
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> EditAkun(Jenis jenis, int tahun, int id, EditAkunVM vm)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         if (vm.Jenis != jenis || vm.Tahun != tahun || id != vm.Id) return BadRequest();
 
-        var command = new EditAkunCommand(vm.Id, vm.Uraian, vm.PresentaseSetoranSinode / 100d, vm.IdJenisAkun, vm.IdKelompokAkun, vm.IdGolonganAkun);
+        var command = new EditAkunCommand(
+            vm.Id,
+            vm.Uraian,
+            vm.Kode,
+            vm.PresentaseSetoranSinode / 100d,
+            vm.IdJenisAkun,
+            vm.IdKelompokAkun,
+            vm.IdGolonganAkun);
+
         var result = await _sender.Send(command);
 
         if (result.IsFailure)
@@ -532,5 +573,71 @@ public class AkunController : Controller
         var daftarGolonganAkun = await _repositoriGolonganAkun.GetAllByKelompokAkun(kelompokAkun);
 
         return Json(daftarGolonganAkun, serializerSettings);
+    }
+
+    [Route("[area]/[controller]/JenisAkun/KodeBaru")]
+    public async Task<IActionResult> JenisAkunKodeBaru(Jenis jenis, int tahun)
+    {
+        var rTahun = Tahun.Create(tahun);
+        if (rTahun.IsFailure) return BadRequest();
+
+        var kodeBaru = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).OrderBy(j => j.Kode).LastOrDefault()?.Kode + 1;
+
+        return Json(kodeBaru ?? 1, serializerSettings);
+    }
+
+    [Route("[area]/[controller]/KelompokAkun/KodeBaru")]
+    public async Task<IActionResult> KelompokAkunKodeBaru(int idJenisAkun)
+    {
+        var jenisAkun = await _repositoriJenisAkun.Get(idJenisAkun);
+        if (jenisAkun is null) return NotFound();
+
+        var kodeBaru = jenisAkun.DaftarIAkun.LastOrDefault()?.Kode + 1;
+
+        return Json(kodeBaru ?? 1, serializerSettings);
+    }
+
+    [Route("[area]/[controller]/GolonganAkun/KodeBaru")]
+    public async Task<IActionResult> GolonganAkunKodeBaru(int idKelompokAkun)
+    {
+        var kelompokAkun = await _repositoriKelompokAkun.Get(idKelompokAkun);
+        if (kelompokAkun is null) return NotFound();
+
+        var kodeBaru = kelompokAkun.DaftarIAkun.LastOrDefault()?.Kode + 1;
+
+        return Json(kodeBaru ?? 1, serializerSettings);
+    }
+
+    [Route("[area]/[controller]/Akun/KodeBaru")]
+    public async Task<IActionResult> AkunKodeBaru(int? idJenisAkun, int? idKelompokAkun, int? idGolonganAkun)
+    {
+        if (idJenisAkun is not null && idKelompokAkun is null && idGolonganAkun is null)
+        {
+            var jenisAkun = await _repositoriJenisAkun.Get(idJenisAkun.Value);
+            if (jenisAkun is null) return BadRequest();
+
+            var kodeBaru = jenisAkun.DaftarIAkun.LastOrDefault()?.Kode + 1;
+            return Json(kodeBaru ?? 1, serializerSettings);
+        }
+
+        if(idJenisAkun is null && idKelompokAkun is not null && idGolonganAkun is null)
+        {
+            var kelompokAkun = await _repositoriKelompokAkun.Get(idKelompokAkun.Value);
+            if (kelompokAkun is null) return BadRequest();
+
+            var kodeBaru = kelompokAkun.DaftarIAkun.LastOrDefault()?.Kode + 1;
+            return Json(kodeBaru ?? 1, serializerSettings);
+        }
+
+        if (idJenisAkun is null && idKelompokAkun is null && idGolonganAkun is not null)
+        {
+            var golonganAkun = await _repositoriGolonganAkun.Get(idGolonganAkun.Value);
+            if (golonganAkun is null) return BadRequest();
+
+            var kodeBaru = golonganAkun.DaftarAkun.LastOrDefault()?.Kode + 1;
+            return Json(kodeBaru ?? 1, serializerSettings);
+        }
+
+        return BadRequest();
     }
 }

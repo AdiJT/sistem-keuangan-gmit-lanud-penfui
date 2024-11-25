@@ -1,10 +1,13 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.AddAllAkun;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateDetailRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.CreateRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteDetailRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.EditDetailRAPBJ;
+using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
@@ -13,6 +16,7 @@ using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RAPBJModels;
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
+[Authorize(Roles = UserRoles.Bendahara)]
 public class RAPBJController : Controller
 {
     private readonly IRepositoriRAPBJ _repositoriRAPBJ;
@@ -160,6 +164,18 @@ public class RAPBJController : Controller
     public async Task<IActionResult> TambahRAPBJ(Jenis jenis, int tahun)
     {
         var command = new CreateRAPBJCommand(tahun);
+        var result = await _sender.Send(command);
+
+        if (result.IsFailure) return BadRequest();
+
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
+    }
+
+    [HttpPost]
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> TambahSemuaAkun(Jenis jenis, int tahun)
+    {
+        var command = new AddAllAkunCommand(tahun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure) return BadRequest();

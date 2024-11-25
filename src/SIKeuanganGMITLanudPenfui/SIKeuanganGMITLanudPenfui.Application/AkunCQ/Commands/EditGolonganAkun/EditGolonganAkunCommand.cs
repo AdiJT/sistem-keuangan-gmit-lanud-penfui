@@ -2,6 +2,6 @@
 
 namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.EditGolonganAkun;
 
-public record EditGolonganAkunCommand(int IdGolonganAkun, string Uraian, int IdKelompokAkun) : ICommand
+public record EditGolonganAkunCommand(int IdGolonganAkun, string Uraian, int Kode, int IdKelompokAkun) : ICommand
 {
 }

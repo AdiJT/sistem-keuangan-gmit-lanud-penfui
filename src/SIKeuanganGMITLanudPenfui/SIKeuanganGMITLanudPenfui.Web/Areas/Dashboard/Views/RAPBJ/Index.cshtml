@@ -1,6 +1,4 @@
-﻿@inject IRepositoriAkun RepositoriAkun
-
-@model IndexVM
+﻿@model IndexVM
 
 @{
     ViewData["Title"] = $"RAPBJ | {Model.Jenis.ToString()}";
@@ -31,7 +29,8 @@
                       asp-area="Dashboard"
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
-                      method="post">
+                      method="post"
+                      class="mb-3 pl-3 pr-2">
                     <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
                 </form>
             }
@@ -43,8 +42,20 @@
                       asp-area="Dashboard"
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
-                      method="post">
+                      method="post" class="mb-3 pl-3 pr-2">
                     <button type="submit" class="btn btn-primary">Tambah RAPBJ</button>
+                </form>
+            }
+
+            @if (Model.RAPBJ is not null && Model.RAPBJ.DaftarDetailRAPBJ.Count == 0)
+            {
+                <form asp-action="TambahSemuaAkun"
+                      asp-controller="RAPBJ"
+                      asp-area="Dashboard"
+                      asp-route-tahun="@Model.Tahun"
+                      asp-route-jenis="@Model.Jenis"
+                      method="post" class="mb-3 pl-3 pr-2">
+                    <button type="submit" class="btn btn-primary">Tambah Semua Akun ke RAPBJ</button>
                 </form>
             }
 
@@ -99,7 +110,7 @@
                                     <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                                 </div>
                             </td>
-                            <td>@(await RepositoriAkun.GetKode(detail.Akun))</td>
+                            <td>@detail.Akun.KodeAkun</td>
                             <td>@detail.Akun.Uraian</td>
                             <td class="text-right">@detail.Volume</td>
                             <td>@detail.Satuan</td>

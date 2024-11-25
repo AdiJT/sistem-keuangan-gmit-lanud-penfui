@@ -30,9 +30,6 @@ internal class CreateRAPBJCommandHandler : ICommandHandler<CreateRAPBJCommand>
         var tahun = Tahun.Create(request.Tahun);
         if (tahun.IsFailure) return tahun.Error;
 
-        if (!await _repositoriAkun.IsExistOnTahun(tahun.Value))
-            return new Error("CreateRAPBJCommandHandler.NoAkunExist", $"Tidak ada Akun di tahun {request.Tahun}");
-
         var daftarAkun = await _repositoriAkun.GetAllByTahun(tahun.Value);
 
         if (await _repositoriRAPBJ.IsExist(tahun.Value))
@@ -42,23 +39,6 @@ internal class CreateRAPBJCommandHandler : ICommandHandler<CreateRAPBJCommand>
         {
             Tahun = tahun.Value
         };
-
-        foreach (var akun in daftarAkun)
-        {
-            var detailRAPBJ = new DetailRAPBJ
-            {
-                TahunRAPBJ = tahun.Value,
-                KodeAkun = akun.Id,
-                RAPBJ = rapbj,
-                Akun = akun,
-                HargaSatuan = 0,
-                Satuan = "",
-                Volume = 0
-            };
-
-            rapbj.DaftarDetailRAPBJ.Add(detailRAPBJ);
-            _repositoriDetailRAPBJ.Add(detailRAPBJ);   
-        }    
 
         _repositoriRAPBJ.Add(rapbj);
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);

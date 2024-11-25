@@ -35,6 +35,12 @@
                             <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
                         </div>
 
+                        <div class="form-group mb-0">
+                            <label asp-for="@Model.Kode">Kode<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Kode" type="text" class="form-control" autofocus placeholder="Uraian...">
+                            <span asp-validation-for="@Model.Kode" class="form-text text-danger"></span>
+                        </div>
+
                         <div class="form-group">
                             <label asp-for="@Model.IdJenisAkun">Jenis Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdJenisAkun" class="form-control selectric">

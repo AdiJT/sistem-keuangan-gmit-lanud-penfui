@@ -22,7 +22,11 @@ internal class EditJenisAkunCommandHandler : ICommandHandler<EditJenisAkunComman
         if (jenisAkun is null)
             return new Error("EditJenisAkunCommandHandler.JenisAkunNotFound", $"Jenis Akun dengan Id {request.IdJenisAkun} tidak ditemukan");
 
+        if ((await _repositoriJenisAkun.GetAllByTahun(jenisAkun.Tahun)).Where(j => j.Jenis == jenisAkun.Jenis).Any(j => j.Kode == request.Kode))
+            return new Error("EditJenisAkunCommandHandler.KodeNotUnique", "Kode tidak unik");
+
         jenisAkun.Uraian = request.Uraian;
+        jenisAkun.Kode = request.Kode;
         _repositoriJenisAkun.Update(jenisAkun);
 
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);

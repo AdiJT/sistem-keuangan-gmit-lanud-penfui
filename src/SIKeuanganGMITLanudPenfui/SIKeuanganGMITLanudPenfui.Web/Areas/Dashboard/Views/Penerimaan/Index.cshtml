@@ -1,0 +1,83 @@
+﻿@model IndexVM
+
+@{
+    ViewData["Title"] = "Realisasi | Penerimaan";
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<partial name="_BreadcrumbPartial" />
+
+<div class="ml-auto mr-3">
+    <select id="tahun" class="form-control">
+        @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+        {
+            @if (tahun == Model.Tahun)
+            {
+                <option selected value="@tahun">@tahun</option>
+            }
+            else
+            {
+                <option value="@tahun">@tahun</option>
+            }
+        }
+    </select>
+</div>
+
+<a href="#" class="btn btn-primary">+ Tambah</a>
+
+<table class="table table-striped table-hover" id="table-akun-1">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Uraian</th>
+            <th>Jumlah</th>
+            <th>Saldo Terakhir</th>
+            <th>Akun</th>
+            <th>Kas</th>
+            <th>File Bukti</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var no = 1;
+        }
+        @foreach(var penerimaan in Model.DaftarPenerimaan)
+        {
+            <tr>
+                <td>@no</td>
+                <td>@penerimaan.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo)</td>
+                <td>@penerimaan.Uraian</td>
+                <td>@penerimaan.Jumlah.ToString("C2", cultureInfo)</td>
+                <td>@penerimaan.SaldoKas.ToString("C2", cultureInfo)</td>
+                <td>@penerimaan.Akun.KodeAkun @penerimaan.Akun.Uraian</td>
+                <td>@penerimaan.Kas.Uraian</td>
+                <td>
+                    <a href="@penerimaan.FileBukti.ToString()">File Bukti</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Hapus</a>
+                </td>
+            </tr>
+            no++;
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_BreadcrumbScriptPartial" />
+
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+        
+        const url = '@Url.Action(nameof(PenerimaanController.Index))';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+
+            location.href = `${url}?tahun=${tahun}`;
+        });
+    </script>
+}

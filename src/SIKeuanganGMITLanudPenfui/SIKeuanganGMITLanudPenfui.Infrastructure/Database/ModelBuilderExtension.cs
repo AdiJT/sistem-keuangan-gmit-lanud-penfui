@@ -13,77 +13,87 @@ internal static class ModelBuilderExtension
         var tahun = Tahun.Create(2024).Value;
 
         #region JenisAkun
-        var daftarJenisAkun = new JenisAkun[]
+        var daftarJenisAkun = new[]
         {
-            new()
+            new
             {
                 Id = 1,
                 Uraian = "Sisa lebih perhitungan tahun (Surplus)",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
-            new()
+            new
             {
                 Id = 2,
                 Uraian = "Kolekte/Persembahan",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
-            new()
+            new
             {
                 Id = 3,
                 Uraian = "Kolekte Ibadah Syukur",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
-            new()
+            new
             {
                 Id = 4,
                 Uraian = "Nazar",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
-            new()
+            new
             {
                 Id = 5,
                 Uraian = "Persepuluhan dan Syukur",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 5
             },
-            new()
+            new
             {
                 Id = 6,
                 Uraian = "Pembangunan",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 6
             },
-            new()
+            new
             {
                 Id = 7,
                 Uraian = "Penerimaan Lain-Lain",
                 Jenis = Jenis.Penerimaan,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 7
             },
-            new()
+            new
             {
                 Id = 8,
                 Uraian = "Belanja Rutin",
                 Jenis = Jenis.Belanja,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
-            new()
+            new
             {
                 Id = 9,
                 Uraian = "Belanja Program Pelayanan",
                 Jenis = Jenis.Belanja,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
-            new()
+            new
             {
                 Id = 10,
                 Uraian = "Belanja Lain-Lain",
                 Jenis = Jenis.Belanja,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             }
         };
 
@@ -98,147 +108,168 @@ internal static class ModelBuilderExtension
                 Id = 1,
                 Uraian = "Kolekte Kebaktian Hari Raya Gerejawi",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
             new
             {
                 Id = 2,
                 Uraian = "Kolekte Kebaktian Sakramen Perjamuan Kudus",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
             new
             {
                 Id = 3,
                 Uraian = "Kolekte Kebaktian Baptisan Kudus",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
             new
             {
                 Id = 4,
                 Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 5
             },
             new
             {
                 Id = 5,
-                Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru",
+                Uraian = "Kolekte Kebaktian Pemberkatan Nikah",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 6
             },
             new
             {
                 Id = 6,
                 Uraian = "Kolekte Ibadah Rumah Tangga",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 7
             },
             new
             {
                 Id = 7,
                 Uraian = "Kolekte Ibadah Kategorial/Fungsional, dll",
                 JenisAkunId = 2,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 8,
             },
             new
             {
                 Id = 8,
                 Uraian = "Pos Penghasilan Pendeta dan MJH",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
             new
             {
                 Id = 9,
                 Uraian = "Belanja BPPPJ",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
             new
             {
                 Id = 10,
                 Uraian = "Belanja Karyawan",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
             new
             {
                 Id = 11,
                 Uraian = "Tunjangan Khusus Karyawan/Presbiter",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
             new
             {
                 Id = 12,
                 Uraian = "Belanja Kantor",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 5
             },
             new
             {
                 Id = 13,
                 Uraian = "Belanja Pengadaan & Pemeliharaan",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 6
             },
             new
             {
                 Id = 14,
                 Uraian = "Belanja Perjalanan",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 7
             },
             new
             {
                 Id = 15,
                 Uraian = "Belanja Tanggungan Rutin Jemaat",
                 JenisAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 8
             },
             new
             {
                 Id = 16,
                 Uraian = "Bidang Koinonia",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
             new
             {
                 Id = 17,
                 Uraian = "Bidang Marturia",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
             new
             {
                 Id = 18,
                 Uraian = "Bidang Liturgia",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
             new
             {
                 Id = 19,
                 Uraian = "Bidang Diakonia",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
             new
             {
                 Id = 20,
                 Uraian = "Bidang Oikonomia",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 5
             },
             new
             {
                 Id = 21,
                 Uraian = "Bidang Umum dan Rekomendasi",
                 JenisAkunId = 9,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 6
             },
         };
         modelBuilder.Entity<KelompokAkun>().HasData(daftarKelompokAkun);
@@ -252,70 +283,80 @@ internal static class ModelBuilderExtension
                 Id = 1,
                 Uraian = "Tunjangan Ketua Majelis Jemaat (KMJ)",
                 KelompokAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
             new
             {
                 Id = 2,
                 Uraian = "Insentif MJH",
                 KelompokAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
             new
             {
                 Id = 3,
                 Uraian = "Tunjangan Khusus MJH",
                 KelompokAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
             new
             {
                 Id = 4,
                 Uraian = "Gaji Ke-13",
                 KelompokAkunId = 8,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
             new
             {
                 Id = 5,
                 Uraian = "Biaya Konsumsi",
                 KelompokAkunId = 12,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 8
             },
             new
             {
                 Id = 6,
                 Uraian = "Biaya Perjalanan Dinas Pendeta",
                 KelompokAkunId = 14,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
             new
             {
                 Id = 7,
                 Uraian = "Renovasi Gedung Ibadah",
                 KelompokAkunId = 20,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 1
             },
             new
             {
                 Id = 8,
                 Uraian = "Renovasi Gedung Pusat Kegiatan PART, Pemuda dan Serba Guna",
                 KelompokAkunId = 20,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 2
             },
             new
             {
                 Id = 9,
                 Uraian = "Renovasi Rumah Pastori",
                 KelompokAkunId = 20,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 3
             },
             new
             {
                 Id = 10,
                 Uraian = "Renovasi Pertamanan",
                 KelompokAkunId = 20,
-                Tahun = tahun
+                Tahun = tahun,
+                Kode = 4
             },
         };
         modelBuilder.Entity<GolonganAkun>().HasData(daftarGolonganAkun);
@@ -328,283 +369,330 @@ internal static class ModelBuilderExtension
             {
                 Id = 1,
                 Uraian = "Rutin",
-                JenisAkunId = 1
+                JenisAkunId = 1,
+                Kode = 1
             },
             new
             {
                 Id = 2,
                 Uraian = "Pembangunan",
-                JenisAkunId = 1
+                JenisAkunId = 1,
+                Kode = 2
             },
             new
             {
                 Id = 3,
                 Uraian = "Dana Cadangan",
-                JenisAkunId = 1
+                JenisAkunId = 1,
+                Kode = 3
             },
             new
             {
                 Id = 4,
                 Uraian = "Kolekte Kebaktian Utama Minggu (2 kali/minggu)",
-                JenisAkunId = 2
+                JenisAkunId = 2,
+                Kode = 1
             },
             new
             {
                 Id = 5,
                 Uraian = "Kolekte Ibadah Syukur Kelulusan",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 1
             },
             new
             {
                 Id = 6,
                 Uraian = "Kolekte Ibadah Syukur NATAL Rayon",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 2
             },
             new
             {
                 Id = 7,
                 Uraian = "Kolekte Ibadah Syukur NATAL Keluarga",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 3
             },
             new
             {
                 Id = 8,
                 Uraian = "Kolekte Ibadah Syukur NATAL Kategorial Lainnya",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 4
             },
             new
             {
                 Id = 9,
                 Uraian = "Kolekte Ibadah Syukur Pernikahan",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 5
             },
             new
             {
                 Id = 10,
                 Uraian = "Kolekte Ibadah Syukur Lepas Kabung",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 6
             },
             new
             {
                 Id = 11,
                 Uraian = "Kolekte Ibadah Syukur Kelahiran",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 7
             },
             new
             {
                 Id = 12,
                 Uraian = "Kolekte Ibadah HUT Perempuan GMIT JLET Penfui",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 8
             },
             new
             {
                 Id = 13,
                 Uraian = "Kolekte Ibadah HUT GMIT JLET Penfui",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 9
             },
             new
             {
                 Id = 14,
                 Uraian = "Kolekte Ibadah Syukur Lainnya",
-                JenisAkunId = 3
+                JenisAkunId = 3,
+                Kode = 10
             },
             new
             {
                 Id = 15,
                 Uraian  = "Nazar Kebaktian Minggu",
                 JenisAkunId = 4,
+                Kode = 1
             },
             new
             {
                 Id = 16,
                 Uraian  = "Nazar Baptisan Kudus",
                 JenisAkunId = 4,
+                Kode = 2
             },
             new
             {
                 Id = 17,
                 Uraian  = "Nazar Peneguhan Sidi Baru",
                 JenisAkunId = 4,
+                Kode = 3
             },
             new
             {
                 Id = 18,
                 Uraian  = "Nazar Pemberkatan Nikah",
                 JenisAkunId = 4,
+                Kode = 4
             },
             new
             {
                 Id = 19,
                 Uraian  = "Nazar Khusus",
                 JenisAkunId = 4,
+                Kode = 5
             },
             new
             {
                 Id = 20,
                 Uraian = "Persepuluhan Kebaktian Minggu",
                 JenisAkunId = 5,
+                Kode = 1
             },
             new
             {
                 Id = 21,
                 Uraian = "Persepuluhan Lainnya",
                 JenisAkunId = 5,
+                Kode = 2
             },
             new
             {
                 Id = 22,
                 Uraian = "Nazar, Persepuluhan dan Syukur Lainnya",
                 JenisAkunId = 5,
+                Kode = 3
             },
             new
             {
                 Id = 23,
                 Uraian = "Syukur Kebaktian Minggu",
                 JenisAkunId = 5,
+                Kode = 4
             },
             new
             {
                 Id = 24,
                 Uraian = "10% Tangguk Kolekte Pembangunan",
                 JenisAkunId = 6,
+                Kode = 1
             },
             new
             {
                 Id = 25,
                 Uraian = "Tangguk Persembahan di Kebaktian Utama Minggu",
                 JenisAkunId = 6,
+                Kode = 2
             },
             new
             {
                 Id = 26,
                 Uraian = "Sumbangan Spontanitas Jemaat",
                 JenisAkunId = 6,
+                Kode = 3
             },
             new
             {
                 Id = 27,
                 Uraian = "Hasil Usaha Panitia/Tim Kerja",
                 JenisAkunId = 6,
+                Kode = 4
             },
             new
             {
                 Id = 28,
                 Uraian = "Sumbangan Pembangunan Wajib KK (200KK x 12 bln)",
                 JenisAkunId = 6,
+                Kode = 5
             },
             new
             {
                 Id = 29,
                 Uraian = "Tunggakan Sumbangan",
                 JenisAkunId = 6,
+                Kode = 6
             },
             new
             {
                 Id = 30,
                 Uraian = "Hasil Lelang Natura",
                 JenisAkunId = 6,
+                Kode = 7
             },
             new
             {
                 Id = 31,
                 Uraian = "Sumbangan Pembangunan Pihak Lain",
                 JenisAkunId = 6,
+                Kode = 8
             },
             new
             {
                 Id = 32,
                 Uraian = "Dana Cadangan",
                 JenisAkunId = 10,
+                Kode = 1
             },
             new
             {
                 Id = 33,
                 Uraian = "Administrasi Bank",
                 JenisAkunId = 10,
+                Kode = 2
             },
             new
             {
                 Id = 34,
                 Uraian = "Pajak Bunga Bank",
                 JenisAkunId = 10,
+                Kode = 3
             },
             new
             {
                 Id = 35,
                 Uraian = "Biaya cetak rekening giro",
                 JenisAkunId = 10,
+                Kode = 4
             },
             new
             {
                 Id = 36,
                 Uraian = "Pajak Mobil Pelayanan",
                 JenisAkunId = 10,
+                Kode = 5
             },
             new
             {
                 Id = 37,
                 Uraian = "Belanja Pisah/Sambut Pendeta",
                 JenisAkunId = 10,
+                Kode = 6
             },
             new
             {
                 Id = 38,
                 Uraian = "Sumbangan Rutin Teritori II K3T",
                 JenisAkunId = 10,
+                Kode = 7
             },
             new
             {
                 Id = 39,
                 Uraian = "Kontribusi Kegiatan",
                 JenisAkunId = 10,
+                Kode = 8
             },
             new
             {
                 Id = 40,
                 Uraian = "Sumbangan Lainnya",
                 JenisAkunId = 10,
+                Kode = 9
             },
             new
             {
                 Id = 41,
                 Uraian = "Belanja Lainnya",
                 JenisAkunId = 10,
+                Kode = 10
             },
             new
             {
                 Id = 232,
                 Uraian = "Administrasi Baptisan",
                 JenisAkunId = 7,
+                Kode = 1
             },
             new
             {
                 Id = 233,
                 Uraian = "Administrasi Peneguhan Sidi Baru",
                 JenisAkunId = 7,
+                Kode = 2
             },
             new
             {
                 Id = 234,
                 Uraian = "Administrasi Pemberkatan Nikah",
                 JenisAkunId = 7,
+                Kode = 3
             },
             new
             {
                 Id = 235,
                 Uraian = "Bunga Bank",
                 JenisAkunId = 7,
+                Kode = 4
             },
             new
             {
                 Id = 236,
                 Uraian = "Hasil Lelang",
                 JenisAkunId = 7,
+                Kode = 5
             },
             new
             {
                 Id = 237,
                 Uraian = "Penerimaan Lainnya",
                 JenisAkunId = 7,
+                Kode = 6
             }
         };
 
@@ -615,273 +703,312 @@ internal static class ModelBuilderExtension
                 Id = 42,
                 Uraian = "Kebaktian Hari Reformasi & HUT GMIT",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 1
             },
             new
             {
                 Id = 43,
                 Uraian = "Kebaktian Malam NATAL",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 2
             },
             new
             {
                 Id = 44,
                 Uraian = "Kebaktian Malam NATAL (Keluarga)",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 3
             },
             new
             {
                 Id = 45,
                 Uraian = "Kebaktian NATAL",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 4
             },
             new
             {
                 Id = 46,
                 Uraian = "Kebaktian Syukur NATAL",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 5
             },
             new
             {
                 Id = 47,
                 Uraian = "Kebaktian NATAL JLET",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 6
             },
             new
             {
                 Id = 48,
                 Uraian = "Kebaktian NATAL PAR",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 7
             },
             new
             {
                 Id = 49,
                 Uraian = "Kebaktian Kunci Tahun",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 8
             },
             new
             {
                 Id = 50,
                 Uraian = "Kebaktian Kunci Tahun (Keluarga)",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 9
             },
             new
             {
                 Id = 51,
                 Uraian = "Kebaktian Tahun Baru ",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 10
             },
             new
             {
                 Id = 52,
                 Uraian = "Kebaktian Jumat Agung",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 11
             },
             new
             {
                 Id = 53,
                 Uraian = "Kebaktian Paskah",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 12
             },
             new
             {
                 Id = 54,
                 Uraian = "Kebaktian Syukur Paskah",
                 JenisAkunId = 2,
-                KelompokAkunId = 1
+                KelompokAkunId = 1,
+                Kode = 13
             },
             new
             {
                 Id = 55,
                 Uraian = "Kebaktian Persiapan Perjamuan Kudus",
                 JenisAkunId = 2,
-                KelompokAkunId = 2
+                KelompokAkunId = 2,
+                Kode = 1
             },
             new
             {
                 Id = 56,
                 Uraian = "Kebaktian Sakramen Perjamuan Kudus",
                 JenisAkunId = 2,
-                KelompokAkunId = 2
+                KelompokAkunId = 2,
+                Kode = 2
             },
             new
             {
                 Id = 57,
                 Uraian = "Kebaktian Persiapan Baptisan Kudus",
                 JenisAkunId = 2,
-                KelompokAkunId = 3
+                KelompokAkunId = 3,
+                Kode = 1
             },
             new
             {
                 Id = 58,
                 Uraian = "Kebaktian Sakramen Baptisan Kudus",
                 JenisAkunId = 2,
-                KelompokAkunId = 3
+                KelompokAkunId = 3,
+                Kode = 2
             },
             new
             {
                 Id = 59,
                 Uraian = "Kebaktian Persiapan Peneguhan Sidi Baru",
                 JenisAkunId = 2,
-                KelompokAkunId = 4
+                KelompokAkunId = 4,
+                Kode = 1
             },
             new
             {
                 Id = 60,
                 Uraian = "Kebaktian Peneguhan Anggota Sidi Baru",
                 JenisAkunId = 2,
-                KelompokAkunId = 4
+                KelompokAkunId = 4,
+                Kode = 2
             },
             new
             {
                 Id = 61,
                 Uraian = "Pastoral",
                 JenisAkunId = 2,
-                KelompokAkunId = 5
+                KelompokAkunId = 5,
+                Kode = 1
             },
             new
             {
                 Id = 62,
                 Uraian = "Kebaktian Persiapan/Penggembalaan",
                 JenisAkunId = 2,
-                KelompokAkunId = 5
+                KelompokAkunId = 5,
+                Kode = 2
             },
             new
             {
                 Id = 63,
                 Uraian = "Kebaktian Pemberkatan Nikah",
                 JenisAkunId = 2,
-                KelompokAkunId = 5
+                KelompokAkunId = 5,
+                Kode = 3
             },
             new
             {
                 Id = 64,
                 Uraian = "Rayon 1",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 1
             },
             new
             {
                 Id = 65,
                 Uraian = "Rayon 2",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 2
             },
             new
             {
                 Id = 66,
                 Uraian = "Rayon 3",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 3
             },
             new
             {
                 Id = 67,
                 Uraian = "Rayon 4",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 4
             },
             new
             {
                 Id = 68,
                 Uraian = "Rayon 5",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 5
             },
             new
             {
                 Id = 69,
                 Uraian = "Rayon 6",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 6
             },
             new
             {
                 Id = 70,
                 Uraian = "Rayon 7",
                 JenisAkunId = 2,
-                KelompokAkunId = 6
+                KelompokAkunId = 6,
+                Kode = 7
             },
             new
             {
                 Id = 71,
                 Uraian = "Kolekte Ibadah PAR",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 1
             },
             new
             {
                 Id = 72,
                 Uraian = "Kolekte Ibadah Pemuda",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 2
             },
             new
             {
                 Id = 73,
                 Uraian = "Kolekte Ibadah Kaum Perempuan",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 3
             },
             new
             {
                 Id = 74,
                 Uraian = "Kolekte Ibadah Kaum Bapak",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 4
             },
             new
             {
                 Id = 75,
                 Uraian = "Kolekte Ibadah Lansia",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 5
             },
             new
             {
                 Id = 76,
                 Uraian = "Kolekte Ibadah Kunci Usbuh",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 6
             },
             new
             {
                 Id = 77,
                 Uraian = "Kolekte Ibadah Katekasasi Reguler",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 7
             },
             new
             {
                 Id = 78,
                 Uraian = "Kolekte Ibadah Katekasasi Pra Nikah",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 8
             },
             new
             {
                 Id = 79,
                 Uraian = "Kolekte Ibadah Persekutuan Doa",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 9
             },
             new
             {
                 Id = 80,
                 Uraian = "Kolekte Ibadah PS/VG",
                 JenisAkunId = 2,
-                KelompokAkunId = 7
+                KelompokAkunId = 7,
+                Kode = 10
             },
             new
             {
@@ -889,6 +1016,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Kolekte Ibadah Lainnya",
                 JenisAkunId = 2,
                 KelompokAkunId = 7,
+                Kode = 11
             },
             new
             {
@@ -896,6 +1024,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Uang Harian",
                 JenisAkunId = 8,
                 KelompokAkunId = 9,
+                Kode = 1
             },
             new
             {
@@ -903,6 +1032,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi Rapat",
                 JenisAkunId = 8,
                 KelompokAkunId = 9,
+                Kode = 2
             },
             new
             {
@@ -910,6 +1040,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pembuatan LHPP",
                 JenisAkunId = 8,
                 KelompokAkunId = 9,
+                Kode = 3
             },
             new
             {
@@ -917,6 +1048,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Gaji Koster",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 1
             },
             new
             {
@@ -924,6 +1056,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Gaji Tata Usaha (TU) Gereja",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 2
             },
             new
             {
@@ -931,6 +1064,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Gaji Sopir",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 3
             },
             new
             {
@@ -938,6 +1072,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Calon Vicaris (CAVIK)",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 4
             },
             new
             {
@@ -945,6 +1080,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Song Leader/Prokantor (2 orang)",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 5
             },
             new
             {
@@ -952,6 +1088,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Organis/Sound System (2 orang)",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 6
             },
             new
             {
@@ -959,6 +1096,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Operator LCD",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 7
             },
             new
             {
@@ -966,6 +1104,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Jasa sopir tidak tetap",
                 JenisAkunId = 8,
                 KelompokAkunId = 10,
+                Kode = 8
             },
             new
             {
@@ -973,6 +1112,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Koster",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 1
             },
             new
             {
@@ -980,6 +1120,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus TU Gereja",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 2
             },
             new
             {
@@ -987,6 +1128,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Sopir",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 3
             },
             new
             {
@@ -994,6 +1136,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Calon Vicaris (CAVIK)",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 4
             },
             new
             {
@@ -1001,6 +1144,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Organis/Sound Systim",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 5
             },
             new
             {
@@ -1008,6 +1152,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Operator LCD",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 6
             },
             new
             {
@@ -1015,6 +1160,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Khusus Presbiter",
                 JenisAkunId = 8,
                 KelompokAkunId = 11,
+                Kode = 7
             },
             new
             {
@@ -1022,6 +1168,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Alat Tulis Kantor (ATK) dan Bahan Habis Pakai Lainnya ",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 1,
             },
             new
             {
@@ -1029,6 +1176,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Biaya Penggandaan dan Cetak",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 2
             },
             new
             {
@@ -1036,6 +1184,7 @@ internal static class ModelBuilderExtension
                 Uraian = "ATK, Biaya Penggandaan dan Cetak kegiatan sidang program tahun pelayanan 2025",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 3
             },
             new
             {
@@ -1043,6 +1192,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Biaya Listrik (Gereja dan Pastori)",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 4
             },
             new
             {
@@ -1050,6 +1200,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Air",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 5
             },
             new
             {
@@ -1057,6 +1208,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Telepon/Indihome/Wifi",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 6
             },
             new
             {
@@ -1064,6 +1216,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Alat & Bahan Kebersihan/Kesehatan",
                 JenisAkunId = 8,
                 KelompokAkunId = 12,
+                Kode = 7
             },
             new
             {
@@ -1071,6 +1224,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan Barang Inventaris (Keyboard)",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 1
             },
             new
             {
@@ -1078,6 +1232,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemeliharaan Barang Inventaris",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 2
             },
             new
             {
@@ -1085,6 +1240,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemeliharaan Gedung (Gereja, Pastori, dll)",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 3
             },
             new
             {
@@ -1092,6 +1248,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemeliharaan Mobil Pelayanan",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 4
             },
             new
             {
@@ -1099,6 +1256,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemeliharaan Instalasi Air dan Instalasi Listrik",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 5
             },
             new
             {
@@ -1106,6 +1264,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bahan Bakar",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 6
             },
             new
             {
@@ -1113,6 +1272,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan Buku Pedoman Organisasi & Buku Lainnya",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 7
             },
             new
             {
@@ -1120,6 +1280,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan Surat Gerejawi",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 8
             },
             new
             {
@@ -1127,6 +1288,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan poni gorden jendela gereja warna hijau",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 9
             },
             new
             {
@@ -1134,6 +1296,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan meja",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 10
             },
             new
             {
@@ -1141,6 +1304,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan CCTV",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 11
             },
             new
             {
@@ -1148,6 +1312,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan gitar akustik",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 12
             },
             new
             {
@@ -1155,6 +1320,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan Alat Musik (Kajon)",
                 JenisAkunId = 8,
                 KelompokAkunId = 13,
+                Kode = 13
             },
             new
             {
@@ -1162,6 +1328,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Pendeta & (MJH) mengikuti Rapat/Sidang",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 2
             },
             new
             {
@@ -1169,6 +1336,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Pendeta Tamu",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 3
             },
             new
             {
@@ -1176,6 +1344,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport MKH/MSH atas undangan jemaat",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 4
             },
             new
             {
@@ -1183,6 +1352,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Presbiter/BP/UPP, dll",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 5
             },
             new
             {
@@ -1190,6 +1360,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport MJH ke kantor Klasis/Sinode",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 6
             },
             new
             {
@@ -1197,6 +1368,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Bendahara/TU ke Bank",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 7
             },
             new
             {
@@ -1204,6 +1376,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Pemateri",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 8
             },
             new
             {
@@ -1211,6 +1384,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transport Lainnya",
                 JenisAkunId = 8,
                 KelompokAkunId = 14,
+                Kode = 9
             },
             new
             {
@@ -1218,6 +1392,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Setoran Sentralisasi Gaji Pokok (SGP)",
                 JenisAkunId = 8,
                 KelompokAkunId = 15,
+                Kode = 1
             },
             new
             {
@@ -1225,6 +1400,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Setoran 10% Penerimaan (Dana Rutin)",
                 JenisAkunId = 8,
                 KelompokAkunId = 15,
+                Kode = 2
             },
             new
             {
@@ -1232,6 +1408,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Setoran 10% Dana Pembangunan",
                 JenisAkunId = 8,
                 KelompokAkunId = 15,
+                Kode = 3
             },
             new
             {
@@ -1239,6 +1416,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Setoran 2% Dana Pendidikan",
                 JenisAkunId = 8,
                 KelompokAkunId = 15,
+                Kode = 4
             },
             new
             {
@@ -1246,6 +1424,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Setoran Dana Kebersamaan",
                 JenisAkunId = 8,
                 KelompokAkunId = 15,
+                Kode = 5
             },
             new
             {
@@ -1253,6 +1432,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Perayaan Hari Ibu dan Natal",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 1
             },
             new
             {
@@ -1260,6 +1440,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Gabungan LANSIA Teritori 2",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 2
             },
             new
             {
@@ -1267,6 +1448,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Gabungan Persekutuan Doa Teritori 2",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 3
             },
             new
             {
@@ -1274,6 +1456,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Kreatif Persekutuan Doa",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 4
             },
             new
             {
@@ -1281,6 +1464,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Syukur Natal Pemuda Teritori 2",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 5
             },
             new
             {
@@ -1288,6 +1472,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Gabungan Kaum Perempuan Teritori 2",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 6
             },
             new
             {
@@ -1295,6 +1480,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Pemuda Teritori-dalam klasis-luar klasis",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 7
             },
             new
             {
@@ -1302,6 +1488,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah NATAL PART",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 8
             },
             new
             {
@@ -1309,6 +1496,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah PASUTRI JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 9
             },
             new
             {
@@ -1316,6 +1504,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Padang memperingati HUT Reformasi dan GMIT",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 10
             },
             new
             {
@@ -1323,6 +1512,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah syukur HUT JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 11
             },
             new
             {
@@ -1330,6 +1520,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah syukur Natal JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 12
             },
             new
             {
@@ -1337,6 +1528,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Kreatif BP, UPP dan BP JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 13
             },
             new
             {
@@ -1344,6 +1536,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Kreatif Pemuda 3",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 14
             },
             new
             {
@@ -1351,6 +1544,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah Kreatif Pemuda 4",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 15
             },
             new
             {
@@ -1358,6 +1552,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ibadah ke Rote (UPP Perempuan)",
                 JenisAkunId = 9,
                 KelompokAkunId = 16,
+                Kode = 16
             },
             new
             {
@@ -1365,6 +1560,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bakti Sosial PART",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 1
             },
             new
             {
@@ -1372,6 +1568,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba PASKAH PART",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 2
             },
             new
             {
@@ -1379,6 +1576,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba HUT RI PART",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 3
             },
             new
             {
@@ -1386,6 +1584,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Perayaan NATAL PART",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 4
             },
             new
             {
@@ -1393,6 +1592,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pelatihan Kepemimpinan Pemuda",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 5
             },
             new
             {
@@ -1400,6 +1600,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba Kreasi Salib memperingati PASKAH 2024",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 6
             },
             new
             {
@@ -1407,6 +1608,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Malam puji-pujian menyambut PASKAH",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 7
             },
             new
             {
@@ -1414,6 +1616,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pawai PASKAH JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 8
             },
             new
             {
@@ -1421,6 +1624,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba voly Putra-Putri antar Rayon memperingati Bulan keluarga",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 9
             },
             new
             {
@@ -1428,6 +1632,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba memasak nasi goreng antar keluarga dari tiap rayon memperingati Bulan Keluarga",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 10
             },
             new
             {
@@ -1435,6 +1640,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba VG Kaum Bapak Memperingati HUT JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 11
             },
             new
             {
@@ -1442,6 +1648,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba CCA Keluarga antar Rayon",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 12
             },
             new
             {
@@ -1449,6 +1656,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lomba Pohon Natal antar rayon di lingkungan gereja",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 13
             },
             new
             {
@@ -1456,6 +1664,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Pengajar Katekasasi (2 orang)",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 14
             },
             new
             {
@@ -1463,6 +1672,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Pengajar UPP PAR",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 15
             },
             new
             {
@@ -1470,6 +1680,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Memberikan Apresiasi kepada anak-anak (Sertifikat Naik Kelas, dll)",
                 JenisAkunId = 9,
                 KelompokAkunId = 17,
+                Kode = 16
             },
             new
             {
@@ -1477,6 +1688,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan Bahan Perjamuan Kudus",
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
+                Kode = 1
             },
             new
             {
@@ -1484,6 +1696,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Perbaikan peti keyboard",
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
+                Kode = 2
             },
             new
             {
@@ -1491,6 +1704,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengadaan meja operator slide",
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
+                Kode = 3
             },
             new
             {
@@ -1498,6 +1712,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif songlider, musik dan operator slide ",
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
+                Kode = 4
             },
             new
             {
@@ -1505,6 +1720,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Insentif Soundman",
                 JenisAkunId = 9,
                 KelompokAkunId = 18,
+                Kode = 5
             },
             new
             {
@@ -1512,6 +1728,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Diakonia Sakit",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 1
             },
             new
             {
@@ -1519,6 +1736,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Diakonia Duka Cita",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 2
             },
             new
             {
@@ -1526,6 +1744,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Diakonia bagi jemaat JLET yang tidak mampu",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 3
             },
             new
             {
@@ -1533,6 +1752,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemeriksaan Kesehatan bagi LANSIA",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 4
             },
             new
             {
@@ -1540,6 +1760,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bingkisan Kasih Majelis Jemaat",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 5
             },
             new
             {
@@ -1547,6 +1768,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pelatihan peningkatan kapasitas diaken dalam pelayanan diakonia holistik",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 6
             },
             new
             {
@@ -1554,6 +1776,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pelatihan Ketrampilan (Vokasi) Bagi Jemaat (PEMUDA)",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 7
             },
             new
             {
@@ -1561,6 +1784,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Beasiswa pendidikan kepada anak berprestasi  yang kurang mampu.",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 8
             },
             new
             {
@@ -1568,6 +1792,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemberian bantuan dana pendidikan untuk calon mahasiswa musik gerejawi",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 9
             },
             new
             {
@@ -1575,6 +1800,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bantuan bagi warga JLET yang mengalami bencana alam dan Non Alam",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 10
             },
             new
             {
@@ -1582,6 +1808,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Diakonia Lain-Lain",
                 JenisAkunId = 9,
                 KelompokAkunId = 19,
+                Kode = 11
             },
             new
             {
@@ -1589,6 +1816,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemanfaatan pekarangan gereja (dapur hidup, apotik hidup)",
                 JenisAkunId = 9,
                 KelompokAkunId = 20,
+                Kode = 5
             },
             new
             {
@@ -1596,6 +1824,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pelatihan musik Kaum Bapak (transportasi pelatih)",
                 JenisAkunId = 9,
                 KelompokAkunId = 20,
+                Kode = 6
             },
             new
             {
@@ -1603,6 +1832,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pengurusan Sertifikat Tanah (Balik Nama)",
                 JenisAkunId = 9,
                 KelompokAkunId = 21,
+                Kode = 1
             },
             new
             {
@@ -1610,6 +1840,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pemasangan Identitas Mobil Pelayanan JLET",
                 JenisAkunId = 9,
                 KelompokAkunId = 21,
+                Kode = 2
             },
         };
 
@@ -1621,6 +1852,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Struktural",
                 JenisAkunId = 8,
                 GolonganAkunId = 1,
+                Kode = 1
             },
             new
             {
@@ -1628,6 +1860,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Kesejahteraan (Kesra)",
                 JenisAkunId = 8,
                 GolonganAkunId = 1,
+                Kode = 2
             },
             new
             {
@@ -1635,6 +1868,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Kesehatan",
                 JenisAkunId = 8,
                 GolonganAkunId = 1,
+                Kode = 3
             },
             new
             {
@@ -1642,6 +1876,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Tunjangan Lainnya",
                 JenisAkunId = 8,
                 GolonganAkunId = 1,
+                Kode = 4
             },
             new
             {
@@ -1649,6 +1884,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Ketua",
                 JenisAkunId = 8,
                 GolonganAkunId = 2,
+                Kode = 1
             },
             new
             {
@@ -1656,6 +1892,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Sekretaris",
                 JenisAkunId = 8,
                 GolonganAkunId = 2,
+                Kode = 2
             },
             new
             {
@@ -1663,6 +1900,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Sekretaris",
                 JenisAkunId = 8,
                 GolonganAkunId = 2,
+                Kode = 3
             },
             new
             {
@@ -1670,6 +1908,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bendahara",
                 JenisAkunId = 8,
                 GolonganAkunId = 2,
+                Kode = 4
             },
             new
             {
@@ -1677,6 +1916,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Bendahara",
                 JenisAkunId = 8,
                 GolonganAkunId = 2,
+                Kode = 5
             },
             new
             {
@@ -1684,6 +1924,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Gaji Ke-13 KMJ",
                 JenisAkunId = 8,
                 GolonganAkunId = 3,
+                Kode = 1
             },
             new
             {
@@ -1691,6 +1932,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Ketua Majelis Jemaat (KMJ)",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 1
             },
             new
             {
@@ -1698,6 +1940,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Ketua",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 2
             },
             new
             {
@@ -1705,6 +1948,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Sekretaris",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 3
             },
             new
             {
@@ -1712,6 +1956,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Sekretaris",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 4
             },
             new
             {
@@ -1719,6 +1964,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Bendahara",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 5
             },
             new
             {
@@ -1726,6 +1972,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Wakil Bendahara",
                 JenisAkunId = 8,
                 GolonganAkunId = 4,
+                Kode = 6
             },
             new
             {
@@ -1733,6 +1980,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi Pertemuan/Rapat Pendeta",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 1
             },
             new
             {
@@ -1740,6 +1988,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi Pendeta Tamu dan Tamu Pendeta",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 2
             },
             new
             {
@@ -1747,6 +1996,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi Lembur MJH",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 3
             },
             new
             {
@@ -1754,6 +2004,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi UPP/BP/Tim Kerja, dll",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 4
             },
             new
             {
@@ -1761,6 +2012,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Rapat evaluasi program dan kegiatan lainnya",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 5
             },
             new
             {
@@ -1768,6 +2020,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Sidang Program Tahun Pelayanan 2025",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 6
             },
             new
             {
@@ -1775,6 +2028,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Konsumsi Lainnya",
                 JenisAkunId = 8,
                 GolonganAkunId = 5,
+                Kode = 7
             },
             new
             {
@@ -1782,6 +2036,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lumpsum Luar Daerah",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 1
             },
             new
             {
@@ -1789,6 +2044,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Penginapan",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 2
             },
             new
             {
@@ -1796,6 +2052,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transportasi (luar daerah)",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 3
             },
             new
             {
@@ -1803,6 +2060,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Transportasi (dalam daerah)",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 4
             },
             new
             {
@@ -1810,6 +2068,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Lumpsum dalam Daerah",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 5
             },
             new
             {
@@ -1817,6 +2076,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Rekoleksi (Kupang - Siangapore PP)",
                 JenisAkunId = 8,
                 GolonganAkunId = 6,
+                Kode = 6
             },
             new
             {
@@ -1824,6 +2084,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pembangunan",
                 JenisAkunId = 9,
                 GolonganAkunId = 7,
+                Kode = 1
             },
             new
             {
@@ -1831,6 +2092,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Ganti Penutup Atap",
                 JenisAkunId = 9,
                 GolonganAkunId = 7,
+                Kode = 2
             },
             new
             {
@@ -1838,6 +2100,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Ganti Kuda - kuda",
                 JenisAkunId = 9,
                 GolonganAkunId = 7,
+                Kode = 3
             },
             new
             {
@@ -1845,6 +2108,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Ganti Plafond",
                 JenisAkunId = 9,
                 GolonganAkunId = 7,
+                Kode = 4
             },
             new
             {
@@ -1852,6 +2116,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Finishing Dinding",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 1
             },
             new
             {
@@ -1859,6 +2124,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Finishing Lantai",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 2
             },
             new
             {
@@ -1866,6 +2132,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Finishing Atap",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 3
             },
             new
             {
@@ -1873,6 +2140,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Plafond",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 4
             },
             new
             {
@@ -1880,6 +2148,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Penerangan dan Kelistrikan",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 5
             },
             new
             {
@@ -1887,6 +2156,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Toilet dan Kelengkapan",
                 JenisAkunId = 9,
                 GolonganAkunId = 8,
+                Kode = 6
             },
             new
             {
@@ -1894,6 +2164,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Perbaikan Atap",
                 JenisAkunId = 9,
                 GolonganAkunId = 9,
+                Kode = 1
             },
             new
             {
@@ -1901,6 +2172,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Perbaikan Listrik",
                 JenisAkunId = 9,
                 GolonganAkunId = 9,
+                Kode = 2
             },
             new
             {
@@ -1908,6 +2180,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Penutup Gerbang",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
+                Kode = 1
             },
             new
             {
@@ -1915,6 +2188,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Railing Tangga Talud",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
+                Kode = 2
             },
             new
             {
@@ -1922,6 +2196,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Kanopi Parkiran",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
+                Kode = 3
             },
             new
             {
@@ -1929,6 +2204,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Pasang Baru Pos Jaga",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
+                Kode = 4
             },
             new
             {
@@ -1936,6 +2212,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Normalisasi Area Parkir",
                 JenisAkunId = 9,
                 GolonganAkunId = 10,
+                Kode = 5
             },
         };
 
@@ -1944,29 +2221,29 @@ internal static class ModelBuilderExtension
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
                     if (a.Uraian != "Hasil Lelang")
-                        return new { a.Id, a.Uraian, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
                     else
-                        return new { a.Id, a.Uraian, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0d };
+                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0d };
                 else
-                    return new { a.Id, a.Uraian, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
             }).ToArray());
 
         modelBuilder.Entity<Akun>().HasData(
             daftarAkunDenganKelompokAkun.Select(a =>
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
-                    return new { a.Id, a.Uraian, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
                 else
-                    return new { a.Id, a.Uraian, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
             }).ToArray());
 
         modelBuilder.Entity<Akun>().HasData(
             daftarAkunDenganGolonganAkun.Select(a =>
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
-                    return new { a.Id, a.Uraian, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
                 else
-                    return new { a.Id, a.Uraian, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
             }).ToArray());
         #endregion
 

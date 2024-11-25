@@ -14,6 +14,11 @@ public class EditGolonganAkunVM
     [Required(ErrorMessage = "{0} harus diisi")]
     public required string Uraian { get; set; }
 
+    [Display(Name = "Kode")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    [Range(0, int.MaxValue, ErrorMessage = "{0} minimal {1}")]
+    public required int Kode { get; set; }
+
     [Display(Name = "Kelompok Akun")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public required int IdKelompokAkun { get; set; }

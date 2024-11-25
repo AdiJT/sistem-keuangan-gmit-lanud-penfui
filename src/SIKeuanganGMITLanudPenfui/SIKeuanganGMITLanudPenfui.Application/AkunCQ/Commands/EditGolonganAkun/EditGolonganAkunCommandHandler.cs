@@ -40,8 +40,12 @@ internal class EditGolonganAkunCommandHandler : ICommandHandler<EditGolonganAkun
             return new Error("EditGolonganAkunCommandHandler.JenisKelompokAkunDifferent",
                 $"Jenis Kelompok Akun berbeda dengan jenis Golongan Akun");
 
+        if (kelompokAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+            return new Error("EditGolonganAkunCommandHandler.KodeNotUnique", "Kode Golongan Akun tidak unik");
+
         golonganAkun.Uraian = request.Uraian;
         golonganAkun.KelompokAkun = kelompokAkun;
+        golonganAkun.Kode = request.Kode;
 
         _repositoriGolonganAkun.Update(golonganAkun);
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);

@@ -9,6 +9,11 @@ public class TambahJenisAkunVM
     [Required(ErrorMessage = "{0} harus diisi")]
     public string Uraian { get; set; } = string.Empty;
 
+    [Display(Name = "Kode")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    [Range(0, int.MaxValue, ErrorMessage = "{0} minimal {1}")]
+    public int Kode { get; set; }
+
     [Display(Name = "Tahun")]
     [Required(ErrorMessage = "{0} harus diisi")]
     [Range(0, 2030, ErrorMessage = "{0} harus diantara {1} dan {2}")]
