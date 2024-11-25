@@ -4,9 +4,9 @@ using SIKeuanganGMITLanudPenfui.Domain.Entities;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Database.EntityTypeConfigurations;
 
-internal class BelanjaConfiguration : IEntityTypeConfiguration<Belanja>
+internal class TransaksiConfiguration : IEntityTypeConfiguration<Transaksi>
 {
-    public void Configure(EntityTypeBuilder<Belanja> builder)
+    public void Configure(EntityTypeBuilder<Transaksi> builder)
     {
         builder.HasKey(b => b.Id);
         builder.HasOne(b => b.Akun).WithMany();

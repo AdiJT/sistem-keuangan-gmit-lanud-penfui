@@ -43,18 +43,18 @@
         @{
             var no = 1;
         }
-        @foreach(var penerimaan in Model.DaftarPenerimaan)
+        @foreach(var transaksi in Model.DaftarTransaksi)
         {
             <tr>
                 <td>@no</td>
-                <td>@penerimaan.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo)</td>
-                <td>@penerimaan.Uraian</td>
-                <td>@penerimaan.Jumlah.ToString("C2", cultureInfo)</td>
-                <td>@penerimaan.SaldoKas.ToString("C2", cultureInfo)</td>
-                <td>@penerimaan.Akun.KodeAkun @penerimaan.Akun.Uraian</td>
-                <td>@penerimaan.Kas.Uraian</td>
+                <td>@transaksi.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo)</td>
+                <td>@transaksi.Uraian</td>
+                <td>@transaksi.Jumlah.ToString("C2", cultureInfo)</td>
+                <td>@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
+                <td>@transaksi.Akun.KodeAkun @transaksi.Akun.Uraian</td>
+                <td>@transaksi.Kas.Uraian</td>
                 <td>
-                    <a href="@penerimaan.FileBukti.ToString()">File Bukti</a>
+                    <a href="@transaksi.FileBukti.ToString()">File Bukti</a>
                 </td>
                 <td>
                     <a href="#" class="btn btn-primary">Edit</a>
@@ -72,7 +72,7 @@
     <script type="text/javascript">
         const selectTahun = $('select#tahun');
         
-        const url = '@Url.Action(nameof(PenerimaanController.Index))';
+        const url = '@Url.Action(nameof(TransaksiController.Index), new {jenis=Model.Jenis})';
 
         $(selectTahun).on('change', function () {
             const tahun = $(selectTahun).val();

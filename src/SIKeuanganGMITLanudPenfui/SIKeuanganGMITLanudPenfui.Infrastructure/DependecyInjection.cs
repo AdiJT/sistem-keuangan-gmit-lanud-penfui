@@ -35,8 +35,7 @@ public static class DependecyInjection
         services.AddScoped<IRepositoriGolonganAkun, RepositoriGolonganAkun>();
         services.AddScoped<IRepositoriRAPBJ, RepositoriRAPBJ>();
         services.AddScoped<IRepositoriDetailRAPBJ, RepositoriDetailRAPBJ>();
-        services.AddScoped<IRepositoriBelanja, RepositoriBelanja>();
-        services.AddScoped<IRepositoriPenerimaan, RepositoriPenerimaan>();
+        services.AddScoped<IRepositoriTransaksi, RepositoriTransaksi>();
         services.AddScoped<IRepositoriUser, RepositoriUser>();
         services.AddScoped<IRepositoriKas, RepositoriKas>();
 

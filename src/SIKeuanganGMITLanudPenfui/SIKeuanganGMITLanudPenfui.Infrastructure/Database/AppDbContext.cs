@@ -36,8 +36,7 @@ internal class AppDbContext : DbContext
     public DbSet<GolonganAkun> TblGolonganAkun { get; set; }
     public DbSet<RAPBJ> TblRAPBJ { get; set; }
     public DbSet<DetailRAPBJ> TblDetailRAPBJ { get; set; }
-    public DbSet<Belanja> TblBelanja { get; set; }
-    public DbSet<Penerimaan> TblPenerimaan { get; set; }
+    public DbSet<Transaksi> TblTransaksi { get; set; }
     public DbSet<User> TblUser { get; set; }
     public DbSet<Kas> TblKas { get; set; }
 }
