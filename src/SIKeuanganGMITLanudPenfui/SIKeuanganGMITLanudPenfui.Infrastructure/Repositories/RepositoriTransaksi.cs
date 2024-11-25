@@ -77,7 +77,7 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
         .Where(t => t.Jenis == jenis && t.Tanggal.Year == tahun)
         .ToListAsync();
 
-    public async Task<List<Transaksi>> GetAllByTanggal(DateOnly tanggal) => await _appDbContext.TblTransaksi
+    public async Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
         .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
@@ -85,7 +85,7 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
         .Where(t => t.Tanggal == tanggal)
         .ToListAsync();
 
-    public async Task<List<Transaksi>> GetAllByTanggal(DateOnly tanggal, Jenis jenis) => await _appDbContext.TblTransaksi
+    public async Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal, Jenis jenis) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
         .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)

@@ -9,8 +9,8 @@ public interface IRepositoriTransaksi
     Task<Transaksi?> GetTerbaru();
     Task<List<Transaksi>> GetAll();
     Task<List<Transaksi>> GetAllByJenis(Jenis jenis);
-    Task<List<Transaksi>> GetAllByTanggal(DateOnly tanggal);
-    Task<List<Transaksi>> GetAllByTanggal(DateOnly tanggal, Jenis jenis);
+    Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal);
+    Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal, Jenis jenis);
     Task<List<Transaksi>> GetAllByMonth(int bulan);
     Task<List<Transaksi>> GetAllByMonth(int bulan, Jenis jenis);
     Task<List<Transaksi>> GetAllByTahun(int tahun);

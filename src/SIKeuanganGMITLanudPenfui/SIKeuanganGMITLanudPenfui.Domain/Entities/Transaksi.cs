@@ -5,7 +5,7 @@ namespace SIKeuanganGMITLanudPenfui.Domain.Entities;
 
 public class Transaksi : Entity, IAuditableEntity
 {
-    public DateOnly Tanggal { get; set; }
+    public DateTime Tanggal { get; set; }
     public string Uraian { get; set; } = string.Empty;
     public double Jumlah { get; set; }
     public double SaldoKas { get; set; }

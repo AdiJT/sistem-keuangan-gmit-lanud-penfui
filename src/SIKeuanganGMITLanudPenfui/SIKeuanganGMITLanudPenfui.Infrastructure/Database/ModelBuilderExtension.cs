@@ -2300,84 +2300,15 @@ internal static class ModelBuilderExtension
         #endregion
 
         #region Transaksi
-        modelBuilder.Entity<Transaksi>().HasData(
-            new
-            {
-                Id = 1,
-                Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7",
-                Jumlah = 500000d,
-                SaldoKas = 9713500d,
-                Tanggal = new DateOnly(2024, 1, 1),
-                TanggalDitambahkan = new DateTime(2024, 1, 1),
-                TanggalDiubah = new DateTime(2024, 1, 1),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 171,
-                KasId = 1
-            },
-            new
-            {
-                Id = 2,
-                Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-",
-                Jumlah = 150000d,
-                SaldoKas = 9563500d,
-                Tanggal = new DateOnly(2024, 1, 2),
-                TanggalDitambahkan = new DateTime(2024, 1, 1),
-                TanggalDiubah = new DateTime(2024, 1, 1),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 101,
-                KasId = 1
-            },
-            new
-            {
-                Id = 3,
-                Uraian = "Beli 1 pcs MCB Broco 6A",
-                Jumlah = 40000d,
-                SaldoKas = 11286500d,
-                Tanggal = new DateOnly(2024, 1, 5),
-                TanggalDitambahkan = new DateTime(2024, 1, 5),
-                TanggalDiubah = new DateTime(2024, 1, 5),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 109,
-                KasId = 1,
-            },
-            new
-            {
-                Id = 4,
-                Uraian = "Beli 1 pcs Box MCB",
-                Jumlah = 5000d,
-                SaldoKas = 11281500d,
-                Tanggal = new DateOnly(2024, 1, 5),
-                TanggalDitambahkan = new DateTime(2024, 1, 5),
-                TanggalDiubah = new DateTime(2024, 1, 5),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 109,
-                KasId = 1,
-            },
-            new
-            {
-                Id = 5,
-                Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-",
-                Jumlah = 71600d,
-                SaldoKas = 11209900d,
-                Tanggal = new DateOnly(2024, 1, 6),
-                TanggalDitambahkan = new DateTime(2024, 1, 6),
-                TanggalDiubah = new DateTime(2024, 1, 6),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 100,
-                KasId = 1,
-            },
+        var daftarTransaksi = new[]
+        {
             new
             {
                 Id = 6,
                 Uraian = "Beli 1 pcs teh sariwangi (50P)",
                 Jumlah = 12500d,
                 SaldoKas = 11197400d,
-                Tanggal = new DateOnly(2024, 1, 6),
+                Tanggal = new DateTime(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
                 FileBukti = new Uri("https://file/1"),
@@ -2391,7 +2322,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)",
                 Jumlah = 59900d,
                 SaldoKas = 11137500d,
-                Tanggal = new DateOnly(2024, 1, 6),
+                Tanggal = new DateTime(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
                 FileBukti = new Uri("https://file/1"),
@@ -2405,7 +2336,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Beli 30 potong kue @Rp. 1.000,-",
                 Jumlah = 30000d,
                 SaldoKas = 11107500d,
-                Tanggal = new DateOnly(2024, 1, 6),
+                Tanggal = new DateTime(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
                 FileBukti = new Uri("https://file/1"),
@@ -2419,7 +2350,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-",
                 Jumlah = 255000d,
                 SaldoKas = 10852500d,
-                Tanggal = new DateOnly(2024, 1, 6),
+                Tanggal = new DateTime(2024, 1, 6),
                 TanggalDitambahkan = new DateTime(2024, 1, 6),
                 TanggalDiubah = new DateTime(2024, 1, 6),
                 FileBukti = new Uri("https://file/1"),
@@ -2433,7 +2364,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Kolekte",
                 Jumlah = 930000d,
                 SaldoKas = 6961500d,
-                Tanggal = new DateOnly(2024, 1, 1),
+                Tanggal = new DateTime(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 FileBukti = new Uri("https://file/1"),
@@ -2447,7 +2378,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Terima nazar Tanpa Nama 1",
                 Jumlah = 5000d,
                 SaldoKas = 6966500d,
-                Tanggal = new DateOnly(2024, 1, 1),
+                Tanggal = new DateTime(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 FileBukti = new Uri("https://file/1"),
@@ -2461,7 +2392,7 @@ internal static class ModelBuilderExtension
                 Uraian = "Terima nazar Tanpa Nama 2",
                 Jumlah = 10000d,
                 SaldoKas = 6976500d,
-                Tanggal = new DateOnly(2024, 1, 1),
+                Tanggal = new DateTime(2024, 1, 1),
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 1),
                 FileBukti = new Uri("https://file/1"),
@@ -2469,41 +2400,41 @@ internal static class ModelBuilderExtension
                 AkunId = 16,
                 KasId = 1,
             },
-             new
-             {
-                 Id = 13,
-                 Uraian = "Terima nazar Tanpa Nama 3",
-                 Jumlah = 100000d,
-                 SaldoKas = 7076500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
-                 TanggalDitambahkan = new DateTime(2024, 1, 1),
-                 TanggalDiubah = new DateTime(2024, 1, 1),
-                 FileBukti = new Uri("https://file/1"),
-                 Jenis = Jenis.Penerimaan,
-                 AkunId = 18,
-                 KasId = 1,
-             },
-             new
-             {
-                 Id = 14,
-                 Uraian = "Terima nazar Tanpa Nama 4",
-                 Jumlah = 10000d,
-                 SaldoKas = 7086500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
-                 TanggalDitambahkan = new DateTime(2024, 1, 1),
-                 TanggalDiubah = new DateTime(2024, 1, 1),
-                 FileBukti = new Uri("https://file/1"),
-                 Jenis = Jenis.Penerimaan,
-                 AkunId = 19,
-                 KasId = 1,
-             },
-             new
+            new
+            {
+                Id = 13,
+                Uraian = "Terima nazar Tanpa Nama 3",
+                Jumlah = 100000d,
+                SaldoKas = 7076500d,
+                Tanggal = new DateTime(2024, 1, 1),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Penerimaan,
+                AkunId = 18,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 14,
+                Uraian = "Terima nazar Tanpa Nama 4",
+                Jumlah = 10000d,
+                SaldoKas = 7086500d,
+                Tanggal = new DateTime(2024, 1, 1),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Penerimaan,
+                AkunId = 19,
+                KasId = 1,
+            },
+            new
              {
                  Id = 15,
                  Uraian = "Terima nazar Tanpa Nama 5",
                  Jumlah = 5000d,
                  SaldoKas = 7091500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2511,13 +2442,13 @@ internal static class ModelBuilderExtension
                  AkunId = 16,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 16,
                  Uraian = "Terima nazar Tanpa Nama 6",
                  Jumlah = 20000d,
                  SaldoKas = 7111500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2525,13 +2456,13 @@ internal static class ModelBuilderExtension
                  AkunId = 17,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 17,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1",
                  Jumlah = 30000d,
                  SaldoKas = 7141500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2539,28 +2470,27 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 18,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2",
                  Jumlah = 50000d,
                  SaldoKas = 7191500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
                  Jenis = Jenis.Penerimaan,
                  AkunId = 21,
                  KasId = 1,
-                 BuktiTransaksiId = 11
              },
-             new
+            new
              {
                  Id = 19,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3",
                  Jumlah = 10000d,
                  SaldoKas = 7201500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2568,13 +2498,13 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 20,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4",
                  Jumlah = 9000d,
                  SaldoKas = 7210500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2582,13 +2512,13 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 21,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5",
                  Jumlah = 5000d,
                  SaldoKas = 7215500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2596,13 +2526,13 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 22,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6",
                  Jumlah = 10000d,
                  SaldoKas = 7225500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2610,13 +2540,13 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 23,
                  Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7",
                  Jumlah = 50000d,
                  SaldoKas = 7275500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2624,13 +2554,13 @@ internal static class ModelBuilderExtension
                  AkunId = 21,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 24,
                  Uraian = "Terima persembahan syukur Tanpa Nama 1",
                  Jumlah = 10000d,
                  SaldoKas = 7285500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2638,13 +2568,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 25,
                  Uraian = "Terima persembahan syukur Tanpa Nama 2",
                  Jumlah = 5000d,
                  SaldoKas = 7290500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2652,13 +2582,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 26,
                  Uraian = "Terima persembahan syukur Tanpa Nama 3",
                  Jumlah = 10000d,
                  SaldoKas = 7300500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2666,13 +2596,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 27,
                  Uraian = "Terima persembahan syukur Tanpa Nama 4",
                  Jumlah = 50000d,
                  SaldoKas = 7350500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2680,13 +2610,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 28,
                  Uraian = "Terima persembahan syukur Tanpa Nama 5",
                  Jumlah = 50000d,
                  SaldoKas = 7400500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2694,13 +2624,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 29,
                  Uraian = "Terima persembahan syukur Tanpa Nama 6",
                  Jumlah = 100000d,
                  SaldoKas = 7500500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2708,13 +2638,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 30,
                  Uraian = "Terima persembahan syukur Tanpa Nama 7",
                  Jumlah = 10000d,
                  SaldoKas = 7510500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2722,13 +2652,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 31,
                  Uraian = "Terima persembahan syukur Tanpa Nama 8",
                  Jumlah = 10000d,
                  SaldoKas = 7520500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2736,13 +2666,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 32,
                  Uraian = "Terima persembahan syukur Tanpa Nama 9",
                  Jumlah = 10000d,
                  SaldoKas = 7530500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2750,13 +2680,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 33,
                  Uraian = "Terima persembahan syukur Tanpa Nama 10",
                  Jumlah = 10000d,
                  SaldoKas = 7540500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2764,13 +2694,13 @@ internal static class ModelBuilderExtension
                  AkunId = 22,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 34,
                  Uraian = "Bpk. Oktovianus Metboki Rayon 5",
                  Jumlah = 50000d,
                  SaldoKas = 7590500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2778,13 +2708,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 35,
                  Uraian = "Oma. Elisabeth Tualaka Rayon 7",
                  Jumlah = 77000d,
                  SaldoKas = 7667500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2792,13 +2722,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 36,
                  Uraian = "Kel AS Rayon 2",
                  Jumlah = 72000d,
                  SaldoKas = 7739500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2806,28 +2736,27 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 37,
                  Uraian = "Oma. Aranci Suek Rayon 4",
                  Jumlah = 10000d,
                  SaldoKas = 7749500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
                  Jenis = Jenis.Penerimaan,
                  AkunId = 50,
                  KasId = 1,
-                 BuktiTransaksiId = 30
              },
-             new
+            new
              {
                  Id = 38,
                  Uraian = " Bpk. Dominggus Kole Rayon 7",
                  Jumlah = 50000d,
                  SaldoKas = 7799500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2835,13 +2764,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 39,
                  Uraian = "Kel. IB Rayon 4",
                  Jumlah = 300000d,
                  SaldoKas = 8099500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2849,13 +2778,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 40,
                  Uraian = "Oma. Naomi A. Henuk Rayon 2",
                  Jumlah = 50000d,
                  SaldoKas = 8149500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2863,13 +2792,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 41,
                  Uraian = "Tanpa nama Rayon 7",
                  Jumlah = 100000d,
                  SaldoKas = 8249500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2877,13 +2806,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 42,
                  Uraian = "Bpk. Marcus Baria Rayon 7",
                  Jumlah = 69000d,
                  SaldoKas = 8318500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2891,13 +2820,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 43,
                  Uraian = "Oma. Annie M. Malonda Rayon 7",
                  Jumlah = 150000d,
                  SaldoKas = 8468500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2905,13 +2834,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 44,
                  Uraian = "Bpk. Mikhael Nenotek Rayon 5",
                  Jumlah = 50000d,
                  SaldoKas = 8518500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2919,13 +2848,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 45,
                  Uraian = "Tanpa nama Rayon 7",
                  Jumlah = 50000d,
                  SaldoKas = 8568500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2933,13 +2862,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 46,
                  Uraian = "Tanpa nama Rayon 7",
                  Jumlah = 50000d,
                  SaldoKas = 8618500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2947,13 +2876,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 47,
                  Uraian = "Bpk. A.J. Sinaga Rayon 2",
                  Jumlah = 30000d,
                  SaldoKas = 8648500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2961,13 +2890,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 48,
                  Uraian = "Bpk. Melkisedek Kasse Rayon 4",
                  Jumlah = 10000d,
                  SaldoKas = 8658500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2975,13 +2904,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 49,
                  Uraian = "Bpk. Nur M. Tasrap Rayon 5",
                  Jumlah = 57000d,
                  SaldoKas = 8715500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -2989,13 +2918,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 50,
                  Uraian = "Bpk. Marthen Patipellohy Rayon 5",
                  Jumlah = 16000d,
                  SaldoKas = 8731500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3003,13 +2932,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 51,
                  Uraian = "Bpk. Benyamin Sua Rayon 3",
                  Jumlah = 60000d,
                  SaldoKas = 8791500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3017,13 +2946,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 52,
                  Uraian = "Tanpa Nama Rayon 7",
                  Jumlah = 100000d,
                  SaldoKas = 8891500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3031,13 +2960,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 53,
                  Uraian = "Bpk. Daud Ludji Rayon 4",
                  Jumlah = 50000d,
                  SaldoKas = 8941500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3045,13 +2974,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 54,
                  Uraian = "Tanpa Nama 1",
                  Jumlah = 10000d,
                  SaldoKas = 8951500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3059,13 +2988,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 55,
                  Uraian = "Tanpa Nama 2",
                  Jumlah = 111000d,
                  SaldoKas = 9062500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3073,13 +3002,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 56,
                  Uraian = "Tanpa Nama 3",
                  Jumlah = 10000d,
                  SaldoKas = 9072500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3087,13 +3016,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 57,
                  Uraian = "Tanpa Nama 4",
                  Jumlah = 10000d,
                  SaldoKas = 9082500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3101,13 +3030,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 58,
                  Uraian = "Tanpa Nama 5",
                  Jumlah = 10000d,
                  SaldoKas = 9092500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3115,13 +3044,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 59,
                  Uraian = "Tanpa Nama 6",
                  Jumlah = 20000d,
                  SaldoKas = 9112500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3129,13 +3058,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 60,
                  Uraian = "Tanpa Nama 7",
                  Jumlah = 2000d,
                  SaldoKas = 9114500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3143,13 +3072,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 61,
                  Uraian = "Tanpa Nama 8",
                  Jumlah = 64000d,
                  SaldoKas = 9178500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3157,13 +3086,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 62,
                  Uraian = "Tanpa Nama 9",
                  Jumlah = 10000d,
                  SaldoKas = 9188500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3171,13 +3100,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 63,
                  Uraian = "Tanpa Nama 10",
                  Jumlah = 10000d,
                  SaldoKas = 9198500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3185,13 +3114,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 64,
                  Uraian = "Tanpa Nama 11",
                  Jumlah = 10000d,
                  SaldoKas = 9208500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3199,13 +3128,13 @@ internal static class ModelBuilderExtension
                  AkunId = 50,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 65,
                  Uraian = "Tanpa Nama",
                  Jumlah = 100000d,
                  SaldoKas = 9308500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3213,13 +3142,13 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 66,
                  Uraian = "Bpk. A.J. Sinaga Rayon 2",
                  Jumlah = 30000d,
                  SaldoKas = 9338500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3227,13 +3156,13 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 67,
                  Uraian = "Ibu. Febei Nuban Rayon 7",
                  Jumlah = 25000d,
                  SaldoKas = 9363500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3241,13 +3170,13 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 68,
                  Uraian = "Bpk. Kristian Walu Logo Rayon 1",
                  Jumlah = 100000d,
                  SaldoKas = 9463500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3255,13 +3184,13 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 69,
                  Uraian = "Bpk. Max Warruw Rayon 7",
                  Jumlah = 250000d,
                  SaldoKas = 9713500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3269,13 +3198,13 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 70,
                  Uraian = "Terima persembahan syukur ULTAH ke-79",
                  Jumlah = 100000d,
                  SaldoKas = 9813500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3283,13 +3212,13 @@ internal static class ModelBuilderExtension
                  AkunId = 14,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 71,
                  Uraian = "Terima kolekte ibadah keluarga dirumah Bpk. Mexi Bekabel Rayon 4",
                  Jumlah = 400000d,
                  SaldoKas = 10213500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 1),
                  TanggalDiubah = new DateTime(2024, 1, 1),
                  FileBukti = new Uri("https://file/1"),
@@ -3297,13 +3226,41 @@ internal static class ModelBuilderExtension
                  AkunId = 44,
                  KasId = 1,
              },
-             new
+            new
+            {
+                Id = 1,
+                Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7",
+                Jumlah = 500000d,
+                SaldoKas = 9713500d,
+                Tanggal = new DateTime(2024, 1, 1),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 171,
+                KasId = 1
+            },
+            new
+            {
+                Id = 2,
+                Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-",
+                Jumlah = 150000d,
+                SaldoKas = 9563500d,
+                Tanggal = new DateTime(2024, 1, 2),
+                TanggalDitambahkan = new DateTime(2024, 1, 1),
+                TanggalDiubah = new DateTime(2024, 1, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 101,
+                KasId = 1
+            },
+            new
              {
                  Id = 72,
                  Uraian = "Terima kolekte ibadah lepas kabung di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
                  Jumlah = 791000d,
                  SaldoKas = 10354500d,
-                 Tanggal = new DateOnly(2024, 1, 1),
+                 Tanggal = new DateTime(2024, 1, 1),
                  TanggalDitambahkan = new DateTime(2024, 1, 3),
                  TanggalDiubah = new DateTime(2024, 1, 3),
                  FileBukti = new Uri("https://file/1"),
@@ -3311,13 +3268,13 @@ internal static class ModelBuilderExtension
                  AkunId = 10,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 73,
                  Uraian = "Terima kolekte ibadah penggembalaan Majelis Jemaat Periode 2024-2027 diGereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
                  Jumlah = 643000d,
                  SaldoKas = 10997500d,
-                 Tanggal = new DateOnly(2024, 1, 3),
+                 Tanggal = new DateTime(2024, 1, 3),
                  TanggalDitambahkan = new DateTime(2024, 1, 3),
                  TanggalDiubah = new DateTime(2024, 1, 3),
                  FileBukti = new Uri("https://file/1"),
@@ -3325,20 +3282,66 @@ internal static class ModelBuilderExtension
                  AkunId = 81,
                  KasId = 1,
              },
-             new
+            new
              {
                  Id = 74,
                  Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th",
                  Jumlah = 329000d,
                  SaldoKas = 11326500d,
-                 Tanggal = new DateOnly(2024, 1, 5),
+                 Tanggal = new DateTime(2024, 1, 5),
                  TanggalDitambahkan = new DateTime(2024, 1, 5),
                  TanggalDiubah = new DateTime(2024, 1, 5),
                  FileBukti = new Uri("https://file/1"),
                  Jenis = Jenis.Penerimaan,
                  AkunId = 14,
                  KasId = 1,
-             }
+             },
+            new
+             {
+                 Id = 3,
+                 Uraian = "Beli 1 pcs MCB Broco 6A",
+                 Jumlah = 40000d,
+                 SaldoKas = 11286500d,
+                 Tanggal = new DateTime(2024, 1, 5),
+                 TanggalDitambahkan = new DateTime(2024, 1, 5),
+                 TanggalDiubah = new DateTime(2024, 1, 5),
+                 FileBukti = new Uri("https://file/1"),
+                 Jenis = Jenis.Belanja,
+                 AkunId = 109,
+                 KasId = 1,
+             },
+            new
+            {
+                Id = 4,
+                Uraian = "Beli 1 pcs Box MCB",
+                Jumlah = 5000d,
+                SaldoKas = 11281500d,
+                Tanggal = new DateTime(2024, 1, 5),
+                TanggalDitambahkan = new DateTime(2024, 1, 5),
+                TanggalDiubah = new DateTime(2024, 1, 5),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 109,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 5,
+                Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-",
+                Jumlah = 71600d,
+                SaldoKas = 11209900d,
+                Tanggal = new DateTime(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 100,
+                KasId = 1,
+            }
+        };
+
+        modelBuilder.Entity<Transaksi>().HasData(
+            daftarTransaksi.Select((x, i) => new { Id = i + 1, x.Uraian, x.Jumlah, x.SaldoKas, Tanggal = new DateTime(x.Tanggal.Year, x.Tanggal.Month, x.Tanggal.Day, 0, (i + 1) / 60, (i + 1) % 60), x.TanggalDitambahkan, x.TanggalDiubah, x.FileBukti, x.Jenis, x.AkunId, x.KasId})
         );
         #endregion
 

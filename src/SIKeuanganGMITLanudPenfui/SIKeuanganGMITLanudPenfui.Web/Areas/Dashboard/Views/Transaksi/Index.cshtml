@@ -47,7 +47,7 @@
         {
             <tr>
                 <td>@no</td>
-                <td>@transaksi.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo)</td>
+                <td>@transaksi.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo) @transaksi.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortTimePattern, cultureInfo)</td>
                 <td>@transaksi.Uraian</td>
                 <td>@transaksi.Jumlah.ToString("C2", cultureInfo)</td>
                 <td>@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
