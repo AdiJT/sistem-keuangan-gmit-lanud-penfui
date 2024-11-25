@@ -1,12 +1,21 @@
+using Microsoft.Extensions.Options;
 using SIKeuanganGMITLanudPenfui.Application;
 using SIKeuanganGMITLanudPenfui.Infrastructure;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<FileConfigurationOptions>(builder.Configuration.GetSection(FileConfigurationOptions.FileConfiguration));
+builder.Services.AddScoped((sp) =>
+{
+    return sp.GetRequiredService<IOptionsSnapshot<FileConfigurationOptions>>().Value;
+});
+
 builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

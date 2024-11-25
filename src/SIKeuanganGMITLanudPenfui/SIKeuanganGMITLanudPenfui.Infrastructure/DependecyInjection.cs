@@ -4,12 +4,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Configurations;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Repositories;
+using SIKeuanganGMITLanudPenfui.Infrastructure.Services.FileUpload;
 
 namespace SIKeuanganGMITLanudPenfui.Infrastructure;
 
@@ -47,6 +51,9 @@ public static class DependecyInjection
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
         services.AddScoped<ISignInManager, SignInManager>();
+
+        services.AddScoped<IFileUploadService, FileUploadService>();
+        services.AddScoped<IFileService, FileUploadService>();
 
         return services;
     }

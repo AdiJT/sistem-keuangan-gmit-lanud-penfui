@@ -6,10 +6,11 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Configurations;
 using Microsoft.AspNetCore.Hosting;
+using SIKeuanganGMITLanudPenfui.Application.Services;
 
-namespace SIKeuanganGMITLanudPenfui.Infrastructure.Services;
+namespace SIKeuanganGMITLanudPenfui.Infrastructure.Services.FileUpload;
 
-internal class FileService : IFileService
+internal class FileUploadService : IFileUploadService, IFileService
 {
     private static readonly byte[] _allowedChars = { };
 
@@ -44,12 +45,12 @@ internal class FileService : IFileService
             },
         };
 
-    private readonly ILogger<FileService> _logger;
+    private readonly ILogger<FileUploadService> _logger;
     private readonly IHostingEnvironment _hostingEnvironment;
     private readonly FileConfigurationOptions _fileConfigurationOptions;
 
-    public FileService(
-        ILogger<FileService> logger,
+    public FileUploadService(
+        ILogger<FileUploadService> logger,
         FileConfigurationOptions fileConfigurationOptions,
         IHostingEnvironment hostingEnvironment)
     {
@@ -58,26 +59,49 @@ internal class FileService : IFileService
         _hostingEnvironment = hostingEnvironment;
     }
 
-    public bool IsFileExist(string folderPath, string fileName)
+    public bool IsExist(Uri uri)
     {
-        var filePath = Path.GetFullPath(_hostingEnvironment.WebRootPath + folderPath) + fileName;
+        var filePath = uri.ToString();
 
-        return !File.Exists(filePath);
+        var fileInfo = _hostingEnvironment.WebRootFileProvider.GetFileInfo(filePath);
+
+        return fileInfo.Exists;
     }
 
-    public Uri GetFileUri(string folderPath, string fileName)
+    public Result Delete(Uri uri)
     {
-        return new Uri($"/{folderPath}/{fileName}", UriKind.Relative);
+        var filePath = Path.GetFullPath($"{_hostingEnvironment.WebRootPath}{uri.ToString()}");
+
+        try
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+        catch(Exception ex)
+        {
+            _logger.LogError(ex, "Hapus File : {@filePath}!", filePath);
+
+            return new Error("FileService.Delete", "Hapus file gagal!");
+        }
+
+        return Result.Success();
     }
 
-    public async Task<Result<string>> UploadFile<TModel>(
+    public async Task<Result<Uri>> UploadFile<TModel>(
         IFormFile formFile,
         string folderPath,
         string[] permittedExtension,
         long minSizeLimit,
         long maxSizeLimit)
     {
-        var fullFolderPath = Path.GetFullPath($"{_hostingEnvironment.WebRootPath}/{_fileConfigurationOptions.FolderPath}/{folderPath}");
+        var fullFolderPath = Path.GetFullPath(
+            $"{_hostingEnvironment.WebRootPath}" +
+            $"{Path.DirectorySeparatorChar}" +
+            $"{_fileConfigurationOptions.FolderPath}" +
+            $"{Path.DirectorySeparatorChar}" +
+            $"{folderPath}");
 
         try
         {
@@ -94,7 +118,7 @@ internal class FileService : IFileService
 
         var fileId = string.Join("", Guid.NewGuid().ToString().Split("-", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
         var fileName = $"{fileId}{Path.GetExtension(formFile.FileName)}";
-        var filePath = folderPath + fileName;
+        var filePath = $"{fullFolderPath}{Path.DirectorySeparatorChar}{fileName}";
 
         try
         {
@@ -110,7 +134,7 @@ internal class FileService : IFileService
             return new Error("FileService.UploadFailed", "Upload File Gagal");
         }
 
-        return fileName;
+        return new Uri($"{_fileConfigurationOptions.FolderPath}/{folderPath}/{fileName}", UriKind.Relative);
     }
 
     private void EnsureDirectoryCreated(string folderPath)
