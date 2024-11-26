@@ -9,13 +9,13 @@
     <partial name="_BreadcrumbPartial" />
 </div>
 
-<div class="card card-danger">
+<div class="card card-warning">
     <div class="card-header">
         <h4>RAPBJ - @Model.Jenis.ToString() - @Model.Tahun</h4>
     </div>
     <div class="padding-20">
-        <div class="d-flex justify-content-start ml-auto mr-3 mb-3">
-            <div class="mb-3 pl-3 pr-2">
+        <div class="d-flex justify-content-start ml-auto mb-2">
+            <div class="mb-3">
                 <a class="btn btn-icon icon-left btn-primary" asp-action="TambahDetailRAPBJ"
                    asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
                     <i class="fas fa-plus"></i> Tambah
@@ -30,7 +30,7 @@
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
                       method="post"
-                      class="mb-3 pl-3 pr-2">
+                      class="mb-3 pl-2">
                     <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
                 </form>
             }
@@ -59,7 +59,7 @@
                 </form>
             }
 
-            <div class="ml-auto mr-3">
+            <div class="ml-auto">
                 <select id="tahun" class="form-control">
                     @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
                     {

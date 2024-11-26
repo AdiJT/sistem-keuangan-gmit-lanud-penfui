@@ -44,30 +44,64 @@ $('#save-stage').DataTable({
     "scrollX": true,
     stateSave: true
 });
+$('#table-akun').DataTable({
+    columnDefs: [
+        { "sortable": false, "targets": [2] } 
+    ],
+});
 $('#table-akun-1').DataTable({
-    "columnDefs": [
-        { "sortable": false, "targets": [2] }
-    ]
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    buttons: [
+        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+    ],
+    columnDefs: [
+        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+    ],
+    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
 });
 $('#table-akun-2').DataTable({
-    "columnDefs": [
-        { "sortable": false, "targets": [2] }
-    ]
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    buttons: [
+        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+    ],
+    columnDefs: [
+        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+    ],
+    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
 });
 $('#table-akun-3').DataTable({
-    "columnDefs": [
-        { "sortable": false, "targets": [2] }
-    ]
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    buttons: [
+        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+    ],
+    columnDefs: [
+        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+    ],
+    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
 });
 $('#table-akun-4').DataTable({
-    "columnDefs": [
-        { "sortable": false, "targets": [2] }
-    ]
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    buttons: [
+        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+    ],
+    columnDefs: [
+        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+    ],
+    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
 });
+
+
+
+//$('#tableExport').DataTable({
+//    dom: 'Bfrtip',
+//    buttons: [
+//        'copy', 'csv', 'excel', 'pdf', 'print'
+//    ]
+//});
 
 $('#tableExport').DataTable({
     dom: 'Bfrtip',
     buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
+        'csv', 'excel', 'pdf', 'print'
     ]
 });
