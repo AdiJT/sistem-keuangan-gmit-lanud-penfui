@@ -34,10 +34,10 @@ public class TambahVM
     public required int Tahun { get; set; }
 
     [Display(Name = "Kas")]
-    [Required(ErrorMessage = "{0} harus diisi")]
+    [Required(ErrorMessage = "{0} harus dipilih")]
     public int IdKas { get; set; }
 
     [Display(Name = "Akun")]
-    [Required(ErrorMessage = "{0} harus diisi")]
+    [Required(ErrorMessage = "{0} harus dipilih")]
     public int IdAkun { get; set; }
 }

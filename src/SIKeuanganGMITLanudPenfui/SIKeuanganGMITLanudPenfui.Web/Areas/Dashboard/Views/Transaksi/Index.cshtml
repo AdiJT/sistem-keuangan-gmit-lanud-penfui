@@ -43,7 +43,7 @@
         @{
             var no = 1;
         }
-        @foreach(var transaksi in Model.DaftarTransaksi)
+        @foreach (var transaksi in Model.DaftarTransaksi)
         {
             <tr>
                 <td>@no</td>
@@ -57,8 +57,12 @@
                     <a href="@transaksi.FileBukti.ToString()">File Bukti</a>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Hapus</a>
+                    <a asp-action="@nameof(TransaksiController.Edit)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                       asp-route-id="@transaksi.Id" class="btn btn-primary">Edit</a>
+                    <form asp-action="@nameof(TransaksiController.Hapus)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                          asp-route-id="@transaksi.Id" style="display:inline">
+                        <button class="btn btn-danger">Hapus</button>
+                    </form>
                 </td>
             </tr>
             no++;
@@ -71,8 +75,8 @@
 
     <script type="text/javascript">
         const selectTahun = $('select#tahun');
-        
-        const url = '@Url.Action(nameof(TransaksiController.Index), new {jenis=Model.Jenis})';
+
+        const url = '@Url.Action(nameof(TransaksiController.Index), new { jenis = Model.Jenis })';
 
         $(selectTahun).on('change', function () {
             const tahun = $(selectTahun).val();

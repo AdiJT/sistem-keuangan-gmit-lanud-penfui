@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
+using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.EditTransaksi;
+using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.HapusTransaksi;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
@@ -94,6 +96,56 @@ public class TransaksiController : Controller
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
         }
+
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
+    }
+
+    [Route("/[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
+    public async Task<IActionResult> Edit(Jenis jenis, int tahun, int id)
+    {
+        var transaksi = await _repositoriTransaksi.Get(id);
+        if (transaksi is null) return NotFound();
+
+        return View(new EditVM
+        {
+            IdTransaksi = id,
+            Uraian = transaksi.Uraian,
+            IdAkun = transaksi.Akun.Id,
+            Jenis = jenis,
+            Tahun = tahun,
+        });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
+    public async Task<IActionResult> Edit([FromRoute]Jenis jenis, [FromRoute]int tahun, [FromRoute] int id, [FromForm]EditVM vm)
+    {
+        if (!ModelState.IsValid) return View(vm);
+
+        if (jenis != vm.Jenis || tahun != vm.Tahun || vm.IdTransaksi != id) return BadRequest();
+
+        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, vm.IdAkun);
+        var result = await _sender.Send(command);
+
+        if (result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, result.Error.Message);
+            return View(vm);
+        }
+
+        return RedirectToAction(nameof(Index), new { tahun, jenis });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
+    public async Task<IActionResult> Hapus(Jenis jenis, int tahun, int id)
+    {
+        var transaksi = await _repositoriTransaksi.Get(id);
+        if (transaksi is null) return NotFound();
+
+        var command = new HapusTransaksiCommand(id);
+        var result = await _sender.Send(command);
+        if (result.IsFailure) return BadRequest(result.Error.Message);
 
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }

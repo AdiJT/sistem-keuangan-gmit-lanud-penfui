@@ -5720,7 +5720,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEOcOQmd6vaEYdTzcx9ytj6+r/cDCAolsFJ8RkYvxETF3R4lqHsGMfqqYKHRfVXNztA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC2FA0r5FZyVLogYFr5aFYXv4cvNutkoufVuDg6B9o3xiVlF3gabdrzNVTI9q+faNg==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });

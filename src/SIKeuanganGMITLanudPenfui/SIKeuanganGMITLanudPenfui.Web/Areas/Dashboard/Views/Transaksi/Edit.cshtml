@@ -1,0 +1,50 @@
+﻿@model EditVM
+
+@inject IRepositoriKas RepositoriKas
+@inject IRepositoriAkun RepositoriAkun
+
+@{
+    ViewData["Title"] = $"{Model.Jenis} | Edit";
+    var daftarKas = await RepositoriKas.GetAll();
+    var daftarAkun = (await RepositoriAkun.GetAllByTahun(Tahun.Create(Model.Tahun).Value)).Where(a => a.JenisAkun.Jenis == Model.Jenis).ToList();
+}
+
+<h1>Edit @Model.Jenis - @Model.Tahun</h1>
+
+<form asp-action="@nameof(TransaksiController.Edit)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-itemid="@Model.IdTransaksi"
+      method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="row">
+        <label asp-for="@Model.Uraian" class="form-label"></label>
+        <input asp-for="@Model.Uraian" class="form-control" />
+        <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+    </div>
+
+    <div class="row">
+        <label asp-for="@Model.IdAkun" class="form-label"></label>
+
+        <select asp-for="@Model.IdAkun" class="form-control">
+            <option value="@null">Pilih Akun...</option>
+            @foreach (var akun in daftarAkun)
+            {
+                <option value="@akun.Id">@akun.KodeAkun @akun.Uraian</option>
+            }
+        </select>
+
+        <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
+    </div>
+
+    <input asp-for="@Model.IdTransaksi" readonly hidden />
+    <input asp-for="@Model.Jenis" readonly hidden />
+    <input asp-for="@Model.Tahun" readonly hidden />
+
+    <div class="row">
+        <button type="submit" class="btn btn-primary">Simpan</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -12,8 +12,8 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241107100912_TambahEntitasBuktiTransaksi")]
-    partial class TambahEntitasBuktiTransaksi
+    [Migration("20241126011321_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,8 +42,14 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int?>("KelompokAkunId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Kode")
+                        .HasColumnType("integer");
+
                     b.Property<double?>("PresentaseSetoran")
                         .HasColumnType("double precision");
+
+                    b.Property<int>("Tahun")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Uraian")
                         .IsRequired()
@@ -64,253 +70,423 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             JenisAkunId = 1,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rutin"
                         },
                         new
                         {
                             Id = 2,
                             JenisAkunId = 1,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
                         {
                             Id = 3,
                             JenisAkunId = 1,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Dana Cadangan"
                         },
                         new
                         {
                             Id = 4,
                             JenisAkunId = 2,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Utama Minggu (2 kali/minggu)"
                         },
                         new
                         {
                             Id = 5,
                             JenisAkunId = 3,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Kelulusan"
                         },
                         new
                         {
                             Id = 6,
                             JenisAkunId = 3,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Rayon"
                         },
                         new
                         {
                             Id = 7,
                             JenisAkunId = 3,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Keluarga"
                         },
                         new
                         {
                             Id = 8,
                             JenisAkunId = 3,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur NATAL Kategorial Lainnya"
                         },
                         new
                         {
                             Id = 9,
                             JenisAkunId = 3,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Pernikahan"
                         },
                         new
                         {
                             Id = 10,
                             JenisAkunId = 3,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Lepas Kabung"
                         },
                         new
                         {
                             Id = 11,
                             JenisAkunId = 3,
+                            Kode = 7,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Kelahiran"
                         },
                         new
                         {
                             Id = 12,
                             JenisAkunId = 3,
+                            Kode = 8,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah HUT Perempuan GMIT JLET Penfui"
                         },
                         new
                         {
                             Id = 13,
                             JenisAkunId = 3,
+                            Kode = 9,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah HUT GMIT JLET Penfui"
                         },
                         new
                         {
                             Id = 14,
                             JenisAkunId = 3,
+                            Kode = 10,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur Lainnya"
                         },
                         new
                         {
                             Id = 15,
                             JenisAkunId = 4,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar Kebaktian Minggu"
                         },
                         new
                         {
                             Id = 16,
                             JenisAkunId = 4,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar Baptisan Kudus"
                         },
                         new
                         {
                             Id = 17,
                             JenisAkunId = 4,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar Peneguhan Sidi Baru"
                         },
                         new
                         {
                             Id = 18,
                             JenisAkunId = 4,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar Pemberkatan Nikah"
                         },
                         new
                         {
                             Id = 19,
                             JenisAkunId = 4,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar Khusus"
                         },
                         new
                         {
                             Id = 20,
                             JenisAkunId = 5,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Persepuluhan Kebaktian Minggu"
                         },
                         new
                         {
                             Id = 21,
                             JenisAkunId = 5,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Persepuluhan Lainnya"
                         },
                         new
                         {
                             Id = 22,
                             JenisAkunId = 5,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Nazar, Persepuluhan dan Syukur Lainnya"
                         },
                         new
                         {
                             Id = 23,
                             JenisAkunId = 5,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Syukur Kebaktian Minggu"
                         },
                         new
                         {
                             Id = 24,
                             JenisAkunId = 6,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "10% Tangguk Kolekte Pembangunan"
                         },
                         new
                         {
                             Id = 25,
                             JenisAkunId = 6,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Tangguk Persembahan di Kebaktian Utama Minggu"
                         },
                         new
                         {
                             Id = 26,
                             JenisAkunId = 6,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Sumbangan Spontanitas Jemaat"
                         },
                         new
                         {
                             Id = 27,
                             JenisAkunId = 6,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Hasil Usaha Panitia/Tim Kerja"
                         },
                         new
                         {
                             Id = 28,
                             JenisAkunId = 6,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Sumbangan Pembangunan Wajib KK (200KK x 12 bln)"
                         },
                         new
                         {
                             Id = 29,
                             JenisAkunId = 6,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Tunggakan Sumbangan"
                         },
                         new
                         {
                             Id = 30,
                             JenisAkunId = 6,
+                            Kode = 7,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Hasil Lelang Natura"
                         },
                         new
                         {
                             Id = 31,
                             JenisAkunId = 6,
+                            Kode = 8,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Sumbangan Pembangunan Pihak Lain"
                         },
                         new
                         {
                             Id = 32,
                             JenisAkunId = 10,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Dana Cadangan"
                         },
                         new
                         {
                             Id = 33,
                             JenisAkunId = 10,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Administrasi Bank"
                         },
                         new
                         {
                             Id = 34,
                             JenisAkunId = 10,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pajak Bunga Bank"
                         },
                         new
                         {
                             Id = 35,
                             JenisAkunId = 10,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Biaya cetak rekening giro"
                         },
                         new
                         {
                             Id = 36,
                             JenisAkunId = 10,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Pajak Mobil Pelayanan"
                         },
                         new
                         {
                             Id = 37,
                             JenisAkunId = 10,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Belanja Pisah/Sambut Pendeta"
                         },
                         new
                         {
                             Id = 38,
                             JenisAkunId = 10,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Sumbangan Rutin Teritori II K3T"
                         },
                         new
                         {
                             Id = 39,
                             JenisAkunId = 10,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Kontribusi Kegiatan"
                         },
                         new
                         {
                             Id = 40,
                             JenisAkunId = 10,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Sumbangan Lainnya"
                         },
                         new
                         {
                             Id = 41,
                             JenisAkunId = 10,
+                            Kode = 10,
+                            Tahun = 2024,
                             Uraian = "Belanja Lainnya"
+                        },
+                        new
+                        {
+                            Id = 232,
+                            JenisAkunId = 7,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
+                            Uraian = "Administrasi Baptisan"
+                        },
+                        new
+                        {
+                            Id = 233,
+                            JenisAkunId = 7,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
+                            Uraian = "Administrasi Peneguhan Sidi Baru"
+                        },
+                        new
+                        {
+                            Id = 234,
+                            JenisAkunId = 7,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
+                            Uraian = "Administrasi Pemberkatan Nikah"
+                        },
+                        new
+                        {
+                            Id = 235,
+                            JenisAkunId = 7,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
+                            Uraian = "Bunga Bank"
+                        },
+                        new
+                        {
+                            Id = 236,
+                            JenisAkunId = 7,
+                            Kode = 5,
+                            PresentaseSetoran = 0.0,
+                            Tahun = 2024,
+                            Uraian = "Hasil Lelang"
+                        },
+                        new
+                        {
+                            Id = 237,
+                            JenisAkunId = 7,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
+                            Uraian = "Penerimaan Lainnya"
                         },
                         new
                         {
                             Id = 42,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Hari Reformasi & HUT GMIT"
                         },
                         new
@@ -318,6 +494,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 43,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Malam NATAL"
                         },
                         new
@@ -325,6 +504,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 44,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Malam NATAL (Keluarga)"
                         },
                         new
@@ -332,6 +514,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 45,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL"
                         },
                         new
@@ -339,6 +524,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 46,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Syukur NATAL"
                         },
                         new
@@ -346,6 +534,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 47,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL JLET"
                         },
                         new
@@ -353,6 +544,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 48,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 7,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian NATAL PAR"
                         },
                         new
@@ -360,6 +554,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 49,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 8,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Kunci Tahun"
                         },
                         new
@@ -367,6 +564,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 50,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 9,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Kunci Tahun (Keluarga)"
                         },
                         new
@@ -374,6 +574,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 51,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 10,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Tahun Baru "
                         },
                         new
@@ -381,6 +584,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 52,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 11,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Jumat Agung"
                         },
                         new
@@ -388,6 +594,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 53,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 12,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Paskah"
                         },
                         new
@@ -395,6 +604,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 54,
                             JenisAkunId = 2,
                             KelompokAkunId = 1,
+                            Kode = 13,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Syukur Paskah"
                         },
                         new
@@ -402,6 +614,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 55,
                             JenisAkunId = 2,
                             KelompokAkunId = 2,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Perjamuan Kudus"
                         },
                         new
@@ -409,6 +624,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 56,
                             JenisAkunId = 2,
                             KelompokAkunId = 2,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Sakramen Perjamuan Kudus"
                         },
                         new
@@ -416,6 +634,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 57,
                             JenisAkunId = 2,
                             KelompokAkunId = 3,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Baptisan Kudus"
                         },
                         new
@@ -423,6 +644,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 58,
                             JenisAkunId = 2,
                             KelompokAkunId = 3,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Sakramen Baptisan Kudus"
                         },
                         new
@@ -430,6 +654,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 59,
                             JenisAkunId = 2,
                             KelompokAkunId = 4,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan Peneguhan Sidi Baru"
                         },
                         new
@@ -437,6 +664,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 60,
                             JenisAkunId = 2,
                             KelompokAkunId = 4,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Peneguhan Anggota Sidi Baru"
                         },
                         new
@@ -444,6 +674,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 61,
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Pastoral"
                         },
                         new
@@ -451,6 +684,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 62,
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Persiapan/Penggembalaan"
                         },
                         new
@@ -458,6 +694,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 63,
                             JenisAkunId = 2,
                             KelompokAkunId = 5,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kebaktian Pemberkatan Nikah"
                         },
                         new
@@ -465,6 +704,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 64,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 1"
                         },
                         new
@@ -472,6 +714,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 65,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 2"
                         },
                         new
@@ -479,6 +724,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 66,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 3"
                         },
                         new
@@ -486,6 +734,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 67,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 4"
                         },
                         new
@@ -493,6 +744,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 68,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 5"
                         },
                         new
@@ -500,6 +754,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 69,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 6"
                         },
                         new
@@ -507,6 +764,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 70,
                             JenisAkunId = 2,
                             KelompokAkunId = 6,
+                            Kode = 7,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Rayon 7"
                         },
                         new
@@ -514,6 +774,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 71,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 1,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah PAR"
                         },
                         new
@@ -521,6 +784,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 72,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 2,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Pemuda"
                         },
                         new
@@ -528,6 +794,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 73,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 3,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kaum Perempuan"
                         },
                         new
@@ -535,6 +804,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 74,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 4,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kaum Bapak"
                         },
                         new
@@ -542,6 +814,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 75,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 5,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Lansia"
                         },
                         new
@@ -549,6 +824,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 76,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 6,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kunci Usbuh"
                         },
                         new
@@ -556,6 +834,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 77,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 7,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Katekasasi Reguler"
                         },
                         new
@@ -563,6 +844,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 78,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 8,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Katekasasi Pra Nikah"
                         },
                         new
@@ -570,6 +854,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 79,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 9,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Persekutuan Doa"
                         },
                         new
@@ -577,6 +864,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 80,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 10,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah PS/VG"
                         },
                         new
@@ -584,6 +874,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 81,
                             JenisAkunId = 2,
                             KelompokAkunId = 7,
+                            Kode = 11,
+                            PresentaseSetoran = 0.5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Lainnya"
                         },
                         new
@@ -591,6 +884,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 82,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Uang Harian"
                         },
                         new
@@ -598,6 +893,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 83,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Konsumsi Rapat"
                         },
                         new
@@ -605,6 +902,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 84,
                             JenisAkunId = 8,
                             KelompokAkunId = 9,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pembuatan LHPP"
                         },
                         new
@@ -612,6 +911,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 85,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Gaji Koster"
                         },
                         new
@@ -619,6 +920,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 86,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Gaji Tata Usaha (TU) Gereja"
                         },
                         new
@@ -626,6 +929,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 87,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Gaji Sopir"
                         },
                         new
@@ -633,6 +938,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 88,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Insentif Calon Vicaris (CAVIK)"
                         },
                         new
@@ -640,6 +947,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 89,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Insentif Song Leader/Prokantor (2 orang)"
                         },
                         new
@@ -647,6 +956,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 90,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Insentif Organis/Sound System (2 orang)"
                         },
                         new
@@ -654,6 +965,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 91,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Insentif Operator LCD"
                         },
                         new
@@ -661,6 +974,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 92,
                             JenisAkunId = 8,
                             KelompokAkunId = 10,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Jasa sopir tidak tetap"
                         },
                         new
@@ -668,6 +983,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 93,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Koster"
                         },
                         new
@@ -675,6 +992,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 94,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus TU Gereja"
                         },
                         new
@@ -682,6 +1001,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 95,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Sopir"
                         },
                         new
@@ -689,6 +1010,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 96,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Calon Vicaris (CAVIK)"
                         },
                         new
@@ -696,6 +1019,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 97,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Organis/Sound Systim"
                         },
                         new
@@ -703,6 +1028,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 98,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Operator LCD"
                         },
                         new
@@ -710,6 +1037,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 99,
                             JenisAkunId = 8,
                             KelompokAkunId = 11,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Presbiter"
                         },
                         new
@@ -717,6 +1046,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 100,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Alat Tulis Kantor (ATK) dan Bahan Habis Pakai Lainnya "
                         },
                         new
@@ -724,6 +1055,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 101,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Biaya Penggandaan dan Cetak"
                         },
                         new
@@ -731,6 +1064,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 102,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "ATK, Biaya Penggandaan dan Cetak kegiatan sidang program tahun pelayanan 2025"
                         },
                         new
@@ -738,6 +1073,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 103,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Biaya Listrik (Gereja dan Pastori)"
                         },
                         new
@@ -745,6 +1082,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 104,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Air"
                         },
                         new
@@ -752,6 +1091,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 105,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Telepon/Indihome/Wifi"
                         },
                         new
@@ -759,6 +1100,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 106,
                             JenisAkunId = 8,
                             KelompokAkunId = 12,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Alat & Bahan Kebersihan/Kesehatan"
                         },
                         new
@@ -766,6 +1109,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 107,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pengadaan Barang Inventaris (Keyboard)"
                         },
                         new
@@ -773,6 +1118,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 108,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Pemeliharaan Barang Inventaris"
                         },
                         new
@@ -780,6 +1127,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 109,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pemeliharaan Gedung (Gereja, Pastori, dll)"
                         },
                         new
@@ -787,6 +1136,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 110,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Pemeliharaan Mobil Pelayanan"
                         },
                         new
@@ -794,6 +1145,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 111,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Pemeliharaan Instalasi Air dan Instalasi Listrik"
                         },
                         new
@@ -801,6 +1154,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 112,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Bahan Bakar"
                         },
                         new
@@ -808,6 +1163,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 113,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Pengadaan Buku Pedoman Organisasi & Buku Lainnya"
                         },
                         new
@@ -815,6 +1172,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 114,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Pengadaan Surat Gerejawi"
                         },
                         new
@@ -822,6 +1181,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 115,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Pengadaan poni gorden jendela gereja warna hijau"
                         },
                         new
@@ -829,6 +1190,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 116,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 10,
+                            Tahun = 2024,
                             Uraian = "Pengadaan meja"
                         },
                         new
@@ -836,6 +1199,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 117,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 11,
+                            Tahun = 2024,
                             Uraian = "Pengadaan CCTV"
                         },
                         new
@@ -843,6 +1208,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 118,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 12,
+                            Tahun = 2024,
                             Uraian = "Pengadaan gitar akustik"
                         },
                         new
@@ -850,6 +1217,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 119,
                             JenisAkunId = 8,
                             KelompokAkunId = 13,
+                            Kode = 13,
+                            Tahun = 2024,
                             Uraian = "Pengadaan Alat Musik (Kajon)"
                         },
                         new
@@ -857,6 +1226,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 120,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Transport Pendeta & (MJH) mengikuti Rapat/Sidang"
                         },
                         new
@@ -864,6 +1235,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 121,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Transport Pendeta Tamu"
                         },
                         new
@@ -871,6 +1244,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 122,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Transport MKH/MSH atas undangan jemaat"
                         },
                         new
@@ -878,6 +1253,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 123,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Transport Presbiter/BP/UPP, dll"
                         },
                         new
@@ -885,6 +1262,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 124,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Transport MJH ke kantor Klasis/Sinode"
                         },
                         new
@@ -892,6 +1271,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 125,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Transport Bendahara/TU ke Bank"
                         },
                         new
@@ -899,6 +1280,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 126,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Transport Pemateri"
                         },
                         new
@@ -906,6 +1289,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 127,
                             JenisAkunId = 8,
                             KelompokAkunId = 14,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Transport Lainnya"
                         },
                         new
@@ -913,6 +1298,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 128,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Setoran Sentralisasi Gaji Pokok (SGP)"
                         },
                         new
@@ -920,6 +1307,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 129,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Setoran 10% Penerimaan (Dana Rutin)"
                         },
                         new
@@ -927,6 +1316,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 130,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Setoran 10% Dana Pembangunan"
                         },
                         new
@@ -934,6 +1325,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 131,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Setoran 2% Dana Pendidikan"
                         },
                         new
@@ -941,6 +1334,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 132,
                             JenisAkunId = 8,
                             KelompokAkunId = 15,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Setoran Dana Kebersamaan"
                         },
                         new
@@ -948,6 +1343,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 133,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Perayaan Hari Ibu dan Natal"
                         },
                         new
@@ -955,6 +1352,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 134,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan LANSIA Teritori 2"
                         },
                         new
@@ -962,6 +1361,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 135,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan Persekutuan Doa Teritori 2"
                         },
                         new
@@ -969,6 +1370,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 136,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Persekutuan Doa"
                         },
                         new
@@ -976,6 +1379,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 137,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Ibadah Syukur Natal Pemuda Teritori 2"
                         },
                         new
@@ -983,6 +1388,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 138,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Ibadah Gabungan Kaum Perempuan Teritori 2"
                         },
                         new
@@ -990,6 +1397,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 139,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Ibadah Pemuda Teritori-dalam klasis-luar klasis"
                         },
                         new
@@ -997,6 +1406,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 140,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Ibadah NATAL PART"
                         },
                         new
@@ -1004,6 +1415,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 141,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Ibadah PASUTRI JLET"
                         },
                         new
@@ -1011,6 +1424,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 142,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 10,
+                            Tahun = 2024,
                             Uraian = "Ibadah Padang memperingati HUT Reformasi dan GMIT"
                         },
                         new
@@ -1018,6 +1433,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 143,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 11,
+                            Tahun = 2024,
                             Uraian = "Ibadah syukur HUT JLET"
                         },
                         new
@@ -1025,6 +1442,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 144,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 12,
+                            Tahun = 2024,
                             Uraian = "Ibadah syukur Natal JLET"
                         },
                         new
@@ -1032,6 +1451,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 145,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 13,
+                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif BP, UPP dan BP JLET"
                         },
                         new
@@ -1039,6 +1460,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 146,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 14,
+                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Pemuda 3"
                         },
                         new
@@ -1046,6 +1469,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 147,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 15,
+                            Tahun = 2024,
                             Uraian = "Ibadah Kreatif Pemuda 4"
                         },
                         new
@@ -1053,6 +1478,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 148,
                             JenisAkunId = 9,
                             KelompokAkunId = 16,
+                            Kode = 16,
+                            Tahun = 2024,
                             Uraian = "Ibadah ke Rote (UPP Perempuan)"
                         },
                         new
@@ -1060,6 +1487,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 149,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Bakti Sosial PART"
                         },
                         new
@@ -1067,6 +1496,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 150,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Lomba PASKAH PART"
                         },
                         new
@@ -1074,6 +1505,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 151,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Lomba HUT RI PART"
                         },
                         new
@@ -1081,6 +1514,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 152,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Perayaan NATAL PART"
                         },
                         new
@@ -1088,6 +1523,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 153,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Pelatihan Kepemimpinan Pemuda"
                         },
                         new
@@ -1095,6 +1532,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 154,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Lomba Kreasi Salib memperingati PASKAH 2024"
                         },
                         new
@@ -1102,6 +1541,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 155,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Malam puji-pujian menyambut PASKAH"
                         },
                         new
@@ -1109,6 +1550,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 156,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Pawai PASKAH JLET"
                         },
                         new
@@ -1116,6 +1559,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 157,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Lomba voly Putra-Putri antar Rayon memperingati Bulan keluarga"
                         },
                         new
@@ -1123,6 +1568,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 158,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 10,
+                            Tahun = 2024,
                             Uraian = "Lomba memasak nasi goreng antar keluarga dari tiap rayon memperingati Bulan Keluarga"
                         },
                         new
@@ -1130,6 +1577,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 159,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 11,
+                            Tahun = 2024,
                             Uraian = "Lomba VG Kaum Bapak Memperingati HUT JLET"
                         },
                         new
@@ -1137,6 +1586,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 160,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 12,
+                            Tahun = 2024,
                             Uraian = "Lomba CCA Keluarga antar Rayon"
                         },
                         new
@@ -1144,6 +1595,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 161,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 13,
+                            Tahun = 2024,
                             Uraian = "Lomba Pohon Natal antar rayon di lingkungan gereja"
                         },
                         new
@@ -1151,6 +1604,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 162,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 14,
+                            Tahun = 2024,
                             Uraian = "Insentif Pengajar Katekasasi (2 orang)"
                         },
                         new
@@ -1158,6 +1613,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 163,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 15,
+                            Tahun = 2024,
                             Uraian = "Insentif Pengajar UPP PAR"
                         },
                         new
@@ -1165,6 +1622,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 164,
                             JenisAkunId = 9,
                             KelompokAkunId = 17,
+                            Kode = 16,
+                            Tahun = 2024,
                             Uraian = "Memberikan Apresiasi kepada anak-anak (Sertifikat Naik Kelas, dll)"
                         },
                         new
@@ -1172,6 +1631,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 165,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pengadaan Bahan Perjamuan Kudus"
                         },
                         new
@@ -1179,6 +1640,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 166,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Perbaikan peti keyboard"
                         },
                         new
@@ -1186,6 +1649,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 167,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pengadaan meja operator slide"
                         },
                         new
@@ -1193,6 +1658,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 168,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Insentif songlider, musik dan operator slide "
                         },
                         new
@@ -1200,6 +1667,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 169,
                             JenisAkunId = 9,
                             KelompokAkunId = 18,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Insentif Soundman"
                         },
                         new
@@ -1207,6 +1676,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 170,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Diakonia Sakit"
                         },
                         new
@@ -1214,6 +1685,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 171,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Diakonia Duka Cita"
                         },
                         new
@@ -1221,6 +1694,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 172,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Diakonia bagi jemaat JLET yang tidak mampu"
                         },
                         new
@@ -1228,6 +1703,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 173,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Pemeriksaan Kesehatan bagi LANSIA"
                         },
                         new
@@ -1235,6 +1712,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 174,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Bingkisan Kasih Majelis Jemaat"
                         },
                         new
@@ -1242,6 +1721,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 175,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Pelatihan peningkatan kapasitas diaken dalam pelayanan diakonia holistik"
                         },
                         new
@@ -1249,6 +1730,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 176,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Pelatihan Ketrampilan (Vokasi) Bagi Jemaat (PEMUDA)"
                         },
                         new
@@ -1256,6 +1739,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 177,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Beasiswa pendidikan kepada anak berprestasi  yang kurang mampu."
                         },
                         new
@@ -1263,6 +1748,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 178,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 9,
+                            Tahun = 2024,
                             Uraian = "Pemberian bantuan dana pendidikan untuk calon mahasiswa musik gerejawi"
                         },
                         new
@@ -1270,6 +1757,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 179,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 10,
+                            Tahun = 2024,
                             Uraian = "Bantuan bagi warga JLET yang mengalami bencana alam dan Non Alam"
                         },
                         new
@@ -1277,6 +1766,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 180,
                             JenisAkunId = 9,
                             KelompokAkunId = 19,
+                            Kode = 11,
+                            Tahun = 2024,
                             Uraian = "Diakonia Lain-Lain"
                         },
                         new
@@ -1284,6 +1775,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 181,
                             JenisAkunId = 9,
                             KelompokAkunId = 20,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Pemanfaatan pekarangan gereja (dapur hidup, apotik hidup)"
                         },
                         new
@@ -1291,6 +1784,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 182,
                             JenisAkunId = 9,
                             KelompokAkunId = 20,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Pelatihan musik Kaum Bapak (transportasi pelatih)"
                         },
                         new
@@ -1298,6 +1793,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 183,
                             JenisAkunId = 9,
                             KelompokAkunId = 21,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pengurusan Sertifikat Tanah (Balik Nama)"
                         },
                         new
@@ -1305,6 +1802,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 184,
                             JenisAkunId = 9,
                             KelompokAkunId = 21,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Pemasangan Identitas Mobil Pelayanan JLET"
                         },
                         new
@@ -1312,6 +1811,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 185,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Struktural"
                         },
                         new
@@ -1319,6 +1820,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 186,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Kesejahteraan (Kesra)"
                         },
                         new
@@ -1326,6 +1829,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 187,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Kesehatan"
                         },
                         new
@@ -1333,6 +1838,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 188,
                             GolonganAkunId = 1,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Lainnya"
                         },
                         new
@@ -1340,6 +1847,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 189,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Wakil Ketua"
                         },
                         new
@@ -1347,6 +1856,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 190,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Sekretaris"
                         },
                         new
@@ -1354,6 +1865,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 191,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Wakil Sekretaris"
                         },
                         new
@@ -1361,6 +1874,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 192,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Bendahara"
                         },
                         new
@@ -1368,6 +1883,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 193,
                             GolonganAkunId = 2,
                             JenisAkunId = 8,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Wakil Bendahara"
                         },
                         new
@@ -1375,6 +1892,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 194,
                             GolonganAkunId = 3,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Gaji Ke-13 KMJ"
                         },
                         new
@@ -1382,6 +1901,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 195,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Ketua Majelis Jemaat (KMJ)"
                         },
                         new
@@ -1389,6 +1910,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 196,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Wakil Ketua"
                         },
                         new
@@ -1396,6 +1919,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 197,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Sekretaris"
                         },
                         new
@@ -1403,6 +1928,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 198,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Wakil Sekretaris"
                         },
                         new
@@ -1410,6 +1937,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 199,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Bendahara"
                         },
                         new
@@ -1417,6 +1946,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 200,
                             GolonganAkunId = 4,
                             JenisAkunId = 8,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Wakil Bendahara"
                         },
                         new
@@ -1424,6 +1955,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 201,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Konsumsi Pertemuan/Rapat Pendeta"
                         },
                         new
@@ -1431,6 +1964,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 202,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Konsumsi Pendeta Tamu dan Tamu Pendeta"
                         },
                         new
@@ -1438,6 +1973,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 203,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Konsumsi Lembur MJH"
                         },
                         new
@@ -1445,6 +1982,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 204,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Konsumsi UPP/BP/Tim Kerja, dll"
                         },
                         new
@@ -1452,6 +1991,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 205,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Rapat evaluasi program dan kegiatan lainnya"
                         },
                         new
@@ -1459,6 +2000,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 206,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Sidang Program Tahun Pelayanan 2025"
                         },
                         new
@@ -1466,6 +2009,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 207,
                             GolonganAkunId = 5,
                             JenisAkunId = 8,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Konsumsi Lainnya"
                         },
                         new
@@ -1473,6 +2018,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 209,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Lumpsum Luar Daerah"
                         },
                         new
@@ -1480,6 +2027,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 210,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Penginapan"
                         },
                         new
@@ -1487,6 +2036,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 211,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Transportasi (luar daerah)"
                         },
                         new
@@ -1494,6 +2045,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 212,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Transportasi (dalam daerah)"
                         },
                         new
@@ -1501,6 +2054,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 213,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Lumpsum dalam Daerah"
                         },
                         new
@@ -1508,6 +2063,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 214,
                             GolonganAkunId = 6,
                             JenisAkunId = 8,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Rekoleksi (Kupang - Siangapore PP)"
                         },
                         new
@@ -1515,6 +2072,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 215,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
@@ -1522,6 +2081,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 216,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Pasang Ganti Penutup Atap"
                         },
                         new
@@ -1529,6 +2090,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 217,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pasang Ganti Kuda - kuda"
                         },
                         new
@@ -1536,6 +2099,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 218,
                             GolonganAkunId = 7,
                             JenisAkunId = 9,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Pasang Ganti Plafond"
                         },
                         new
@@ -1543,6 +2108,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 219,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Finishing Dinding"
                         },
                         new
@@ -1550,6 +2117,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 220,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Finishing Lantai"
                         },
                         new
@@ -1557,6 +2126,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 221,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Finishing Atap"
                         },
                         new
@@ -1564,6 +2135,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 222,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Plafond"
                         },
                         new
@@ -1571,6 +2144,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 223,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Penerangan dan Kelistrikan"
                         },
                         new
@@ -1578,6 +2153,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 224,
                             GolonganAkunId = 8,
                             JenisAkunId = 9,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Toilet dan Kelengkapan"
                         },
                         new
@@ -1585,6 +2162,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 225,
                             GolonganAkunId = 9,
                             JenisAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Perbaikan Atap"
                         },
                         new
@@ -1592,6 +2171,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 226,
                             GolonganAkunId = 9,
                             JenisAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Perbaikan Listrik"
                         },
                         new
@@ -1599,6 +2180,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 227,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Penutup Gerbang"
                         },
                         new
@@ -1606,6 +2189,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 228,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Railing Tangga Talud"
                         },
                         new
@@ -1613,6 +2198,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 229,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Kanopi Parkiran"
                         },
                         new
@@ -1620,6 +2207,8 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 230,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Pasang Baru Pos Jaga"
                         },
                         new
@@ -1627,151 +2216,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Id = 231,
                             GolonganAkunId = 10,
                             JenisAkunId = 9,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Normalisasi Area Parkir"
-                        });
-                });
-
-            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Belanja", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AkunId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("BuktiTransaksiId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Jumlah")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("KasId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("SaldoKas")
-                        .HasColumnType("double precision");
-
-                    b.Property<DateOnly>("Tanggal")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime>("TanggalDitambahkan")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("TanggalDiubah")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Uraian")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AkunId");
-
-                    b.HasIndex("BuktiTransaksiId")
-                        .IsUnique();
-
-                    b.HasIndex("KasId");
-
-                    b.ToTable("TblBelanja");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AkunId = 171,
-                            BuktiTransaksiId = 1,
-                            Jumlah = 500000.0,
-                            KasId = 1,
-                            SaldoKas = 9713500.0,
-                            Tanggal = new DateOnly(2024, 1, 1),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AkunId = 141,
-                            BuktiTransaksiId = 2,
-                            Jumlah = 150000.0,
-                            KasId = 1,
-                            SaldoKas = 9563500.0,
-                            Tanggal = new DateOnly(2024, 1, 2),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-"
-                        });
-                });
-
-            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.BuktiTransaksi", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FileBukti")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Jenis")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("TanggalDitambahkan")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("TanggalDiubah")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Uraian")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TblBuktiTransaksi");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FileBukti = "http://locahost:1704/file/1",
-                            Jenis = 1,
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bukti Transaksi Belanja 1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FileBukti = "http://locahost:1704/file/2",
-                            Jenis = 1,
-                            TanggalDitambahkan = new DateTime(2024, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bukti Transaksi Belanja 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FileBukti = "http://locahost:1704/file/3",
-                            Jenis = 0,
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bukti Transaksi Penerimaan 1"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FileBukti = "http://locahost:1704/file/4",
-                            Jenis = 0,
-                            TanggalDitambahkan = new DateTime(2024, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bukti Transaksi Penerimaan 2"
                         });
                 });
 
@@ -2124,6 +2571,54 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 41,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 232,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 233,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 234,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 235,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 236,
+                            HargaSatuan = 10000.0,
+                            Satuan = "kali",
+                            Volume = 1
+                        },
+                        new
+                        {
+                            TahunRAPBJ = 2024,
+                            KodeAkun = 237,
                             HargaSatuan = 10000.0,
                             Satuan = "kali",
                             Volume = 1
@@ -3653,6 +4148,12 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int>("KelompokAkunId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Kode")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Tahun")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -3668,60 +4169,80 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             KelompokAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Ketua Majelis Jemaat (KMJ)"
                         },
                         new
                         {
                             Id = 2,
                             KelompokAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Insentif MJH"
                         },
                         new
                         {
                             Id = 3,
                             KelompokAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus MJH"
                         },
                         new
                         {
                             Id = 4,
                             KelompokAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Gaji Ke-13"
                         },
                         new
                         {
                             Id = 5,
                             KelompokAkunId = 12,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Biaya Konsumsi"
                         },
                         new
                         {
                             Id = 6,
                             KelompokAkunId = 14,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Biaya Perjalanan Dinas Pendeta"
                         },
                         new
                         {
                             Id = 7,
                             KelompokAkunId = 20,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Renovasi Gedung Ibadah"
                         },
                         new
                         {
                             Id = 8,
                             KelompokAkunId = 20,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Renovasi Gedung Pusat Kegiatan PART, Pemuda dan Serba Guna"
                         },
                         new
                         {
                             Id = 9,
                             KelompokAkunId = 20,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Renovasi Rumah Pastori"
                         },
                         new
                         {
                             Id = 10,
                             KelompokAkunId = 20,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Renovasi Pertamanan"
                         });
                 });
@@ -3737,6 +4258,12 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<int>("Jenis")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Kode")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Tahun")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Uraian")
                         .IsRequired()
                         .HasColumnType("text");
@@ -3750,60 +4277,80 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             Jenis = 0,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Sisa lebih perhitungan tahun (Surplus)"
                         },
                         new
                         {
                             Id = 2,
                             Jenis = 0,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Kolekte/Persembahan"
                         },
                         new
                         {
                             Id = 3,
                             Jenis = 0,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Syukur"
                         },
                         new
                         {
                             Id = 4,
                             Jenis = 0,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Nazar"
                         },
                         new
                         {
                             Id = 5,
                             Jenis = 0,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Persepuluhan dan Syukur"
                         },
                         new
                         {
                             Id = 6,
                             Jenis = 0,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Pembangunan"
                         },
                         new
                         {
                             Id = 7,
                             Jenis = 0,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Penerimaan Lain-Lain"
                         },
                         new
                         {
                             Id = 8,
                             Jenis = 1,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Belanja Rutin"
                         },
                         new
                         {
                             Id = 9,
                             Jenis = 1,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Belanja Program Pelayanan"
                         },
                         new
                         {
                             Id = 10,
                             Jenis = 1,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Belanja Lain-Lain"
                         });
                 });
@@ -3822,7 +4369,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Property<DateTime>("TanggalDitambahkan")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<DateTime>("TanggalDiubah")
+                    b.Property<DateTime?>("TanggalDiubah")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Uraian")
@@ -3837,9 +4384,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Saldo = 6031500.0,
+                            Saldo = 11209900.0,
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kas Bank GMIT Lanud"
                         });
                 });
@@ -3853,6 +4400,12 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("JenisAkunId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Kode")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Tahun")
                         .HasColumnType("integer");
 
                     b.Property<string>("Uraian")
@@ -3870,203 +4423,169 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             Id = 1,
                             JenisAkunId = 2,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Hari Raya Gerejawi"
                         },
                         new
                         {
                             Id = 2,
                             JenisAkunId = 2,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Sakramen Perjamuan Kudus"
                         },
                         new
                         {
                             Id = 3,
                             JenisAkunId = 2,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Baptisan Kudus"
                         },
                         new
                         {
                             Id = 4,
                             JenisAkunId = 2,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru"
                         },
                         new
                         {
                             Id = 5,
                             JenisAkunId = 2,
-                            Uraian = "Kolekte Kebaktian Peneguhan Sidi Baru"
+                            Kode = 6,
+                            Tahun = 2024,
+                            Uraian = "Kolekte Kebaktian Pemberkatan Nikah"
                         },
                         new
                         {
                             Id = 6,
                             JenisAkunId = 2,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Rumah Tangga"
                         },
                         new
                         {
                             Id = 7,
                             JenisAkunId = 2,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Kolekte Ibadah Kategorial/Fungsional, dll"
                         },
                         new
                         {
                             Id = 8,
                             JenisAkunId = 8,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Pos Penghasilan Pendeta dan MJH"
                         },
                         new
                         {
                             Id = 9,
                             JenisAkunId = 8,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Belanja BPPPJ"
                         },
                         new
                         {
                             Id = 10,
                             JenisAkunId = 8,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Belanja Karyawan"
                         },
                         new
                         {
                             Id = 11,
                             JenisAkunId = 8,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Tunjangan Khusus Karyawan/Presbiter"
                         },
                         new
                         {
                             Id = 12,
                             JenisAkunId = 8,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Belanja Kantor"
                         },
                         new
                         {
                             Id = 13,
                             JenisAkunId = 8,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Belanja Pengadaan & Pemeliharaan"
                         },
                         new
                         {
                             Id = 14,
                             JenisAkunId = 8,
+                            Kode = 7,
+                            Tahun = 2024,
                             Uraian = "Belanja Perjalanan"
                         },
                         new
                         {
                             Id = 15,
                             JenisAkunId = 8,
+                            Kode = 8,
+                            Tahun = 2024,
                             Uraian = "Belanja Tanggungan Rutin Jemaat"
                         },
                         new
                         {
                             Id = 16,
                             JenisAkunId = 9,
+                            Kode = 1,
+                            Tahun = 2024,
                             Uraian = "Bidang Koinonia"
                         },
                         new
                         {
                             Id = 17,
                             JenisAkunId = 9,
+                            Kode = 2,
+                            Tahun = 2024,
                             Uraian = "Bidang Marturia"
                         },
                         new
                         {
                             Id = 18,
                             JenisAkunId = 9,
+                            Kode = 3,
+                            Tahun = 2024,
                             Uraian = "Bidang Liturgia"
                         },
                         new
                         {
                             Id = 19,
                             JenisAkunId = 9,
+                            Kode = 4,
+                            Tahun = 2024,
                             Uraian = "Bidang Diakonia"
                         },
                         new
                         {
                             Id = 20,
                             JenisAkunId = 9,
+                            Kode = 5,
+                            Tahun = 2024,
                             Uraian = "Bidang Oikonomia"
                         },
                         new
                         {
                             Id = 21,
                             JenisAkunId = 9,
+                            Kode = 6,
+                            Tahun = 2024,
                             Uraian = "Bidang Umum dan Rekomendasi"
-                        });
-                });
-
-            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Penerimaan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AkunId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("BuktiTransaksiId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Jumlah")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("KasId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("SaldoKas")
-                        .HasColumnType("double precision");
-
-                    b.Property<DateOnly>("Tanggal")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime>("TanggalDitambahkan")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime>("TanggalDiubah")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<string>("Uraian")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AkunId");
-
-                    b.HasIndex("BuktiTransaksiId")
-                        .IsUnique();
-
-                    b.HasIndex("KasId");
-
-                    b.ToTable("TblPenerimaan");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AkunId = 51,
-                            BuktiTransaksiId = 3,
-                            Jumlah = 930000.0,
-                            KasId = 1,
-                            SaldoKas = 6961500.0,
-                            Tanggal = new DateOnly(2024, 1, 1),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Kolekte"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AkunId = 21,
-                            BuktiTransaksiId = 4,
-                            Jumlah = 30000.0,
-                            KasId = 1,
-                            SaldoKas = 7141000.0,
-                            Tanggal = new DateOnly(2024, 1, 1),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1"
                         });
                 });
 
@@ -4083,6 +4602,1093 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Tahun = 2024
+                        });
+                });
+
+            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Transaksi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AkunId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("FileBukti")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Jenis")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Jumlah")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("KasId")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("SaldoKas")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("Tanggal")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("TanggalDitambahkan")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("TanggalDiubah")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Uraian")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AkunId");
+
+                    b.HasIndex("KasId");
+
+                    b.ToTable("TblTransaksi");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 12500.0,
+                            KasId = 1,
+                            SaldoKas = 11197400.0,
+                            Tanggal = new DateTime(2024, 1, 6, 0, 1, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs teh sariwangi (50P)"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 59900.0,
+                            KasId = 1,
+                            SaldoKas = 11137500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 0, 2, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 11107500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 0, 3, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 30 potong kue @Rp. 1.000,-"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AkunId = 101,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 255000.0,
+                            KasId = 1,
+                            SaldoKas = 10852500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 0, 4, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AkunId = 51,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 930000.0,
+                            KasId = 1,
+                            SaldoKas = 6961500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 5, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Kolekte"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AkunId = 16,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 6966500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 6, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AkunId = 16,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 6976500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 7, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AkunId = 18,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 7076500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 8, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AkunId = 19,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7086500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 9, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 4"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AkunId = 16,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 7091500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 10, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 5"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AkunId = 17,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 20000.0,
+                            KasId = 1,
+                            SaldoKas = 7111500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 11, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 6"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 7141500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 12, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7191500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 13, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7201500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 14, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 9000.0,
+                            KasId = 1,
+                            SaldoKas = 7210500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 15, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 7215500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 16, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7225500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 17, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7275500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 18, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7285500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 19, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 7290500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 20, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7300500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 21, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7350500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 22, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 4"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7400500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 23, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 5"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 7500500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 24, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 6"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7510500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 25, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 7"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7520500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 26, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 8"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7530500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 27, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 9"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7540500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 28, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 10"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7590500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 29, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Oktovianus Metboki Rayon 5"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 77000.0,
+                            KasId = 1,
+                            SaldoKas = 7667500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 30, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Oma. Elisabeth Tualaka Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 72000.0,
+                            KasId = 1,
+                            SaldoKas = 7739500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 31, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Kel AS Rayon 2"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7749500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 32, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Oma. Aranci Suek Rayon 4"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7799500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 33, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = " Bpk. Dominggus Kole Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 300000.0,
+                            KasId = 1,
+                            SaldoKas = 8099500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 34, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Kel. IB Rayon 4"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 8149500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 35, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Oma. Naomi A. Henuk Rayon 2"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 8249500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 36, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa nama Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 69000.0,
+                            KasId = 1,
+                            SaldoKas = 8318500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 37, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Marcus Baria Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 150000.0,
+                            KasId = 1,
+                            SaldoKas = 8468500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 38, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Oma. Annie M. Malonda Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 8518500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 39, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Mikhael Nenotek Rayon 5"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 8568500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 40, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa nama Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 8618500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 41, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa nama Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 8648500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 42, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 8658500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 43, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Melkisedek Kasse Rayon 4"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 57000.0,
+                            KasId = 1,
+                            SaldoKas = 8715500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 44, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Nur M. Tasrap Rayon 5"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 16000.0,
+                            KasId = 1,
+                            SaldoKas = 8731500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 45, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Marthen Patipellohy Rayon 5"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 60000.0,
+                            KasId = 1,
+                            SaldoKas = 8791500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 46, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Benyamin Sua Rayon 3"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 8891500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 47, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 8941500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 48, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Daud Ludji Rayon 4"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 8951500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 49, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 111000.0,
+                            KasId = 1,
+                            SaldoKas = 9062500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 50, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9072500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 51, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9082500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 52, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 4"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9092500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 53, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 5"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 20000.0,
+                            KasId = 1,
+                            SaldoKas = 9112500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 54, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 6"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 2000.0,
+                            KasId = 1,
+                            SaldoKas = 9114500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 55, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 7"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 64000.0,
+                            KasId = 1,
+                            SaldoKas = 9178500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 56, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 8"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9188500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 57, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 9"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9198500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 58, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 10"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            AkunId = 50,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 9208500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 59, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama 11"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 9308500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Tanpa Nama"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 9338500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 1, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 25000.0,
+                            KasId = 1,
+                            SaldoKas = 9363500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 2, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Ibu. Febei Nuban Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 9463500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 3, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Kristian Walu Logo Rayon 1"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 250000.0,
+                            KasId = 1,
+                            SaldoKas = 9713500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 4, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Bpk. Max Warruw Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            AkunId = 14,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 9813500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 5, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur ULTAH ke-79"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            AkunId = 44,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 400000.0,
+                            KasId = 1,
+                            SaldoKas = 10213500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 6, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima kolekte ibadah keluarga dirumah Bpk. Mexi Bekabel Rayon 4"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            AkunId = 171,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 500000.0,
+                            KasId = 1,
+                            SaldoKas = 9713500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 7, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            AkunId = 101,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 150000.0,
+                            KasId = 1,
+                            SaldoKas = 9563500.0,
+                            Tanggal = new DateTime(2024, 1, 2, 1, 8, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            AkunId = 10,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 791000.0,
+                            KasId = 1,
+                            SaldoKas = 10354500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 1, 9, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima kolekte ibadah lepas kabung di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            AkunId = 81,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 643000.0,
+                            KasId = 1,
+                            SaldoKas = 10997500.0,
+                            Tanggal = new DateTime(2024, 1, 3, 1, 10, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima kolekte ibadah penggembalaan Majelis Jemaat Periode 2024-2027 diGereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            AkunId = 14,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 329000.0,
+                            KasId = 1,
+                            SaldoKas = 11326500.0,
+                            Tanggal = new DateTime(2024, 1, 5, 1, 11, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            AkunId = 109,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 40000.0,
+                            KasId = 1,
+                            SaldoKas = 11286500.0,
+                            Tanggal = new DateTime(2024, 1, 5, 1, 12, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs MCB Broco 6A"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            AkunId = 109,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 11281500.0,
+                            Tanggal = new DateTime(2024, 1, 5, 1, 13, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs Box MCB"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 71600.0,
+                            KasId = 1,
+                            SaldoKas = 11209900.0,
+                            Tanggal = new DateTime(2024, 1, 6, 1, 14, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-"
                         });
                 });
 
@@ -4117,7 +5723,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAECfupaZ2lm+Pvyqa/DmVGI9kZ3pqO+IjKrHrvhRDZDOWTkBkcFUlsUSdmQ9hXRHu6A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC2FA0r5FZyVLogYFr5aFYXv4cvNutkoufVuDg6B9o3xiVlF3gabdrzNVTI9q+faNg==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });
@@ -4144,33 +5750,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Navigation("JenisAkun");
 
                     b.Navigation("KelompokAkun");
-                });
-
-            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Belanja", b =>
-                {
-                    b.HasOne("SIKeuanganGMITLanudPenfui.Domain.Entities.Akun", "Akun")
-                        .WithMany()
-                        .HasForeignKey("AkunId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SIKeuanganGMITLanudPenfui.Domain.Entities.BuktiTransaksi", "BuktiTransaksi")
-                        .WithOne()
-                        .HasForeignKey("SIKeuanganGMITLanudPenfui.Domain.Entities.Belanja", "BuktiTransaksiId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SIKeuanganGMITLanudPenfui.Domain.Entities.Kas", "Kas")
-                        .WithMany()
-                        .HasForeignKey("KasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Akun");
-
-                    b.Navigation("BuktiTransaksi");
-
-                    b.Navigation("Kas");
                 });
 
             modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.DetailRAPBJ", b =>
@@ -4214,17 +5793,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                     b.Navigation("JenisAkun");
                 });
 
-            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Penerimaan", b =>
+            modelBuilder.Entity("SIKeuanganGMITLanudPenfui.Domain.Entities.Transaksi", b =>
                 {
                     b.HasOne("SIKeuanganGMITLanudPenfui.Domain.Entities.Akun", "Akun")
                         .WithMany()
                         .HasForeignKey("AkunId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SIKeuanganGMITLanudPenfui.Domain.Entities.BuktiTransaksi", "BuktiTransaksi")
-                        .WithOne()
-                        .HasForeignKey("SIKeuanganGMITLanudPenfui.Domain.Entities.Penerimaan", "BuktiTransaksiId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -4235,8 +5808,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Akun");
-
-                    b.Navigation("BuktiTransaksi");
 
                     b.Navigation("Kas");
                 });
