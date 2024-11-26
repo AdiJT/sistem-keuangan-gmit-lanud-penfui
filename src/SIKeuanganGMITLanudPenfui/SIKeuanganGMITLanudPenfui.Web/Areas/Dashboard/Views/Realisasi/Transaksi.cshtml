@@ -23,7 +23,7 @@
     </select>
 </div>
 
-<a asp-action="@nameof(TransaksiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-primary">+ Tambah</a>
+<a asp-action="@nameof(RealisasiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-primary">+ Tambah</a>
 
 <table class="table table-striped table-hover" id="table-akun-1">
     <thead>
@@ -57,9 +57,9 @@
                     <a href="@transaksi.FileBukti.ToString()">File Bukti</a>
                 </td>
                 <td>
-                    <a asp-action="@nameof(TransaksiController.Edit)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                    <a asp-action="@nameof(RealisasiController.Edit)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
                        asp-route-id="@transaksi.Id" class="btn btn-primary">Edit</a>
-                    <form asp-action="@nameof(TransaksiController.Hapus)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                    <form asp-action="@nameof(RealisasiController.Hapus)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
                           asp-route-id="@transaksi.Id" style="display:inline">
                         <button class="btn btn-danger">Hapus</button>
                     </form>
@@ -76,7 +76,7 @@
     <script type="text/javascript">
         const selectTahun = $('select#tahun');
 
-        const url = '@Url.Action(nameof(TransaksiController.Index), new { jenis = Model.Jenis })';
+        const url = '@Url.Action(nameof(RealisasiController.Transaksi), new { jenis = Model.Jenis })';
 
         $(selectTahun).on('change', function () {
             const tahun = $(selectTahun).val();

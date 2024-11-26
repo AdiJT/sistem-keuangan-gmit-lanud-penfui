@@ -67,25 +67,25 @@ internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCo
                 .LastOrDefault();
 
             if (transaksiTerbaru is not null)
-                tanggal = transaksiTerbaru.Tanggal.AddSeconds(1);
+                tanggal = transaksiTerbaru.Tanggal.AddSeconds(1d);
         }
 
         //Cari saldo saat transaksi
-        var daftarTransaksi = (await _repositoriTransaksi.GetAll()).Where(t => t.Tanggal >= tanggal).OrderBy(t => t.Tanggal);
-        var transaksiTerdekat = daftarTransaksi.FirstOrDefault();
-        double saldoKas = 0;
+        var daftarTransaksiSetelah = (await _repositoriTransaksi.GetAll()).Where(t => t.Tanggal > tanggal).OrderBy(t => t.Tanggal);
+        var transaksiTerdekat = daftarTransaksiSetelah.FirstOrDefault();
+        var saldoKasSebelumTransaksi = 0d;
 
         if (transaksiTerdekat is not null)
         {
             if (transaksiTerdekat.Jenis == Jenis.Penerimaan)
-                saldoKas = transaksiTerdekat.SaldoKas - transaksiTerdekat.Jumlah;
+                saldoKasSebelumTransaksi = transaksiTerdekat.SaldoKas - transaksiTerdekat.Jumlah;
             else
-                saldoKas = transaksiTerdekat.SaldoKas + transaksiTerdekat.Jumlah;
+                saldoKasSebelumTransaksi = transaksiTerdekat.SaldoKas + transaksiTerdekat.Jumlah;
         }
         else
-            saldoKas = kas.Saldo;
+            saldoKasSebelumTransaksi = kas.Saldo;
 
-        var saldoKasSetelahTransaksi = request.Jenis == Jenis.Penerimaan ? saldoKas + request.Jumlah : saldoKas - request.Jumlah;
+        var saldoKasSetelahTransaksi = request.Jenis == Jenis.Penerimaan ? saldoKasSebelumTransaksi + request.Jumlah : saldoKasSebelumTransaksi - request.Jumlah;
 
         //Buat transaksi
         var transaksi = new Transaksi
@@ -106,7 +106,7 @@ internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCo
         _repositoriKas.Update(kas);
 
         //Update transaksi setelahnya
-        foreach (var transaksiSetelah in daftarTransaksi)
+        foreach (var transaksiSetelah in daftarTransaksiSetelah)
         {
             saldoKasSetelahTransaksi = transaksiSetelah.Jenis == Jenis.Penerimaan ?
                 saldoKasSetelahTransaksi + transaksiSetelah.Jumlah :

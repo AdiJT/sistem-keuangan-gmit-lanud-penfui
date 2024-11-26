@@ -1,7 +1,7 @@
 ﻿using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 
-namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.TransaksiModels;
+namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RealisasiModels;
 
 public class IndexVM
 {

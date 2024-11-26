@@ -12,7 +12,7 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241126011321_InitialMigration")]
+    [Migration("20241126021532_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -4384,7 +4384,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Saldo = 11209900.0,
+                            Saldo = 10852500.0,
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kas Bank GMIT Lanud"
@@ -4657,72 +4657,72 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            AkunId = 100,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 12500.0,
-                            KasId = 1,
-                            SaldoKas = 11197400.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 1, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Beli 1 pcs teh sariwangi (50P)"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AkunId = 100,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 59900.0,
-                            KasId = 1,
-                            SaldoKas = 11137500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 2, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AkunId = 100,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 30000.0,
-                            KasId = 1,
-                            SaldoKas = 11107500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 3, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Beli 30 potong kue @Rp. 1.000,-"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AkunId = 101,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 255000.0,
-                            KasId = 1,
-                            SaldoKas = 10852500.0,
-                            Tanggal = new DateTime(2024, 1, 6, 0, 4, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-"
-                        },
-                        new
-                        {
-                            Id = 5,
                             AkunId = 51,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 930000.0,
                             KasId = 1,
                             SaldoKas = 6961500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 5, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 1, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kolekte"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AkunId = 16,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 6966500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 2, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AkunId = 16,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 6976500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 3, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AkunId = 18,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 100000.0,
+                            KasId = 1,
+                            SaldoKas = 7076500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 4, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AkunId = 19,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7086500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 5, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima nazar Tanpa Nama 4"
                         },
                         new
                         {
@@ -4732,81 +4732,81 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 5000.0,
                             KasId = 1,
-                            SaldoKas = 6966500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 6, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima nazar Tanpa Nama 1"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AkunId = 16,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 10000.0,
-                            KasId = 1,
-                            SaldoKas = 6976500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 7, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima nazar Tanpa Nama 2"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AkunId = 18,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 100000.0,
-                            KasId = 1,
-                            SaldoKas = 7076500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 8, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima nazar Tanpa Nama 3"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AkunId = 19,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 10000.0,
-                            KasId = 1,
-                            SaldoKas = 7086500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 9, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima nazar Tanpa Nama 4"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AkunId = 16,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 5000.0,
-                            KasId = 1,
                             SaldoKas = 7091500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 10, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 6, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 5"
                         },
                         new
                         {
-                            Id = 11,
+                            Id = 7,
                             AkunId = 17,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 20000.0,
                             KasId = 1,
                             SaldoKas = 7111500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 11, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 0, 7, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima nazar Tanpa Nama 6"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 7141500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 8, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 50000.0,
+                            KasId = 1,
+                            SaldoKas = 7191500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 9, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7201500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 10, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AkunId = 21,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 9000.0,
+                            KasId = 1,
+                            SaldoKas = 7210500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 11, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4"
                         },
                         new
                         {
@@ -4814,13 +4814,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 21,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 30000.0,
+                            Jumlah = 5000.0,
                             KasId = 1,
-                            SaldoKas = 7141500.0,
+                            SaldoKas = 7215500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 12, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 1"
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5"
                         },
                         new
                         {
@@ -4828,13 +4828,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 21,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7191500.0,
+                            SaldoKas = 7225500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 13, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 2"
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6"
                         },
                         new
                         {
@@ -4842,69 +4842,69 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 21,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7201500.0,
+                            SaldoKas = 7275500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 14, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 3"
+                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7"
                         },
                         new
                         {
                             Id = 15,
-                            AkunId = 21,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 9000.0,
-                            KasId = 1,
-                            SaldoKas = 7210500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 15, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 4"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            AkunId = 21,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 5000.0,
-                            KasId = 1,
-                            SaldoKas = 7215500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 0, 16, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 5"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            AkunId = 21,
+                            AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7225500.0,
+                            SaldoKas = 7285500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 15, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 1"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 5000.0,
+                            KasId = 1,
+                            SaldoKas = 7290500.0,
+                            Tanggal = new DateTime(2024, 1, 1, 0, 16, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Terima persembahan syukur Tanpa Nama 2"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AkunId = 22,
+                            FileBukti = "https://file/1",
+                            Jenis = 0,
+                            Jumlah = 10000.0,
+                            KasId = 1,
+                            SaldoKas = 7300500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 17, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 6"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 3"
                         },
                         new
                         {
                             Id = 18,
-                            AkunId = 21,
+                            AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7275500.0,
+                            SaldoKas = 7350500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 18, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama 7"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 4"
                         },
                         new
                         {
@@ -4912,13 +4912,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7285500.0,
+                            SaldoKas = 7400500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 19, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 1"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 5"
                         },
                         new
                         {
@@ -4926,13 +4926,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 5000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 7290500.0,
+                            SaldoKas = 7500500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 20, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 2"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 6"
                         },
                         new
                         {
@@ -4942,11 +4942,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7300500.0,
+                            SaldoKas = 7510500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 21, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 3"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 7"
                         },
                         new
                         {
@@ -4954,13 +4954,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7350500.0,
+                            SaldoKas = 7520500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 22, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 4"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 8"
                         },
                         new
                         {
@@ -4968,13 +4968,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7400500.0,
+                            SaldoKas = 7530500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 23, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 5"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 9"
                         },
                         new
                         {
@@ -4982,69 +4982,69 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 22,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 100000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7500500.0,
+                            SaldoKas = 7540500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 24, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 6"
+                            Uraian = "Terima persembahan syukur Tanpa Nama 10"
                         },
                         new
                         {
                             Id = 25,
-                            AkunId = 22,
+                            AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7510500.0,
+                            SaldoKas = 7590500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 25, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 7"
+                            Uraian = "Bpk. Oktovianus Metboki Rayon 5"
                         },
                         new
                         {
                             Id = 26,
-                            AkunId = 22,
+                            AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 77000.0,
                             KasId = 1,
-                            SaldoKas = 7520500.0,
+                            SaldoKas = 7667500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 26, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 8"
+                            Uraian = "Oma. Elisabeth Tualaka Rayon 7"
                         },
                         new
                         {
                             Id = 27,
-                            AkunId = 22,
+                            AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 72000.0,
                             KasId = 1,
-                            SaldoKas = 7530500.0,
+                            SaldoKas = 7739500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 27, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 9"
+                            Uraian = "Kel AS Rayon 2"
                         },
                         new
                         {
                             Id = 28,
-                            AkunId = 22,
+                            AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 7540500.0,
+                            SaldoKas = 7749500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 28, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur Tanpa Nama 10"
+                            Uraian = "Oma. Aranci Suek Rayon 4"
                         },
                         new
                         {
@@ -5054,11 +5054,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7590500.0,
+                            SaldoKas = 7799500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 29, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Oktovianus Metboki Rayon 5"
+                            Uraian = " Bpk. Dominggus Kole Rayon 7"
                         },
                         new
                         {
@@ -5066,13 +5066,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 77000.0,
+                            Jumlah = 300000.0,
                             KasId = 1,
-                            SaldoKas = 7667500.0,
+                            SaldoKas = 8099500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 30, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Oma. Elisabeth Tualaka Rayon 7"
+                            Uraian = "Kel. IB Rayon 4"
                         },
                         new
                         {
@@ -5080,13 +5080,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 72000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 7739500.0,
+                            SaldoKas = 8149500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 31, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Kel AS Rayon 2"
+                            Uraian = "Oma. Naomi A. Henuk Rayon 2"
                         },
                         new
                         {
@@ -5094,13 +5094,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 7749500.0,
+                            SaldoKas = 8249500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 32, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Oma. Aranci Suek Rayon 4"
+                            Uraian = "Tanpa nama Rayon 7"
                         },
                         new
                         {
@@ -5108,13 +5108,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 69000.0,
                             KasId = 1,
-                            SaldoKas = 7799500.0,
+                            SaldoKas = 8318500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 33, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = " Bpk. Dominggus Kole Rayon 7"
+                            Uraian = "Bpk. Marcus Baria Rayon 7"
                         },
                         new
                         {
@@ -5122,13 +5122,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 300000.0,
+                            Jumlah = 150000.0,
                             KasId = 1,
-                            SaldoKas = 8099500.0,
+                            SaldoKas = 8468500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 34, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Kel. IB Rayon 4"
+                            Uraian = "Oma. Annie M. Malonda Rayon 7"
                         },
                         new
                         {
@@ -5138,11 +5138,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 8149500.0,
+                            SaldoKas = 8518500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 35, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Oma. Naomi A. Henuk Rayon 2"
+                            Uraian = "Bpk. Mikhael Nenotek Rayon 5"
                         },
                         new
                         {
@@ -5150,9 +5150,9 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 100000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 8249500.0,
+                            SaldoKas = 8568500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 36, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -5164,13 +5164,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 69000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 8318500.0,
+                            SaldoKas = 8618500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 37, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Marcus Baria Rayon 7"
+                            Uraian = "Tanpa nama Rayon 7"
                         },
                         new
                         {
@@ -5178,13 +5178,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 150000.0,
+                            Jumlah = 30000.0,
                             KasId = 1,
-                            SaldoKas = 8468500.0,
+                            SaldoKas = 8648500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 38, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Oma. Annie M. Malonda Rayon 7"
+                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
                         },
                         new
                         {
@@ -5192,13 +5192,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 8518500.0,
+                            SaldoKas = 8658500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 39, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Mikhael Nenotek Rayon 5"
+                            Uraian = "Bpk. Melkisedek Kasse Rayon 4"
                         },
                         new
                         {
@@ -5206,13 +5206,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 57000.0,
                             KasId = 1,
-                            SaldoKas = 8568500.0,
+                            SaldoKas = 8715500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 40, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa nama Rayon 7"
+                            Uraian = "Bpk. Nur M. Tasrap Rayon 5"
                         },
                         new
                         {
@@ -5220,13 +5220,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 16000.0,
                             KasId = 1,
-                            SaldoKas = 8618500.0,
+                            SaldoKas = 8731500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 41, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa nama Rayon 7"
+                            Uraian = "Bpk. Marthen Patipellohy Rayon 5"
                         },
                         new
                         {
@@ -5234,13 +5234,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 30000.0,
+                            Jumlah = 60000.0,
                             KasId = 1,
-                            SaldoKas = 8648500.0,
+                            SaldoKas = 8791500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 42, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
+                            Uraian = "Bpk. Benyamin Sua Rayon 3"
                         },
                         new
                         {
@@ -5248,13 +5248,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 8658500.0,
+                            SaldoKas = 8891500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 43, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Melkisedek Kasse Rayon 4"
+                            Uraian = "Tanpa Nama Rayon 7"
                         },
                         new
                         {
@@ -5262,13 +5262,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 57000.0,
+                            Jumlah = 50000.0,
                             KasId = 1,
-                            SaldoKas = 8715500.0,
+                            SaldoKas = 8941500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 44, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Nur M. Tasrap Rayon 5"
+                            Uraian = "Bpk. Daud Ludji Rayon 4"
                         },
                         new
                         {
@@ -5276,13 +5276,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 16000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 8731500.0,
+                            SaldoKas = 8951500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 45, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Marthen Patipellohy Rayon 5"
+                            Uraian = "Tanpa Nama 1"
                         },
                         new
                         {
@@ -5290,13 +5290,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 60000.0,
+                            Jumlah = 111000.0,
                             KasId = 1,
-                            SaldoKas = 8791500.0,
+                            SaldoKas = 9062500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 46, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Benyamin Sua Rayon 3"
+                            Uraian = "Tanpa Nama 2"
                         },
                         new
                         {
@@ -5304,13 +5304,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 100000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 8891500.0,
+                            SaldoKas = 9072500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 47, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama Rayon 7"
+                            Uraian = "Tanpa Nama 3"
                         },
                         new
                         {
@@ -5318,13 +5318,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 50000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 8941500.0,
+                            SaldoKas = 9082500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 48, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Daud Ludji Rayon 4"
+                            Uraian = "Tanpa Nama 4"
                         },
                         new
                         {
@@ -5334,11 +5334,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 8951500.0,
+                            SaldoKas = 9092500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 49, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 1"
+                            Uraian = "Tanpa Nama 5"
                         },
                         new
                         {
@@ -5346,13 +5346,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 111000.0,
+                            Jumlah = 20000.0,
                             KasId = 1,
-                            SaldoKas = 9062500.0,
+                            SaldoKas = 9112500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 50, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 2"
+                            Uraian = "Tanpa Nama 6"
                         },
                         new
                         {
@@ -5360,13 +5360,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 2000.0,
                             KasId = 1,
-                            SaldoKas = 9072500.0,
+                            SaldoKas = 9114500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 51, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 3"
+                            Uraian = "Tanpa Nama 7"
                         },
                         new
                         {
@@ -5374,13 +5374,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 64000.0,
                             KasId = 1,
-                            SaldoKas = 9082500.0,
+                            SaldoKas = 9178500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 52, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 4"
+                            Uraian = "Tanpa Nama 8"
                         },
                         new
                         {
@@ -5390,11 +5390,11 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             Jenis = 0,
                             Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 9092500.0,
+                            SaldoKas = 9188500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 53, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 5"
+                            Uraian = "Tanpa Nama 9"
                         },
                         new
                         {
@@ -5402,13 +5402,13 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 20000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 9112500.0,
+                            SaldoKas = 9198500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 54, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 6"
+                            Uraian = "Tanpa Nama 10"
                         },
                         new
                         {
@@ -5416,69 +5416,69 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 50,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 2000.0,
+                            Jumlah = 10000.0,
                             KasId = 1,
-                            SaldoKas = 9114500.0,
+                            SaldoKas = 9208500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 55, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 7"
+                            Uraian = "Tanpa Nama 11"
                         },
                         new
                         {
                             Id = 56,
-                            AkunId = 50,
+                            AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 64000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 9178500.0,
+                            SaldoKas = 9308500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 56, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 8"
+                            Uraian = "Tanpa Nama"
                         },
                         new
                         {
                             Id = 57,
-                            AkunId = 50,
+                            AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 30000.0,
                             KasId = 1,
-                            SaldoKas = 9188500.0,
+                            SaldoKas = 9338500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 57, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 9"
+                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
                         },
                         new
                         {
                             Id = 58,
-                            AkunId = 50,
+                            AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 25000.0,
                             KasId = 1,
-                            SaldoKas = 9198500.0,
+                            SaldoKas = 9363500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 58, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 10"
+                            Uraian = "Ibu. Febei Nuban Rayon 7"
                         },
                         new
                         {
                             Id = 59,
-                            AkunId = 50,
+                            AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 10000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 9208500.0,
+                            SaldoKas = 9463500.0,
                             Tanggal = new DateTime(2024, 1, 1, 0, 59, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama 11"
+                            Uraian = "Bpk. Kristian Walu Logo Rayon 1"
                         },
                         new
                         {
@@ -5486,27 +5486,27 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 100000.0,
+                            Jumlah = 250000.0,
                             KasId = 1,
-                            SaldoKas = 9308500.0,
+                            SaldoKas = 9713500.0,
                             Tanggal = new DateTime(2024, 1, 1, 1, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tanpa Nama"
+                            Uraian = "Bpk. Max Warruw Rayon 7"
                         },
                         new
                         {
                             Id = 61,
-                            AkunId = 44,
+                            AkunId = 14,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 30000.0,
+                            Jumlah = 100000.0,
                             KasId = 1,
-                            SaldoKas = 9338500.0,
+                            SaldoKas = 9813500.0,
                             Tanggal = new DateTime(2024, 1, 1, 1, 1, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. A.J. Sinaga Rayon 2"
+                            Uraian = "Terima persembahan syukur ULTAH ke-79"
                         },
                         new
                         {
@@ -5514,181 +5514,181 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             AkunId = 44,
                             FileBukti = "https://file/1",
                             Jenis = 0,
-                            Jumlah = 25000.0,
-                            KasId = 1,
-                            SaldoKas = 9363500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 2, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Ibu. Febei Nuban Rayon 7"
-                        },
-                        new
-                        {
-                            Id = 63,
-                            AkunId = 44,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 100000.0,
-                            KasId = 1,
-                            SaldoKas = 9463500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 3, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Kristian Walu Logo Rayon 1"
-                        },
-                        new
-                        {
-                            Id = 64,
-                            AkunId = 44,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 250000.0,
-                            KasId = 1,
-                            SaldoKas = 9713500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 4, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Bpk. Max Warruw Rayon 7"
-                        },
-                        new
-                        {
-                            Id = 65,
-                            AkunId = 14,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 100000.0,
-                            KasId = 1,
-                            SaldoKas = 9813500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 5, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima persembahan syukur ULTAH ke-79"
-                        },
-                        new
-                        {
-                            Id = 66,
-                            AkunId = 44,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
                             Jumlah = 400000.0,
                             KasId = 1,
                             SaldoKas = 10213500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 6, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 1, 2, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah keluarga dirumah Bpk. Mexi Bekabel Rayon 4"
                         },
                         new
                         {
-                            Id = 67,
+                            Id = 63,
                             AkunId = 171,
                             FileBukti = "https://file/1",
                             Jenis = 1,
                             Jumlah = 500000.0,
                             KasId = 1,
                             SaldoKas = 9713500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 7, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 1, 3, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Diakonia Duka Alm. An. Ezra Sioh Rayon 7"
                         },
                         new
                         {
-                            Id = 68,
+                            Id = 64,
                             AkunId = 101,
                             FileBukti = "https://file/1",
                             Jenis = 1,
                             Jumlah = 150000.0,
                             KasId = 1,
                             SaldoKas = 9563500.0,
-                            Tanggal = new DateTime(2024, 1, 2, 1, 8, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 2, 1, 4, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Foto copy 600 lembar liturgi ibadah pemakaman @Rp. 250,-"
                         },
                         new
                         {
-                            Id = 69,
+                            Id = 65,
                             AkunId = 10,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 791000.0,
                             KasId = 1,
                             SaldoKas = 10354500.0,
-                            Tanggal = new DateTime(2024, 1, 1, 1, 9, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 1, 1, 5, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah lepas kabung di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
                         },
                         new
                         {
-                            Id = 70,
+                            Id = 66,
                             AkunId = 81,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 643000.0,
                             KasId = 1,
                             SaldoKas = 10997500.0,
-                            Tanggal = new DateTime(2024, 1, 3, 1, 10, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 3, 1, 6, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah penggembalaan Majelis Jemaat Periode 2024-2027 diGereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
                         },
                         new
                         {
-                            Id = 71,
+                            Id = 67,
                             AkunId = 14,
                             FileBukti = "https://file/1",
                             Jenis = 0,
                             Jumlah = 329000.0,
                             KasId = 1,
                             SaldoKas = 11326500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 1, 11, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 1, 7, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Terima kolekte ibadah Syukur di Kel. Sioh Rayon 7, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
                         },
                         new
                         {
-                            Id = 72,
+                            Id = 68,
                             AkunId = 109,
                             FileBukti = "https://file/1",
                             Jenis = 1,
                             Jumlah = 40000.0,
                             KasId = 1,
                             SaldoKas = 11286500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 1, 12, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 1, 8, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs MCB Broco 6A"
                         },
                         new
                         {
-                            Id = 73,
+                            Id = 69,
                             AkunId = 109,
                             FileBukti = "https://file/1",
                             Jenis = 1,
                             Jumlah = 5000.0,
                             KasId = 1,
                             SaldoKas = 11281500.0,
-                            Tanggal = new DateTime(2024, 1, 5, 1, 13, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 5, 1, 9, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 1 pcs Box MCB"
                         },
                         new
                         {
-                            Id = 74,
+                            Id = 70,
                             AkunId = 100,
                             FileBukti = "https://file/1",
                             Jenis = 1,
                             Jumlah = 71600.0,
                             KasId = 1,
                             SaldoKas = 11209900.0,
-                            Tanggal = new DateTime(2024, 1, 6, 1, 14, 0, 0, DateTimeKind.Unspecified),
+                            Tanggal = new DateTime(2024, 1, 6, 1, 10, 0, 0, DateTimeKind.Unspecified),
                             TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Beli 4 kg gula pasir timbang @Rp. 17.900,-"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 12500.0,
+                            KasId = 1,
+                            SaldoKas = 11197400.0,
+                            Tanggal = new DateTime(2024, 1, 6, 1, 11, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs teh sariwangi (50P)"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 59900.0,
+                            KasId = 1,
+                            SaldoKas = 11137500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 1, 12, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            AkunId = 100,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 30000.0,
+                            KasId = 1,
+                            SaldoKas = 11107500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 1, 13, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Beli 30 potong kue @Rp. 1.000,-"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            AkunId = 101,
+                            FileBukti = "https://file/1",
+                            Jenis = 1,
+                            Jumlah = 255000.0,
+                            KasId = 1,
+                            SaldoKas = 10852500.0,
+                            Tanggal = new DateTime(2024, 1, 6, 1, 14, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDitambahkan = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-"
                         });
                 });
 
@@ -5723,7 +5723,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEC2FA0r5FZyVLogYFr5aFYXv4cvNutkoufVuDg6B9o3xiVlF3gabdrzNVTI9q+faNg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJfanTsw/M6qQDf0NTJiEc+QSw0Fsw/b2AhwlXL3eCwggRDGZblUBndJU+1cxw5+hQ==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });

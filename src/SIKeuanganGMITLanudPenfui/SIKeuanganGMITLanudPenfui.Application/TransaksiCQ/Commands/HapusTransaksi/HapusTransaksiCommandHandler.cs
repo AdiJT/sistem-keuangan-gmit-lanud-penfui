@@ -1,4 +1,5 @@
 ﻿using SIKeuanganGMITLanudPenfui.Application.Abstracts;
+using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
@@ -10,12 +11,18 @@ internal class HapusTransaksiCommandHandler : ICommandHandler<HapusTransaksiComm
     private readonly IRepositoriKas _repositoriKas;
     private readonly IRepositoriTransaksi _repositoriTransaksi;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IFileService _fileService;
 
-    public HapusTransaksiCommandHandler(IRepositoriKas repositoriKas, IRepositoriTransaksi repositoriTransaksi, IUnitOfWork unitOfWork)
+    public HapusTransaksiCommandHandler(
+        IRepositoriKas repositoriKas,
+        IRepositoriTransaksi repositoriTransaksi,
+        IUnitOfWork unitOfWork,
+        IFileService fileService)
     {
         _repositoriKas = repositoriKas;
         _repositoriTransaksi = repositoriTransaksi;
         _unitOfWork = unitOfWork;
+        _fileService = fileService;
     }
 
     public async Task<Result> Handle(HapusTransaksiCommand request, CancellationToken cancellationToken)
@@ -24,7 +31,7 @@ internal class HapusTransaksiCommandHandler : ICommandHandler<HapusTransaksiComm
         if (transaksi is null)
             return new Error("HapusTransaksiCommandHandler.TransaksiTidakDitemukan", $"Transaksi {request.IdTransaksi} tidak ditemukan");
 
-        var daftarTransaksiSetelah = (await _repositoriTransaksi.GetAll()).Where(t => t.Tanggal >= transaksi.Tanggal).OrderBy(t => t.Tanggal);
+        var daftarTransaksiSetelah = (await _repositoriTransaksi.GetAll()).Where(t => t.Tanggal > transaksi.Tanggal).OrderBy(t => t.Tanggal);
         var saldoSebelumTransaksi = transaksi.Jenis == Jenis.Penerimaan ? transaksi.SaldoKas - transaksi.Jumlah : transaksi.SaldoKas + transaksi.Jumlah;
 
         foreach (var transaksiSetelah in daftarTransaksiSetelah)
@@ -43,6 +50,8 @@ internal class HapusTransaksiCommandHandler : ICommandHandler<HapusTransaksiComm
 
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
         if (result.IsFailure) return result.Error;
+
+        _fileService.Delete(transaksi.FileBukti);
 
         return Result.Success();
     }

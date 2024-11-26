@@ -2292,7 +2292,7 @@ internal static class ModelBuilderExtension
             {
                 Id = 1,
                 Uraian = "Kas Bank GMIT Lanud",
-                Saldo = 11209900d,
+                Saldo = 10852500d,
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 6)
             }
@@ -2302,62 +2302,7 @@ internal static class ModelBuilderExtension
         #region Transaksi
         var daftarTransaksi = new[]
         {
-            new
-            {
-                Id = 6,
-                Uraian = "Beli 1 pcs teh sariwangi (50P)",
-                Jumlah = 12500d,
-                SaldoKas = 11197400d,
-                Tanggal = new DateTime(2024, 1, 6),
-                TanggalDitambahkan = new DateTime(2024, 1, 6),
-                TanggalDiubah = new DateTime(2024, 1, 6),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 100,
-                KasId = 1,
-            },
-            new
-            {
-                Id = 7,
-                Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)",
-                Jumlah = 59900d,
-                SaldoKas = 11137500d,
-                Tanggal = new DateTime(2024, 1, 6),
-                TanggalDitambahkan = new DateTime(2024, 1, 6),
-                TanggalDiubah = new DateTime(2024, 1, 6),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 100,
-                KasId = 1,
-            },
-            new
-            {
-                Id = 8,
-                Uraian = "Beli 30 potong kue @Rp. 1.000,-",
-                Jumlah = 30000d,
-                SaldoKas = 11107500d,
-                Tanggal = new DateTime(2024, 1, 6),
-                TanggalDitambahkan = new DateTime(2024, 1, 6),
-                TanggalDiubah = new DateTime(2024, 1, 6),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 100,
-                KasId = 1,
-            },
-            new
-            {
-                Id = 9,
-                Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-",
-                Jumlah = 255000d,
-                SaldoKas = 10852500d,
-                Tanggal = new DateTime(2024, 1, 6),
-                TanggalDitambahkan = new DateTime(2024, 1, 6),
-                TanggalDiubah = new DateTime(2024, 1, 6),
-                FileBukti = new Uri("https://file/1"),
-                Jenis = Jenis.Belanja,
-                AkunId = 101,
-                KasId = 1,
-            },
+            
             new
             {
                 Id = 10,
@@ -3337,7 +3282,63 @@ internal static class ModelBuilderExtension
                 Jenis = Jenis.Belanja,
                 AkunId = 100,
                 KasId = 1,
-            }
+            },
+            new
+            {
+                Id = 6,
+                Uraian = "Beli 1 pcs teh sariwangi (50P)",
+                Jumlah = 12500d,
+                SaldoKas = 11197400d,
+                Tanggal = new DateTime(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 100,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 7,
+                Uraian = "Beli 1 pcs tugu buaya spesial (1 kg)",
+                Jumlah = 59900d,
+                SaldoKas = 11137500d,
+                Tanggal = new DateTime(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 100,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 8,
+                Uraian = "Beli 30 potong kue @Rp. 1.000,-",
+                Jumlah = 30000d,
+                SaldoKas = 11107500d,
+                Tanggal = new DateTime(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 100,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Foto copy 1.020 lembar liturgi dan warta jemaat @Rp. 250,-",
+                Jumlah = 255000d,
+                SaldoKas = 10852500d,
+                Tanggal = new DateTime(2024, 1, 6),
+                TanggalDitambahkan = new DateTime(2024, 1, 6),
+                TanggalDiubah = new DateTime(2024, 1, 6),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 101,
+                KasId = 1,
+            },
         };
 
         modelBuilder.Entity<Transaksi>().HasData(

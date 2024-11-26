@@ -33,4 +33,8 @@
     <_ContentIncludedByDefault Remove="Views\Shared\Test.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\file\filebukti\" />
+  </ItemGroup>
+
 </Project>

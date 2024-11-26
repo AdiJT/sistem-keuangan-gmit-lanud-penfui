@@ -1,7 +1,7 @@
 ﻿using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.TransaksiModels;
+namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RealisasiModels;
 
 public class TambahVM
 {
