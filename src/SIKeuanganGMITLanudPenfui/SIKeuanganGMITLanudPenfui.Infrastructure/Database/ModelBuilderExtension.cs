@@ -2292,7 +2292,7 @@ internal static class ModelBuilderExtension
             {
                 Id = 1,
                 Uraian = "Kas Bank GMIT Lanud",
-                Saldo = 10852500d,
+                Saldo = 11209900d,
                 TanggalDitambahkan = new DateTime(2024, 1, 1),
                 TanggalDiubah = new DateTime(2024, 1, 6)
             }
@@ -3341,7 +3341,7 @@ internal static class ModelBuilderExtension
         };
 
         modelBuilder.Entity<Transaksi>().HasData(
-            daftarTransaksi.Select((x, i) => new { Id = i + 1, x.Uraian, x.Jumlah, x.SaldoKas, Tanggal = new DateTime(x.Tanggal.Year, x.Tanggal.Month, x.Tanggal.Day, 0, (i + 1) / 60, (i + 1) % 60), x.TanggalDitambahkan, x.TanggalDiubah, x.FileBukti, x.Jenis, x.AkunId, x.KasId})
+            daftarTransaksi.Select((x, i) => new { Id = i + 1, x.Uraian, x.Jumlah, x.SaldoKas, Tanggal = new DateTime(x.Tanggal.Year, x.Tanggal.Month, x.Tanggal.Day, (i + 1) / 60, (i + 1) % 60, 0), x.TanggalDitambahkan, x.TanggalDiubah, x.FileBukti, x.Jenis, x.AkunId, x.KasId})
         );
         #endregion
 

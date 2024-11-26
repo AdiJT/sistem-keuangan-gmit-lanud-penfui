@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241125215429_UpdateJamTransaksi")]
+    partial class UpdateJamTransaksi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4381,7 +4384,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Saldo = 11209900.0,
+                            Saldo = 10852500.0,
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kas Bank GMIT Lanud"
@@ -5720,7 +5723,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEOcOQmd6vaEYdTzcx9ytj6+r/cDCAolsFJ8RkYvxETF3R4lqHsGMfqqYKHRfVXNztA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECVGWHM4bJUgSsg0OLyT87rRW8TmEUvMH6HQYpCZnUu6LU3gytuQG7XToRYjVoyuRA==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });

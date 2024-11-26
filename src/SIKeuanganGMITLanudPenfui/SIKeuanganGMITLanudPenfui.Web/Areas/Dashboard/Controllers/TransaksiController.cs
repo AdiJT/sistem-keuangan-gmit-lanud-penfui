@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Application.Services;
+using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
@@ -14,13 +17,19 @@ public class TransaksiController : Controller
 {
     private readonly IRepositoriTransaksi _repositoriTransaksi;
     private readonly IFileUploadService _fileUploadService;
+    private readonly IFileService _fileService;
+    private readonly ISender _sender;
 
     public TransaksiController(
         IRepositoriTransaksi repositoriTransaksi,
-        IFileUploadService fileUploadService)
+        IFileUploadService fileUploadService,
+        IFileService fileService,
+        ISender sender)
     {
         _repositoriTransaksi = repositoriTransaksi;
         _fileUploadService = fileUploadService;
+        _fileService = fileService;
+        _sender = sender;
     }
 
     [Route("/[area]/[controller]/{jenis}/{tahun:int?}")]
@@ -36,5 +45,56 @@ public class TransaksiController : Controller
             Jenis = jenis,
             DaftarTransaksi = daftarTransaksi.OrderBy(p => p.Tanggal).ToList()
         });
+    }
+
+    [Route("/[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public IActionResult Tambah(Jenis jenis, int tahun)
+    {
+        return View(new TambahVM
+        {
+            Jenis = jenis,
+            Tahun = tahun
+        });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> Tambah([FromRoute]Jenis jenis, [FromRoute]int tahun, [FromForm]TambahVM vm)
+    {
+        if(!ModelState.IsValid) return View(vm);
+
+        if (jenis != vm.Jenis || tahun != vm.Tahun) return BadRequest();
+
+        var fileBukti = await _fileUploadService.UploadFile<TambahVM>(
+            vm.FileBukti,
+            "/filebukti",
+            [".pdf", ".docx", ".jpg", ".jpeg"],
+            long.MinValue,
+            long.MaxValue);
+
+        if(fileBukti.IsFailure)
+        {
+            ModelState.AddModelError(nameof(TambahVM.FileBukti), fileBukti.Error.Message);
+            return View(vm);
+        }
+
+        var command = new CreateTransaksiCommand(
+            vm.Tanggal,
+            vm.Jam,
+            vm.Uraian,
+            vm.Jumlah,
+            fileBukti.Value,
+            vm.Jenis,
+            vm.IdAkun,
+            vm.IdKas);
+
+        var result = await _sender.Send(command);
+        if(result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, result.Error.Message);
+            return View(vm);
+        }
+
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
 }
