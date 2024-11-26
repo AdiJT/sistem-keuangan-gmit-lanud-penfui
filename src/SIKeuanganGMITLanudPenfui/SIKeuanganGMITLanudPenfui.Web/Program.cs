@@ -18,6 +18,8 @@ builder.Services
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddRazorTemplating();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

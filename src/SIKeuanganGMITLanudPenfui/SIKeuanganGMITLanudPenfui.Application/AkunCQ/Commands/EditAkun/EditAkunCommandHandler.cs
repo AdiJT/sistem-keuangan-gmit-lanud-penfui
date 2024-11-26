@@ -1,4 +1,5 @@
 ﻿using SIKeuanganGMITLanudPenfui.Application.Abstracts;
+using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
@@ -99,18 +100,18 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
         } 
         else
         {
-            if(jenisAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+            if(jenisAkun.DaftarIAkun.Any(a => a.Kode == request.Kode && !a.Equals(akun)))
                 return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di jenis akun {jenisAkun.Uraian}");
 
             akun.KelompokAkun = null;
             akun.GolonganAkun = null;
         }
 
-        if (jenisAkun.Jenis == Jenis.Belanja && request.PresentaseSetoranSinode is not null)
+        if (jenisAkun.Jenis == Jenis.Belanja && request.SetoranSinode is not null)
             return new Error("EditAkunCommandHandler.AkunBelanjaCantHavePresentaseSetoranSinode",
                 "Akun jenis Belanja tidak dapat memiliki Presentase Setoran Sinode");
 
-        akun.PresentaseSetoran = request.PresentaseSetoranSinode;
+        akun.SetoranSinode = request.SetoranSinode;
         akun.JenisAkun = jenisAkun;
         akun.Uraian = request.Uraian;
         akun.Kode = request.Kode;

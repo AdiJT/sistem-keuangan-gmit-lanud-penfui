@@ -2221,29 +2221,29 @@ internal static class ModelBuilderExtension
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
                     if (a.Uraian != "Hasil Lelang")
-                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, SetoranSinode = (bool?)true };
                     else
-                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)0d };
+                        return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, SetoranSinode = (bool?)false };
                 else
-                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, Tahun = tahun, SetoranSinode = (bool?)null };
             }).ToArray());
 
         modelBuilder.Entity<Akun>().HasData(
             daftarAkunDenganKelompokAkun.Select(a =>
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
-                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, SetoranSinode = (bool?)true };
                 else
-                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.KelompokAkunId, Tahun = tahun, SetoranSinode = (bool?)null };
             }).ToArray());
 
         modelBuilder.Entity<Akun>().HasData(
             daftarAkunDenganGolonganAkun.Select(a =>
             {
                 if (a.JenisAkunId <= 7 && a.JenisAkunId >= 1)
-                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)0.5d };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, SetoranSinode = (bool?)true };
                 else
-                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun, PresentaseSetoran = (double?)null };
+                    return new { a.Id, a.Uraian, a.Kode, a.JenisAkunId, a.GolonganAkunId, Tahun = tahun,  SetoranSinode = (bool?)null };
             }).ToArray());
         #endregion
 

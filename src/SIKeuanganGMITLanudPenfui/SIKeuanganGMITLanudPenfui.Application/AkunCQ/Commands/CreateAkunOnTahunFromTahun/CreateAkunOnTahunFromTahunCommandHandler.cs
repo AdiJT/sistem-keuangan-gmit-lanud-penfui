@@ -95,7 +95,7 @@ internal class CreateAkunOnTahunFromTahunCommandHandler : ICommandHandler<Create
             if(akun is { KelompokAkun : not null, GolonganAkun : null })
             {
                 var kelompokAkun = daftarKelompokAkunBaru[daftarKelompokAkun.IndexOf(akun.KelompokAkun)];
-                var rAkun = Akun.CreateWithKelompokAkun(akun.Uraian, tahunTujuan.Value, akun.PresentaseSetoran, akun.Kode, kelompokAkun);
+                var rAkun = Akun.CreateWithKelompokAkun(akun.Uraian, tahunTujuan.Value, akun.SetoranSinode, akun.Kode, kelompokAkun);
                 if(rAkun.IsFailure)
                     return rAkun.Error;
                 akunBaru = rAkun.Value;
@@ -103,14 +103,14 @@ internal class CreateAkunOnTahunFromTahunCommandHandler : ICommandHandler<Create
             else if (akun is { KelompokAkun : null, GolonganAkun : not null })
             {
                 var golonganAkun = daftarGolonganAkunBaru[daftarGolonganAkun.IndexOf(akun.GolonganAkun)];
-                var rAkun = Akun.CreateWithGolonganAkun(akun.Uraian, tahunTujuan.Value, akun.PresentaseSetoran, akun.Kode, golonganAkun);
+                var rAkun = Akun.CreateWithGolonganAkun(akun.Uraian, tahunTujuan.Value, akun.SetoranSinode, akun.Kode, golonganAkun);
                 if (rAkun.IsFailure)
                     return rAkun.Error;
                 akunBaru = rAkun.Value;
             }
             else
             {
-                var rAkun = Akun.CreateWithJenisAkun(akun.Uraian, tahunTujuan.Value, akun.PresentaseSetoran, akun.Kode, jenisAkun);
+                var rAkun = Akun.CreateWithJenisAkun(akun.Uraian, tahunTujuan.Value, akun.SetoranSinode, akun.Kode, jenisAkun);
                 if (rAkun.IsFailure)
                     return rAkun.Error;
                 akunBaru = rAkun.Value;

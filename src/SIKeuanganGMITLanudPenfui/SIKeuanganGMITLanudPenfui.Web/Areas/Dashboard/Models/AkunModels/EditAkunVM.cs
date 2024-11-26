@@ -20,7 +20,7 @@ public class EditAkunVM
     public required int Kode { get; set; }
 
     [Display(Name = "Setoran Sinode")]
-    public required int? PresentaseSetoranSinode { get; set; }
+    public required bool SetoranSinode { get; set; }
 
     [Display(Name = "Jenis Akun")]
     [Required(ErrorMessage = "{0} harus diisi")]

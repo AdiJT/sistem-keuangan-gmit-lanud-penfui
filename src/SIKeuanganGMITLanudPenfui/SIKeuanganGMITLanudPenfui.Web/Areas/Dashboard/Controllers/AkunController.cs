@@ -237,17 +237,10 @@ public class AkunController : Controller
         if (vm.Tahun != tahun || vm.Jenis != jenis)
             return BadRequest();
 
-        if(jenis == Jenis.Penerimaan && vm.PresentaseSetoranSinode is null)
-        {
-            ModelState.AddModelError(nameof(TambahAkunVM.PresentaseSetoranSinode), "Untuk akun Penerimaan, presentase setoran sinode harus diisi");
-            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
-            return View(vm);
-        }
-
         var command = new CreateAkunCommand(
             vm.Uraian,
             vm.Tahun,
-            vm.PresentaseSetoranSinode / 100d,
+            jenis == Jenis.Penerimaan ? vm.SetoranSinode : null,
             vm.Kode,
             vm.IdJenisAkun,
             vm.IdKelompokAkun,
@@ -421,7 +414,7 @@ public class AkunController : Controller
             Jenis = jenis,
             Tahun = tahun,
             Uraian = akun.Uraian,
-            PresentaseSetoranSinode = (int?)(akun.PresentaseSetoran * 100),
+            SetoranSinode = akun.SetoranSinode ?? false,
             Kode = akun.Kode,
             IdJenisAkun = akun.JenisAkun.Id,
             IdKelompokAkun = akun.KelompokAkun?.Id,
@@ -445,7 +438,7 @@ public class AkunController : Controller
             vm.Id,
             vm.Uraian,
             vm.Kode,
-            vm.PresentaseSetoranSinode / 100d,
+            jenis == Jenis.Penerimaan ? vm.SetoranSinode : null,
             vm.IdJenisAkun,
             vm.IdKelompokAkun,
             vm.IdGolonganAkun);

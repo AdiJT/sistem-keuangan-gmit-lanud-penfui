@@ -5,7 +5,7 @@ namespace SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkun;
 public record CreateAkunCommand(
     string Uraian,
     int Tahun,
-    double? PresentaseSetoranSinode,
+    bool? SetoranSinode,
     int Kode,
     int IdJenisAkun,
     int? IdKelompokAkun,

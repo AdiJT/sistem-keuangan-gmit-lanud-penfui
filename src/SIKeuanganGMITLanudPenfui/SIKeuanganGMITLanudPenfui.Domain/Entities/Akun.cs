@@ -10,7 +10,7 @@ public class Akun : Entity, IAkun
 {
     public string Uraian { get; set; } = string.Empty;
     public Tahun Tahun { get; set; }
-    public double? PresentaseSetoran { get; set; }
+    public bool? SetoranSinode { get; set; }
     public int Kode { get; set; }
 
     public required JenisAkun JenisAkun { get; set; }
@@ -27,25 +27,25 @@ public class Akun : Entity, IAkun
             { KelompokAkun: not null, GolonganAkun: not null} => $"{GolonganAkun.KodeAkun}.{Kode}",
         };
 
-    private Akun(string uraian, Tahun tahun, double? presentaseSetoran, int kode)
+    private Akun(string uraian, Tahun tahun, bool? setoranSinode, int kode)
     {
         Uraian = uraian;
         Tahun = tahun;
-        PresentaseSetoran = presentaseSetoran;
+        SetoranSinode = setoranSinode;
         Kode = kode;
     }
 
     public static Result<Akun> CreateWithJenisAkun(
         string uraian,
         Tahun tahun,
-        double? presentaseSetoran,
+        bool? setoranSinode,
         int kode,
         JenisAkun jenisAkun)
     {
-        if (jenisAkun.Jenis == Jenis.Belanja && presentaseSetoran is not null)
+        if (jenisAkun.Jenis == Jenis.Belanja && setoranSinode is not null)
             return AkunErrors.BelanjaPresentaseSetoranNotNull;
 
-        if (jenisAkun.Jenis == Jenis.Penerimaan && presentaseSetoran is null)
+        if (jenisAkun.Jenis == Jenis.Penerimaan && setoranSinode is null)
             return AkunErrors.PenerimaanPresentaseSetoranNull;
 
         if (jenisAkun.Tahun != tahun)
@@ -54,10 +54,7 @@ public class Akun : Entity, IAkun
         if (jenisAkun.DaftarIAkun.Any(a => a.Kode == kode))
             return AkunErrors.KodeNotUnique;
 
-        if (presentaseSetoran is not null && (presentaseSetoran < 0 || presentaseSetoran > 1))
-            return AkunErrors.PresentaseSetoranNotInRange;
-
-        var akun = new Akun(uraian, tahun, presentaseSetoran, kode) 
+        var akun = new Akun(uraian, tahun, setoranSinode, kode) 
         {
             JenisAkun = jenisAkun
         };
@@ -70,14 +67,14 @@ public class Akun : Entity, IAkun
     public static Result<Akun> CreateWithKelompokAkun(
         string uraian,
         Tahun tahun,
-        double? presentaseSetoran,
+        bool? setoranSinode,
         int kode,
         KelompokAkun kelompokAkun)
     {
-        if (kelompokAkun.JenisAkun.Jenis == Jenis.Belanja && presentaseSetoran is not null)
+        if (kelompokAkun.JenisAkun.Jenis == Jenis.Belanja && setoranSinode is not null)
             return AkunErrors.BelanjaPresentaseSetoranNotNull;
 
-        if (kelompokAkun.JenisAkun.Jenis == Jenis.Penerimaan && presentaseSetoran is null)
+        if (kelompokAkun.JenisAkun.Jenis == Jenis.Penerimaan && setoranSinode is null)
             return AkunErrors.PenerimaanPresentaseSetoranNull;
 
         if (kelompokAkun.JenisAkun.Tahun != tahun)
@@ -89,10 +86,7 @@ public class Akun : Entity, IAkun
         if (kelompokAkun.DaftarIAkun.Any(a => a.Kode == kode))
             return AkunErrors.KodeNotUnique;
 
-        if (presentaseSetoran is not null && (presentaseSetoran < 0 || presentaseSetoran > 1))
-            return AkunErrors.PresentaseSetoranNotInRange;
-
-        var akun = new Akun(uraian, tahun, presentaseSetoran, kode)
+        var akun = new Akun(uraian, tahun, setoranSinode, kode)
         {
             JenisAkun = kelompokAkun.JenisAkun,
             KelompokAkun = kelompokAkun
@@ -106,14 +100,14 @@ public class Akun : Entity, IAkun
     public static Result<Akun> CreateWithGolonganAkun(
         string uraian,
         Tahun tahun,
-        double? presentaseSetoran,
+        bool? setoranSinode,
         int kode,
         GolonganAkun golonganAkun)
     {
-        if (golonganAkun.KelompokAkun.JenisAkun.Jenis == Jenis.Belanja && presentaseSetoran is not null)
+        if (golonganAkun.KelompokAkun.JenisAkun.Jenis == Jenis.Belanja && setoranSinode is not null)
             return AkunErrors.BelanjaPresentaseSetoranNotNull;
 
-        if (golonganAkun.KelompokAkun.JenisAkun.Jenis == Jenis.Penerimaan && presentaseSetoran is null)
+        if (golonganAkun.KelompokAkun.JenisAkun.Jenis == Jenis.Penerimaan && setoranSinode is null)
             return AkunErrors.PenerimaanPresentaseSetoranNull;
 
         if (golonganAkun.KelompokAkun.JenisAkun.Tahun != tahun)
@@ -126,12 +120,9 @@ public class Akun : Entity, IAkun
             return AkunErrors.GolonganAkunTahunBeda;
 
         if (golonganAkun.DaftarAkun.Any(a => a.Kode == kode))
-            return AkunErrors.KodeNotUnique;
+            return AkunErrors.KodeNotUnique;;
 
-        if (presentaseSetoran is not null && (presentaseSetoran < 0 || presentaseSetoran > 1))
-            return AkunErrors.PresentaseSetoranNotInRange;
-
-        var akun = new Akun(uraian, tahun, presentaseSetoran, kode)
+        var akun = new Akun(uraian, tahun, setoranSinode, kode)
         {
             JenisAkun = golonganAkun.KelompokAkun.JenisAkun,
             GolonganAkun = golonganAkun

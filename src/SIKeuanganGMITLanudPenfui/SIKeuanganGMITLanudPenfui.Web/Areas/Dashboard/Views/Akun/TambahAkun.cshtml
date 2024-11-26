@@ -83,14 +83,9 @@
                         @if (Model.Jenis == Jenis.Penerimaan)
                         {
                             <div class="form-group">
-                                <label asp-for="@Model.PresentaseSetoranSinode">Setoran Sinode</label>
-                                <div class="input-group mb-2">
-                                    <input asp-for="@Model.PresentaseSetoranSinode" type="number" class="form-control" autofocus placeholder="Presentase Setoran Sinode...">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">%</div>
-                                    </div>
-                                </div>
-                                <span asp-validation-for="@Model.PresentaseSetoranSinode" class="form-text text-danger"></span>
+                                <input asp-for="@Model.SetoranSinode" type="checkbox" class="form-check-input">
+                                <label asp-for="@Model.SetoranSinode" class="form-check-label">Setoran Sinode</label>
+                                <span asp-validation-for="@Model.SetoranSinode" class="form-text text-danger"></span>
                             </div>
                         }
 

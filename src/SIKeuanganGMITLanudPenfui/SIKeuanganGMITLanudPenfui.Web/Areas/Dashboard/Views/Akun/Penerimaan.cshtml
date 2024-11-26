@@ -313,7 +313,7 @@
                                 <tr>
                                     <td>@akun.KodeAkun</td>
                                     <td>@akun.Uraian</td>
-                                    <td>@akun.PresentaseSetoran!.Value.ToString("P2")</td>
+                                    <td>@(akun.SetoranSinode!.Value ? "Masuk" : "Tidak Masuk")</td>
                                     <td>
                                         <a asp-action="EditAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>

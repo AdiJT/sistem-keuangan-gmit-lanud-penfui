@@ -6,7 +6,7 @@ public record EditAkunCommand(
     int IdAkun, 
     string Uraian, 
     int Kode,
-    double? PresentaseSetoranSinode, 
+    bool? SetoranSinode, 
     int IdJenisAkun, 
     int? IdKelompokAkun, 
     int? IdGolonganAkun) : ICommand

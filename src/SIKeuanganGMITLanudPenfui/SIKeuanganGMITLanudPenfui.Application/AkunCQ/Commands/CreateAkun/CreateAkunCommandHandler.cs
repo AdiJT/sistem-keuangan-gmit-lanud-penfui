@@ -60,7 +60,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
             return Akun.CreateWithJenisAkun(
                 request.Uraian,
                 tahun,
-                request.PresentaseSetoranSinode,
+                request.SetoranSinode,
                 kode,
                 jenisAkun);
         }
@@ -74,7 +74,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
             return Akun.CreateWithKelompokAkun(
                 request.Uraian,
                 tahun,
-                request.PresentaseSetoranSinode,
+                request.SetoranSinode,
                 kode,
                 kelompokAkun);
         }
@@ -88,7 +88,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
             return Akun.CreateWithGolonganAkun(
                 request.Uraian,
                 tahun,
-                request.PresentaseSetoranSinode,
+                request.SetoranSinode,
                 kode,
                 golonganAkun);
         }
@@ -102,7 +102,7 @@ internal class CreateAkunCommandHandler : ICommandHandler<CreateAkunCommand>
             return Akun.CreateWithGolonganAkun(
                 request.Uraian,
                 tahun,
-                request.PresentaseSetoranSinode,
+                request.SetoranSinode,
                 kode,
                 golonganAkun);
         }

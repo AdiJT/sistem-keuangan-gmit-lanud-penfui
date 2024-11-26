@@ -19,8 +19,7 @@ public class TambahAkunVM
     public required int Tahun { get; set; }
 
     [Display(Name = "Setoran Sinode")]
-    [Range(0, 100, ErrorMessage = "{0} harus antara {1}% dan {2}%")]
-    public int? PresentaseSetoranSinode { get; set;}
+    public bool SetoranSinode { get; set;}
 
     [Display(Name = "Kode")]
     [Required(ErrorMessage = "{0} harus diisi")]
