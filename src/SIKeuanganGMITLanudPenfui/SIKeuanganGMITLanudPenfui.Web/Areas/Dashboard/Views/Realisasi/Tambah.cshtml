@@ -9,77 +9,90 @@
     var daftarAkun = (await RepositoriAkun.GetAllByTahun(Tahun.Create(Model.Tahun).Value)).Where(a => a.JenisAkun.Jenis == Model.Jenis).ToList();
 }
 
-<h1>Tambah @Model.Jenis - @Model.Tahun</h1>
+<div class="section-body">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h4>Tambah @Model.Jenis - @Model.Tahun</h4>
+                </div>
+                <form asp-action="@nameof(RealisasiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" enctype="multipart/form-data">
+                    <div class="card-body">                         
+                        <div asp-validation-summary="ModelOnly"></div>
 
-<form asp-action="@nameof(RealisasiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly"></div>
+                        <div class="row">
+                            <label asp-for="@Model.Uraian" class="form-label"></label>
+                            <input asp-for="@Model.Uraian" class="form-control" />
+                            <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+                        </div>
 
-    <div class="row">
-        <label asp-for="@Model.Uraian" class="form-label"></label>
-        <input asp-for="@Model.Uraian" class="form-control"/>
-        <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+                        <div class="row">
+                            <label asp-for="@Model.Jumlah" class="form-label"></label>
+                            <input asp-for="@Model.Jumlah" type="text" class="form-control" />
+                            <span asp-validation-for="@Model.Jumlah" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <label asp-for="@Model.Tanggal" class="form-label"></label>
+                            <input asp-for="@Model.Tanggal" type="date" class="form-control" />
+                            <span asp-validation-for="@Model.Tanggal" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <label asp-for="@Model.Jam" class="form-label"></label>
+                            <input asp-for="@Model.Jam" type="time" class="form-control" />
+                            <span asp-validation-for="@Model.Jam" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <label asp-for="@Model.FileBukti" class="form-label"></label>
+                            <input asp-for="@Model.FileBukti" class="form-control" />
+                            <span asp-validation-for="@Model.FileBukti" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <label asp-for="@Model.IdAkun" class="form-label"></label>
+
+                            <select asp-for="@Model.IdAkun" class="form-control">
+                                <option value="@null">Pilih Akun...</option>
+                                @foreach (var akun in daftarAkun)
+                                {
+                                    <option value="@akun.Id">@akun.KodeAkun @akun.Uraian</option>
+                                }
+                            </select>
+
+                            <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <label asp-for="@Model.IdKas" class="form-label"></label>
+
+                            <select asp-for="@Model.IdKas" class="form-control">
+                                <option value="@null">Pilih Kas...</option>
+                                @foreach (var kas in daftarKas)
+                                {
+                                    <option value="@kas.Id">@kas.Uraian</option>
+                                }
+                            </select>
+
+                            <span asp-validation-for="@Model.IdKas" class="form-text text-danger"></span>
+                        </div>
+
+                        <input asp-for="@Model.Jenis" readonly hidden />
+                        <input asp-for="@Model.Tahun" readonly hidden />
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="row">
-        <label asp-for="@Model.Jumlah" class="form-label"></label>
-        <input asp-for="@Model.Jumlah" type="text" class="form-control" />
-        <span asp-validation-for="@Model.Jumlah" class="form-text text-danger"></span>
-    </div>
 
-    <div class="row">
-        <label asp-for="@Model.Tanggal" class="form-label"></label>
-        <input asp-for="@Model.Tanggal" type="date" class="form-control" />
-        <span asp-validation-for="@Model.Tanggal" class="form-text text-danger"></span>
-    </div>
 
-    <div class="row">
-        <label asp-for="@Model.Jam" class="form-label"></label>
-        <input asp-for="@Model.Jam" type="time" class="form-control" />
-        <span asp-validation-for="@Model.Jam" class="form-text text-danger"></span>
-    </div>
-
-    <div class="row">
-        <label asp-for="@Model.FileBukti" class="form-label"></label>
-        <input asp-for="@Model.FileBukti" class="form-control" />
-        <span asp-validation-for="@Model.FileBukti" class="form-text text-danger"></span>
-    </div>
-
-    <div class="row">
-        <label asp-for="@Model.IdAkun" class="form-label"></label>
-        
-        <select asp-for="@Model.IdAkun" class="form-control">
-            <option value="@null">Pilih Akun...</option>
-            @foreach(var akun in daftarAkun)
-            {
-                <option value="@akun.Id">@akun.KodeAkun @akun.Uraian</option>
-            }
-        </select>
-
-        <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
-    </div>
-
-    <div class="row">
-        <label asp-for="@Model.IdKas" class="form-label"></label>
-
-        <select asp-for="@Model.IdKas" class="form-control">
-            <option value="@null">Pilih Kas...</option>
-            @foreach (var kas in daftarKas)
-            {
-                <option value="@kas.Id">@kas.Uraian</option>
-            }
-        </select>
-
-        <span asp-validation-for="@Model.IdKas" class="form-text text-danger"></span>
-    </div>
-
-    <input asp-for="@Model.Jenis" readonly hidden/>
-    <input asp-for="@Model.Tahun" readonly hidden/>
-
-    <div class="row">
-        <button type="submit" class="btn btn-primary">Simpan</button>
-    </div>
-
-</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
