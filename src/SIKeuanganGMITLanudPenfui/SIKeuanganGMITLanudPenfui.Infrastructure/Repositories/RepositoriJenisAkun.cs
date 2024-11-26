@@ -44,8 +44,10 @@ internal class RepositoriJenisAkun : IRepositoriJenisAkun
         .ToListAsync();
 
     public async Task<List<JenisAkun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblJenisAkun
-        .Include(j => j.DaftarAkun)
-        .Include(j => j.DaftarKelompokAkun)
+        .Include(j => j.DaftarAkun).ThenInclude(a => a.KelompokAkun)
+        .Include(j => j.DaftarAkun).ThenInclude(a => a.GolonganAkun)
+        .Include(j => j.DaftarKelompokAkun).ThenInclude(a => a.DaftarAkun)
+        .Include(j => j.DaftarKelompokAkun).ThenInclude(a => a.DaftarGolonganAkun)
         .Where(j => j.Tahun == tahun)
         .ToListAsync();
 

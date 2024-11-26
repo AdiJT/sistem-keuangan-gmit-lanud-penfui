@@ -1,0 +1,59 @@
+﻿@model (RAPBJ rapbj, GolonganAkun golonganAkun)
+
+@{
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td width="50px">@Model.golonganAkun.KodeAkun</td>
+    <td colspan="6">@Model.golonganAkun.Uraian</td>
+</tr>
+
+@foreach(var akun in Model.golonganAkun.DaftarAkun)
+{
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        @{
+            var detailRAPBJ = Model.rapbj.DaftarDetailRAPBJ.FirstOrDefault(d => d.Akun == akun);
+        }
+
+        <td width="50px">@akun.KodeAkun</td>
+        <td>@akun.Uraian</td>
+        @if (detailRAPBJ is not null)
+        {
+            <td>@detailRAPBJ.Volume</td>
+            <td>@detailRAPBJ.Satuan</td>
+            <td>@detailRAPBJ.HargaSatuan.ToString("C2", cultureInfo)</td>
+            <td>@detailRAPBJ.Jumlah.ToString("C2", cultureInfo)</td>
+        }
+        else
+        {
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        }
+    </tr>
+}
+
+@{
+    var total = 0d;
+    foreach (var akun in Model.golonganAkun.DaftarAkun)
+    {
+        var detailRAPBJ = Model.rapbj.DaftarDetailRAPBJ.FirstOrDefault(d => d.Akun == akun);
+        if (detailRAPBJ is not null)
+        {
+            total += detailRAPBJ.Jumlah;
+        }
+    }
+    <tr>
+        <th style="text-align:right" colspan="9">Jumlah</th>
+        <th>@total.ToString("C2", cultureInfo)</th>
+    </tr>
+}

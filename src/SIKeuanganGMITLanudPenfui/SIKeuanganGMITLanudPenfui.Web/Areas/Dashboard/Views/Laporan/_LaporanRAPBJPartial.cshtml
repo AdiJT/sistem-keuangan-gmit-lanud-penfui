@@ -1,0 +1,49 @@
+﻿@model RAPBJVM
+
+<style>
+    table#tableRapbj, table#tableRapbj td, table#tableRapbj th {
+        background: white;
+        border: thin solid #000000;
+        color: black;
+        padding: 5px;
+        font-family: Calibri;
+    }
+
+    table#tableRapbj > thead th {
+        text-align: center;
+    }
+</style>
+
+<table id="tableRapbj" width="100%">
+    <thead>
+        <tr>
+            <th rowspan="2" width="50px">Kode Anggaran</th>
+            <th rowspan="2" colspan="5" width="200px">Uraian</th>
+            <th colspan="3">Rencana</th>
+            <th rowspan="2">Jumlah</th>
+        </tr>
+        <tr>
+            <th>Vol</th>
+            <th>Satuan</th>
+            <th>Harga Satuan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>I</th>
+            <th colspan="10">Pendapatan</th>
+        </tr>
+        @foreach(var jenisAkun in Model.DaftarJenisAkunPenerimaan)
+        {
+            <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
+        }
+        <tr>
+            <th>II</th>
+            <th colspan="10">Belanja</th>
+        </tr>
+        @foreach (var jenisAkun in Model.DaftarJenisAkunBelanja)
+        {
+            <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
+        }
+    </tbody>
+</table>

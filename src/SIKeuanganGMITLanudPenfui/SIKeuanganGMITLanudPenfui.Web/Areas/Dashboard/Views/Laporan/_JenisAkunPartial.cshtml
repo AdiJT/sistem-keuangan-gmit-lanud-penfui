@@ -1,0 +1,63 @@
+﻿@model (RAPBJ rapbj, JenisAkun jenisAkun)
+
+@{
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<tr>
+    <td></td>
+    <th width="50px">@Model.jenisAkun.KodeAkun</th>
+    <th colspan="8">@Model.jenisAkun.Uraian</th>
+</tr>
+
+@foreach (var iakun in Model.jenisAkun.DaftarIAkun)
+{
+    @if (iakun is KelompokAkun kelompokAkun)
+    {
+        <partial name="_KelompokAkunPartial" model="@((Model.rapbj, kelompokAkun))" />
+    }
+    else if (iakun is Akun akun)
+    {
+        <tr>
+            <td></td>
+            <td></td>
+            @{
+                var detailRAPBJ = Model.rapbj.DaftarDetailRAPBJ.FirstOrDefault(d => d.Akun == akun);
+            }
+
+            <td width="50px">@akun.KodeAkun</td>
+            <td colspan="3">@akun.Uraian</td>
+            @if (detailRAPBJ is not null)
+            {
+                <td>@detailRAPBJ.Volume</td>
+                <td>@detailRAPBJ.Satuan</td>
+                <td>@detailRAPBJ.HargaSatuan.ToString("C2", cultureInfo)</td>
+                <td>@detailRAPBJ.Jumlah.ToString("C2", cultureInfo)</td>
+            }
+            else
+            {
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            }
+        </tr>
+    }
+}
+
+@if(Model.jenisAkun.DaftarKelompokAkun.Count == 0)
+{
+    var total = 0d;
+    foreach(var akun in Model.jenisAkun.DaftarAkun)
+    {
+        var detailRAPBJ = Model.rapbj.DaftarDetailRAPBJ.FirstOrDefault(d => d.Akun == akun);
+        if(detailRAPBJ is not null)
+        {
+            total += detailRAPBJ.Jumlah;
+        }
+    }
+    <tr>
+        <th style="text-align:right" colspan="9">Jumlah</th>
+        <th>@total.ToString("C2", cultureInfo)</th>
+    </tr>
+}

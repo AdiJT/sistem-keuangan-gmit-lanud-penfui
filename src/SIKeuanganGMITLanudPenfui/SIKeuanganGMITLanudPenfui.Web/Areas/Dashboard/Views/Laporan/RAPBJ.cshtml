@@ -1,0 +1,40 @@
+﻿@model RAPBJVM
+
+<select id="tahun" class="form-control">
+    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+    {
+        @if (tahun == Model.Tahun)
+        {
+            <option selected value="@tahun">@tahun</option>
+        }
+        else
+        {
+            <option value="@tahun">@tahun</option>
+        }
+    }
+</select>
+
+@if(Model.RAPBJ is not null)
+{
+    <partial name="_LaporanRAPBJPartial" model="@Model" />
+}
+else
+{
+    <h1>RAPBJ Tahun @Model.Tahun belum dibuat</h1>
+}
+
+@section Scripts {
+    <partial name="_BreadcrumbScriptPartial" />
+
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+
+        const url = '@Url.Action(nameof(LaporanController.RAPBJ))';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+
+            location.href = `${url}?tahun=${tahun}`;
+        });
+    </script>
+}

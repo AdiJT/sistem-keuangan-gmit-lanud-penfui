@@ -16,11 +16,9 @@ internal class RepositoriRAPBJ : IRepositoriRAPBJ
     }
 
     public async Task<RAPBJ?> Get(Tahun tahun) => await _appDbContext.TblRAPBJ
-        .Include(r => r.DaftarDetailRAPBJ)
-        .ThenInclude(d => d.Akun)
-        .ThenInclude(a => a.JenisAkun)
-        .ThenInclude(j => j.DaftarKelompokAkun)
-        .ThenInclude(k => k.DaftarGolonganAkun)
+        .Include(r => r.DaftarDetailRAPBJ).ThenInclude(d => d.Akun).ThenInclude(a => a.JenisAkun)
+        .Include(r => r.DaftarDetailRAPBJ).ThenInclude(d => d.Akun).ThenInclude(a => a.KelompokAkun)
+        .Include(r => r.DaftarDetailRAPBJ).ThenInclude(d => d.Akun).ThenInclude(a => a.GolonganAkun)
         .FirstOrDefaultAsync(r => r.Tahun == tahun);
 
     public async Task<List<RAPBJ>> GetAll() => await _appDbContext.TblRAPBJ
