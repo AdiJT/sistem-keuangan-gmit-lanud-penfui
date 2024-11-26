@@ -1,0 +1,26 @@
+﻿@model TambahKasVM
+
+@{
+    ViewData["Title"] = "Realisasi | Tambah Kas";
+}
+
+<form asp-action="@nameof(RealisasiController.TambahKas)">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="row">
+        <label asp-for="@Model.Uraian" class="form-label"></label>
+        <input asp-for="@Model.Uraian" class="form-control" />
+        <span asp-validation-for="@Model.Uraian"></span>
+    </div>
+
+    <div class="row">
+        <label asp-for="@Model.Saldo" class="form-label"></label>
+        <input asp-for="@Model.Saldo" type="text" class="form-control" />
+        <span asp-validation-for="@Model.Saldo"></span>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-primary">Simpan</button>
+    </div>
+
+</form>

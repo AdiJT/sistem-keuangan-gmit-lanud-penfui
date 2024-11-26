@@ -98,9 +98,7 @@ internal class FileUploadService : IFileUploadService, IFileService
     {
         var fullFolderPath = Path.GetFullPath(
             $"{_hostingEnvironment.WebRootPath}" +
-            $"{Path.DirectorySeparatorChar}" +
             $"{_fileConfigurationOptions.FolderPath}" +
-            $"{Path.DirectorySeparatorChar}" +
             $"{folderPath}");
 
         try

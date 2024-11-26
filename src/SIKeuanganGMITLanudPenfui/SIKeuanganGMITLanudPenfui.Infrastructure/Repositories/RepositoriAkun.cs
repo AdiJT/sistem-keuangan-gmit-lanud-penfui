@@ -28,55 +28,55 @@ internal class RepositoriAkun : IRepositoriAkun
 
     public async Task<Akun?> Get(int id) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .FirstOrDefaultAsync(a => a.Id == id);
 
     public async Task<List<Akun>> GetAll() => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllPenerimaan() => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.JenisAkun.Jenis == Jenis.Penerimaan)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllBelanja() => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.JenisAkun.Jenis == Jenis.Belanja)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByJenis(JenisAkun jenis) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.JenisAkun == jenis)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByKelompok(KelompokAkun kelompok) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.KelompokAkun == kelompok || (a.GolonganAkun != null && a.GolonganAkun.KelompokAkun == kelompok))
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByGolongan(GolonganAkun golongan) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.GolonganAkun != null && a.GolonganAkun == golongan)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
-        .Include(a => a.KelompokAkun)
-        .Include(a => a.GolonganAkun)
+        .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(a => a.Tahun == tahun)
         .ToListAsync();
 

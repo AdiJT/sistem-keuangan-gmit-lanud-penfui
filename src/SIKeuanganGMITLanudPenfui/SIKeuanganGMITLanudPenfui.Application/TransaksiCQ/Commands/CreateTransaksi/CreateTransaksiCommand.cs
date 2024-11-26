@@ -5,8 +5,9 @@ namespace SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTrans
 
 public record CreateTransaksiCommand(
     DateOnly Tanggal,
+    TimeOnly? Jam,
     string Uraian,
-    string Jumlah,
+    double Jumlah,
     Uri FileBukti,
     Jenis Jenis,
     int AkunId,

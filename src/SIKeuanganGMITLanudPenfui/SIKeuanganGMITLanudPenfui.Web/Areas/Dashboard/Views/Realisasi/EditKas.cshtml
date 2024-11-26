@@ -1,0 +1,22 @@
+﻿@model EditKasVM
+
+@{
+    ViewData["Title"] = "Realisasi | Tambah Kas";
+}
+
+<form asp-action="@nameof(RealisasiController.EditKas)" asp-route-id="@Model.IdKas">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="row">
+        <label asp-for="@Model.Uraian" class="form-label"></label>
+        <input asp-for="@Model.Uraian" class="form-control" />
+        <span asp-validation-for="@Model.Uraian"></span>
+    </div>
+    
+    <input asp-for="@Model.IdKas" readonly hidden/>
+
+    <div class="row">
+        <button class="btn btn-primary">Simpan</button>
+    </div>
+
+</form>
