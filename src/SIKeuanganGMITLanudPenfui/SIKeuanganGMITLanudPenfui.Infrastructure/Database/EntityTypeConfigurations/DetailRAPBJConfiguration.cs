@@ -12,6 +12,6 @@ internal class DetailRAPBJConfiguration : IEntityTypeConfiguration<DetailRAPBJ>
         builder.HasKey(d => new { d.TahunRAPBJ, d.KodeAkun });
         builder.Property(r => r.TahunRAPBJ).HasConversion<TahunIntConverter>();
         builder.HasOne(d => d.RAPBJ).WithMany(d => d.DaftarDetailRAPBJ).HasForeignKey(d => d.TahunRAPBJ);
-        builder.HasOne(d => d.Akun).WithMany().HasForeignKey(d => d.KodeAkun);
+        builder.HasOne(d => d.Akun).WithMany(a => a.DaftarDetailRAPBJ).HasForeignKey(d => d.KodeAkun);
     }
 }

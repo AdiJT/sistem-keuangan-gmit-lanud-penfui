@@ -30,18 +30,21 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .FirstOrDefaultAsync(a => a.Id == id);
 
     public async Task<List<Akun>> GetAll() => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .ToListAsync();
 
     public async Task<List<Akun>> GetAllPenerimaan() => await _appDbContext.TblAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.JenisAkun.Jenis == Jenis.Penerimaan)
         .ToListAsync();
 
@@ -49,6 +52,7 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.JenisAkun.Jenis == Jenis.Belanja)
         .ToListAsync();
 
@@ -56,6 +60,7 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.JenisAkun == jenis)
         .ToListAsync();
 
@@ -63,6 +68,7 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.KelompokAkun == kelompok || (a.GolonganAkun != null && a.GolonganAkun.KelompokAkun == kelompok))
         .ToListAsync();
 
@@ -70,6 +76,7 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.GolonganAkun != null && a.GolonganAkun == golongan)
         .ToListAsync();
 
@@ -77,6 +84,7 @@ internal class RepositoriAkun : IRepositoriAkun
         .Include(a => a.JenisAkun)
         .Include(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
         .Include(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
+        .Include(a => a.DaftarDetailRAPBJ)
         .Where(a => a.Tahun == tahun)
         .ToListAsync();
 

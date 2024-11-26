@@ -16,6 +16,7 @@ public class Akun : Entity, IAkun
     public required JenisAkun JenisAkun { get; set; }
     public KelompokAkun? KelompokAkun { get; set; }
     public GolonganAkun? GolonganAkun { get; set; }
+    public List<DetailRAPBJ> DaftarDetailRAPBJ { get; set; } = [];
 
     public string KodeAkun =>
         this switch

@@ -1,49 +1,143 @@
 ﻿@model RAPBJVM
 
+@{
+    var cultureInfo = new CultureInfo("id-ID");
+
+    var totalPendapatan = Model.DaftarJenisAkunPenerimaan
+        .SelectMany(j => j.DaftarAkun)
+        .SelectMany(a => a.DaftarDetailRAPBJ)
+        .Sum(d => d.Jumlah);
+
+    var totalBelanja = Model.DaftarJenisAkunBelanja
+        .SelectMany(j => j.DaftarAkun)
+        .SelectMany(a => a.DaftarDetailRAPBJ)
+        .Sum(d => d.Jumlah);
+}
+
 <style>
     table#tableRapbj, table#tableRapbj td, table#tableRapbj th {
         background: white;
         border: thin solid #000000;
-        color: black;
         padding: 5px;
-        font-family: Calibri;
     }
 
-    table#tableRapbj > thead th {
+        table#tableRapbj > thead th {
+            text-align: center;
+        }
+
+    #footerLaporan {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #tabelLaporan {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #laporan {
+        font-family: Calibri !important;
+        font-size: 11px !important;
+        color: black !important;
+    }
+
+    #headerLaporan {
         text-align: center;
+        font-weight: bold;
     }
 </style>
 
-<table id="tableRapbj" width="100%">
-    <thead>
-        <tr>
-            <th rowspan="2" width="50px">Kode Anggaran</th>
-            <th rowspan="2" colspan="5" width="200px">Uraian</th>
-            <th colspan="3">Rencana</th>
-            <th rowspan="2">Jumlah</th>
-        </tr>
-        <tr>
-            <th>Vol</th>
-            <th>Satuan</th>
-            <th>Harga Satuan</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>I</th>
-            <th colspan="10">Pendapatan</th>
-        </tr>
-        @foreach(var jenisAkun in Model.DaftarJenisAkunPenerimaan)
-        {
-            <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
-        }
-        <tr>
-            <th>II</th>
-            <th colspan="10">Belanja</th>
-        </tr>
-        @foreach (var jenisAkun in Model.DaftarJenisAkunBelanja)
-        {
-            <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
-        }
-    </tbody>
-</table>
+<div id="laporan">
+    <div id="headerLaporan">
+        RENCANA ANGGARAN PENDAPATAN DAN BELANJA JEMAAT (RAPBJ)<br />
+        JEMAAT GMIT LANUD EL TARI PENFUI<br />
+        TAHUN PELAYANAN @Model.Tahun<br />
+    </div>
+
+    <br />
+
+    <div id="tabelLaporan">
+        <table id="tableRapbj">
+            <thead>
+                <tr>
+                    <th rowspan="2" width="50px">Kode Anggaran</th>
+                    <th rowspan="2" colspan="5" width="200px">Uraian</th>
+                    <th colspan="3">Rencana</th>
+                    <th rowspan="2">Jumlah</th>
+                </tr>
+                <tr>
+                    <th>Vol</th>
+                    <th>Satuan</th>
+                    <th>Harga Satuan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>I</th>
+                    <th colspan="10">Pendapatan</th>
+                </tr>
+                @foreach (var jenisAkun in Model.DaftarJenisAkunPenerimaan)
+                {
+                    <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
+                }
+                <tr>
+                    <th colspan="9" style="text-align:center">
+                        TOTAL PENDAPATAN (@Model.DaftarJenisAkunPenerimaan.First().KodeAkun S/D @Model.DaftarJenisAkunPenerimaan.Last().KodeAkun)
+                    </th>
+                    <th>
+                        @totalPendapatan.ToString("C2", cultureInfo)
+                    </th>
+                </tr>
+                <tr>
+                    <th>II</th>
+                    <th colspan="10">Belanja</th>
+                </tr>
+                @foreach (var jenisAkun in Model.DaftarJenisAkunBelanja)
+                {
+                    <partial name="_JenisAkunPartial" model="@((Model.RAPBJ!, jenisAkun))" />
+                }
+                <tr>
+                    <th colspan="9" style="text-align:center">
+                        TOTAL Belanja (@Model.DaftarJenisAkunBelanja.First().KodeAkun S/D @Model.DaftarJenisAkunBelanja.Last().KodeAkun)
+                    </th>
+                    <th>
+                        @totalBelanja.ToString("C2", cultureInfo)
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="9" style="text-align:center">
+                        SURPLUS/DEFISIT
+                    </th>
+                    <th>
+                        @((totalPendapatan - totalBelanja).ToString("C2", cultureInfo))
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="footerLaporan">
+        <div id="tandaTangan">
+            Ketua Majelis Jemaat
+            <br />
+            <br />
+            <br />
+            <br />
+            Pdt. Ishak B. Batmalo, S.Th
+        </div>
+
+        <div id="tandaTangan">
+            Bendahara
+            <br />
+            <br />
+            <br />
+            <br />
+            Pnt. Melkianus Foes
+        </div>
+    </div>
+</div>

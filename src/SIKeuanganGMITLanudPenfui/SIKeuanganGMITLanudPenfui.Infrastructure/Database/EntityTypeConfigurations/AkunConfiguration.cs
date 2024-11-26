@@ -10,9 +10,11 @@ internal class AkunConfiguration : IEntityTypeConfiguration<Akun>
     public void Configure(EntityTypeBuilder<Akun> builder)
     {
         builder.HasKey(a => a.Id);
+        builder.Property(a => a.Tahun).HasConversion<TahunIntConverter>();
+
         builder.HasOne(a => a.JenisAkun).WithMany(j => j.DaftarAkun).IsRequired(true);
         builder.HasOne(a => a.KelompokAkun).WithMany(k => k.DaftarAkun).IsRequired(false);
         builder.HasOne(a => a.GolonganAkun).WithMany(g => g.DaftarAkun).IsRequired(false);
-        builder.Property(a => a.Tahun).HasConversion<TahunIntConverter>();
+        builder.HasMany(a => a.DaftarDetailRAPBJ).WithOne(d => d.Akun);
     }
 }

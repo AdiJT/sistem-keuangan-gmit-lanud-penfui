@@ -17,7 +17,7 @@ internal class RepositoriJenisAkun : IRepositoriJenisAkun
     }
 
     public async Task<JenisAkun?> Get(int id) => await _appDbContext.TblJenisAkun
-        .Include(j => j.DaftarAkun)
+        .Include(j => j.DaftarAkun).ThenInclude(a => a.DaftarDetailRAPBJ)
         .Include(j => j.DaftarKelompokAkun)
         .FirstOrDefaultAsync(j => j.Id == id);
 
@@ -39,13 +39,14 @@ internal class RepositoriJenisAkun : IRepositoriJenisAkun
         .ToListAsync();
 
     public async Task<List<JenisAkun>> GetAll() => await _appDbContext.TblJenisAkun
-        .Include(j => j.DaftarAkun)
+        .Include(j => j.DaftarAkun).ThenInclude(a => a.DaftarDetailRAPBJ)
         .Include(j => j.DaftarKelompokAkun)
         .ToListAsync();
 
     public async Task<List<JenisAkun>> GetAllByTahun(Tahun tahun) => await _appDbContext.TblJenisAkun
         .Include(j => j.DaftarAkun).ThenInclude(a => a.KelompokAkun)
         .Include(j => j.DaftarAkun).ThenInclude(a => a.GolonganAkun)
+        .Include(j => j.DaftarAkun).ThenInclude(a => a.DaftarDetailRAPBJ)
         .Include(j => j.DaftarKelompokAkun).ThenInclude(a => a.DaftarAkun)
         .Include(j => j.DaftarKelompokAkun).ThenInclude(a => a.DaftarGolonganAkun)
         .Where(j => j.Tahun == tahun)

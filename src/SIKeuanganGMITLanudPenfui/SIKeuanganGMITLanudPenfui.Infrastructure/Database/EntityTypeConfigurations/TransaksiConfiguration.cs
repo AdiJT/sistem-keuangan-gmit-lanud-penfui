@@ -12,6 +12,6 @@ internal class TransaksiConfiguration : IEntityTypeConfiguration<Transaksi>
         builder.Property(t => t.Tanggal).HasColumnType("timestamp without time zone");
 
         builder.HasOne(b => b.Akun).WithMany();
-        builder.HasOne(b => b.Kas).WithMany();
+        builder.HasOne(b => b.Kas).WithMany(k => k.DaftarTransaksi);
     }
 }
