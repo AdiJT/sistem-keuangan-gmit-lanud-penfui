@@ -1,29 +1,47 @@
 ﻿@model RAPBJVM
 
-<select id="tahun" class="form-control">
-    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
-    {
-        @if (tahun == Model.Tahun)
-        {
-            <option selected value="@tahun">@tahun</option>
-        }
-        else
-        {
-            <option value="@tahun">@tahun</option>
-        }
-    }
-</select>
+<!-- Breadcrumb -->
+<div class="row">
+    <partial name="_BreadcrumbPartial" />
+</div>
 
-@if (Model.RAPBJ is not null)
-{
-    <div class="card">
+
+    <div class="card card-primary">
         <div class="card-header">
-            Tabel RAPBJ
+            <h4>Laporan RAPBJ Tahun @Model.Tahun</h4>
         </div>
-        <div class="card-body">
-            <a asp-action="@nameof(LaporanController.RAPBJPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true" class="btn btn-primary">PDF</a>
+    <div class="card-body pt-1">
+        <div class="d-flex justify-content-start ml-auto mb-1">
+            <div class="mb-2">
+                @if (Model.RAPBJ is not null)
+                {
+                    <a asp-action="@nameof(LaporanController.RAPBJPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true" class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">PDF</a>
+                }
+                else
+                {
+                }
+            </div>
+
+            <div class="ml-auto">
+                <select id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun RAPBJ">
+                    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                    {
+                        @if (tahun == Model.Tahun)
+                        {
+                            <option selected value="@tahun">@tahun</option>
+                        }
+                        else
+                        {
+                            <option value="@tahun">@tahun</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        @if (Model.RAPBJ is not null)
+        {
             <div class="table-responsive">
-                <table class="table table-striped table-hover" id="table-akun-1" width="100%">
+                <table class="table table-striped table-hover" id="table-akun" width="100%">
                     <thead>
                         <tr>
                             <th>Kode Akun</th>
@@ -49,14 +67,24 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        }
+        else
+        {
+            <hr class="mb-2">
+            <div class="card-body">
+                <p class="text-center">RAPBJ Tahun @Model.Tahun belum dibuat.</p>
+            </div>
+        }
     </div>
+</div>
 
+@if (Model.RAPBJ is not null)
+{
     <div class="card">
         <div class="card-header">
-            Preview Laporan RAPBJ
+            <h4>Preview Laporan RAPBJ Tahun @Model.Tahun</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body pt-0">
             <iframe class="pdf" src="@Url.ActionLink(nameof(LaporanController.RAPBJPDF),"Laporan", new {tahun=Model.Tahun})" width="100%" height="600">
             </iframe>
         </div>
@@ -64,7 +92,7 @@
 }
 else
 {
-    <h1>RAPBJ Tahun @Model.Tahun belum dibuat</h1>
+    
 }
 
 @section Scripts {
