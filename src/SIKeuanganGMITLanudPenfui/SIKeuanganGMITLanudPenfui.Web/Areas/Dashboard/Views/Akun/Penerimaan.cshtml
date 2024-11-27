@@ -96,11 +96,14 @@
                                         <a asp-action="EditJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <form style="display:inline" asp-action="HapusJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id">
-                                            <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
+                                        <partial name="_DeleteConfirmationModalPartial"
+                                                 model="@(new DeleteConfirmationModalVM
+                                                 {
+                                                    Title = "Hapus Jenis Akun",
+                                                    Url = Url.Action(
+                                                        nameof(AkunController.HapusJenisAkun), 
+                                                        new { jenis=Jenis.Penerimaan, tahun=Model.Tahun, id=jenisAkun.Id })!
+                                                 })" />
                                     </td>
                                 </tr>
                             }

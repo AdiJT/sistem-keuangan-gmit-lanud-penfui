@@ -1,0 +1,28 @@
+﻿@model DeleteConfirmationModalVM
+
+<button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus" data-bs-toggle="modal" data-bs-target="@($"#{Model.Id}")">
+    <i class="fas fa-trash"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="@Model.Id" tabindex="-1" aria-labelledby="@Model.Id" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="@Model.Id">@Model.Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin ingin menghapus?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Batal</button>
+                <form action="@Model.Url" method="post">
+                    <button type="submit" class="btn btn-danger">
+                        Hapus
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
