@@ -2,6 +2,7 @@ using Microsoft.Extensions.Options;
 using SIKeuanganGMITLanudPenfui.Application;
 using SIKeuanganGMITLanudPenfui.Infrastructure;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Configurations;
+using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +17,13 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 
 builder.Services.AddRazorTemplating();
+
+builder.Services.AddSession();
+
+builder.Services.AddScoped<IToastrNotificationService, ToastrNotificationService>();
 
 var app = builder.Build();
 
@@ -41,6 +46,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapAreaControllerRoute(
     name: "Dashboard",

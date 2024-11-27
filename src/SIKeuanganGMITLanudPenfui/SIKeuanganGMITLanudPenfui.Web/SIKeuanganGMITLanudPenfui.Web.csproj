@@ -41,6 +41,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\lib\Toastr\JS\toastr.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Areas\Dashboard\Views\Laporan\_LaporanRekaptulasiTahunanPartial.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

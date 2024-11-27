@@ -15,6 +15,7 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
+using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 using System.Drawing;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -31,6 +32,7 @@ public class AkunController : Controller
     private readonly IRepositoriGolonganAkun _repositoriGolonganAkun;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ISender _sender;
+    private readonly IToastrNotificationService _toastrNotificationService;
     private readonly JsonSerializerOptions serializerSettings = new(){ ReferenceHandler = ReferenceHandler.IgnoreCycles };
 
     public AkunController(
@@ -39,7 +41,8 @@ public class AkunController : Controller
         IRepositoriKelompokAkun repositoriKelompokAkun,
         IRepositoriGolonganAkun repositoriGolonganAkun,
         ISender sender,
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork,
+        IToastrNotificationService toastrNotificationService)
     {
         _repositoriAkun = repositoriAkun;
         _repositoriJenisAkun = repositoriJenisAkun;
@@ -47,6 +50,7 @@ public class AkunController : Controller
         _repositoriGolonganAkun = repositoriGolonganAkun;
         _sender = sender;
         _unitOfWork = unitOfWork;
+        _toastrNotificationService = toastrNotificationService;
     }
 
     [Route("[area]/[controller]/[action]/{tahun:int?}")]

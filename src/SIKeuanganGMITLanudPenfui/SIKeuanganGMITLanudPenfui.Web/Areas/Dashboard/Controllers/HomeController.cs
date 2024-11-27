@@ -4,6 +4,8 @@ using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.HomeModels;
+using SIKeuanganGMITLanudPenfui.Web.Models;
+using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -12,11 +14,16 @@ public class HomeController : Controller
 {
     private readonly ISignInManager _signInManager;
     private readonly IRepositoriTransaksi _repositoriTransaksi;
+    private readonly IToastrNotificationService _toastrNotificationService;
 
-    public HomeController(ISignInManager signInManager, IRepositoriTransaksi repositoriTransaksi)
+    public HomeController(
+        ISignInManager signInManager,
+        IRepositoriTransaksi repositoriTransaksi,
+        IToastrNotificationService toastrNotificationService)
     {
         _signInManager = signInManager;
         _repositoriTransaksi = repositoriTransaksi;
+        _toastrNotificationService = toastrNotificationService;
     }
 
     [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
@@ -51,6 +58,12 @@ public class HomeController : Controller
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(loginVM);
         }
+
+        _toastrNotificationService.AddNotification(new ToastrNotification
+        {
+            Title = $"Selamat Datang",
+            Type = ToastrNotificationType.Info
+        });
 
         return Redirect(loginVM.ReturnUrl);
     }

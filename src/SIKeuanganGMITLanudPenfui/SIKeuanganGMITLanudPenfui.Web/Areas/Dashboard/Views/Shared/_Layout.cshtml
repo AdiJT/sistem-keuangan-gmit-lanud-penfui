@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SIKeuanganGMITLanudPenfui.Web.Models
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -76,6 +77,27 @@
             });
         });
     </script>
+
+    @{
+        var globalOptions = new ToastrOptions
+            {
+                closeButton = true,
+                progressBar = true,
+                newestOnTop = true,
+                preventDuplicates = false,
+                timeOut = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
+                extendedTimeOut = (int)TimeSpan.FromSeconds(5).TotalMilliseconds,
+                showDuration = (int)TimeSpan.FromSeconds(0.5).TotalMilliseconds,
+                hideDuration = (int)TimeSpan.FromSeconds(0.5).TotalMilliseconds,
+                showEasing = Easings.Swing,
+                hideEasing = Easings.Swing,
+                showMethod = AnimationMethods.FadeIn,
+                hideMethod = AnimationMethods.FadeOut,
+                positionClass = PositionClasses.TopRight,
+            };
+    }
+
+    <vc:toastr global-options=globalOptions></vc:toastr>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
