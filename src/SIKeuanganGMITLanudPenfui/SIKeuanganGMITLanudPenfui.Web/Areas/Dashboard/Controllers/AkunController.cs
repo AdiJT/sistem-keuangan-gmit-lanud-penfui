@@ -15,6 +15,7 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
+using SIKeuanganGMITLanudPenfui.Web.Models;
 using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 using System.Drawing;
 using System.Text.Json;
@@ -472,7 +473,21 @@ public class AkunController : Controller
         var result = await _unitOfWork.SaveChangesAsync();
         if(result.IsFailure)
         {
-            return BadRequest();
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Jenis Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
         }
 
         return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
@@ -492,7 +507,21 @@ public class AkunController : Controller
         var result = await _unitOfWork.SaveChangesAsync();
         if (result.IsFailure)
         {
-            return BadRequest();
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Kelompok Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
         }
 
         return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
@@ -510,9 +539,24 @@ public class AkunController : Controller
 
         _repositoriGolonganAkun.Delete(golonganAkun);
         var result = await _unitOfWork.SaveChangesAsync();
+
         if (result.IsFailure)
         {
-            return BadRequest();
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Golongan Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
         }
 
         return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
@@ -532,7 +576,21 @@ public class AkunController : Controller
         var result = await _unitOfWork.SaveChangesAsync();
         if (result.IsFailure)
         {
-            return BadRequest();
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
         }
 
         return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
@@ -544,8 +602,24 @@ public class AkunController : Controller
     {
         var command = new CreateAkunOnTahunFromTahunCommand(tahunSumber, tahun);
         var result = await _sender.Send(command);
-        if(result.IsFailure)
-            return BadRequest();
+        if (result.IsFailure)
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Gagal Import Akun",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Import Akun Berhasil",
+                Message = $"Akun berhasil dimport dari tahun {tahunSumber}",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" });
     }

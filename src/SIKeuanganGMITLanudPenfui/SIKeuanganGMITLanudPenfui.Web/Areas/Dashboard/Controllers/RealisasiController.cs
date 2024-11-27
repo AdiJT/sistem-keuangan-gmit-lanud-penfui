@@ -12,6 +12,9 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Services.FileUpload;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RealisasiModels;
+using SIKeuanganGMITLanudPenfui.Web.Models;
+using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
+using System.Drawing;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -25,6 +28,7 @@ public class RealisasiController : Controller
     private readonly ISender _sender;
     private readonly IRepositoriKas _repositoriKas;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IToastrNotificationService _notificationService;
 
     public RealisasiController(
         IRepositoriTransaksi repositoriTransaksi,
@@ -32,7 +36,8 @@ public class RealisasiController : Controller
         IFileService fileService,
         ISender sender,
         IRepositoriKas repositoriKas,
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork,
+        IToastrNotificationService notificationService)
     {
         _repositoriTransaksi = repositoriTransaksi;
         _fileUploadService = fileUploadService;
@@ -40,6 +45,7 @@ public class RealisasiController : Controller
         _sender = sender;
         _repositoriKas = repositoriKas;
         _unitOfWork = unitOfWork;
+        _notificationService = notificationService;
     }
 
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int?}")]
@@ -55,7 +61,7 @@ public class RealisasiController : Controller
 
         var daftarTransaksi = (await _repositoriTransaksi.GetAllByTahun(tahun.Value, jenis))
             .Where(t => DateOnly.FromDateTime(t.Tanggal) >= start.Value && DateOnly.FromDateTime(t.Tanggal) <= end.Value)
-            .ToList();    
+            .ToList();
 
         return View(new TransaksiVM
         {
@@ -79,9 +85,9 @@ public class RealisasiController : Controller
 
     [HttpPost]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]")]
-    public async Task<IActionResult> Tambah([FromRoute]Jenis jenis, [FromRoute]int tahun, [FromForm]TambahVM vm)
+    public async Task<IActionResult> Tambah([FromRoute] Jenis jenis, [FromRoute] int tahun, [FromForm] TambahVM vm)
     {
-        if(!ModelState.IsValid) return View(vm);
+        if (!ModelState.IsValid) return View(vm);
 
         if (jenis != vm.Jenis || tahun != vm.Tahun) return BadRequest();
 
@@ -98,7 +104,7 @@ public class RealisasiController : Controller
             long.MinValue,
             long.MaxValue);
 
-        if(fileBukti.IsFailure)
+        if (fileBukti.IsFailure)
         {
             ModelState.AddModelError(nameof(TambahVM.FileBukti), fileBukti.Error.Message);
             return View(vm);
@@ -115,7 +121,7 @@ public class RealisasiController : Controller
             vm.IdKas);
 
         var result = await _sender.Send(command);
-        if(result.IsFailure)
+        if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
@@ -143,7 +149,7 @@ public class RealisasiController : Controller
 
     [HttpPost]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]/{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute]Jenis jenis, [FromRoute]int tahun, [FromRoute] int id, [FromForm]EditVM vm)
+    public async Task<IActionResult> Edit([FromRoute] Jenis jenis, [FromRoute] int tahun, [FromRoute] int id, [FromForm] EditVM vm)
     {
         if (!ModelState.IsValid) return View(vm);
 
@@ -170,7 +176,24 @@ public class RealisasiController : Controller
 
         var command = new HapusTransaksiCommand(id);
         var result = await _sender.Send(command);
-        if (result.IsFailure) return BadRequest(result.Error.Message);
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus {jenis} gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        } 
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus {jenis} Berhasil",
+                Message = $"{jenis} '{transaksi.Uraian}' berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Transaksi), new { jenis, tahun });
     }
@@ -196,7 +219,7 @@ public class RealisasiController : Controller
 
         var command = new CreateKasCommand(vm.Uraian, vm.Saldo);
         var result = await _sender.Send(command);
-        if(result.IsFailure)
+        if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
@@ -229,7 +252,7 @@ public class RealisasiController : Controller
         var command = new EditKasCommand(vm.IdKas, vm.Uraian);
         var result = await _sender.Send(command);
 
-        if(result.IsFailure)
+        if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
@@ -243,11 +266,28 @@ public class RealisasiController : Controller
     public async Task<IActionResult> HapusKas(int id)
     {
         var kas = await _repositoriKas.Get(id);
-        if(kas is null) return NotFound();
+        if (kas is null) return NotFound();
 
         _repositoriKas.Delete(kas);
         var result = await _unitOfWork.SaveChangesAsync();
-        if (result.IsFailure) return BadRequest(result.Error.Message);
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus Kas Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus Kas Berhasil",
+                Message = $"Kas {kas.Uraian} berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Kas));
     }

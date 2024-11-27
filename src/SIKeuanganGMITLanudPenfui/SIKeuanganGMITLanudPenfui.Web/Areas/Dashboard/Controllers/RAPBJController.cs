@@ -12,6 +12,8 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RAPBJModels;
+using SIKeuanganGMITLanudPenfui.Web.Models;
+using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -25,6 +27,7 @@ public class RAPBJController : Controller
     private readonly IRepositoriJenisAkun _repositoriJenisAkun;
     private readonly ISender _sender;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IToastrNotificationService _notificationService;
 
     public RAPBJController(
         IRepositoriRAPBJ repositoriRAPBJ,
@@ -32,7 +35,8 @@ public class RAPBJController : Controller
         IRepositoriAkun repositoriAkun,
         IRepositoriJenisAkun repositoriJenisAkun,
         IUnitOfWork unitOfWork,
-        ISender sender)
+        ISender sender,
+        IToastrNotificationService notificationService)
     {
         _repositoriRAPBJ = repositoriRAPBJ;
         _repositoriDetailRAPBJ = repositoriDetailRAPBJ;
@@ -40,6 +44,7 @@ public class RAPBJController : Controller
         _repositoriJenisAkun = repositoriJenisAkun;
         _unitOfWork = unitOfWork;
         _sender = sender;
+        _notificationService = notificationService;
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int?}")]
@@ -154,7 +159,25 @@ public class RAPBJController : Controller
 
         var command = new DeleteDetailRAPBJCommand(tahun, id);
         var result = await _sender.Send(command);
-        if (result.IsFailure) return BadRequest();
+
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Akun berhasil dihapus dari RAPBJ",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
@@ -166,7 +189,24 @@ public class RAPBJController : Controller
         var command = new CreateRAPBJCommand(tahun);
         var result = await _sender.Send(command);
 
-        if (result.IsFailure) return BadRequest();
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Tambah RAPBJ Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Tambah RAPBJ Berhasil",
+                Message = $"RAPBJ Tahun {tahun} berhasil dibuat",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
@@ -178,7 +218,24 @@ public class RAPBJController : Controller
         var command = new AddAllAkunCommand(tahun);
         var result = await _sender.Send(command);
 
-        if (result.IsFailure) return BadRequest();
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Tambah Semua Akun ke RAPBJ Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Tambah Semua Akun ke RAPBJ Berhasil",
+                Message = $"Semua akun tahun {tahun} berhasil dimasukkan ke RAPBJ tahun {tahun}",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
@@ -190,7 +247,24 @@ public class RAPBJController : Controller
         var command = new DeleteRAPBJCommand(tahun);
         var result = await _sender.Send(command);
 
-        if (result.IsFailure) return BadRequest();
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus RAPBJ tahun {tahun} Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus RAPBJ tahun {tahun} Berhasil",
+                Message = $"RAPBJ tahun {tahun} berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }
 
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
