@@ -30,6 +30,16 @@ internal class SignInManager : ISignInManager
         _logger = logger;
     }
 
+    public async Task<User?> GetUser()
+    {
+        var userName = _httpContext.User.Identity?.Name;
+
+        if (userName is null) return null;
+
+        var user = await _repositoriUser.GetByUserName(userName);
+        return user;
+    }
+
     public async Task<Result> Login(string username, string password, bool rememberMe)
     {
         //Cek apakah akun ada

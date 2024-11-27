@@ -1,4 +1,11 @@
-﻿<!-- SIDEBAR -->
+﻿@using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts
+@inject ISignInManager SignInManager
+
+@{
+    var user = await SignInManager.GetUser();
+}
+
+<!-- SIDEBAR -->
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -12,13 +19,17 @@
             <li>
                 <a asp-area="Dashboard" asp-controller="Home" asp-action="Index" data-match="all" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li class="menu-header">Akun</li>
-            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
-            <li class="menu-header">RAPBJ</li>
-            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+            @if (user!.Role == UserRoles.Bendahara)
+            {
+                <li class="menu-header">Akun</li>
+                <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+                <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+
+                <li class="menu-header">RAPBJ</li>
+                <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+                <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+            }
 
             <li class="menu-header">Realisasi</li>
             <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Kas)" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Kas</span></a></li>

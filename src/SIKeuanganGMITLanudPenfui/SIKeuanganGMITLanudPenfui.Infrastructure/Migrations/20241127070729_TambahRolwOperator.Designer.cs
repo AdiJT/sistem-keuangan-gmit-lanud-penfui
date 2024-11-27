@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127070729_TambahRolwOperator")]
+    partial class TambahRolwOperator
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -5720,15 +5723,15 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFmxt2HWKMJv5fKZpS/QoL6hVK7thhH0UozIeckdedGGtMOIVTPn+7YLYqj93CGgsg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMgCBp8LhZZwIsIGCPhtNvHBwD8OfPhwpJbYz0g33O4yaRv2thhWUv67whTqjGVxHA==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         },
                         new
                         {
                             Id = 2,
-                            PasswordHash = "AQAAAAIAAYagAAAAEI3eC8Pk9dOU7SVN3y/mcUmQ4oMcyPlhAa5gs/oZb4BgTxASWDT/I0nSLV3bnFsKWg==",
-                            Role = "Operator",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM9Gtb0+/o3ua/wNme1CrUOuVNzVOYydQRGqZBeGorjD2KDmM5OtwlB+f7o1EAOwoA==",
+                            Role = "Bendahara",
                             UserName = "Operator"
                         });
                 });

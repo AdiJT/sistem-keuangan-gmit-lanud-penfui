@@ -3354,6 +3354,13 @@ internal static class ModelBuilderExtension
                 UserName = "Bendahara",
                 Role = UserRoles.Bendahara,
                 PasswordHash = new PasswordHasher<User>().HashPassword(null, "Bendahara")
+            },
+            new User
+            {
+                Id = 2,
+                UserName = "Operator",
+                Role = UserRoles.Operator,
+                PasswordHash = new PasswordHasher<User>().HashPassword(null, "Operator")
             }
         );
         #endregion

@@ -16,7 +16,7 @@ using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RealisasiModels;
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
-[Authorize(Roles = UserRoles.Bendahara)]
+[Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
 public class RealisasiController : Controller
 {
     private readonly IRepositoriTransaksi _repositoriTransaksi;

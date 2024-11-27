@@ -8,7 +8,6 @@ using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.HomeModels;
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
-[Authorize(Roles = UserRoles.Bendahara)]
 public class HomeController : Controller
 {
     private readonly ISignInManager _signInManager;
@@ -20,6 +19,7 @@ public class HomeController : Controller
         _repositoriTransaksi = repositoriTransaksi;
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     public async Task<IActionResult> Index()
     {
         var daftarTransaksi = await _repositoriTransaksi.GetAll();
@@ -56,6 +56,7 @@ public class HomeController : Controller
     }
 
     [HttpPost]
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     public async Task<IActionResult> Logout()
     {
         await _signInManager.Logout();

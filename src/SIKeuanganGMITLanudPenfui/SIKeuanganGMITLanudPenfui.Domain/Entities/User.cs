@@ -12,4 +12,5 @@ public class User : Entity
 public static class UserRoles
 {
     public const string Bendahara = "Bendahara";
+    public const string Operator = "Operator";
 }

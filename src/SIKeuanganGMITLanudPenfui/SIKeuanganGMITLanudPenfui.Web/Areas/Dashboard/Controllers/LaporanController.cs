@@ -11,7 +11,7 @@ using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.LaporanModels;
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
-[Authorize(Roles = UserRoles.Bendahara)]
+[Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
 public class LaporanController : Controller
 {
     private readonly IRepositoriJenisAkun _repositoriJenisAkun;
