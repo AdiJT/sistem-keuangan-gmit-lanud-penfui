@@ -43,17 +43,27 @@ public class RealisasiController : Controller
     }
 
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int?}")]
-    public async Task<IActionResult> Transaksi(Jenis jenis, int? tahun = null)
+    public async Task<IActionResult> Transaksi(Jenis jenis, int? tahun = null, DateOnly? start = null, DateOnly? end = null)
     {
         tahun ??= DateTime.Now.Year;
 
-        var daftarTransaksi = await _repositoriTransaksi.GetAllByTahun(tahun.Value, jenis);
+        if (start is null || start.Value.Year != tahun)
+            start = new DateOnly(tahun.Value, 1, 1);
 
-        return View(new IndexVM
+        if (end is null || end.Value.Year != tahun)
+            end = new DateOnly(tahun.Value, 12, 31);
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAllByTahun(tahun.Value, jenis))
+            .Where(t => DateOnly.FromDateTime(t.Tanggal) >= start.Value && DateOnly.FromDateTime(t.Tanggal) <= end.Value)
+            .ToList();    
+
+        return View(new TransaksiVM
         {
             Tahun = tahun.Value,
             Jenis = jenis,
-            DaftarTransaksi = daftarTransaksi.OrderBy(p => p.Tanggal).ToList()
+            DaftarTransaksi = daftarTransaksi.OrderBy(p => p.Tanggal).ToList(),
+            Start = start.Value,
+            End = end.Value
         });
     }
 
