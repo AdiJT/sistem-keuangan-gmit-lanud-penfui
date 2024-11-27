@@ -3,7 +3,26 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    var cultureInfo = new CultureInfo("id-ID");
 }
+
+<div class="card">
+    <div class="card-header">
+        Total Penerimaan SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
+    </div>
+    <div class="card-body">
+        @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Total Pengeluaran SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
+    </div>
+    <div class="card-body">
+        @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
+    </div>
+</div>
 
 @{
     var chartModelPenerimaan = new ChartVM
