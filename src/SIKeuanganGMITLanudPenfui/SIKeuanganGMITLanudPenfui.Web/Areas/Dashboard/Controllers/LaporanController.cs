@@ -76,7 +76,13 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRAPBJPartial.cshtml", vm);
-        var htmlToPdf = new HtmlToPdfConverter();
+        var htmlToPdf = new HtmlToPdfConverter
+        {
+            PageWidth = 210,
+            PageHeight = 297,
+            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
+        };
+
         var pdfBinary = htmlToPdf.GeneratePdf(html);
 
         if (download)
@@ -122,7 +128,14 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRekaptulasiTahunanPartial.cshtml", vm);
-        var htmlToPdf = new HtmlToPdfConverter();
+
+        var htmlToPdf = new HtmlToPdfConverter
+        {
+            PageWidth = 210,
+            PageHeight = 297,
+            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
+        };
+
         var pdfBinary = htmlToPdf.GeneratePdf(html);
 
         if (download)
@@ -164,7 +177,14 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanBKUPartial.cshtml", vm);
-        var htmlToPdf = new HtmlToPdfConverter();
+
+        var htmlToPdf = new HtmlToPdfConverter
+        {
+            PageWidth = 210,
+            PageHeight = 297,
+            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
+        };
+
         var pdfBinary = htmlToPdf.GeneratePdf(html);
 
         if (download)
