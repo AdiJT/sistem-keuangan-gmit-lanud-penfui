@@ -1,0 +1,127 @@
+﻿@model BKUVM
+
+@{
+    Layout = null;
+}
+
+@{
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<style>
+    table#tableBKU, table#tableBKU td, table#tableBKU th {
+        background: white;
+        border: thin solid #000000;
+        border-spacing: 0px;
+    }
+
+        table#tableBKU > thead th {
+            text-align: center;
+        }
+
+    #footerLaporan {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        display: -webkit-box;
+        -webkit-box-pack: space-between;
+    }
+
+    #tabelLaporan {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+    }
+
+    #laporan {
+        font-family: Calibri !important;
+        font-size: 11px !important;
+        color: black !important;
+    }
+
+    #headerLaporan {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<div id="laporan">
+    <div id="headerLaporan">
+        BUKU KAS UMUM<br />
+        BULAN @Model.MonthName(Model.Bulan) @Model.Tahun<br />
+    </div>
+
+    <br />
+
+    <div id="tabelLaporan">
+        <table id="tableBKU">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Kode Anggaran</th>
+                    <th>Uraian</th>
+                    <th>Penerimaan</th>
+                    <th>Pengeluaran</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var no = 1;
+                }
+                @foreach (var transaksi in Model.DaftarTransaksi)
+                {
+                    <tr>
+                        <td>@no</td>
+                        <td>@transaksi.Tanggal.ToString("dd MMMM yyyy", cultureInfo)</td>
+                        <td>@transaksi.Akun.KodeAkun</td>
+                        <td>@transaksi.Uraian</td>
+                        <td>@(transaksi.Jenis == Jenis.Penerimaan ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                        <td>@(transaksi.Jenis == Jenis.Belanja ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                        <td>@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
+                    </tr>
+                    no++;
+                }
+            </tbody>
+            <tfoot>
+                @{
+                    var totalPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                    var totalPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                    var totalSaldo = Model.DaftarTransaksi.LastOrDefault()?.SaldoKas ?? 0;
+                }
+                <tr>
+                    <th colspan="4" style="text-align:center">Jumlah</th>
+                    <th>@totalPenerimaan.ToString("C2", cultureInfo)</th>
+                    <th>@totalPengeluaran.ToString("C2", cultureInfo)</th>
+                    <th>@totalSaldo.ToString("C2", cultureInfo)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="footerLaporan">
+        <div id="tandaTangan">
+            Ketua Majelis Jemaat
+            <br />
+            <br />
+            <br />
+            <br />
+            Pdt. Ishak B. Batmalo, S.Th
+        </div>
+
+        <div id="tandaTangan">
+            Bendahara
+            <br />
+            <br />
+            <br />
+            <br />
+            Pnt. Melkianus Foes
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model BKUVM
+
+@{
+    ViewData["Title"] = "Laporan | BKU";
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Kode Anggaran</th>
+            <th>Uraian</th>
+            <th>Penerimaan</th>
+            <th>Pengeluaran</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var no = 1;
+        }
+        @foreach (var transaksi in Model.DaftarTransaksi)
+        {
+            <tr>
+                <td>@no</td>
+                <td>@transaksi.Tanggal.ToString("dd MMMM yyyy", cultureInfo)</td>
+                <td>@transaksi.Akun.KodeAkun</td>
+                <td>@transaksi.Uraian</td>
+                <td>@(transaksi.Jenis == Jenis.Penerimaan ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                <td>@(transaksi.Jenis == Jenis.Belanja ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                <td>@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
+            </tr>
+            no++;
+        }
+    </tbody>
+    <tfoot>
+        @{
+            var totalPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+            var totalPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+            var totalSaldo = Model.DaftarTransaksi.LastOrDefault()?.SaldoKas ?? 0;
+        }
+        <tr>
+            <th colspan="4" style="text-align:center">Jumlah</th>
+            <th>@totalPenerimaan.ToString("C2", cultureInfo)</th>
+            <th>@totalPengeluaran.ToString("C2", cultureInfo)</th>
+            <th>@totalSaldo.ToString("C2", cultureInfo)</th>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="card">
+    <div class="card-header">
+        Preview Laporan
+    </div>
+    <div class="card-body">
+        <iframe class="pdf" src="@Url.Action(nameof(LaporanController.BKUPDF), new { tahun = Model.Tahun, bulan = Model.Bulan})" width="100%"
+                height="600">
+        </iframe>
+    </div>
+</div>

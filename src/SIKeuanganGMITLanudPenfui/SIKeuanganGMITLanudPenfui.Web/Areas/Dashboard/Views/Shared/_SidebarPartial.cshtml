@@ -24,7 +24,7 @@
             <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Jenis.Belanja" lass="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">Laporan</li>
-            <li><a href="" class="nav-link"><i data-feather="file-text"></i><span>BKU</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.BKU)" asp-route-bulan="1" class="nav-link"><i data-feather="file-text"></i><span>BKU</span></a></li>
             <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RekaptulasiTahunan)" class="nav-link"><i data-feather="calendar"></i><span>Rekapitulasi Tahunan</span></a></li>
             <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJ)" class="nav-link"><i data-feather="calendar"></i><span>RAPBJ</span></a></li>
 

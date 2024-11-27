@@ -25,7 +25,7 @@
         }
         @for (int i = 1; i <= 12; i++)
         {
-            var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i);
+            var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i).OrderBy(t => t.Tanggal);
 
             <tr>
                 <td>@no</td>
@@ -34,7 +34,7 @@
                 {
                     var totalPenerimaan = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
                     var totalPengeluaran = daftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                    var saldo = totalPenerimaan - totalPengeluaran;
+                    var saldo = Model.DaftarTransaksi.Last().SaldoKas;
                     var setoran10Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
                     var setoran2Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
 
@@ -65,7 +65,7 @@
             @{
                 var jumlahPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
                 var jumlahPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                var jumlahSaldo = jumlahPenerimaan - jumlahPengeluaran;
+                var jumlahSaldo = Model.DaftarTransaksi.OrderBy(t => t.Tanggal).Last().SaldoKas;
                 var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
                 var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
             }
