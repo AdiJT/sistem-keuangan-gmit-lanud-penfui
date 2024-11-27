@@ -44,6 +44,31 @@
     <script src="~/js/dashboard.js" asp-append-version="true"></script>
     <script src="https://www.jsdelivr.com/package/npm/pdfjs-dist"></script>
 
+    <script type="text/javascript">
+        const matchLink = (linkHref, currentUrl, match) => {
+            if (match === "partial") {
+                return currentUrl.startsWith(linkHref);
+            } else {
+                return currentUrl === linkHref
+            }
+        }
+
+        // LINK SIDEBAR ACTIVE
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.nav-link');
+
+            const currentUrl = window.location.href;
+
+            links.forEach(link => {
+                if (matchLink(link.href, currentUrl, link.dataset.match)) {
+                    link.parentNode.classList.add('active');
+                } else {
+                    link.parentNode.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
