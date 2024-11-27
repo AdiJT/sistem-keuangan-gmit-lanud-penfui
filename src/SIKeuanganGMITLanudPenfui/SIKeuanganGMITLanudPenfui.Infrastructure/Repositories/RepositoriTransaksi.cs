@@ -65,8 +65,8 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
     public async Task<List<Transaksi>> GetAllByTahun(int tahun) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Tanggal.Year == tahun)
         .ToListAsync();
 

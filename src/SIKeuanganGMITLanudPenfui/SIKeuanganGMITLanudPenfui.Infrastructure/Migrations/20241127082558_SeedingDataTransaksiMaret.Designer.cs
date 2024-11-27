@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127082558_SeedingDataTransaksiMaret")]
+    partial class SeedingDataTransaksiMaret
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4381,7 +4384,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Saldo = 11767000.0,
+                            Saldo = 11328500.0,
                             TanggalDitambahkan = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Kas Bank GMIT Lanud"
@@ -5826,132 +5829,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             TanggalDitambahkan = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "1 pcs Rumput PL940"
-                        },
-                        new
-                        {
-                            Id = 85,
-                            AkunId = 77,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 12000.0,
-                            KasId = 1,
-                            SaldoKas = 11340500.0,
-                            Tanggal = new DateTime(2024, 3, 1, 1, 25, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima kolekte ibadah katekasasi reguler di Gereja JLET, dipimpin oleh Pjr. Lusia L. Kassir-Kollis"
-                        },
-                        new
-                        {
-                            Id = 86,
-                            AkunId = 81,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 138000.0,
-                            KasId = 1,
-                            SaldoKas = 11478500.0,
-                            Tanggal = new DateTime(2024, 3, 1, 1, 26, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima kolekte ibadah penggembalaan perhadapan Koster, UPP dan BP Kategorial, Fungsional dan Profesional JLET periode pelayanan 2024-2027 di Gereja JLET, dipimpin oleh Pdt. Ishak B. Batmalo, S.Th"
-                        },
-                        new
-                        {
-                            Id = 87,
-                            AkunId = 65,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 288500.0,
-                            KasId = 1,
-                            SaldoKas = 11767000.0,
-                            Tanggal = new DateTime(2024, 3, 1, 1, 27, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima kolekte ibadah rumah tangga dirumah Bpk. Yeskiel Humau Rayon 2, dipimpin oleh Dkn. Guntur S. Karlau"
-                        },
-                        new
-                        {
-                            Id = 88,
-                            AkunId = 54,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 469500.0,
-                            KasId = 1,
-                            SaldoKas = 12236500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 28, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Kolekte Ibadah Syukur Paskah"
-                        },
-                        new
-                        {
-                            Id = 89,
-                            AkunId = 19,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 20000.0,
-                            KasId = 1,
-                            SaldoKas = 12256500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 29, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima nazar Tanpa Nama"
-                        },
-                        new
-                        {
-                            Id = 90,
-                            AkunId = 21,
-                            FileBukti = "https://file/1",
-                            Jenis = 0,
-                            Jumlah = 200000.0,
-                            KasId = 1,
-                            SaldoKas = 12456500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 30, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Terima perpuluhan tidak tetap Tanpa Nama"
-                        },
-                        new
-                        {
-                            Id = 91,
-                            AkunId = 185,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 2000000.0,
-                            KasId = 1,
-                            SaldoKas = 10456500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 31, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tunjangan Ketua Majelis Jemaat  bulan April 2024"
-                        },
-                        new
-                        {
-                            Id = 92,
-                            AkunId = 186,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 1200000.0,
-                            KasId = 1,
-                            SaldoKas = 9256500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 32, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tunjangan Kesejahteraan Pendeta bulan April 2024"
-                        },
-                        new
-                        {
-                            Id = 93,
-                            AkunId = 187,
-                            FileBukti = "https://file/1",
-                            Jenis = 1,
-                            Jumlah = 750000.0,
-                            KasId = 1,
-                            SaldoKas = 8506500.0,
-                            Tanggal = new DateTime(2024, 4, 1, 1, 33, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Tunjangan Kesehatan Pendeta bulan April 2024"
                         });
                 });
 
@@ -5986,14 +5863,14 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAENBXgJQ6yIHz8rW5UT7gYWnMa98Jroi9iEfNXMegIp95QTACLJflS3TifYYOOXbl2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECDbEgSWBQggg4afONmwxkddyQyNYAP2d+WvvY57178RiZUaK0hrHoWS30i7GK4A+Q==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         },
                         new
                         {
                             Id = 2,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFVbDZz1nnRYbF9k7ScHST6g7kDF6idMUBVv+84nc7BTPVtXA2z01+swxje6IkEEcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEIYfjTmpClIwowmB6VsygGALNjbSZe/eoNHnvHEPykSvCH1Qe40bDlnKAvD01Ijxw==",
                             Role = "Operator",
                             UserName = "Operator"
                         });

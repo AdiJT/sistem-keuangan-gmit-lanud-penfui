@@ -34,13 +34,12 @@
                 <div class="card-body">
                     <vc:chart chart-model="@(new ChartVM
                     {
-                        Label = " Jumlah Penerimaan",
+                        Label = "Penerimaan",
                           Data=new Dictionary<string, double>(
-                            Model.DaftarTransaksi
-                                .Where(t => t.Jenis == Jenis.Penerimaan && t.Tanggal.Month == 1)
-                                .GroupBy(t => t.Tanggal.Date)
-                                .OrderBy(g => g.Key)
-                                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+                            Model.TransaksiPerTanggal
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
                 </div>
@@ -52,13 +51,12 @@
                 <div class="card-body">
                     <vc:chart chart-model="@(new ChartVM
                     {
-                        Label = " Jumlah Penerimaan",
+                        Label = "Penerimaan",
                           Data=new Dictionary<string, double>(
-                            Model.DaftarTransaksi
-                                .Where(t => t.Jenis == Jenis.Penerimaan && t.Tanggal.Year == DateTime.Now.Year)
-                                .GroupBy(t => t.Tanggal.Month)
-                                .OrderBy(g => g.Key)
-                                .Select(g => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(g.Key), g.Sum(t => t.Jumlah)))),
+                            Model.TransaksiPerBulan
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
                 </div>
@@ -70,7 +68,7 @@
                 <div class="card-body">
                     <vc:chart chart-model="@(new ChartVM
                     {
-                        Label = " Jumlah Penerimaan",
+                        Label = "Penerimaan",
                           Data=new Dictionary<string, double>(
                             Model.DaftarTransaksi
                                 .Where(t => t.Jenis == Jenis.Penerimaan)
@@ -97,11 +95,10 @@
                     {
                         Label = "Pengeluaran",
                           Data=new Dictionary<string, double>(
-                            Model.DaftarTransaksi
-                                .Where(t => t.Jenis == Jenis.Belanja && t.Tanggal.Month == 1)
-                                .GroupBy(t => t.Tanggal.Date)
-                                .OrderBy(g => g.Key)
-                                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+                            Model.TransaksiPerTanggal
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
                 </div>
@@ -115,11 +112,10 @@
                     {
                         Label = "Pengeluaran",
                           Data=new Dictionary<string, double>(
-                            Model.DaftarTransaksi
-                                .Where(t => t.Jenis == Jenis.Belanja && t.Tanggal.Year == DateTime.Now.Year)
-                                .GroupBy(t => t.Tanggal.Month)
-                                .OrderBy(g => g.Key)
-                                .Select(g => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(g.Key), g.Sum(t => t.Jumlah)))),
+                            Model.TransaksiPerBulan
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
                 </div>

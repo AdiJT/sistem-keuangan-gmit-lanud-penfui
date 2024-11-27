@@ -142,8 +142,8 @@
                 </tr>
                 <tr>
                     @{
-                        var realisasiPenerimaan = jumlahPenerimaan / jumlahRAPBJPenerimaan * 100d;
-                        var realisasiPengeluaran = jumlahPengeluaran / jumlahRAPBJPengeluaran * 100d;
+                        var realisasiPenerimaan = jumlahPenerimaan / jumlahRAPBJPenerimaan;
+                        var realisasiPengeluaran = jumlahPengeluaran / jumlahRAPBJPengeluaran;
                     }
                     <th colspan="2">Realisasi</th>
                     <td>@realisasiPenerimaan.ToString("P2")</td>
