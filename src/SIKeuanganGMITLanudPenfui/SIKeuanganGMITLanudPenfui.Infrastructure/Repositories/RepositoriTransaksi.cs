@@ -18,38 +18,38 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
     public async Task<Transaksi?> Get(int id) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .FirstOrDefaultAsync(t => t.Id == id);
 
     public async Task<Transaksi?> GetTerbaru() => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .OrderBy(t => t.Tanggal)
         .LastOrDefaultAsync();
 
     public async Task<List<Transaksi>> GetAll() => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .ToListAsync();
 
     public async Task<List<Transaksi>> GetAllByJenis(Jenis jenis) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Jenis == jenis)
         .ToListAsync();
 
     public async Task<List<Transaksi>> GetAllByMonth(int bulan) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Tanggal.Month == bulan)
         .OrderBy(t => t.Tanggal)
         .ToListAsync();
@@ -57,8 +57,8 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
     public async Task<List<Transaksi>> GetAllByMonth(int bulan, Jenis jenis) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Jenis == jenis && t.Tanggal.Month == bulan)
         .ToListAsync();
 
@@ -73,24 +73,24 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
     public async Task<List<Transaksi>> GetAllByTahun(int tahun, Jenis jenis) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Jenis == jenis && t.Tanggal.Year == tahun)
         .ToListAsync();
 
     public async Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Tanggal == tanggal)
         .ToListAsync();
 
     public async Task<List<Transaksi>> GetAllByTanggal(DateTime tanggal, Jenis jenis) => await _appDbContext.TblTransaksi
         .Include(t => t.Kas)
         .Include(t => t.Akun).ThenInclude(a => a.JenisAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
-        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun).ThenInclude(k => k.JenisAkun)
+        .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun).ThenInclude(g => g.KelompokAkun)
         .Where(t => t.Jenis == jenis && t.Tanggal == tanggal)
         .ToListAsync();
 

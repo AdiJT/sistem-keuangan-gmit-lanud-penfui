@@ -2292,9 +2292,9 @@ internal static class ModelBuilderExtension
             {
                 Id = 1,
                 Uraian = "Kas Bank GMIT Lanud",
-                Saldo = 11_767_000d,
-                TanggalDitambahkan = new DateTime(2024, 1, 1),
-                TanggalDiubah = new DateTime(2024, 3, 1)
+                Saldo = 4_693_500d,
+                TanggalDitambahkan = new DateTime(2024, 5, 4),
+                TanggalDiubah = new DateTime(2024, 5, 4)
             }
         );
         #endregion
@@ -3600,6 +3600,90 @@ internal static class ModelBuilderExtension
                 Tanggal = new DateTime(2024, 4, 1),
                 TanggalDitambahkan = new DateTime(2024, 4, 1),
                 TanggalDiubah = new DateTime(2024, 4, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 187,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Terima kolekte ibadah gabungan kaum perempuan dirumah Ibu. Marni Aplugi Rayon 1&7, dipimpin oleh Dkn. Orpa M. Bria-P",
+                Jumlah = 160_000d,
+                SaldoKas = 8_666_500d ,
+                Tanggal = new DateTime(2024, 5, 1),
+                TanggalDitambahkan = new DateTime(2024, 5, 1),
+                TanggalDiubah = new DateTime(2024, 5, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Penerimaan,
+                AkunId = 73,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Terima kolekte ibadah gabungan kaum perempuan dirumah Ibu. Meytri Boimata Rayon 2, dipimpin oleh Pnt. Nelcy Kamesa-Ballu",
+                Jumlah = 87_000d,
+                SaldoKas = 8_753_500d ,
+                Tanggal = new DateTime(2024, 5, 1),
+                TanggalDitambahkan = new DateTime(2024, 5, 1),
+                TanggalDiubah = new DateTime(2024, 5, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Penerimaan,
+                AkunId = 73,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Terima kolekte ibadah gabungan kaum perempuan dirumah Ibu. Yunita Lali Pora Rayon 4, dipimpin oleh Pnt. Rivera Lantik-N",
+                Jumlah = 160_000d,
+                SaldoKas = 8_913_500d ,
+                Tanggal = new DateTime(2024, 5, 1),
+                TanggalDitambahkan = new DateTime(2024, 5, 1),
+                TanggalDiubah = new DateTime(2024, 5, 1),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Penerimaan,
+                AkunId = 73,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Tunjangan Ketua Majelis Jemaat  bulan Mei 2024",
+                Jumlah = 2_000_000d,
+                SaldoKas = 6_913_500d ,
+                Tanggal = new DateTime(2024, 5, 4),
+                TanggalDitambahkan = new DateTime(2024, 5, 4),
+                TanggalDiubah = new DateTime(2024, 5, 4),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 185,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Tunjangan Kesejahteraan Pendeta bulan Mei 2024",
+                Jumlah = 1_200_000d,
+                SaldoKas = 5_713_500d ,
+                Tanggal = new DateTime(2024, 5, 4),
+                TanggalDitambahkan = new DateTime(2024, 5, 4),
+                TanggalDiubah = new DateTime(2024, 5, 4),
+                FileBukti = new Uri("https://file/1"),
+                Jenis = Jenis.Belanja,
+                AkunId = 186,
+                KasId = 1,
+            },
+            new
+            {
+                Id = 9,
+                Uraian = "Tunjangan Kesehatan Pendeta bulan Mei 2024",
+                Jumlah = 750_000d,
+                SaldoKas = 4_693_500d ,
+                Tanggal = new DateTime(2024, 5, 4),
+                TanggalDitambahkan = new DateTime(2024, 5, 4),
+                TanggalDiubah = new DateTime(2024, 5, 4),
                 FileBukti = new Uri("https://file/1"),
                 Jenis = Jenis.Belanja,
                 AkunId = 187,
