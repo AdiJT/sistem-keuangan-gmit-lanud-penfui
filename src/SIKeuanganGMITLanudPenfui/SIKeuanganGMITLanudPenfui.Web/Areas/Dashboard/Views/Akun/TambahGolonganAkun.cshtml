@@ -55,7 +55,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-0">
                             <label asp-for="@Model.IdKelompokAkun">Kelompok Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control selectric">
                                 @foreach (var kelompokAkun in Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>())
