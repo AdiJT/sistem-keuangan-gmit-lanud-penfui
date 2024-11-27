@@ -9,29 +9,31 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="active"><a href="" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a></li>
+            <li>
+                <a asp-area="Dashboard" asp-controller="Home" asp-action="Index" data-match="all" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
             <li class="menu-header">Akun</li>
-            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Penerimaan" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">RAPBJ</li>
-            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Penerimaan" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Belanja" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Jenis.Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">Realisasi</li>
-            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Kas)" class="nav-link"><i data-feather="shopping-bag"></i><span>Kas</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Jenis.Penerimaan" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Jenis.Belanja" lass="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Kas)" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Kas</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Jenis.Penerimaan" data-match="partial" class="nav-link"><i data-feather="package"></i><span>Penerimaan</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Jenis.Belanja" data-match="partial" class="nav-link"><i data-feather="shopping-bag"></i><span>Belanja</span></a></li>
 
             <li class="menu-header">Laporan</li>
-            <li><a href="" class="nav-link"><i data-feather="file-text"></i><span>BKU</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RekaptulasiTahunan)" class="nav-link"><i data-feather="calendar"></i><span>Rekapitulasi Tahunan</span></a></li>
-            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJ)" class="nav-link"><i data-feather="calendar"></i><span>RAPBJ</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.BKU)" asp-route-bulan="1" data-match="partial" class="nav-link"><i data-feather="file-text"></i><span>BKU</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RekaptulasiTahunan)" data-match="partial" class="nav-link"><i data-feather="calendar"></i><span>Rekapitulasi Tahunan</span></a></li>
+            <li><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJ)" data-match="partial" class="nav-link"><i data-feather="calendar"></i><span>RAPBJ</span></a></li>
 
             <li class="menu-header">Lainnya</li>
-            <li><a href="" class="nav-link"><i data-feather="sliders"></i><span>Aktivitas</span></a></li>
-            <li><a href="" class="nav-link"><i data-feather="settings"></i><span>Pengaturan</span></a></li>
-            <li><a href="" class="nav-link"><i data-feather="mail"></i><span>Laporan</span></a></li>
+            <li><a href="" data-match="partial" class="nav-link"><i data-feather="sliders"></i><span>Aktivitas</span></a></li>
+            <li><a href="" data-match="partial" class="nav-link"><i data-feather="settings"></i><span>Pengaturan</span></a></li>
+            <li><a href="" data-match="partial" class="nav-link"><i data-feather="mail"></i><span>Laporan</span></a></li>
         </ul>
     </aside>
 </div>

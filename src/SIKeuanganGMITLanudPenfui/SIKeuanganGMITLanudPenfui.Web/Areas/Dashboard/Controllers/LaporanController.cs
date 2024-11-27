@@ -128,4 +128,45 @@ public class LaporanController : Controller
 
         return File(pdfBinary, "application/pdf");
     }
+
+    public async Task<IActionResult> BKU(int bulan, int? tahun = null)
+    {
+        tahun ??= DateTime.Now.Year;
+
+        if(bulan <= 0 || bulan > 12) return BadRequest();
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAllByTahun(tahun.Value)).Where(t => t.Tanggal.Month == bulan).ToList();
+
+        return View(new BKUVM 
+        { 
+            Bulan = bulan, 
+            DaftarTransaksi = daftarTransaksi,
+            Tahun = tahun.Value
+        });
+    }
+
+    public async Task<IActionResult> BKUPDF(int bulan, int? tahun = null, bool download = false)
+    {
+        tahun ??= DateTime.Now.Year;
+
+        if (bulan <= 0 || bulan > 12) return BadRequest();
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAllByTahun(tahun.Value)).Where(t => t.Tanggal.Month == bulan).ToList();
+
+        var vm = new BKUVM
+        {
+            Bulan = bulan,
+            DaftarTransaksi = daftarTransaksi,
+            Tahun = tahun.Value
+        };
+
+        var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanBKUPartial.cshtml", vm);
+        var htmlToPdf = new HtmlToPdfConverter();
+        var pdfBinary = htmlToPdf.GeneratePdf(html);
+
+        if (download)
+            return File(pdfBinary, "application/pdf", $"Rekaptulasi Tahunan - {vm.Tahun}");
+
+        return File(pdfBinary, "application/pdf");
+    }
 }

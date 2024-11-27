@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241127024747_UpdateSeedingDataRAPBJ")]
+    partial class UpdateSeedingDataRAPBJ
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2248,7 +2251,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 1,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2256,7 +2259,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 2,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2264,7 +2267,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 3,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2272,7 +2275,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 4,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2280,7 +2283,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 5,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2288,7 +2291,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 6,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2296,7 +2299,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 7,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2304,7 +2307,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 8,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2312,7 +2315,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 9,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2320,7 +2323,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 10,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2328,7 +2331,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 11,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2336,7 +2339,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 12,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2344,7 +2347,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 13,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2352,7 +2355,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 14,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2360,7 +2363,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 15,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2368,7 +2371,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 16,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2376,7 +2379,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 17,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2384,7 +2387,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 18,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2392,7 +2395,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 19,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2400,7 +2403,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 20,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2408,7 +2411,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 21,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2416,7 +2419,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 22,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2424,7 +2427,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 23,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2432,7 +2435,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 24,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2440,7 +2443,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 25,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2448,7 +2451,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 26,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2456,7 +2459,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 27,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2464,7 +2467,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 28,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2472,7 +2475,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 29,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2480,7 +2483,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 30,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2488,7 +2491,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 31,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2496,7 +2499,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 32,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2504,7 +2507,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 33,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2512,7 +2515,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 34,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2520,7 +2523,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 35,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2528,7 +2531,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 36,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2536,7 +2539,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 37,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2544,7 +2547,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 38,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2552,7 +2555,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 39,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2560,7 +2563,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 40,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2568,7 +2571,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 41,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2576,7 +2579,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 232,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2584,7 +2587,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 233,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2592,7 +2595,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 234,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2600,7 +2603,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 235,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2608,7 +2611,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 236,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -2616,7 +2619,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         {
                             TahunRAPBJ = 2024,
                             KodeAkun = 237,
-                            HargaSatuan = 500000.0,
+                            HargaSatuan = 100000000.0,
                             Satuan = "kali",
                             Volume = 1
                         },
@@ -5720,7 +5723,7 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEIUMu+o3Bw2BzlhY/OV1OMNCHUGxPPNodgCDfjAeI+px0ZxoN0cWRqYdJQonT32wDg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGKjqxr13V9ZuJGd2Xf87M2TbNERqs973sdXcub5FE4XmYFrLZpiGBCXlZvI2gdBGw==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         });

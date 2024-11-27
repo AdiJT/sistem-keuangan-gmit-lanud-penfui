@@ -5,30 +5,37 @@
     var cultureInfo = new CultureInfo("id-ID");
 }
 
-<style>
-    .table:not(.table-sm) thead th {
-        background-color: rgba(0, 0, 0, 0.04);
-        color: #000 !important;
-    }
-
-    .dataTables_filter {
-        display: flex;
-        justify-content: center;
-        width: 60%; /* Atur lebar container search */
-        margin: 0 auto; /* Posisikan di tengah */
-    }
-        .dataTables_filter input {
-            width: 300px !important; /* Pastikan input search memenuhi container */
-        }
-</style>
 
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Rekapitulasi Tahunan</h4>
+        <h4>Rekapitulasi Tahunan</h4>        
     </div>
-    <div class="card-body">
+    <div class="card-body pt-1">
+        <div class="d-flex justify-content-start ml-auto mb-1">
+            <div class="mb-2">
+                <a asp-action="@nameof(LaporanController.RekaptulasiTahunanPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true"
+                   class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">
+                    PDF
+                </a>
+            </div>
+            <div class="ml-auto">
+                <select id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun Rekapitulasi">
+                    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                    {
+                        @if (tahun == Model.Tahun)
+                        {
+                            <option selected value="@tahun">@tahun</option>
+                        }
+                        else
+                        {
+                            <option value="@tahun">@tahun</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>              
         <div class="table-responsive">
-            <table class="table table-hover table-stripped" id="table-search">
+            <table class="table table-hover table-stripped" id="table-order">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -48,7 +55,7 @@
                     }
                     @for (int i = 1; i <= 12; i++)
                     {
-                        var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i);
+                        var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i).OrderBy(t => t.Tanggal);
 
                         <tr>
                             <td>@no</td>
@@ -92,27 +99,41 @@
                             var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
                             var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
                         }
-                        <th colspan="2">Jumlah</th>
-                        <td>@jumlahPenerimaan.ToString("C2", cultureInfo)</td>
-                        <td>@jumlahPengeluaran.ToString("C2", cultureInfo)</td>
-                        <td>@jumlahSaldo.ToString("C2", cultureInfo)</td>
-                        <td>@jumlahSGP.ToString("C2", cultureInfo)</td>
-                        <td>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</td>
-                        <td>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</td>
+                        <th colspan="2" class="text-right pr-4">Jumlah</th>
+                        <td class="text-center"><b>@jumlahPenerimaan.ToString("C2", cultureInfo)</b></td>
+                        <td class="text-center"><b>@jumlahPengeluaran.ToString("C2", cultureInfo)</b></td>
+                        <td class="text-center"><b>@jumlahSaldo.ToString("C2", cultureInfo)</b></td>
+                        <td class="text-center"><b>@jumlahSGP.ToString("C2", cultureInfo)</b></td>
+                        <td class="text-center"><b>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</b></td>
+                        <td class="text-center"><b>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</b></td>
                     </tr>
                 </tfoot>
             </table>
-        </div>
+        </div>       
     </div>
 </div>
 
 <div class="card">
     <div class="card-header">
-        Preview Laporan PDF
+        <h4>Preview Laporan PDF</h4>
     </div>
-    <div class="card-body">
+    <div class="card-body pt-0">
         <iframe class="pdf" src="@Url.ActionLink(nameof(LaporanController.RekaptulasiTahunanPDF), "Laporan", new { tahun = Model.Tahun})"
                 width="100%" height="600">
         </iframe>
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+
+        const url = '@Url.Action(nameof(LaporanController.RekaptulasiTahunan))';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+
+            location.href = `${url}?tahun=${tahun}`;
+        });
+    </script>
+}

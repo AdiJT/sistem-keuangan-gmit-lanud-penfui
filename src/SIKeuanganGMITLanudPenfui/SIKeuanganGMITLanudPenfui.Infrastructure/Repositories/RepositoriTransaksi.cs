@@ -51,6 +51,7 @@ internal class RepositoriTransaksi : IRepositoriTransaksi
         .Include(t => t.Akun).ThenInclude(a => a.KelompokAkun)
         .Include(t => t.Akun).ThenInclude(a => a.GolonganAkun)
         .Where(t => t.Tanggal.Month == bulan)
+        .OrderBy(t => t.Tanggal)
         .ToListAsync();
 
     public async Task<List<Transaksi>> GetAllByMonth(int bulan, Jenis jenis) => await _appDbContext.TblTransaksi

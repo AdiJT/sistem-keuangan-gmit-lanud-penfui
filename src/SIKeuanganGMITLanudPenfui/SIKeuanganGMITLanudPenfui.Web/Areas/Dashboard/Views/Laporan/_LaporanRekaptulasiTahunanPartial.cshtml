@@ -78,7 +78,7 @@
                 }
                 @for (int i = 1; i <= 12; i++)
                 {
-                    var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i);
+                    var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i).OrderBy(t => t.Tanggal);
 
                     <tr>
                         <td>@no</td>
@@ -87,7 +87,7 @@
                         {
                             var totalPenerimaan = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
                             var totalPengeluaran = daftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                            var saldo = totalPenerimaan - totalPengeluaran;
+                            var saldo = daftarTransaksi.Last().SaldoKas;
                             var setoran10Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
                             var setoran2Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
 
@@ -118,7 +118,7 @@
                     @{
                         var jumlahPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
                         var jumlahPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                        var jumlahSaldo = jumlahPenerimaan - jumlahPengeluaran;
+                        var jumlahSaldo = Model.DaftarTransaksi.OrderBy(t => t.Tanggal).Last().SaldoKas;
                         var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
                         var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
                     }
@@ -129,6 +129,26 @@
                     <td>@jumlahSGP.ToString("C2", cultureInfo)</td>
                     <td>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</td>
                     <td>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</td>
+                </tr>
+                <tr>
+                    @{
+                        var jumlahRAPBJPenerimaan = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Jenis.Penerimaan).Sum(d => d.Jumlah);
+                        var jumlahRAPBJPengeluaran = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Jenis.Belanja).Sum(d => d.Jumlah);
+                    }
+                    <th colspan="2">RAPBJ @Model.Tahun</th>
+                    <td>@jumlahRAPBJPenerimaan.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahRAPBJPengeluaran.ToString("C2", cultureInfo)</td>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    @{
+                        var realisasiPenerimaan = jumlahPenerimaan / jumlahRAPBJPenerimaan * 100d;
+                        var realisasiPengeluaran = jumlahPengeluaran / jumlahRAPBJPengeluaran * 100d;
+                    }
+                    <th colspan="2">Realisasi</th>
+                    <td>@realisasiPenerimaan.ToString("P2")</td>
+                    <td>@realisasiPengeluaran.ToString("P2")</td>
+                    <td colspan="4"></td>
                 </tr>
             </tfoot>
         </table>

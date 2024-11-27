@@ -90,11 +90,11 @@ $('#table-akun-4').DataTable({
     lengthMenu: [10, 25, 50, 100], 
 });
 
-$("#table-search").dataTable({
+$("#table-order").dataTable({
     "paging": false, 
     "info": true, 
     "ordering": true, 
-    "searching": true, 
+    "searching": false, 
     "dom": '<"d-flex justify-content-center"f><t>'
 });
 
