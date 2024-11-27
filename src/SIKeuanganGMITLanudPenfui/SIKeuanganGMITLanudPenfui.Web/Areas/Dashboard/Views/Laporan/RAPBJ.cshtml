@@ -21,7 +21,7 @@
             Tabel RAPBJ
         </div>
         <div class="card-body">
-            <a asp-action="@nameof(LaporanController.RAPBJPDF)" asp-route-tahun="@Model.Tahun" class="btn btn-primary">PDF</a>
+            <a asp-action="@nameof(LaporanController.RAPBJPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true" class="btn btn-primary">PDF</a>
             <div class="table-responsive">
                 <table class="table table-striped table-hover" id="table-akun-1" width="100%">
                     <thead>
