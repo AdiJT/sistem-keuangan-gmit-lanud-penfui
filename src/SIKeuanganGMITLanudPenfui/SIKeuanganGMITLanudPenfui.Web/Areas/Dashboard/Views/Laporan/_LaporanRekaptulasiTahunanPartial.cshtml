@@ -130,6 +130,26 @@
                     <td>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</td>
                     <td>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</td>
                 </tr>
+                <tr>
+                    @{
+                        var jumlahRAPBJPenerimaan = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Jenis.Penerimaan).Sum(d => d.Jumlah);
+                        var jumlahRAPBJPengeluaran = Model.RAPBJ.DaftarDetailRAPBJ.Where(d => d.Akun.JenisAkun.Jenis == Jenis.Belanja).Sum(d => d.Jumlah);
+                    }
+                    <th colspan="2">RAPBJ @Model.Tahun</th>
+                    <td>@jumlahRAPBJPenerimaan.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahRAPBJPengeluaran.ToString("C2", cultureInfo)</td>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    @{
+                        var realisasiPenerimaan = jumlahPenerimaan / jumlahRAPBJPenerimaan * 100d;
+                        var realisasiPengeluaran = jumlahPengeluaran / jumlahRAPBJPengeluaran * 100d;
+                    }
+                    <th colspan="2">Realisasi</th>
+                    <td>@realisasiPenerimaan.ToString("P2")</td>
+                    <td>@realisasiPengeluaran.ToString("P2")</td>
+                    <td colspan="4"></td>
+                </tr>
             </tfoot>
         </table>
     </div>

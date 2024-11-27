@@ -2259,7 +2259,7 @@ internal static class ModelBuilderExtension
                 KodeAkun = a.Id,
                 Volume = 1,
                 Satuan = "kali",
-                HargaSatuan = 10000d
+                HargaSatuan = 500_000d
             })
         );
 
