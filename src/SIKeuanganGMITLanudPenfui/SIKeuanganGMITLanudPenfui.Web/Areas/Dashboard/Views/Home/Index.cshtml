@@ -24,45 +24,116 @@
     </div>
 </div>
 
-@{
-    var chartModelPenerimaan = new ChartVM
-    {
-        Label = "Jumlah Penerimaan",
-        Data = new Dictionary<string, double>(
-            Model.DaftarTransaksi
-                .Where(t => t.Jenis == Jenis.Penerimaan)
-                .GroupBy(t => t.Tanggal.Date)
-                .OrderBy(g => g.Key)
-                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
-        Type = ChartType.Line
-    };
+<div class="card">
+    <div class="card-header">
+        Penerimaan
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Penerimaan",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Penerimaan && t.Tanggal.Month == 1)
+                            .GroupBy(t => t.Tanggal.Date)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Penerimaan",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Penerimaan && t.Tanggal.Year == DateTime.Now.Year)
+                            .GroupBy(t => t.Tanggal.Month)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(g.Key), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Penerimaan",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Penerimaan)
+                            .GroupBy(t => t.Tanggal.Year)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(g.Key.ToString(), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 d-flex justify-content-center">
+                Bulan Januari
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+                Tahun 2024
+            </div>
+        </div>
+    </div> 
+</div>
 
-    var chartModelPengeluaran = new ChartVM
-    {
-        Label = "Jumlah Pengeluaran",
-        Data = new Dictionary<string, double>(
-            Model.DaftarTransaksi
-                .Where(t => t.Jenis == Jenis.Belanja)
-                .GroupBy(t => t.Tanggal.Date)
-                .OrderBy(g => g.Key)
-                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
-        Type = ChartType.Line
-    };
-
-    var chartModelSaldo = new ChartVM
-    {
-        Label = "Jumlah Saldo",
-        Data = new Dictionary<string, double>(
-            Model.DaftarTransaksi
-                .GroupBy(t => t.Tanggal.Date)
-                .OrderBy(g => g.Key)
-                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Last().SaldoKas))),
-        Type = ChartType.Line
-    };
-}
-
-<vc:chart chart-model="@chartModelPenerimaan"/>
-
-<vc:chart chart-model="@chartModelPengeluaran"/>
-
-<vc:chart chart-model="@chartModelSaldo"/>
+<div class="card">
+    <div class="card-header">
+        Pengeluaran
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Pengeluran",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Belanja && t.Tanggal.Month == 1)
+                            .GroupBy(t => t.Tanggal.Date)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Pengeluran",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Belanja && t.Tanggal.Year == DateTime.Now.Year)
+                            .GroupBy(t => t.Tanggal.Month)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(g.Key), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+            <div class="col-4">
+                <vc:chart chart-model="@(new ChartVM
+                {
+                    Label = " Jumlah Pengeluran",
+                      Data=new Dictionary<string, double>(
+                        Model.DaftarTransaksi
+                            .Where(t => t.Jenis == Jenis.Belanja)
+                            .GroupBy(t => t.Tanggal.Year)
+                            .OrderBy(g => g.Key)
+                            .Select(g => new KeyValuePair<string, double>(g.Key.ToString(), g.Sum(t => t.Jumlah)))),
+                    Type = ChartType.Line
+                })" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 d-flex justify-content-center">
+                Bulan Januari
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+                Tahun 2024
+            </div>
+        </div>
+    </div> 
+</div>
