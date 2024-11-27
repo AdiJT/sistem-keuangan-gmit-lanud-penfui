@@ -50,7 +50,7 @@ public class LaporanController : Controller
         });
     }
 
-    public async Task<IActionResult> RAPBJPDF(int? tahun = null)
+    public async Task<IActionResult> RAPBJPDF(int? tahun = null, bool download = false)
     {
         var rTahun = Tahun.Create(tahun ?? DateTime.Now.Year);
         if (rTahun.IsFailure) return BadRequest();
@@ -71,6 +71,9 @@ public class LaporanController : Controller
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRAPBJPartial.cshtml", vm);
         var htmlToPdf = new HtmlToPdfConverter();
         var pdfBinary = htmlToPdf.GeneratePdf(html);
+
+        if (download)
+            return File(pdfBinary, "application/pdf", $"RAPBJ - {vm.Tahun}");
 
         return File(pdfBinary, "application/pdf");
     }
