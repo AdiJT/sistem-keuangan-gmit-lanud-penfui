@@ -56,6 +56,7 @@ public class LaporanController : Controller
         });
     }
 
+    [AllowAnonymous]
     public async Task<IActionResult> RAPBJPDF(int? tahun = null, bool download = false)
     {
         var rTahun = Tahun.Create(tahun ?? DateTime.Now.Year);
@@ -102,6 +103,7 @@ public class LaporanController : Controller
         });
     }
 
+    [AllowAnonymous]
     public async Task<IActionResult> RekaptulasiTahunanPDF(int? tahun = null, bool download = false)
     {
         var rTahun = Tahun.Create(tahun ?? DateTime.Now.Year);
@@ -145,6 +147,7 @@ public class LaporanController : Controller
         });
     }
 
+    [AllowAnonymous]
     public async Task<IActionResult> BKUPDF(int bulan, int? tahun = null, bool download = false)
     {
         tahun ??= DateTime.Now.Year;
