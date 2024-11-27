@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.HomeModels;
 
@@ -11,15 +12,19 @@ namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 public class HomeController : Controller
 {
     private readonly ISignInManager _signInManager;
+    private readonly IRepositoriTransaksi _repositoriTransaksi;
 
-    public HomeController(ISignInManager signInManager)
+    public HomeController(ISignInManager signInManager, IRepositoriTransaksi repositoriTransaksi)
     {
         _signInManager = signInManager;
+        _repositoriTransaksi = repositoriTransaksi;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var daftarTransaksi = await _repositoriTransaksi.GetAll();
+
+        return View(new IndexVM { DaftarTransaksi = daftarTransaksi });
     }
 
     [AllowAnonymous]

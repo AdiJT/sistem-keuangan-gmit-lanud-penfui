@@ -1,12 +1,49 @@
-﻿@{
+﻿@using SIKeuanganGMITLanudPenfui.Web.Models
+@model IndexVM
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<style>
- 
-</style>
+@{
+    var chartModelPenerimaan = new ChartVM
+    {
+        Label = "Jumlah Penerimaan",
+        Data = new Dictionary<string, double>(
+            Model.DaftarTransaksi
+                .Where(t => t.Jenis == Jenis.Penerimaan)
+                .GroupBy(t => t.Tanggal.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+        Type = ChartType.Line
+    };
 
+    var chartModelPengeluaran = new ChartVM
+    {
+        Label = "Jumlah Pengeluaran",
+        Data = new Dictionary<string, double>(
+            Model.DaftarTransaksi
+                .Where(t => t.Jenis == Jenis.Belanja)
+                .GroupBy(t => t.Tanggal.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Sum(t => t.Jumlah)))),
+        Type = ChartType.Line
+    };
 
+    var chartModelSaldo = new ChartVM
+    {
+        Label = "Jumlah Saldo",
+        Data = new Dictionary<string, double>(
+            Model.DaftarTransaksi
+                .GroupBy(t => t.Tanggal.Date)
+                .OrderBy(g => g.Key)
+                .Select(g => new KeyValuePair<string, double>(g.Key.ToString("dd/MM/yyyy"), g.Last().SaldoKas))),
+        Type = ChartType.Line
+    };
+}
 
+<vc:chart chart-model="@chartModelPenerimaan"/>
 
+<vc:chart chart-model="@chartModelPengeluaran"/>
 
+<vc:chart chart-model="@chartModelSaldo"/>
