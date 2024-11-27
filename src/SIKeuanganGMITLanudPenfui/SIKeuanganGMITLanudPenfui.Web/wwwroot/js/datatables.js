@@ -60,35 +60,44 @@ $('#table-akun-1').DataTable({
     lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
 });
 $('#table-akun-2').DataTable({
-    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', 
     buttons: [
-        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+        'csv', 'excel', 'pdf', 'print' 
     ],
     columnDefs: [
-        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+        { "sortable": false, "targets": [2] } 
     ],
-    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
+    lengthMenu: [10, 25, 50, 100], 
 });
 $('#table-akun-3').DataTable({
-    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>',
     buttons: [
-        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+        'csv', 'excel', 'pdf', 'print' 
     ],
     columnDefs: [
-        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+        { "sortable": false, "targets": [2] } 
     ],
-    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
+    lengthMenu: [10, 25, 50, 100], 
 });
 $('#table-akun-4').DataTable({
-    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', // Atur posisi elemen
+    dom: '<"row justify-content-between"lf><"row"B>rt<"bottom-wrapper"ip>', 
     buttons: [
-        'csv', 'excel', 'pdf', 'print' // Tombol ekspor
+        'csv', 'excel', 'pdf', 'print' 
     ],
     columnDefs: [
-        { "sortable": false, "targets": [2] } // Menonaktifkan pengurutan untuk kolom tertentu
+        { "sortable": false, "targets": [2] } 
     ],
-    lengthMenu: [10, 25, 50, 100], // Opsi "Show entries"
+    lengthMenu: [10, 25, 50, 100], 
 });
+
+$("#table-search").dataTable({
+    "paging": false, 
+    "info": true, 
+    "ordering": true, 
+    "searching": true, 
+    "dom": '<"d-flex justify-content-center"f><t>'
+});
+
 
 
 
