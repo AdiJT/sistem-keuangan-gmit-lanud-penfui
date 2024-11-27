@@ -72,6 +72,6 @@ public class LaporanController : Controller
         var htmlToPdf = new HtmlToPdfConverter();
         var pdfBinary = htmlToPdf.GeneratePdf(html);
 
-        return File(pdfBinary, "application/pdf", $"RAPBJ - {rTahun.Value.Value}.pdf");
+        return File(pdfBinary, "application/pdf");
     }
 }
