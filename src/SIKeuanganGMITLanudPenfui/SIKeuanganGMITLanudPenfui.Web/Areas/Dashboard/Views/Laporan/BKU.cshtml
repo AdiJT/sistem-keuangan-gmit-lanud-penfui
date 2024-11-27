@@ -5,6 +5,39 @@
     var cultureInfo = new CultureInfo("id-ID");
 }
 
+<select id="tahun" class="form-control">
+    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+    {
+        @if (tahun == Model.Tahun)
+        {
+            <option selected value="@tahun">@tahun</option>
+        }
+        else
+        {
+            <option value="@tahun">@tahun</option>
+        }
+    }
+</select>
+
+<select id="bulan" class="form-control">
+    @foreach (var bulan in Enumerable.Range(1, 12))
+    {
+        @if (bulan == Model.Bulan)
+        {
+            <option selected value="@bulan">@Model.MonthName(bulan)</option>
+        }
+        else
+        {
+            <option value="@bulan">@Model.MonthName(bulan)</option>
+        }
+    }
+</select>
+
+<a asp-action="@nameof(LaporanController.BKUPDF)" asp-route-tahun="@Model.Tahun" asp-route-bulan="@Model.Bulan" asp-route-download="@true"
+   class="btn btn-primary">
+    PDF
+</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -60,3 +93,26 @@
         </iframe>
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+        const selectBulan = $('select#bulan');
+
+        const url = '@Url.Action(nameof(LaporanController.BKU))';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+            const bulan = $(selectBulan).val();
+
+            location.href = `${url}?tahun=${tahun}&bulan=${bulan}`;
+        });
+
+        $(selectBulan).on('change', function () {
+            const tahun = $(selectTahun).val();
+            const bulan = $(selectBulan).val();
+
+            location.href = `${url}?tahun=${tahun}&bulan=${bulan}`;
+        });
+    </script>
+}
