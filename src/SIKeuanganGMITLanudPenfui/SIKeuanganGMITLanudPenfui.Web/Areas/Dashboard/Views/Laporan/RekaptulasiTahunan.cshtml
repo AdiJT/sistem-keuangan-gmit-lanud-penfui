@@ -5,18 +5,29 @@
     var cultureInfo = new CultureInfo("id-ID");
 }
 
+<!-- Breadcrumb -->
+<div class="row">
+    <partial name="_BreadcrumbPartial" />
+</div>
+
 
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Rekapitulasi Tahunan</h4>        
+        <h4>Laporan Rekapitulasi Tahun @Model.Tahun</h4>        
     </div>
     <div class="card-body pt-1">
         <div class="d-flex justify-content-start ml-auto mb-1">
             <div class="mb-2">
-                <a asp-action="@nameof(LaporanController.RekaptulasiTahunanPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true"
-                   class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">
-                    PDF
-                </a>
+                @if (Model.RAPBJ is not null)
+                {
+                    <a asp-action="@nameof(LaporanController.RekaptulasiTahunanPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true"
+                       class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">
+                        PDF
+                    </a>
+                }
+                else
+                {
+                }
             </div>
             <div class="ml-auto">
                 <select id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun Rekapitulasi">
@@ -33,96 +44,112 @@
                     }
                 </select>
             </div>
-        </div>              
-        <div class="table-responsive">
-            <table class="table table-hover table-stripped" id="table-order">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Bulan</th>
-                        <th class="text-center">Penerimaan</th>
-                        <th class="text-center">Pengeluaran</th>
-                        <th class="text-center">Saldo</th>
-                        <th class="text-center">SGP</th>
-                        <th class="text-center">10%</th>
-                        <th class="text-center">2%</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        var no = 1;
-                        var jumlahSGP = 0d;
-                    }
-                    @for (int i = 1; i <= 12; i++)
-                    {
-                        var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i).OrderBy(t => t.Tanggal);
-
+        </div>
+        @if (Model.RAPBJ is not null)
+        {
+            <div class="table-responsive">
+                <table class="table table-hover table-stripped" id="table-order">
+                    <thead>
                         <tr>
-                            <td>@no</td>
-                            <td>@Model.MonthName(i)</td>
-                            @if (daftarTransaksi.Count() > 0)
-                            {
-                                var totalPenerimaan = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
-                                var totalPengeluaran = daftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                                var saldo = totalPenerimaan - totalPengeluaran;
-                                var setoran10Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
-                                var setoran2Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
-
-                                <td class="text-center">@totalPenerimaan.ToString("C2", cultureInfo)</td>
-                                <td class="text-center">@totalPengeluaran.ToString("C2", cultureInfo)</td>
-                                <td class="text-center">@saldo.ToString("C2", cultureInfo)</td>
-                                <td class="text-center">@(6500000d.ToString("C2", cultureInfo))</td>
-                                <td class="text-center">@setoran10Persen.ToString("C2", cultureInfo)</td>
-                                <td class="text-center">@setoran2Persen.ToString("C2", cultureInfo)</td>
-
-                                jumlahSGP += 6500000d;
-                            }
-                            else
-                            {
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                                <td class="text-center">-</td>
-                            }
+                            <th>No</th>
+                            <th>Bulan</th>
+                            <th class="text-center">Penerimaan</th>
+                            <th class="text-center">Pengeluaran</th>
+                            <th class="text-center">Saldo</th>
+                            <th class="text-center">SGP</th>
+                            <th class="text-center">10%</th>
+                            <th class="text-center">2%</th>
                         </tr>
-                        no++;
-                    }
-                </tbody>
-                <tfoot>
-                    <tr>
+                    </thead>
+                    <tbody>
                         @{
-                            var jumlahPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
-                            var jumlahPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
-                            var jumlahSaldo = jumlahPenerimaan - jumlahPengeluaran;
-                            var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
-                            var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
+                            var no = 1;
+                            var jumlahSGP = 0d;
                         }
-                        <th colspan="2" class="text-right pr-4">Jumlah</th>
-                        <td class="text-center"><b>@jumlahPenerimaan.ToString("C2", cultureInfo)</b></td>
-                        <td class="text-center"><b>@jumlahPengeluaran.ToString("C2", cultureInfo)</b></td>
-                        <td class="text-center"><b>@jumlahSaldo.ToString("C2", cultureInfo)</b></td>
-                        <td class="text-center"><b>@jumlahSGP.ToString("C2", cultureInfo)</b></td>
-                        <td class="text-center"><b>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</b></td>
-                        <td class="text-center"><b>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</b></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>       
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i).OrderBy(t => t.Tanggal);
+
+                            <tr>
+                                <td>@no</td>
+                                <td>@Model.MonthName(i)</td>
+                                @if (daftarTransaksi.Count() > 0)
+                                {
+                                    var totalPenerimaan = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                                    var totalPengeluaran = daftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                                    var saldo = totalPenerimaan - totalPengeluaran;
+                                    var setoran10Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
+                                    var setoran2Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
+
+                                    <td class="text-center">@totalPenerimaan.ToString("C2", cultureInfo)</td>
+                                    <td class="text-center">@totalPengeluaran.ToString("C2", cultureInfo)</td>
+                                    <td class="text-center">@saldo.ToString("C2", cultureInfo)</td>
+                                    <td class="text-center">@(6500000d.ToString("C2", cultureInfo))</td>
+                                    <td class="text-center">@setoran10Persen.ToString("C2", cultureInfo)</td>
+                                    <td class="text-center">@setoran2Persen.ToString("C2", cultureInfo)</td>
+
+                                    jumlahSGP += 6500000d;
+                                }
+                                else
+                                {
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">-</td>
+                                }
+                            </tr>
+                            no++;
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            @{
+                                var jumlahPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                                var jumlahPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                                var jumlahSaldo = jumlahPenerimaan - jumlahPengeluaran;
+                                var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
+                                var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
+                            }
+                            <th colspan="2" class="text-right pr-4">Jumlah</th>
+                            <td class="text-center"><b>@jumlahPenerimaan.ToString("C2", cultureInfo)</b></td>
+                            <td class="text-center"><b>@jumlahPengeluaran.ToString("C2", cultureInfo)</b></td>
+                            <td class="text-center"><b>@jumlahSaldo.ToString("C2", cultureInfo)</b></td>
+                            <td class="text-center"><b>@jumlahSGP.ToString("C2", cultureInfo)</b></td>
+                            <td class="text-center"><b>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</b></td>
+                            <td class="text-center"><b>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</b></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+        else
+        {
+            <hr class="mb-2">
+            <div class="card-body">
+                <p class="text-center">Rekapitulasi Tahun @Model.Tahun belum dibuat.</p>
+            </div>
+        }
     </div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-        <h4>Preview Laporan PDF</h4>
+@if (Model.RAPBJ is not null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h4>Preview Laporan Rekapitulasi Tahun @Model.Tahun</h4>
+        </div>
+        <div class="card-body pt-0">
+            <iframe class="pdf" src="@Url.ActionLink(nameof(LaporanController.RekaptulasiTahunanPDF), "Laporan", new { tahun = Model.Tahun})"
+                    width="100%" height="600">
+            </iframe>
+        </div>
     </div>
-    <div class="card-body pt-0">
-        <iframe class="pdf" src="@Url.ActionLink(nameof(LaporanController.RekaptulasiTahunanPDF), "Laporan", new { tahun = Model.Tahun})"
-                width="100%" height="600">
-        </iframe>
-    </div>
-</div>
+}
+else
+{
+}
 
 @section Scripts {
     <script type="text/javascript">
