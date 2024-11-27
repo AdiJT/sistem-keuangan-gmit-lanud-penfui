@@ -82,7 +82,7 @@
 
                         @if (Model.Jenis == Jenis.Penerimaan)
                         {
-                            <div class="form-group">
+                            <div class="form-group mb-0">
                                 <input asp-for="@Model.SetoranSinode" type="checkbox" class="form-check-input">
                                 <label asp-for="@Model.SetoranSinode" class="form-check-label">Setoran Sinode</label>
                                 <span asp-validation-for="@Model.SetoranSinode" class="form-text text-danger"></span>

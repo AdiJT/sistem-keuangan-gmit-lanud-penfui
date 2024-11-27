@@ -9,6 +9,13 @@
     var daftarAkun = (await RepositoriAkun.GetAllByTahun(Tahun.Create(Model.Tahun).Value)).Where(a => a.JenisAkun.Jenis == Model.Jenis).ToList();
 }
 
+<!-- Breadcrumb -->
+<div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
+        <partial name="_BreadcrumbPartial" />
+    </div>
+</div>
+
 <div class="section-body">
     <div class="row" style="justify-content: center;">
         <div class="col-12 col-md-6 col-lg-6">
@@ -20,40 +27,10 @@
                     <div class="card-body">                         
                         <div asp-validation-summary="ModelOnly"></div>
 
-                        <div class="row">
-                            <label asp-for="@Model.Uraian" class="form-label"></label>
-                            <input asp-for="@Model.Uraian" class="form-control" />
-                            <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <label asp-for="@Model.Jumlah" class="form-label"></label>
-                            <input asp-for="@Model.Jumlah" type="text" class="form-control" />
-                            <span asp-validation-for="@Model.Jumlah" class="form-text text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <label asp-for="@Model.Tanggal" class="form-label"></label>
-                            <input asp-for="@Model.Tanggal" type="date" class="form-control" />
-                            <span asp-validation-for="@Model.Tanggal" class="form-text text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <label asp-for="@Model.Jam" class="form-label"></label>
-                            <input asp-for="@Model.Jam" type="time" class="form-control" />
-                            <span asp-validation-for="@Model.Jam" class="form-text text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <label asp-for="@Model.FileBukti" class="form-label"></label>
-                            <input asp-for="@Model.FileBukti" class="form-control" />
-                            <span asp-validation-for="@Model.FileBukti" class="form-text text-danger"></span>
-                        </div>
-
-                        <div class="row">
+                        <div class="form-group">
                             <label asp-for="@Model.IdAkun" class="form-label"></label>
 
-                            <select asp-for="@Model.IdAkun" class="form-control">
+                            <select asp-for="@Model.IdAkun" class="form-control" autofocus>
                                 <option value="@null">Pilih Akun...</option>
                                 @foreach (var akun in daftarAkun)
                                 {
@@ -64,7 +41,13 @@
                             <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
                         </div>
 
-                        <div class="row">
+                        <div class="form-group">
+                            <label asp-for="@Model.Uraian" class="form-label"></label>
+                            <input asp-for="@Model.Uraian" class="form-control" placeholder="Uraian..." />
+                            <span asp-validation-for="@Model.Uraian" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
                             <label asp-for="@Model.IdKas" class="form-label"></label>
 
                             <select asp-for="@Model.IdKas" class="form-control">
@@ -78,12 +61,47 @@
                             <span asp-validation-for="@Model.IdKas" class="form-text text-danger"></span>
                         </div>
 
-                        <input asp-for="@Model.Jenis" readonly hidden />
-                        <input asp-for="@Model.Tahun" readonly hidden />
-
-                        <div class="row">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        <div class="form-group">
+                            <label asp-for="@Model.FileBukti" class="form-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="@Model.FileBukti" type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <span asp-validation-for="@Model.FileBukti" class="form-text text-danger"></span>
                         </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Jumlah" class="form-label"></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        Rp
+                                    </div>
+                                </div>
+                                <input asp-for="@Model.Jumlah" type="text" class="form-control" />
+                            </div>
+                            <span asp-validation-for="@Model.Jumlah" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Tanggal" class="form-label"></label>
+                            <input asp-for="@Model.Tanggal" type="date" class="form-control" />
+                            <span asp-validation-for="@Model.Tanggal" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="@Model.Jam" class="form-label"></label>
+                            <input asp-for="@Model.Jam" type="time" class="form-control" />
+                            <span asp-validation-for="@Model.Jam" class="form-text text-danger"></span>
+                        </div>
+                                                                  
+                        <input asp-for="@Model.Jenis" readonly hidden />
+                        <input asp-for="@Model.Tahun" readonly hidden />                        
+                    </div>
+
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                        <a class="btn btn-danger" href="#">Batal</a>
                     </div>
                 </form>
             </div>
