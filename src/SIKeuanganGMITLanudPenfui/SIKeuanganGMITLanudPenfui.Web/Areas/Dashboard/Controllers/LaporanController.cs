@@ -17,12 +17,18 @@ public class LaporanController : Controller
     private readonly IRepositoriJenisAkun _repositoriJenisAkun;
     private readonly IRepositoriRAPBJ _repositoriRAPBJ;
     private readonly IRazorTemplateEngine _razorTemplateEngine;
+    private readonly IRepositoriTransaksi _repositoriTransaksi;
 
-    public LaporanController(IRepositoriJenisAkun repositoriJenisAkun, IRepositoriRAPBJ repositoriRAPBJ, IRazorTemplateEngine razorTemplateEngine)
+    public LaporanController(
+        IRepositoriJenisAkun repositoriJenisAkun,
+        IRepositoriRAPBJ repositoriRAPBJ,
+        IRazorTemplateEngine razorTemplateEngine,
+        IRepositoriTransaksi repositoriTransaksi)
     {
         _repositoriJenisAkun = repositoriJenisAkun;
         _repositoriRAPBJ = repositoriRAPBJ;
         _razorTemplateEngine = razorTemplateEngine;
+        _repositoriTransaksi = repositoriTransaksi;
     }
 
     public async Task<IActionResult> RAPBJ(int? tahun = null)
@@ -74,6 +80,51 @@ public class LaporanController : Controller
 
         if (download)
             return File(pdfBinary, "application/pdf", $"RAPBJ - {vm.Tahun}");
+
+        return File(pdfBinary, "application/pdf");
+    }
+
+    public async Task<IActionResult> RekaptulasiTahunan(int? tahun = null)
+    {
+        var rTahun = Tahun.Create(tahun ?? DateTime.Now.Year);
+        if (rTahun.IsFailure) return BadRequest();
+
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
+        if(rapbj is null) return NotFound();
+
+        var daftarTransaksi = await _repositoriTransaksi.GetAllByTahun(rTahun.Value.Value);
+
+        return View(new RekaptulasiTahunanVM
+        {
+            DaftarTransaksi = daftarTransaksi,
+            Tahun = rTahun.Value.Value,
+            RAPBJ = rapbj
+        });
+    }
+
+    public async Task<IActionResult> RekaptulasiTahunanPDF(int? tahun = null, bool download = false)
+    {
+        var rTahun = Tahun.Create(tahun ?? DateTime.Now.Year);
+        if (rTahun.IsFailure) return BadRequest();
+
+        var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
+        if (rapbj is null) return NotFound();
+
+        var daftarTransaksi = await _repositoriTransaksi.GetAllByTahun(rTahun.Value.Value);
+
+        var vm = new RekaptulasiTahunanVM
+        {
+            DaftarTransaksi = daftarTransaksi,
+            Tahun = rTahun.Value.Value,
+            RAPBJ = rapbj
+        };
+
+        var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRekaptulasiTahunanPartial.cshtml", vm);
+        var htmlToPdf = new HtmlToPdfConverter();
+        var pdfBinary = htmlToPdf.GeneratePdf(html);
+
+        if (download)
+            return File(pdfBinary, "application/pdf", $"Rekaptulasi Tahunan - {vm.Tahun}");
 
         return File(pdfBinary, "application/pdf");
     }

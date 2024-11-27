@@ -1,0 +1,159 @@
+﻿@model RekaptulasiTahunanVM
+
+@{
+    Layout = null;
+}
+
+@{
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<style>
+    table#tableRekaptulasi, table#tableRekaptulasi td, table#tableRekaptulasi th {
+        background: white;
+        border: thin solid #000000;
+        border-spacing: 0px;
+    }
+
+        table#tableRekaptulasi > thead th {
+            text-align: center;
+        }
+
+    #footerLaporan {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+    }
+
+    #tabelLaporan {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+    }
+
+    #laporan {
+        font-family: Calibri !important;
+        font-size: 11px !important;
+        color: black !important;
+    }
+
+    #headerLaporan {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<div id="laporan">
+    <div id="headerLaporan">
+        REKAPITULASI <br />
+        BUKU KAS UMUM<br />
+        JEMAAT LANUD EL TARI PENFUI<br />
+        TAHUN PELAYANAN @Model.Tahun<br />
+    </div>
+
+    <br />
+
+    <div id="tabelLaporan">
+        <table id="tableRekaptulasi">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Bulan</th>
+                    <th>Penerimaan</th>
+                    <th>Pengeluaran</th>
+                    <th>Saldo</th>
+                    <th>SGP</th>
+                    <th>10%</th>
+                    <th>2%</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var no = 1;
+                    var jumlahSGP = 0d;
+                }
+                @for (int i = 1; i <= 12; i++)
+                {
+                    var daftarTransaksi = Model.DaftarTransaksi.Where(t => t.Tanggal.Month == i);
+
+                    <tr>
+                        <td>@no</td>
+                        <td>@Model.MonthName(i)</td>
+                        @if (daftarTransaksi.Count() > 0)
+                        {
+                            var totalPenerimaan = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                            var totalPengeluaran = daftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                            var saldo = totalPenerimaan - totalPengeluaran;
+                            var setoran10Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
+                            var setoran2Persen = daftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
+
+                            <td>@totalPenerimaan.ToString("C2", cultureInfo)</td>
+                            <td>@totalPengeluaran.ToString("C2", cultureInfo)</td>
+                            <td>@saldo.ToString("C2", cultureInfo)</td>
+                            <td>@(6500000d.ToString("C2", cultureInfo))</td>
+                            <td>@setoran10Persen.ToString("C2", cultureInfo)</td>
+                            <td>@setoran2Persen.ToString("C2", cultureInfo)</td>
+
+                            jumlahSGP += 6500000d;
+                        }
+                        else
+                        {
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        }
+                    </tr>
+                    no++;
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    @{
+                        var jumlahPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                        var jumlahPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                        var jumlahSaldo = jumlahPenerimaan - jumlahPengeluaran;
+                        var jumlahSetoran10Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.1d;
+                        var jumlahSetoran2Persen = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan && t.Akun.SetoranSinode!.Value).Sum(t => t.Jumlah) * 0.02d;
+                    }
+                    <th colspan="2">Jumlah</th>
+                    <td>@jumlahPenerimaan.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahPengeluaran.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahSaldo.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahSGP.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahSetoran10Persen.ToString("C2", cultureInfo)</td>
+                    <td>@jumlahSetoran2Persen.ToString("C2", cultureInfo)</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="footerLaporan">
+        <div id="tandaTangan">
+            Ketua Majelis Jemaat
+            <br />
+            <br />
+            <br />
+            <br />
+            Pdt. Ishak B. Batmalo, S.Th
+        </div>
+
+        <div id="tandaTangan">
+            Bendahara
+            <br />
+            <br />
+            <br />
+            <br />
+            Pnt. Melkianus Foes
+        </div>
+    </div>
+</div>

@@ -39,4 +39,11 @@
     <Folder Include="wwwroot\file\filebukti\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Areas\Dashboard\Views\Laporan\_LaporanRekaptulasiTahunanPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
