@@ -1,5 +1,173 @@
-﻿@model IndexVM
+﻿@using System.Globalization
+@using SIKeuanganGMITLanudPenfui.Domain.Enums
+@model IndexVM
 
 @{
-    ViewData["Title"] = "Laporan"
+    ViewData["Title"] = "Laporan";
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Total Penerimaan SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
+            </div>
+            <div class="card-body">
+                @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Total Pengeluaran SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
+            </div>
+            <div class="card-body">
+                @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Saldo Kas SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
+            </div>
+            <div class="card-body">
+                @Model.Kas.Saldo.ToString("C2", cultureInfo)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-header">
+        Penerimaan
+    </div>
+    <div class="card-body">
+        <div class="row owl-carousel owl-theme grafik">
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Penerimaan",
+                          Data=new Dictionary<string, double>(
+                            Model.TransaksiPerTanggal
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    Bulan Januari
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Penerimaan",
+                          Data=new Dictionary<string, double>(
+                            Model.TransaksiPerBulan
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    Tahun 2024
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Penerimaan",
+                          Data=new Dictionary<string, double>(
+                            Model.DaftarTransaksi
+                                .Where(t => t.Jenis == Jenis.Penerimaan)
+                                .GroupBy(t => t.Tanggal.Year)
+                                .OrderBy(g => g.Key)
+                                .Select(g => new KeyValuePair<string, double>(g.Key.ToString(), g.Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Pengeluaran
+    </div>
+    <div class="card-body">
+        <div class="row owl-carousel owl-theme grafik">
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Pengeluaran",
+                          Data=new Dictionary<string, double>(
+                            Model.TransaksiPerTanggal
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    Bulan Januari
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Pengeluaran",
+                          Data=new Dictionary<string, double>(
+                            Model.TransaksiPerBulan
+                                 .Select(kv => new KeyValuePair<string, double>(
+                                     cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key),
+                                     kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    Tahun 2024
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card-body">
+                    <vc:chart chart-model="@(new ChartVM
+                    {
+                        Label = "Pengeluaran",
+                          Data=new Dictionary<string, double>(
+                            Model.DaftarTransaksi
+                                .Where(t => t.Jenis == Jenis.Belanja)
+                                .GroupBy(t => t.Tanggal.Year)
+                                .OrderBy(g => g.Key)
+                                .Select(g => new KeyValuePair<string, double>(g.Key.ToString(), g.Sum(t => t.Jumlah)))),
+                        Type = ChartType.Line
+                    })" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('.grafik').owlCarousel({
+                loop: true,
+                autoPlay: true,
+                nav: true,
+                items: 1
+            });
+        });
+    </script>
 }
