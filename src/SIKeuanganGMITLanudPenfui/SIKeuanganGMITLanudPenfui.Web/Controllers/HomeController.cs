@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Web.Models;
+using SIKeuanganGMITLanudPenfui.Web.Models.HomeModels;
 using System.Diagnostics;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Controllers
@@ -8,26 +10,25 @@ namespace SIKeuanganGMITLanudPenfui.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IRepositoriTransaksi _repositoriTransaksi;
+
+        public HomeController(ILogger<HomeController> logger, IRepositoriTransaksi repositoriTransaksi)
         {
             _logger = logger;
+            _repositoriTransaksi = repositoriTransaksi;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var daftarTransaksi = await _repositoriTransaksi.GetAll();
+
+            return View(new IndexVM { DaftarTransaksi = daftarTransaksi });
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
         public IActionResult Login()
         {
             return View();
         }
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

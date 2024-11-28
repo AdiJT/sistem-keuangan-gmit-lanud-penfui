@@ -1,5 +1,11 @@
-﻿@{
+﻿@using SIKeuanganGMITLanudPenfui.Domain.Enums
+@using SIKeuanganGMITLanudPenfui.Web.Models.HomeModels
+@using System.Globalization
+@model IndexVM
+
+@{
     ViewData["Title"] = "Home Page";
+    var cultureInfo = new CultureInfo("id-ID");
 }
 
 <!--======================================================= HERO =======================================================-->
@@ -34,49 +40,25 @@
         Penerimaan dan Pengeluaran Bulan September
     </p>
     <div class="bulanan__grid">
-
-        <!-- Card -->
-        <div class="bulanan__card">
-            <h4>Penerimaan Bulan September 2024</h4>
-            <p>
-                RP. 100.000.000,00
-            </p>
-            <div class="bulanan__card__footer">
-                <a href="#">
-                    Informasi Detail
-                    <i class="ri-arrow-right-line"></i>
-                </a>
+        @foreach (var kv in Model.TransaksiPerBulan.OrderBy(d => d.Key).Take(3))
+        {
+            <!-- Card -->
+            <div class="bulanan__card">
+                <h4>Bulan @cultureInfo.DateTimeFormat.GetMonthName(kv.Key) 2024</h4>
+                <p>
+                    Penerimaan <span style="float:right">@kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)</span>
+                </p>
+                <p>
+                    Pengeluaran <span style="float:right">@kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)</span>
+                </p>
+                <div class="bulanan__card__footer">
+                    <a asp-area="" asp-controller="Laporan" asp-action="BKU" asp-route-bulan="@kv.Key">
+                        Informasi Detail
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-        <!-- Akhir Card -->
-        <!-- Card -->
-        <div class="bulanan__card">
-            <h4>Penerimaan Bulan Januari - September 2024</h4>
-            <p>
-                RP. 100.000.000,00
-            </p>
-            <div class="bulanan__card__footer">
-                <a href="#">
-                    Informasi Detail
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
-        </div>
-        <!-- Akhir Card -->
-        <!-- Card -->
-        <div class="bulanan__card">
-            <h4>Pengeluaran Bulan Januari - September 2024</h4>
-            <p>
-                RP. 100.000.000,00
-            </p>
-            <div class="bulanan__card__footer">
-                <a href="#">
-                    Informasi Detail
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
-        </div>
-        <!-- Akhir Card -->
+        }
     </div>
 </section>
 <!--======================================================= AKHIR BULANAN =======================================================-->
@@ -93,12 +75,12 @@
             <div class="steps__card">
                 <span><i class="ri-line-chart-line"></i></span>
                 <h4>Grafik Pemasukan Tahun 2024</h4>
-                <canvas id="chartpemasukan"></canvas>
+                <vc:chart chart-model="@(new ChartVM { Label = "Penerimaan", Type = ChartType.Line, Data = new Dictionary<string, double>(Model.TransaksiPerBulan.Select(kv => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key), kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah))))})" />
             </div>
             <div class="steps__card">
                 <span><i class="ri-line-chart-line"></i></span>
                 <h4>Grafik Pengeluaran Tahun 2024</h4>
-                <canvas id="chartpengeluaran"></canvas>
+                <vc:chart chart-model="@(new ChartVM { Label = "Pengeluaran", Type = ChartType.Line, Data = new Dictionary<string, double>(Model.TransaksiPerBulan.Select(kv => new KeyValuePair<string, double>(cultureInfo.DateTimeFormat.GetAbbreviatedMonthName(kv.Key), kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah))))})" />
             </div>
         </div>
     </div>
