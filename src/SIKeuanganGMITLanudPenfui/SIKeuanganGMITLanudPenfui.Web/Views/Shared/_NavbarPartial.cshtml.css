@@ -46,12 +46,12 @@ nav {
         transform: translateY(0);
     }
 
-    .nav__links a {
+    .nav__links ::deep a {
         font-weight: 500;
         color: var(--text-dark);
     }
 
-        .nav__links a:hover {
+        .nav__links ::deep a:hover {
             color: var(--primary-color);
         }
 
@@ -69,7 +69,7 @@ nav {
         gap: 2rem;
     }
 
-    .nav__links a {
+    .nav__links ::deep a {
         font-weight: 500;
         color: var(--text-dark);
         font-size: .9rem;
@@ -98,7 +98,7 @@ nav {
     /*-----------------------------------*\
     #NAVBAR
     \*-----------------------------------*/
-    .nav__links a {
+    .nav__links ::deep a {
         font-weight: 500;
         color: var(--text-dark);
         font-size: 1rem;

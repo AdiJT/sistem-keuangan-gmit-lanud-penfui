@@ -1,4 +1,5 @@
-﻿<header>
+﻿@using SIKeuanganGMITLanudPenfui.Web.Controllers
+<header>
     <nav>
         <div class="nav__header">
             <div class="nav__logo">
@@ -9,10 +10,11 @@
             </div>
         </div>
         <ul class="nav__links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#bulanan">Laporan Bulanan</a></li>
-            <li><a href="#about">Trend Grafik</a></li>
-            <li><a href="#service">Umpan Balik</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="" asp-controller="Laporan" asp-action="@nameof(LaporanController.Index)">Laporan</a></li>
+            <li><a asp-area="" asp-controller="Laporan" asp-action="@nameof(LaporanController.BKU)">BKU</a></li>
+            <li><a asp-area="" asp-controller="Laporan" asp-action="@nameof(LaporanController.RekaptulasiTahunan)">Rekaptulasi Tahunan</a></li>
+            <li><a asp-area="" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJ)">RAPBJ</a></li>
         </ul>
     </nav>
 </header>
