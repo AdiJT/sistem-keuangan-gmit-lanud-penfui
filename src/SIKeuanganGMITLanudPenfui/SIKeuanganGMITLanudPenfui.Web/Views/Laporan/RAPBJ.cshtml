@@ -1,5 +1,102 @@
-﻿@model RAPBJVM
+﻿@using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers
+@model RAPBJVM
 
 @{
     ViewData["Title"] = "Laporan | RAPBJ";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h4>Laporan RAPBJ Tahun @Model.Tahun</h4>
+    </div>
+    <div class="card-body pt-1">
+        <div class="d-flex justify-content-start ml-auto mb-1">
+            <div class="mb-2">
+                @if (Model.RAPBJ is not null)
+                {
+                    <a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJPDF)" asp-route-tahun="@Model.Tahun" asp-route-download="@true" class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">PDF</a>
+                }
+            </div>
+
+            <div class="ml-auto">
+                <select id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun RAPBJ">
+                    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                    {
+                        @if (tahun == Model.Tahun)
+                        {
+                            <option selected value="@tahun">@tahun</option>
+                        }
+                        else
+                        {
+                            <option value="@tahun">@tahun</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        @if (Model.RAPBJ is not null)
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id="table-akun" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Kode Akun</th>
+                            <th style="max-width: 400px;">Uraian</th>
+                            <th class="text-right">Volume</th>
+                            <th>Satuan</th>
+                            <th class="text-right">Harga Satuan</th>
+                            <th class="text-right">Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detail in Model.RAPBJ.DaftarDetailRAPBJ)
+                        {
+                            <tr>
+                                <td>@detail.Akun.KodeAkun</td>
+                                <td>@detail.Akun.Uraian</td>
+                                <td class="text-right">@detail.Volume</td>
+                                <td>@detail.Satuan</td>
+                                <td class="text-right">@detail.HargaSatuan</td>
+                                <td class="text-right">@detail.Jumlah</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <hr class="mb-2">
+            <div class="card-body">
+                <p class="text-center">RAPBJ Tahun @Model.Tahun belum dibuat.</p>
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.RAPBJ is not null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h4>Preview Laporan RAPBJ Tahun @Model.Tahun</h4>
+        </div>
+        <div class="card-body pt-0">
+            <iframe class="pdf" src="@Url.ActionLink(nameof(LaporanController.RAPBJPDF), "Laporan", new {Area="Dashboard", tahun=Model.Tahun})" width="100%" height="600">
+            </iframe>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        const selectTahun = $('select#tahun');
+
+        const url = '@Url.Action(nameof(LaporanController.RAPBJ))';
+
+        $(selectTahun).on('change', function () {
+            const tahun = $(selectTahun).val();
+
+            location.href = `${url}?tahun=${tahun}`;
+        });
+    </script>
 }
