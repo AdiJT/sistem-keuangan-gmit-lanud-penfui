@@ -397,14 +397,14 @@
         border-radius: 10px;
     }
 
-        #contact .formko h4 {
+        #contact .formko ::deep h4 {
             font-size: 24px;
             color: var(--text-light);
             line-height: 30px;
             margin-bottom: 8px;
         }
 
-        #contact .formko p {
+        #contact .formko ::deep p {
             color: var(--text-light);
             font-size: 16px;
             line-height: 24px;
@@ -417,7 +417,7 @@
             width: 100%;
         }
 
-            #contact .formko .form-row input {
+            #contact .formko .form-row ::deep input {
                 font-family: 'poppins';
                 border-radius: 5px;
                 font-size: 14px;
@@ -431,8 +431,8 @@
                 margin-bottom: 20px;
             }
 
-        #contact .formko .form-col input,
-        #contact .formko .form-col textarea {
+        #contact .formko .form-col ::deep input,
+        #contact .formko .form-col ::deep textarea {
             font-family: 'poppins';
             font-size: 14px;
             font-weight: 400;
@@ -607,11 +607,11 @@
             margin-top: 20px;
         }
 
-            #contact .formko h4 {
+            #contact .formko ::deep h4 {
                 font-size: 1.4rem;
             }
 
-            #contact .formko p {
+            #contact .formko ::deep p {
                 font-size: .9rem;
                 padding-bottom: 10px;
             }
@@ -620,15 +620,15 @@
                 flex-direction: column;
             }
 
-                #contact .formko .form-row input {
+                #contact .formko .form-row ::deep input {
                     font-size: .8rem;
                     width: 100%;
                     padding: 20px;
                     margin-bottom: 10px;
                 }
 
-            #contact .formko .form-col input,
-            #contact .formko .form-col textarea {
+            #contact .formko .form-col ::deep input,
+            #contact .formko .form-col ::deep textarea {
                 font-size: .8rem;
                 width: 100%;
                 padding: 20px 15px;

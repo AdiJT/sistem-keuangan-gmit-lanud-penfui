@@ -38,6 +38,7 @@ public static class DependecyInjection
         services.AddScoped<IRepositoriTransaksi, RepositoriTransaksi>();
         services.AddScoped<IRepositoriUser, RepositoriUser>();
         services.AddScoped<IRepositoriKas, RepositoriKas>();
+        services.AddScoped<IRepositoriFeedBack, RepositoriFeedBack>();
 
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>

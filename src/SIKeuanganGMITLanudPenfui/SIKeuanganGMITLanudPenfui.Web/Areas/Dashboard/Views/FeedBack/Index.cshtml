@@ -1,0 +1,47 @@
+﻿@model List<FeedBack>
+
+@{
+    ViewData["Title"] = "Umpan Balik";
+    var cultureInfo = new CultureInfo("id-ID");
+    var no = 1;
+}
+
+<form asp-action="@nameof(FeedBackController.MarkAllAsRead)">
+    <button class="btn btn-primary">Mark All As Read</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Nama</th>
+            <th>Judul</th>
+            <th>Pesan</th>
+            <th>Dibaca</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var feedBack in Model)
+        {
+            <tr>
+                <td>@no</td>
+                <td>@feedBack.Tanggal.ToString("G", cultureInfo)</td>
+                <td>@feedBack.Nama</td>
+                <td>@feedBack.Judul</td>
+                <td>@feedBack.Pesan</td>
+                <td>@(feedBack.SudahDibaca ? "Sudah" : "Belum")</td>
+                <td>
+                    <form asp-action="MarkAsRead" asp-route-id="@feedBack.Id">
+                        <button class="btn btn-primary">Mark As Read</button>
+                    </form>
+                    <form asp-action="Hapus" asp-route-id="@feedBack.Id">
+                        <button class="btn btn-danger">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            no++;
+        }
+    </tbody>
+</table>

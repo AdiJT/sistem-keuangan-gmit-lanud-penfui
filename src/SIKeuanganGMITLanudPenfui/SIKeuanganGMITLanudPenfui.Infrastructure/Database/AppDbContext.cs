@@ -39,4 +39,5 @@ internal class AppDbContext : DbContext
     public DbSet<Transaksi> TblTransaksi { get; set; }
     public DbSet<User> TblUser { get; set; }
     public DbSet<Kas> TblKas { get; set; }
+    public DbSet<FeedBack> TblFeedBack { get; set; }
 }

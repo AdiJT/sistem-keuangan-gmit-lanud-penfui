@@ -1,4 +1,13 @@
-﻿<div class="navbar-bg"></div>
+﻿@using Humanizer
+@using Humanizer.Localisation
+@inject IRepositoriFeedBack RepositoriFeedBack
+
+@{
+    var unreadFeedBacks = await RepositoriFeedBack.GetAllUnread();
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<div class="navbar-bg"></div>
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg main-navbar sticky">
     <div class="form-inline mr-auto">
@@ -30,43 +39,34 @@
         <li class="dropdown dropdown-list-toggle">
             <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle">
                 <i data-feather="mail"></i>
-                <span class="badge headerBadge1">0</span>
+                <span class="badge headerBadge1">@unreadFeedBacks.Count</span>
             </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
                 <div class="dropdown-header">
                     Messages
-                    <div class="float-right">
-                        <a href="#">Mark All As Read</a>
-                    </div>
+                    @if (unreadFeedBacks.Count > 0)
+                    {
+                        <div class="float-right">
+                            <form asp-action="MarkAllAsRead" asp-controller="FeedBack" asp-area="Dashboard" asp-route-url="@Context.Request.Path@Context.Request.QueryString">
+                                <button href="#">Mark All As Read</button>
+                            </form>
+                        </div>
+                    }
                 </div>
-                @* <div class="dropdown-list-content dropdown-list-message">
-                <a href="#" class="dropdown-item">
-                <span class="dropdown-item-desc">
-                <span class="message-user">Umbu Kondatana</span>
-                <span class="time messege-text">Telah menyelesaikan pembayaran.</span>
-                <span class="time">5 Menit Lalu</span>
-                </span>
-                </a>
-
-                <a href="#" class="dropdown-item">
-                <span class="dropdown-item-desc">
-                <span class="message-user">Beni Liufeto</span>
-                <span class="time messege-text">Pesanan telah diterima.</span>
-                <span class="time">2 Jam Lalu</span>
-                </span>
-                </a>
-
-                <a href="#" class="dropdown-item">
-                <span class="dropdown-item-desc">
-                <span class="message-user">Bernard Pa</span>
-                <span class="time messege-text">Mengajukan permintaan pengembalian dana.</span>
-                <span class="time">Kemarin</span>
-                </span>
-                </a>
-
-                </div> *@
+                <div class="dropdown-list-content dropdown-list-message">
+                    @foreach (var feedback in unreadFeedBacks)
+                    {
+                        <a href="#" class="dropdown-item">
+                            <span class="dropdown-item-desc">
+                                <span class="message-user">@feedback.Nama</span>
+                                <span class="time messege-text">@feedback.Judul</span>
+                                <span class="time">@DateTime.Now.Subtract(feedback.Tanggal).Humanize(culture: cultureInfo, maxUnit: TimeUnit.Year)</span>
+                            </span>
+                        </a>
+                    }
+                </div>
                 <div class="dropdown-footer text-center">
-                    <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                    <a asp-area="Dashboard" asp-controller="FeedBack" asp-action="Index">View All <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </li>

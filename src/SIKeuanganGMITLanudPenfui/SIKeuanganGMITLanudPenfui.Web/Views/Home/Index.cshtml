@@ -122,22 +122,24 @@
                 </div>
             </div>
         </div>
-        <div class="formko">
+        <form asp-action="Index" class="formko">
             <p>Kami sangat menghargai saran dan kritik Anda.</p>
-            <div class="form-row">
-                <input type="text" placeholder="Nama anda" />
-                <input type="text" placeholder="Email anda" />
+            <div class="form-col">
+                <input asp-for="@Model.Nama" type="text" placeholder="Nama anda" />
+                <span asp-validation-for="@Model.Nama" class="form-text text-danger"></span>
             </div>
             <div class="form-col">
-                <input type="text" placeholder="Subjek atau Judul" />
+                <input asp-for="@Model.Judul" placeholder="Subjek atau Judul" />
+                <span asp-validation-for="@Model.Judul" class="form-text text-danger"></span>
             </div>
             <div class="form-col">
-                <textarea name="" id="" cols="30" rows="5" placeholder="Pesan anda"></textarea>
+                <textarea asp-for="@Model.Pesan" cols="30" rows="5" placeholder="Pesan anda"></textarea>
+                <span asp-validation-for="@Model.Pesan" class="form-text text-danger"></span>
             </div>
             <div class="form-col">
-                <button>Kirim Pesan</button>
+                <button type="submit">Kirim Pesan</button>
             </div>
-        </div>
+        </form>
     </div>
     <!-- Akhir Section Contact -->
 </section>
@@ -148,3 +150,7 @@
             style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 <!--======================================================= AKHIR PETA =======================================================-->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
