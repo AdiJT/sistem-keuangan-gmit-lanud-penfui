@@ -82,12 +82,22 @@
 
                         @if (Model.Jenis == Jenis.Penerimaan)
                         {
-                            <div class="form-group mb-0">
-                                <input asp-for="@Model.SetoranSinode" type="checkbox" class="form-check-input">
-                                <label asp-for="@Model.SetoranSinode" class="form-check-label">Setoran Sinode</label>
+                            <div class="form-group">
+                                <label asp-for="@Model.SetoranSinode" class="form-label">Setoran Sinode</label>
+                                <div class="selectgroup w-100">
+                                    <label class="selectgroup-item">
+                                        <input asp-for="@Model.SetoranSinode" type="radio" name="SetoranSinode" value="false" class="selectgroup-input-radio" checked>
+                                        <span class="selectgroup-button">Tidak</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input asp-for="@Model.SetoranSinode" type="radio" name="SetoranSinode" value="true" class="selectgroup-input-radio">
+                                        <span class="selectgroup-button">Masuk</span>
+                                    </label>
+                                </div>
                                 <span asp-validation-for="@Model.SetoranSinode" class="form-text text-danger"></span>
                             </div>
                         }
+
 
                         <input asp-for="@Model.Jenis" class="form-control" readonly hidden />
 

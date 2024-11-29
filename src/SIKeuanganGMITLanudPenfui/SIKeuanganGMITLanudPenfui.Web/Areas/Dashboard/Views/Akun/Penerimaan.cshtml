@@ -43,38 +43,43 @@
                             <i class="fas fa-plus"></i> Tambah Jenis Akun
                         </a>
                     </div>
-                    @if (!Model.IsAkunExist)
-                    {
-                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
-                            <div class="mb-3">
-                                <select id="tahunSumber" name="tahunSumber" class="form-control">
-                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                    
+                    <div class="row ml-auto mr-3">
+                        <div class="">
+                            @if (!Model.IsAkunExist)
+                            {
+                                <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                                    <div class="form-group mb-0">
+                                        <div class="input-group">
+                                            <select class="form-control" id="tahunSumber" name="tahunSumber" style="width: 120px">
+                                                @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                                {
+                                                    <option value="@tahun">@tahun</option>
+                                                }
+                                            </select>
+                                            <div class="input-group-append" data-toggle="tooltip" title="Import dari Tahun yang dipilih">
+                                                <button type="submit" class="btn btn-icon icon-left btn-light" type="button"><i class="fas fa-file-import"></i>Import</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                        <div class="col">
+                            <select id="tahunJenisAkun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
+                                @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                                {
+                                    @if (tahun == Model.Tahun)
+                                    {
+                                        <option selected value="@tahun">@tahun</option>
+                                    }
+                                    else
                                     {
                                         <option value="@tahun">@tahun</option>
                                     }
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-icon icon-left btn-light">
-                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
-                                </button>
-                            </div>
-                        </form>
-                    }
-                    <div class="ml-auto mr-3">
-                        <select id="tahunJenisAkun" class="form-control">
-                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
-                            {
-                                @if (tahun == Model.Tahun)
-                                {
-                                    <option selected value="@tahun">@tahun</option>
                                 }
-                                else
-                                {
-                                    <option value="@tahun">@tahun</option>
-                                }
-                            }
-                        </select>
+                            </select>
+                        </div>                                                
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -120,38 +125,42 @@
                             <i class="fas fa-plus"></i> Tambah Kelompok Akun
                         </a>
                     </div>
-                    @if (!Model.IsAkunExist)
-                    {
-                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
-                            <div class="mb-3">
-                                <select id="tahunSumber" name="tahunSumber" class="form-control">
-                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                    <div class="row ml-auto mr-3">
+                        <div class="">
+                            @if (!Model.IsAkunExist)
+                            {
+                                <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                                    <div class="form-group mb-0">
+                                        <div class="input-group">
+                                            <select class="form-control" id="tahunSumber" name="tahunSumber" style="width: 120px">
+                                                @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                                {
+                                                    <option value="@tahun">@tahun</option>
+                                                }
+                                            </select>
+                                            <div class="input-group-append" data-toggle="tooltip" title="Import dari Tahun yang dipilih">
+                                                <button type="submit" class="btn btn-icon icon-left btn-light" type="button"><i class="fas fa-file-import"></i>Import</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                        <div class="col">
+                            <select id="tahunJenisAkun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
+                                @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                                {
+                                    @if (tahun == Model.Tahun)
+                                    {
+                                        <option selected value="@tahun">@tahun</option>
+                                    }
+                                    else
                                     {
                                         <option value="@tahun">@tahun</option>
                                     }
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-icon icon-left btn-light">
-                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
-                                </button>
-                            </div>
-                        </form>
-                    }
-                    <div class="ml-auto mr-3">
-                        <select id="tahunKelompokAkun" class="form-control">
-                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
-                            {
-                                @if (tahun == Model.Tahun)
-                                {
-                                    <option selected value="@tahun">@tahun</option>
                                 }
-                                else
-                                {
-                                    <option value="@tahun">@tahun</option>
-                                }
-                            }
-                        </select>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -193,38 +202,42 @@
                             <i class="fas fa-plus"></i> Tambah Golongan Akun
                         </a>
                     </div>
-                    @if (!Model.IsAkunExist)
-                    {
-                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
-                            <div class="mb-3">
-                                <select id="tahunSumber" name="tahunSumber" class="form-control">
-                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                    <div class="row ml-auto mr-3">
+                        <div class="">
+                            @if (!Model.IsAkunExist)
+                            {
+                                <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                                    <div class="form-group mb-0">
+                                        <div class="input-group">
+                                            <select class="form-control" id="tahunSumber" name="tahunSumber" style="width: 120px">
+                                                @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                                {
+                                                    <option value="@tahun">@tahun</option>
+                                                }
+                                            </select>
+                                            <div class="input-group-append" data-toggle="tooltip" title="Import dari Tahun yang dipilih">
+                                                <button type="submit" class="btn btn-icon icon-left btn-light" type="button"><i class="fas fa-file-import"></i>Import</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                        <div class="col">
+                            <select id="tahunJenisAkun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
+                                @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                                {
+                                    @if (tahun == Model.Tahun)
+                                    {
+                                        <option selected value="@tahun">@tahun</option>
+                                    }
+                                    else
                                     {
                                         <option value="@tahun">@tahun</option>
                                     }
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-icon icon-left btn-light">
-                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
-                                </button>
-                            </div>
-                        </form>
-                    }
-                    <div class="ml-auto mr-3">
-                        <select id="tahunGolonganAkun" class="form-control">
-                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
-                            {
-                                @if (tahun == Model.Tahun)
-                                {
-                                    <option selected value="@tahun">@tahun</option>
                                 }
-                                else
-                                {
-                                    <option value="@tahun">@tahun</option>
-                                }
-                            }
-                        </select>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -266,38 +279,42 @@
                             <i class="fas fa-plus"></i> Tambah Akun
                         </a>
                     </div>
-                    @if (!Model.IsAkunExist)
-                    {
-                        <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
-                            <div class="mb-3">
-                                <select id="tahunSumber" name="tahunSumber" class="form-control">
-                                    @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                    <div class="row ml-auto mr-3">
+                        <div class="">
+                            @if (!Model.IsAkunExist)
+                            {
+                                <form method="post" asp-action="ImportAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun">
+                                    <div class="form-group mb-0">
+                                        <div class="input-group">
+                                            <select class="form-control" id="tahunSumber" name="tahunSumber" style="width: 120px">
+                                                @foreach (var tahun in (await RepositoriAkun.GetAll()).Select(a => a.Tahun.Value).OrderBy(t => t).Distinct())
+                                                {
+                                                    <option value="@tahun">@tahun</option>
+                                                }
+                                            </select>
+                                            <div class="input-group-append" data-toggle="tooltip" title="Import dari Tahun yang dipilih">
+                                                <button type="submit" class="btn btn-icon icon-left btn-light" type="button"><i class="fas fa-file-import"></i>Import</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                        <div class="col">
+                            <select id="tahunJenisAkun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
+                                @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+                                {
+                                    @if (tahun == Model.Tahun)
+                                    {
+                                        <option selected value="@tahun">@tahun</option>
+                                    }
+                                    else
                                     {
                                         <option value="@tahun">@tahun</option>
                                     }
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-icon icon-left btn-light">
-                                    <i class="fas fa-file-import"></i> Import Dari Tahun Lainnya
-                                </button>
-                            </div>
-                        </form>
-                    }
-                    <div class="ml-auto mr-3">
-                        <select id="tahunAkun" class="form-control">
-                            @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
-                            {
-                                @if (tahun == Model.Tahun)
-                                {
-                                    <option selected value="@tahun">@tahun</option>
                                 }
-                                else
-                                {
-                                    <option value="@tahun">@tahun</option>
-                                }
-                            }
-                        </select>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
