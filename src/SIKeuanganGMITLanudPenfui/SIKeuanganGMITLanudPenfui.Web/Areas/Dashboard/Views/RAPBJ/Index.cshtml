@@ -15,22 +15,23 @@
     </div>
     <div class="padding-20">
         <div class="d-flex justify-content-start ml-auto mb-2">
-            <div class="mb-3">
-                <a class="btn btn-icon icon-left btn-primary" asp-action="TambahDetailRAPBJ"
-                   asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun">
-                    <i class="fas fa-plus"></i> Tambah
-                </a>
-            </div>
 
             @if (Model.RAPBJ is not null)
             {
+                <div class="mb-0">
+                    <a class="btn btn-icon icon-left btn-primary" asp-action="TambahDetailRAPBJ"
+                       asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" data-toggle="tooltip" title="Tambah Detail Akun">
+                        <i class="fas fa-plus"></i> Tambah
+                    </a>
+                </div>
+
                 <form asp-action="HapusRAPBJ"
                       asp-controller="RAPBJ"
                       asp-area="Dashboard"
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
                       method="post"
-                      class="mb-3 pl-2">
+                      class="mb-0 pl-2">
                     <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
                 </form>
             }
@@ -42,8 +43,8 @@
                       asp-area="Dashboard"
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
-                      method="post" class="mb-3 pl-3 pr-2">
-                    <button type="submit" class="btn btn-primary">Tambah RAPBJ</button>
+                      method="post" class="mb-0 pl-0 pr-2">
+                    <button type="submit" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah RAPBJ</button>
                 </form>
             }
 
@@ -54,13 +55,13 @@
                       asp-area="Dashboard"
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
-                      method="post" class="mb-3 pl-3 pr-2">
-                    <button type="submit" class="btn btn-primary">Tambah Semua Akun ke RAPBJ</button>
+                      method="post" class="mb-0 pl-0 pr-2">
+                    <button type="submit" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Semua Akun ke RAPBJ</button>
                 </form>
             }
 
             <div class="ml-auto">
-                <select id="tahun" class="form-control">
+                <select id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
                     @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
                     {
                         @if (tahun == Model.Tahun)

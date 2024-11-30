@@ -4,27 +4,43 @@
     ViewData["Title"] = "Realisasi | Tambah Kas";
 }
 
-<div class="card card-primary">
-
+<!-- Breadcrumb -->
+<div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
+        <partial name="_BreadcrumbPartial" />
+    </div>
 </div>
 
-<form asp-action="@nameof(RealisasiController.TambahKas)">
-    <div asp-validation-summary="ModelOnly"></div>
+<div class="section-body">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h4>Tambah Kas</h4>
+                </div>
+                <form asp-action="@nameof(RealisasiController.TambahKas)">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly"></div>
 
-    <div class="row">
-        <label asp-for="@Model.Uraian" class="form-label"></label>
-        <input asp-for="@Model.Uraian" class="form-control" />
-        <span asp-validation-for="@Model.Uraian"></span>
+                        <div class="form-group">
+                            <label asp-for="@Model.Uraian" class="form-label"></label>
+                            <input asp-for="@Model.Uraian" class="form-control" placeholder="Uraian..." autofocus/>
+                            <span asp-validation-for="@Model.Uraian"></span>
+                        </div>
+
+                        <div class="form-group mb-0">
+                            <label asp-for="@Model.Saldo" class="form-label"></label>
+                            <input asp-for="@Model.Saldo" type="text" class="form-control" />
+                            <span asp-validation-for="@Model.Saldo"></span>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a class="btn btn-danger" href="#">Batal</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="row">
-        <label asp-for="@Model.Saldo" class="form-label"></label>
-        <input asp-for="@Model.Saldo" type="text" class="form-control" />
-        <span asp-validation-for="@Model.Saldo"></span>
-    </div>
-
-    <div class="row">
-        <button class="btn btn-primary">Simpan</button>
-    </div>
-
-</form>
