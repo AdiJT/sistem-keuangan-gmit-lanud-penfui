@@ -16,7 +16,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">RAPBJ</a></li>
                 <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="@Model.Jenis">@Model.Jenis</a></li>
-                <li class="breadcrumb-item" aria-current="page">Edit Detail Akun</li>
+                <li class="breadcrumb-item" aria-current="page">Edit Detail RAPBJ</li>
             </ol>
         </nav>
     </div>
@@ -80,53 +80,6 @@
         </div>
     </div>
 </div>
-
-<h1>Edit RAPBJ @Model.Jenis.ToString() Tahun @Model.Tahun</h1>
-
-<form asp-action="EditDetailRAPBJPOST" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" method="post">
-    <div asp-validation-summary="All" class="form-text text-danger"></div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <label asp-for="@Model.IdAkun" class="form-label"></label>
-            <input asp-for="@Model.IdAkun" class="form-control" hidden/>
-            <input value="@($"{await RepositoriAkun.GetKode(akun!)} {akun!.Uraian}")" class="form-control" readonly/>
-            <span asp-validation-for="@Model.IdAkun" class="form-text text-danger"></span>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <label asp-for="@Model.Satuan" class="form-label"></label>
-            <input asp-for="@Model.Satuan" class="form-control" />
-            <span asp-validation-for="@Model.Satuan" class="form-text text-danger"></span>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <label asp-for="@Model.Volume" class="form-label"></label>
-            <input asp-for="@Model.Volume" class="form-control" />
-            <span asp-validation-for="@Model.Volume" class="form-text text-danger"></span>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="col">
-            <label asp-for="@Model.HargaSatuan" class="form-label"></label>
-            <input asp-for="@Model.HargaSatuan" class="form-control" />
-            <span asp-validation-for="@Model.HargaSatuan" class="form-text text-danger"></span>
-        </div>
-    </div>
-
-    <input asp-for="@Model.Tahun" hidden />
-    <input asp-for="@Model.Jenis" hidden />
-
-    <div class="row mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a asp-action="Index" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-danger">Batal</a>
-    </div>
-</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
