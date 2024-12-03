@@ -40,6 +40,12 @@
     padding: 5rem 1rem;
 }
 
+.section__card__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
 .section__container__grafik {
     max-width: var(--max-width);
     margin: auto;
