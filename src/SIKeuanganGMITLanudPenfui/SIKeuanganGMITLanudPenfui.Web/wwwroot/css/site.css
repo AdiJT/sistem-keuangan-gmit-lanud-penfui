@@ -133,7 +133,7 @@ body {
 }
 
 canvas {
-    max-width: 600px;
+    width: 600px;
     margin: 20px 0;
 }
 
