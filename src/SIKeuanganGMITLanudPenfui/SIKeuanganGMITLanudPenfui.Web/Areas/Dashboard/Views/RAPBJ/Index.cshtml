@@ -6,7 +6,12 @@
 
 <!-- Breadcrumb -->
 <div class="row">
-    <partial name="_BreadcrumbPartial" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">RAPBJ</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="RAPBJ" asp-action="Index" asp-route-jenis="@Model.Jenis"></a>@Model.Jenis</li>
+        </ol>
+    </nav>
 </div>
 
 <div class="card card-warning">

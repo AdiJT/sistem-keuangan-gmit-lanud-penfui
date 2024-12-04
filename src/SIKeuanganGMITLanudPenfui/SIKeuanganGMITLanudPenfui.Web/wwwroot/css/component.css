@@ -1539,7 +1539,7 @@ tr:first-child > td > .fc-day-grid-event {
     margin-left: 0 !important
 }
 
-#toast-container > div {
+/*#toast-container > div {
     box-shadow: 0 4px 25px 0 rgba(0,0,0,0.1);
     padding: 20px 20px 20px 50px;
     opacity: 1
@@ -1599,7 +1599,7 @@ tr:first-child > td > .fc-day-grid-event {
     .toast.toast-info .toast-message {
         color: #000;
         margin-top: 5px
-    }
+    }*/
 
 .user-item {
     text-align: center

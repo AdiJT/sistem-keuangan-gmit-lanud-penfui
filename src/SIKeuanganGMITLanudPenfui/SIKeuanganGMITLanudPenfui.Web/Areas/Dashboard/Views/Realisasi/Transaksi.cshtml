@@ -5,7 +5,15 @@
     var cultureInfo = new CultureInfo("id-ID");
 }
 
-<partial name="_BreadcrumbPartial" />
+<!-- Breadcrumb -->
+<div class="row">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Realisasi</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Model.Jenis"></a>@Model.Jenis</li>
+        </ol>
+    </nav>
+</div>
 
 <div class="card card-primary">
     <div class="card-header">

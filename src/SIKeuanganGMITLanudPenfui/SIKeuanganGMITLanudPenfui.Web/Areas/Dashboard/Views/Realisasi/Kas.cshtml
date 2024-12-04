@@ -5,7 +5,15 @@
     var cultureInfo = new CultureInfo("id-ID");
 }
 
-<partial name="_BreadcrumbPartial" />
+<!-- Breadcrumb -->
+<div class="row">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Realisasi</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Kas)"></a>Kas</li>
+        </ol>
+    </nav>
+</div>
 
 <div class="card card-primary">
     <div class="card-header">
@@ -14,7 +22,7 @@
     <div class="padding-20">
         <div class="d-flex justify-content-start ml-auto mb-2">
             <div class="mb-0">
-                <a asp-action="@nameof(RealisasiController.TambahKas)" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                <a asp-action="@nameof(RealisasiController.TambahKas)" class="btn btn-primary" data-toggle="tooltip" title="Tambah Kas"><i class="fas fa-plus"></i> Tambah</a>
             </div>
         </div>
 

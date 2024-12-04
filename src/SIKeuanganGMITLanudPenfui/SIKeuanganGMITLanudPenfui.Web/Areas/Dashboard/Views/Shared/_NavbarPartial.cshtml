@@ -48,7 +48,7 @@
                     {
                         <div class="float-right">
                             <form asp-action="MarkAllAsRead" asp-controller="FeedBack" asp-area="Dashboard" asp-route-url="@Context.Request.Path@Context.Request.QueryString">
-                                <button href="#">Mark All As Read</button>
+                                <button class="btn btn-primary" href="#">Mark All As Read</button>
                             </form>
                         </div>
                     }
@@ -71,7 +71,7 @@
             </div>
         </li>
 
-        <!-- NOTIFICATION -->
+        @* <!-- NOTIFICATION -->
         <li class="dropdown dropdown-list-toggle">
             <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg">
                 <i data-feather="bell" class="bell"></i>
@@ -83,7 +83,7 @@
                         <a href="#">Mark All As Read</a>
                     </div>
                 </div>
-                @* <div class="dropdown-list-content dropdown-list-icons">
+                <div class="dropdown-list-content dropdown-list-icons">
                 <a href="#" class="dropdown-item dropdown-item-unread">
                 <span class="dropdown-item-icon bg-warning text-white"><i class="fas fa-exclamation-circle"></i></span>
                 <span class="dropdown-item-desc">
@@ -107,27 +107,27 @@
                 <span class="time">Kemarin</span>
                 </span>
                 </a>
-                </div> *@
+                </div>
                 <div class="dropdown-footer text-center">
                     <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
-        </li>
+        </li> *@
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="~/assets/img/hero/gereja1.png" class="user-img-radious-style">
                 <span class="d-sm-none d-lg-inline-block"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-                <div class="dropdown-title">Hello Pak Bendahara</div>
-                <a href="#" class="dropdown-item has-icon">
+                <div class="dropdown-title pb-0">Hello Pak Bendahara</div>
+                @* <a href="#" class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i>
                     Activities
                 </a>
                 <a href="#" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i>
                     Settings
-                </a>
+                </a> *@
                 <div class="dropdown-divider"></div>
                 <form asp-action="Logout" asp-controller="Home" asp-area="Dashboard">
                     <button type="submit" class="dropdown-item has-icon text-danger" style="font-size: 13px;">

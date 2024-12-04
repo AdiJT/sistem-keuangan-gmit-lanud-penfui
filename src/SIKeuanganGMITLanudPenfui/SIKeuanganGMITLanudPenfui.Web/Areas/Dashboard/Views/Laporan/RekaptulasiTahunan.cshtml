@@ -7,7 +7,12 @@
 
 <!-- Breadcrumb -->
 <div class="row">
-    <partial name="_BreadcrumbPartial" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RekaptulasiTahunan)"></a>Rekapitulasi Tahunan</li>
+        </ol>
+    </nav>
 </div>
 
 

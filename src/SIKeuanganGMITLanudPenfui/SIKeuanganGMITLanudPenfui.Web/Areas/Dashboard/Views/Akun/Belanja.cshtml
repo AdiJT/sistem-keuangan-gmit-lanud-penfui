@@ -8,7 +8,12 @@
 
 <!-- Breadcrumb -->
 <div class="row">
-    <partial name="_BreadcrumbPartial" />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Akun</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Akun" asp-action="Belanja"></a>Belanja</li>
+        </ol>
+    </nav>
 </div>
 
 <div class="card card-info">

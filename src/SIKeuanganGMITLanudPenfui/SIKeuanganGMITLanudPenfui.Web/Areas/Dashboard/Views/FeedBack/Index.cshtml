@@ -6,42 +6,61 @@
     var no = 1;
 }
 
-<form asp-action="@nameof(FeedBackController.MarkAllAsRead)">
-    <button class="btn btn-primary">Mark All As Read</button>
-</form>
+<!-- Breadcrumb -->
+<div class="row">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Lainnya</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.RAPBJ)"></a>Umpan Balik</li>
+        </ol>
+    </nav>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama</th>
-            <th>Judul</th>
-            <th>Pesan</th>
-            <th>Dibaca</th>
-            <th>Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var feedBack in Model)
-        {
-            <tr>
-                <td>@no</td>
-                <td>@feedBack.Tanggal.ToString("G", cultureInfo)</td>
-                <td>@feedBack.Nama</td>
-                <td>@feedBack.Judul</td>
-                <td>@feedBack.Pesan</td>
-                <td>@(feedBack.SudahDibaca ? "Sudah" : "Belum")</td>
-                <td>
-                    <form asp-action="MarkAsRead" asp-route-id="@feedBack.Id">
-                        <button class="btn btn-primary">Mark As Read</button>
-                    </form>
-                    <form asp-action="Hapus" asp-route-id="@feedBack.Id">
-                        <button class="btn btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-            no++;
-        }
-    </tbody>
-</table>
+<div class="card card-primary">
+    <div class="card-header">
+        <h4>Umpan Balik Jemaat</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="@nameof(FeedBackController.MarkAllAsRead)">
+            <button class="btn btn-primary">Mark All As Read</button>
+        </form>
+
+        <div class="table-responsive"></div>
+        <table class="table table-striped table-hover" id="table-order">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Judul</th>
+                    <th>Pesan</th>
+                    <th>Dibaca</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feedBack in Model)
+                {
+                    <tr>
+                        <td>@no</td>
+                        <td>@feedBack.Tanggal.ToString("G", cultureInfo)</td>
+                        <td>@feedBack.Nama</td>
+                        <td>@feedBack.Judul</td>
+                        <td>@feedBack.Pesan</td>
+                        <td>@(feedBack.SudahDibaca ? "Sudah" : "Belum")</td>
+                        <td class="d-flex">
+                            <form asp-action="MarkAsRead" asp-route-id="@feedBack.Id">
+                                <button class="btn btn-primary mr-2">Mark As Read</button>
+                            </form>
+                            <form asp-action="Hapus" asp-route-id="@feedBack.Id">
+                                <button class="btn btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                    no++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
