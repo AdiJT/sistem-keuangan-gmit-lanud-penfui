@@ -5,7 +5,12 @@
     ViewData["Title"] = "Laporan | RAPBJ";
 }
 
-<div class="card card-primary">
+<link rel="stylesheet" href="~/css/app.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/lib/datatables/datatables.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/component.css" asp-append-version="true" />
+
+<div class="card card-primary mb-3" style="margin: 0 165px">
     <div class="card-header">
         <h4>Laporan RAPBJ Tahun @Model.Tahun</h4>
     </div>
@@ -76,7 +81,7 @@
 
 @if (Model.RAPBJ is not null)
 {
-    <div class="card">
+    <div class="card" style="margin: 0 165px">
         <div class="card-header">
             <h4>Preview Laporan RAPBJ Tahun @Model.Tahun</h4>
         </div>
@@ -88,6 +93,11 @@
 }
 
 @section Scripts {
+    <script src="~/js/app.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/datatables.min.js" asp-append-version="true"></script>
+    <script src="~/js/datatables.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+
     <script type="text/javascript">
         const selectTahun = $('select#tahun');
 
