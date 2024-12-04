@@ -390,7 +390,7 @@
                     margin-right: 8px;
                 }
 
-    #contact .formko {
+    ::deep #contact .formko {
         width: 60%;
         background: var(--container-color);
         padding: 30px 40px;
