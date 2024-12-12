@@ -25,6 +25,25 @@ public class IndexVM
         }
     }
 
+    public Dictionary<(DateTime start, DateTime end), List<Transaksi>> TransaksiPerMinggu
+    {
+        get
+        {
+            var dict = new Dictionary<(DateTime start, DateTime end), List<Transaksi>>();
+
+            var start = new DateTime(DateTime.Now.Year, 1, 1);
+
+            while(start.Month == 1)
+            {
+                var end = start.AddDays(7);
+                dict.Add((start, end), DaftarTransaksi.Where(t => t.Tanggal.Date <= end.Date && t.Tanggal.Date >= start.Date).ToList());
+                start = end;
+            }
+
+            return dict;
+        }
+    }
+
     [Display(Name = "Nama")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public string Nama { get; set; } = string.Empty;

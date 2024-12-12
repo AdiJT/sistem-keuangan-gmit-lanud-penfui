@@ -40,11 +40,11 @@
         Penerimaan dan Pengeluaran Bulan September
     </p>
     <div class="bulanan__grid">
-        @foreach (var kv in Model.TransaksiPerBulan.OrderBy(d => d.Key).Take(3))
+        @foreach (var kv in Model.TransaksiPerMinggu.Take(3))
         {
             <!-- Card -->
             <div class="bulanan__card">
-                <h4>Bulan @cultureInfo.DateTimeFormat.GetMonthName(kv.Key) 2024</h4>
+                <h4>@kv.Key.start.ToString("dd MMMM yyyy", cultureInfo) - @kv.Key.end.ToString("dd MMMM yyyy", cultureInfo)</h4>
                 <p>
                     Penerimaan <span style="float:right">@kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)</span>
                 </p>
@@ -52,10 +52,6 @@
                     Pengeluaran <span style="float:right">@kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)</span>
                 </p>
                 <div class="bulanan__card__footer">
-                    <a asp-area="" asp-controller="Laporan" asp-action="BKU" asp-route-bulan="@kv.Key">
-                        Informasi Detail
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
                 </div>
             </div>
         }

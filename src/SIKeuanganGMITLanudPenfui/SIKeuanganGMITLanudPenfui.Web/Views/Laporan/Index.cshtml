@@ -81,9 +81,9 @@
                     {
                         Label = "Penerimaan",
                           Data=new Dictionary<string, double>(
-                            Model.TransaksiPerTanggal
+                            Model.TransaksiPerMinggu
                                  .Select(kv => new KeyValuePair<string, double>(
-                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     $"{kv.Key.start.ToString("dd/MM/yyyy")} - {kv.Key.end.ToString("dd/MM/yyyy")}",
                                      kv.Value.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
@@ -140,9 +140,9 @@
                     {
                         Label = "Pengeluaran",
                           Data=new Dictionary<string, double>(
-                            Model.TransaksiPerTanggal
+                            Model.TransaksiPerMinggu
                                  .Select(kv => new KeyValuePair<string, double>(
-                                     kv.Key.ToString("dd/MM/yyyy"),
+                                     $"{kv.Key.start.ToString("dd/MM/yyyy")} - {kv.Key.end.ToString("dd/MM/yyyy")}",
                                      kv.Value.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah)))),
                         Type = ChartType.Line
                     })" />
