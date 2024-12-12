@@ -2,4 +2,4 @@
 
 namespace SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.CreateKas;
 
-public record CreateKasCommand(string Uraian, double Saldo) : ICommand { }
+public record CreateKasCommand(string Uraian, double Saldo, string Keterangan) : ICommand { }

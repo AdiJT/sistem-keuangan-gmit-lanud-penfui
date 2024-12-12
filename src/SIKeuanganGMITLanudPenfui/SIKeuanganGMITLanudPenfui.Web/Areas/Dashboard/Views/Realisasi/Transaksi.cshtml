@@ -89,6 +89,7 @@
                         <th style="width: 250px">Uraian</th>
                         <th>Kas</th>
                         <th>File Bukti</th>
+                        <th>Nomor Bukti</th>
                         <th>Jumlah</th>
                         <th>Saldo Terakhir</th>
                         <th style="width: 100px">Aksi</th>
@@ -109,6 +110,7 @@
                             <td>
                                 <a href="@transaksi.FileBukti.ToString()">File Bukti</a>
                             </td>
+                            <td>@transaksi.NomorBukti</td>
                             <td class="text-right">@transaksi.Jumlah.ToString("C2", cultureInfo)</td>
                             <td class="text-right">@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
                             <td>

@@ -9,6 +9,7 @@ public record CreateTransaksiCommand(
     string Uraian,
     double Jumlah,
     Uri FileBukti,
+    string NomorBukti,
     Jenis Jenis,
     int AkunId,
     int KasId) : ICommand { }

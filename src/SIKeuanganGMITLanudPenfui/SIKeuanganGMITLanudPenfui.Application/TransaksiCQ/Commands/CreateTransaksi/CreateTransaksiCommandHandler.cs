@@ -96,6 +96,7 @@ internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCo
             Jenis = request.Jenis,
             SaldoKas = saldoKasSetelahTransaksi,
             FileBukti = request.FileBukti,
+            NomorBukti = request.NomorBukti,
             Akun = akun,
             Kas = kas
         };

@@ -11,4 +11,8 @@ public class EditKasVM
     [Display(Name = "Uraian")]
     [Required(ErrorMessage = "{0} harus diisi")]
     public required string Uraian { get; set; }
+
+    [Display(Name = "Keterangan")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    public string Keterangan { get; set; } = string.Empty;
 }

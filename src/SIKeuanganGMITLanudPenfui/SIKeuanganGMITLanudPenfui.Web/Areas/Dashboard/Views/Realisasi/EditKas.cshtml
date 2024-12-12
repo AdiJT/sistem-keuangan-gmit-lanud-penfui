@@ -28,6 +28,12 @@
                             <span asp-validation-for="@Model.Uraian"></span>
                         </div>
 
+                        <div class="form-group">
+                            <label asp-for="@Model.Keterangan" class="form-label"></label>
+                            <input asp-for="@Model.Keterangan" class="form-control" placeholder="Uraian..." autofocus />
+                            <span asp-validation-for="@Model.Keterangan"></span>
+                        </div>
+
                         <input asp-for="@Model.IdKas" readonly hidden />                        
                     </div>
                     <div class="card-footer text-right">

@@ -21,9 +21,13 @@ public class TambahVM
     [Display(Name = "Jam")]
     public TimeOnly? Jam { get; set; }
 
-    [Display(Name = "FIle Bukti")]
+    [Display(Name = "File Bukti")]
     [Required(ErrorMessage = "{0} harus diupload")]
     public IFormFile FileBukti { get; set; }
+    
+    [Display(Name = "Nomor Bukti")]
+    [Required(ErrorMessage = "{0} harus diisi")]
+    public string NomorBukti { get; set; }
 
     [Display(Name = "Jenis")]
     [Required(ErrorMessage = "{0} harus diisi")]

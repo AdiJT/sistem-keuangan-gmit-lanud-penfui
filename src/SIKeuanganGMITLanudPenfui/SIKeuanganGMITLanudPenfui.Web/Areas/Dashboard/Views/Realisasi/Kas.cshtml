@@ -32,6 +32,7 @@
                     <tr>
                         <th>No</th>
                         <th>Uraian</th>
+                        <th>Keterangan</th>
                         <th>Saldo</th>
                         <th>Terakhir Berubah</th>
                         <th>Aksi</th>
@@ -47,6 +48,7 @@
                         <tr>
                             <td>@no</td>
                             <td>@kas.Uraian</td>
+                            <td>@kas.Keterangan</td>
                             <td>@kas.Saldo.ToString("C2", cultureInfo)</td>
                             @if (kas.TanggalDiubah is not null)
                             {

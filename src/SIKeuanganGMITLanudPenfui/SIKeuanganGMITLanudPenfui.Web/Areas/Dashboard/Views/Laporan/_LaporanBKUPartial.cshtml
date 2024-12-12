@@ -63,6 +63,8 @@
                     <th>Tanggal</th>
                     <th>Kode Anggaran</th>
                     <th>Uraian</th>
+                    <th>Nomor Bukti</th>
+                    <th>Kas</th>
                     <th>Penerimaan</th>
                     <th>Pengeluaran</th>
                     <th>Saldo</th>
@@ -79,26 +81,26 @@
                         <td>@transaksi.Tanggal.ToString("dd MMMM yyyy", cultureInfo)</td>
                         <td>@transaksi.Akun.KodeAkun</td>
                         <td>@transaksi.Uraian</td>
+                        <td>@transaksi.NomorBukti</td>
+                        <td>@transaksi.Kas.Uraian</td>
                         <td>@(transaksi.Jenis == Jenis.Penerimaan ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
                         <td>@(transaksi.Jenis == Jenis.Belanja ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
                         <td>@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
                     </tr>
                     no++;
                 }
-            </tbody>
-            <tfoot>
                 @{
                     var totalPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
                     var totalPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
                     var totalSaldo = Model.DaftarTransaksi.LastOrDefault()?.SaldoKas ?? 0;
                 }
                 <tr>
-                    <th colspan="4" style="text-align:center">Jumlah</th>
+                    <th colspan="6" style="text-align:center">Jumlah</th>
                     <th>@totalPenerimaan.ToString("C2", cultureInfo)</th>
                     <th>@totalPengeluaran.ToString("C2", cultureInfo)</th>
                     <th>@totalSaldo.ToString("C2", cultureInfo)</th>
                 </tr>
-            </tfoot>
+            </tbody>
         </table>
     </div>
 

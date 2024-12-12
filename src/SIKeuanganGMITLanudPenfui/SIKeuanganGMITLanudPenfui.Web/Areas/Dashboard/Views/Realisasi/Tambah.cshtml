@@ -71,6 +71,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label asp-for="@Model.NomorBukti" class="form-label"></label>
+                            <input asp-for="@Model.NomorBukti" class="form-control" placeholder="Uraian..." />
+                            <span asp-validation-for="@Model.NomorBukti" class="form-text text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
                             <label asp-for="@Model.Jumlah" class="form-label"></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">

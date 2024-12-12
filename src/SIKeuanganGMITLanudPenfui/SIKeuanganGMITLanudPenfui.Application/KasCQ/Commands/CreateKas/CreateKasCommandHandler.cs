@@ -28,6 +28,7 @@ internal class CreateKasCommandHandler : ICommandHandler<CreateKasCommand>
         {
             Uraian = request.Uraian,
             Saldo = request.Saldo,
+            Keterangan = request.Keterangan
         };
 
         _repositoriKas.Add(kas);

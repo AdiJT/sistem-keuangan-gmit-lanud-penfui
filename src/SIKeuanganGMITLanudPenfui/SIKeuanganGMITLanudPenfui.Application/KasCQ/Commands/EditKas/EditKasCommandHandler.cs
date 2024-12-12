@@ -24,6 +24,7 @@ internal class EditKasCommandHandler : ICommandHandler<EditKasCommand>
             return new Error("EditKasCommandHandler.UraianTidakUnik", $"Sudah ada Kas dengan uraian {request.Uraian}");
 
         kas.Uraian = request.Uraian;
+        kas.Keterangan = request.Keterangan;
         _repositoriKas.Update(kas);
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
         if (result.IsFailure) return result.Error;

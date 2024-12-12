@@ -116,6 +116,7 @@ public class RealisasiController : Controller
             vm.Uraian,
             vm.Jumlah,
             fileBukti.Value,
+            vm.NomorBukti,
             vm.Jenis,
             vm.IdAkun,
             vm.IdKas);
@@ -143,7 +144,7 @@ public class RealisasiController : Controller
             Uraian = transaksi.Uraian,
             IdAkun = transaksi.Akun.Id,
             Jenis = jenis,
-            Tahun = tahun,
+            Tahun = tahun
         });
     }
 
@@ -217,7 +218,7 @@ public class RealisasiController : Controller
     {
         if (!ModelState.IsValid) return View(vm);
 
-        var command = new CreateKasCommand(vm.Uraian, vm.Saldo);
+        var command = new CreateKasCommand(vm.Uraian, vm.Saldo, vm.Keterangan);
         var result = await _sender.Send(command);
         if (result.IsFailure)
         {
@@ -237,7 +238,8 @@ public class RealisasiController : Controller
         return View(new EditKasVM
         {
             IdKas = kas.Id,
-            Uraian = kas.Uraian
+            Uraian = kas.Uraian,
+            Keterangan = kas.Keterangan,
         });
     }
 
@@ -249,7 +251,7 @@ public class RealisasiController : Controller
 
         if (vm.IdKas != id) return BadRequest();
 
-        var command = new EditKasCommand(vm.IdKas, vm.Uraian);
+        var command = new EditKasCommand(vm.IdKas, vm.Uraian, vm.Keterangan);
         var result = await _sender.Send(command);
 
         if (result.IsFailure)
