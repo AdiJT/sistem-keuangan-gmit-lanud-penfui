@@ -1,9 +1,21 @@
 ﻿@model GolonganAkun
 
-<li>@Model.KodeAkun @Model.Uraian</li>
-<ul>
-    @foreach(var akun in Model.DaftarAkun.OrderBy(a => a.Id))
-    {
-        <partial name="_AkunPartial" model="akun" />
-    }
-</ul>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td width="50px">@Model.KodeAkun</td>
+    <td colspan="2">@Model.Uraian</td>
+</tr>
+
+@foreach(var akun in Model.DaftarAkun)
+{
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td width="50px">@akun.KodeAkun</td>
+        <td>@akun.Uraian</td>
+    </tr>
+}

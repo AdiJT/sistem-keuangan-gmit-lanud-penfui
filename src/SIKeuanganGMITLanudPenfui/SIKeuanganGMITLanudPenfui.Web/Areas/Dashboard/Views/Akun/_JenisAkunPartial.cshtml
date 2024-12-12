@@ -1,17 +1,24 @@
 ﻿@model JenisAkun
 
-<li>@Model.KodeAkun @Model.Uraian</li>
+<tr>
+    <td></td>
+    <th width="50px">@Model.KodeAkun</th>
+    <th colspan="4">@Model.Uraian</th>
+</tr>
 
-<ul>
-    @foreach(var iakun in Model.DaftarIAkun)
+@foreach (var iakun in Model.DaftarIAkun)
+{
+    @if (iakun is KelompokAkun kelompokAkun)
     {
-        @if(iakun is Akun akun)
-        {
-            <partial name="_AkunPartial" model="akun" />
-        } 
-        else if(iakun is KelompokAkun kelompokAkun)
-        {
-            <partial name="_KelompokAkunPartial" model="kelompokAkun" />
-        }
+        <partial name="_KelompokAkunPartial" model="@kelompokAkun" />
     }
-</ul>
+    else if (iakun is Akun akun)
+    {
+        <tr>
+            <td></td>
+            <td></td>
+            <td width="50px">@akun.KodeAkun</td>
+            <td colspan="3">@akun.Uraian</td>
+        </tr>
+    }
+}

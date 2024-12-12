@@ -1,0 +1,69 @@
+﻿@model List<JenisAkun>
+
+@{
+    Layout = null;
+}
+
+<style>
+    table#tableRapbj, table#tableRapbj td, table#tableRapbj th {
+        background: white;
+        border: thin solid #000000;
+        border-spacing: 0px;
+    }
+
+        table#tableRapbj > thead th {
+            text-align: center;
+        }
+
+    #tabelLaporan {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+    }
+
+    #laporan {
+        font-family: Calibri !important;
+        font-size: 11px !important;
+        color: black !important;
+    }
+</style>
+
+<div id="laporan">
+    <div id="tabelLaporan">
+        <table id="tableRapbj">
+            <thead>
+                <tr>
+                    <th width="50px">Kode Anggaran</th>
+                    <th colspan="5" width="100%">Uraian</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any(j => j.Jenis == Jenis.Penerimaan))
+                {
+                    <tr>
+                        <th>I</th>
+                        <th colspan="5">Pendapatan</th>
+                    </tr>
+                    @foreach (var jenisAkun in Model.Where(j => j.Jenis == Jenis.Penerimaan))
+                    {
+                        <partial name="_JenisAkunPartial" model="@jenisAkun" />
+                    }
+                }
+
+                @if (Model.Any(j => j.Jenis == Jenis.Belanja))
+                {
+                    <tr>
+                        <th>II</th>
+                        <th colspan="5">Belanja</th>
+                    </tr>
+                    @foreach (var jenisAkun in Model.Where(j => j.Jenis == Jenis.Belanja))
+                    {
+                        <partial name="_JenisAkunPartial" model="@jenisAkun" />
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

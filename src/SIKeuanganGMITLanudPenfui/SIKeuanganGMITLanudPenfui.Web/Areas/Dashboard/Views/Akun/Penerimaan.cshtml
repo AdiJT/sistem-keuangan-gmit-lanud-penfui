@@ -48,7 +48,7 @@
                             <i class="fas fa-plus"></i> Tambah Jenis Akun
                         </a>
                     </div>
-                    
+
                     <div class="row ml-auto mr-3">
                         <div class="">
                             @if (!Model.IsAkunExist)
@@ -84,7 +84,7 @@
                                     }
                                 }
                             </select>
-                        </div>                                                
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -111,7 +111,7 @@
                                                  {
                                                     Title = "Hapus Jenis Akun",
                                                     Url = Url.Action(
-                                                        nameof(AkunController.HapusJenisAkun), 
+                                                        nameof(AkunController.HapusJenisAkun),
                                                         new { jenis=Jenis.Penerimaan, tahun=Model.Tahun, id=jenisAkun.Id })!
                                                  })" />
                                     </td>
@@ -343,7 +343,7 @@
                                         <a asp-action="EditAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        
+
                                         <form style="display:inline" asp-action="HapusAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id">
                                             <button type="submit" class="btn btn-danger btn-action" data-target="#basicModal2" data-toggle="modal" title="Hapus">
                                                 <i class="fas fa-trash"></i>
@@ -365,12 +365,7 @@
         <h4>Tabel Akun</h4>
     </div>
     <div class="card-body">
-        <ul>
-            @foreach (var jenisAkun in Model.DaftarJenisAkun)
-            {
-                <partial name="_JenisAkunPartial" model="jenisAkun" />
-            }
-        </ul>
+        <partial name="_PreviewAkunPartial" model="@Model.DaftarJenisAkun" />
     </div>
 </div>
 

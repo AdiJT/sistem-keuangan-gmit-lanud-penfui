@@ -360,12 +360,7 @@
         <h4>Tabel Akun</h4>
     </div>
     <div class="card-body">
-        <ul>
-            @foreach (var jenisAkun in Model.DaftarJenisAkun)
-            {
-                <partial name="_JenisAkunPartial" model="jenisAkun" />
-            }
-        </ul>
+        <partial name="_PreviewAkunPartial" model="@Model.DaftarJenisAkun" />
     </div>
 </div>
 
