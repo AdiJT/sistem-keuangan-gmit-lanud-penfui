@@ -103,7 +103,7 @@
                     {
                         <tr>
                             <td>@no</td>
-                            <td>@transaksi.Tanggal.ToString(cultureInfo.DateTimeFormat.ShortDatePattern, cultureInfo)</td>
+                            <td>@transaksi.Tanggal.ToString("dd/MM/yyyy HH:mm", cultureInfo)</td>
                             <td>@transaksi.Akun.KodeAkun @transaksi.Akun.Uraian</td>
                             <td>@transaksi.Uraian</td>
                             <td>@transaksi.Kas.Uraian</td>
