@@ -1,0 +1,48 @@
+﻿@model IndexVM
+
+@{
+    ViewData["Title"] = "Informasi Gereja - Tambah";
+}
+
+<select name="tahun" id="tahun" class="form-control" data-toggle="tooltip" title="Pilih Tahun">
+    @foreach (var tahun in Enumerable.Range(DateTime.Now.Year - 5, 11))
+    {
+        if (tahun == Model.Tahun)
+        {
+            <option value="@tahun" selected="true">@tahun</option>
+        }
+        else
+        {
+            <option value="@tahun">@tahun</option>
+        }
+    }
+</select>
+
+@if(Model.InformasiGereja is null)
+{
+    <a class="btn btn-primary" asp-action="Tambah" asp-route-tahun="@Model.Tahun">Tambah</a>
+} 
+else
+{
+    <a class="btn btn-primary" asp-action="Edit" asp-route-tahun="@Model.Tahun">Edit</a>
+}
+
+<div class="col-12 mb-3">
+    <label class="form-label">Ketua Majelis Jemaat</label>
+    <input class="form-control" readonly value="@Model.InformasiGereja?.KetuaMajelisJemaat"/>
+</div>
+<div class="col-12">
+    <label class="form-label">Bendahara</label>
+    <input class="form-control" readonly value="@Model.InformasiGereja?.Bendahara" />
+</div>
+
+@section Scripts {
+    <script>
+        $("select#tahun").on('change', function () {
+            const url = '/Dashboard/InformasiGereja/Index';
+            const tahun = $('select#tahun').val()
+
+            location.href = url + `?tahun=${tahun}`;
+        });
+    </script>
+}

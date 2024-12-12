@@ -1,0 +1,31 @@
+﻿@model EditVM
+
+@{
+    ViewData["Title"] = "Informasi Gereja - Tambah";
+}
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+
+    <div class="col-12 mb-3">
+        <label asp-for="@Model.KetuaMajelisJemaat" class="form-label"></label>
+        <input asp-for="@Model.KetuaMajelisJemaat" class="form-control" />
+        <span asp-validation-for="@Model.KetuaMajelisJemaat" class="text-danger form-text"></span>
+    </div>
+
+    <div class="col-12 mb-3">
+        <label asp-for="@Model.Bendahara" class="form-label"></label>
+        <input asp-for="@Model.Bendahara" class="form-control" />
+        <span asp-validation-for="@Model.Bendahara" class="text-danger form-text"></span>
+    </div>
+
+    <input asp-for="@Model.Tahun" readonly hidden />
+
+    <div class="row">
+        <button class="btn btn-primary">Simpan</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

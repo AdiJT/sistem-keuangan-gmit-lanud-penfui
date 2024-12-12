@@ -5705,6 +5705,17 @@ internal static class ModelBuilderExtension
         );
         #endregion
 
+        #region InformasiGereja
+        modelBuilder.Entity<InformasiGereja>().HasData(
+            new InformasiGereja
+            {
+                Tahun = tahun,
+                KetuaMajelisJemaat = "Pdt. Ishak B. Batmalo, S.Th",
+                Bendahara = "Pnt. Melkianus Foes"
+            }
+        );
+        #endregion
+
         return modelBuilder;
     }
 }

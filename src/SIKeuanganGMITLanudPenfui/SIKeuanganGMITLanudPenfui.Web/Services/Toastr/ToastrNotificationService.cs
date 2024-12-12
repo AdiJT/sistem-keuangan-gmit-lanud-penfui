@@ -52,4 +52,40 @@ public class ToastrNotificationService : IToastrNotificationService
 
         return notifications is not null && notifications is string json ? json : null;
     }
+
+    public void AddSuccess(string message, string? title = null, ToastrOptions? toastrOptions = null) =>
+        AddNotification(new ToastrNotification
+        {
+            Message = message,
+            Title = title,
+            Options = toastrOptions,
+            Type = ToastrNotificationType.Success
+        });
+
+    public void AddInformation(string message, string? title = null, ToastrOptions? toastrOptions = null) =>
+        AddNotification(new ToastrNotification
+        {
+            Message = message,
+            Title = title,
+            Options = toastrOptions,
+            Type = ToastrNotificationType.Info
+        });
+
+    public void AddWarning(string message, string? title = null, ToastrOptions? toastrOptions = null) =>
+        AddNotification(new ToastrNotification
+        {
+            Message = message,
+            Title = title,
+            Options = toastrOptions,
+            Type = ToastrNotificationType.Warning
+        });
+
+    public void AddError(string message, string? title = null, ToastrOptions? toastrOptions = null) =>
+        AddNotification(new ToastrNotification
+        {
+            Message = message,
+            Title = title,
+            Options = toastrOptions,
+            Type = ToastrNotificationType.Error
+        });
 }

@@ -40,4 +40,5 @@ internal class AppDbContext : DbContext
     public DbSet<User> TblUser { get; set; }
     public DbSet<Kas> TblKas { get; set; }
     public DbSet<FeedBack> TblFeedBack { get; set; }
+    public DbSet<InformasiGereja> TblInformasiGereja { get; set; }
 }

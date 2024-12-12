@@ -1,7 +1,10 @@
 ﻿@model LaporanMingguanVM
 
+@inject IRepositoriInformasiGereja RepositoriInformasiGereja
+
 @{
     Layout = null;
+    var informasiGereja = await RepositoriInformasiGereja.Get(Tahun.Create(Model.Dari.Year).Value);
 }
 
 @{
@@ -114,7 +117,7 @@
         <br />
         <br />
         <br />
-        Pdt. Ishak B. Batmalo, S.Th
+        @informasiGereja?.KetuaMajelisJemaat
     </div>
 
     <div id="tandaTangan" style="float:right">
@@ -123,6 +126,6 @@
         <br />
         <br />
         <br />
-        Pnt. Melkianus Foes
+        @informasiGereja?.Bendahara
     </div>
 </div>
