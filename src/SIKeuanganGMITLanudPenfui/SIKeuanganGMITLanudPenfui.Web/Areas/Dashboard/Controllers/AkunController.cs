@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NReco.PdfGenerator;
+using Razor.Templating.Core;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkunOnTahunFromTahun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateGolonganAkun;
@@ -15,6 +17,7 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
+using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.LaporanModels;
 using SIKeuanganGMITLanudPenfui.Web.Models;
 using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 using System.Drawing;
@@ -34,6 +37,7 @@ public class AkunController : Controller
     private readonly IUnitOfWork _unitOfWork;
     private readonly ISender _sender;
     private readonly IToastrNotificationService _toastrNotificationService;
+    private readonly IRazorTemplateEngine _razorTemplateEngine;
     private readonly JsonSerializerOptions serializerSettings = new(){ ReferenceHandler = ReferenceHandler.IgnoreCycles };
 
     public AkunController(
@@ -43,7 +47,8 @@ public class AkunController : Controller
         IRepositoriGolonganAkun repositoriGolonganAkun,
         ISender sender,
         IUnitOfWork unitOfWork,
-        IToastrNotificationService toastrNotificationService)
+        IToastrNotificationService toastrNotificationService,
+        IRazorTemplateEngine razorTemplateEngine)
     {
         _repositoriAkun = repositoriAkun;
         _repositoriJenisAkun = repositoriJenisAkun;
@@ -52,6 +57,7 @@ public class AkunController : Controller
         _sender = sender;
         _unitOfWork = unitOfWork;
         _toastrNotificationService = toastrNotificationService;
+        _razorTemplateEngine = razorTemplateEngine;
     }
 
     [Route("[area]/[controller]/[action]/{tahun:int?}")]
@@ -710,5 +716,26 @@ public class AkunController : Controller
         }
 
         return BadRequest();
+    }
+
+    [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
+    public async Task<IActionResult> PreviewAkun(Jenis jenis, int tahun)
+    {
+        var rTahun = Tahun.Create(tahun);
+        if (rTahun.IsFailure) return BadRequest();
+
+        var daftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList();
+
+        var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Akun/_PreviewAkunPartial.cshtml", daftarJenisAkun);
+        var htmlToPdf = new HtmlToPdfConverter
+        {
+            PageWidth = 210,
+            PageHeight = 297,
+            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
+        };
+
+        var pdfBinary = htmlToPdf.GeneratePdf(html);
+
+        return File(pdfBinary, "application/pdf");
     }
 }

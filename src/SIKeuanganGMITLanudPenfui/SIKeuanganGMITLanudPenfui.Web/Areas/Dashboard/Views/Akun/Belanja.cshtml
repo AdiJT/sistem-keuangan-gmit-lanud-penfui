@@ -360,7 +360,8 @@
         <h4>Tabel Akun</h4>
     </div>
     <div class="card-body">
-        <partial name="_PreviewAkunPartial" model="@Model.DaftarJenisAkun" />
+        <iframe class="pdf" src="@Url.ActionLink(nameof(AkunController.PreviewAkun), "Akun", new {tahun=Model.Tahun, jenis=Jenis.Belanja})" width="100%" height="600">
+        </iframe>
     </div>
 </div>
 
