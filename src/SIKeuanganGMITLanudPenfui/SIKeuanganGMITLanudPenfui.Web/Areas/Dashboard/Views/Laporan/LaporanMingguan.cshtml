@@ -1,0 +1,133 @@
+﻿@model LaporanMingguanVM
+
+@{
+    ViewData["Title"] = "Laporan | BKU";
+    var cultureInfo = new CultureInfo("id-ID");
+}
+
+<!-- Breadcrumb -->
+<div class="row">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Laporan</a></li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Laporan" asp-action="@nameof(LaporanController.BKU)"></a>BKU</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h4>Laporan Mingguan</h4>
+    </div>
+    <div class="card-body pt-1">
+        <div class="d-flex justify-content-start ml-auto mb-2">
+            <div class="mt-1">
+                <a asp-action="@nameof(LaporanController.LaporanMingguanPDF)" asp-route-dari="@Model.Dari" asp-route-sampai="@Model.Sampai" asp-route-download="@true"
+                   class="btn btn-secondary buttons-pdf button-html5 ml-0" data-toggle="tooltip" title="Cetak PDF">
+                    PDF
+                </a>
+            </div>
+            <div class="col-9 d-flex justify-content-center p-l-100">
+                <div class="row w-100">
+                    <div class="col-2 text-right align-content-center">
+                        <label class="form-label m-0">Start</label>
+                    </div>
+                    <div class="col-10 p-0">
+                        <input asp-for="@Model.Dari" type="date" class="form-control" id="start" />
+
+                    </div>
+                </div>
+                <div class="row w-100 pl-4">
+                    <div class="col-2 text-right align-content-center">
+                        <label class="form-label m-0">End</label>
+                    </div>
+                    <div class="col-10 pl-0">
+                        <input asp-for="@Model.Sampai" type="date" class="form-control" id="end" />
+                    </div>
+                </div>
+                <div class="align-content-end pb-1 pl-2">
+                    <button class="btn btn-secondary buttons-copy button-html5" id="filter">Filter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped" id="table-akun">
+                <thead>
+                    <tr class="text-center">
+                        <th>No</th>
+                        <th style="width: 90px">Tanggal</th>
+                        <th>Kode Akun</th>
+                        <th>Uraian</th>
+                        <th>Nomor Bukti</th>
+                        <th>Kas</th>
+                        <th>Penerimaan</th>
+                        <th>Pengeluaran</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var no = 1;
+                    }
+                    @foreach (var transaksi in Model.DaftarTransaksi)
+                    {
+                        <tr>
+                            <td>@no</td>
+                            <td>@transaksi.Tanggal.ToString("dd MMMM yyyy", cultureInfo)</td>
+                            <td>@transaksi.Akun.KodeAkun</td>
+                            <td>@transaksi.Uraian</td>
+                            <td>@transaksi.NomorBukti</td>
+                            <td>@transaksi.Kas.Uraian</td>
+                            <td class="text-right">@(transaksi.Jenis == Jenis.Penerimaan ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                            <td class="text-right">@(transaksi.Jenis == Jenis.Belanja ? transaksi.Jumlah.ToString("C2", cultureInfo) : "-")</td>
+                            <td class="text-right">@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
+                        </tr>
+                        no++;
+                    }
+                </tbody>
+                <tfoot>
+                    @{
+                        var totalPenerimaan = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah);
+                        var totalPengeluaran = Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah);
+                        var totalSaldo = Model.DaftarTransaksi.LastOrDefault()?.SaldoKas ?? 0;
+                    }
+                    <tr>
+                        <th colspan="6" class="text-center">Jumlah</th>
+                        <th class="text-right">@totalPenerimaan.ToString("C2", cultureInfo)</th>
+                        <th class="text-right">@totalPengeluaran.ToString("C2", cultureInfo)</th>
+                        <th class="text-right">@totalSaldo.ToString("C2", cultureInfo)</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h4>Preview Laporan Mingguan</h4>
+    </div>
+    <div class="card-body pt-0">
+        <iframe class="pdf" src="@Url.Action(nameof(LaporanController.LaporanMingguanPDF), new { dari = Model.Dari, sampai = Model.Sampai})" width="100%"
+                height="600">
+        </iframe>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        const inputStart = $("input#start");
+        const inputEnd = $("input#end");
+        const btnFilter = $("button#filter");
+
+        const url = '@Url.Action(nameof(LaporanController.LaporanMingguan), new {})';
+
+        $(btnFilter).on("click", function () {
+            const start = inputStart.val();
+            const end = inputEnd.val();
+
+            location.href = `${url}?dari=${start}&sampai=${end}`;
+        });
+    </script>
+}

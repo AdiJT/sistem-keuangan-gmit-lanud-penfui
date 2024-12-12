@@ -192,4 +192,59 @@ public class LaporanController : Controller
 
         return File(pdfBinary, "application/pdf");
     }
+
+    public async Task<IActionResult> LaporanMingguan(DateTime? dari, DateTime? sampai)
+    {
+        if (dari is null || sampai is null)
+        {
+            sampai = DateTime.Now;
+            dari = sampai.Value.AddDays(-7);
+        }
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAll())
+            .Where(t => t.Tanggal.Date <= sampai.Value.Date && t.Tanggal.Date >= dari.Value.Date).ToList();
+
+        return View(new LaporanMingguanVM
+        {
+            DaftarTransaksi = daftarTransaksi,
+            Dari = dari.Value,
+            Sampai = sampai.Value
+        });
+    }
+
+    [AllowAnonymous]
+    public async Task<IActionResult> LaporanMingguanPDF(DateTime? dari, DateTime? sampai, bool download = false)
+    {
+        if (dari is null || sampai is null)
+        {
+            sampai = DateTime.Now;
+            dari = sampai.Value.AddDays(-7);
+        }
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAll())
+            .Where(t => t.Tanggal.Date <= sampai.Value.Date && t.Tanggal.Date >= dari.Value.Date).ToList();
+
+        var vm = new LaporanMingguanVM
+        {
+            DaftarTransaksi = daftarTransaksi,
+            Dari = dari.Value,
+            Sampai = sampai.Value
+        };
+
+        var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanMingguanPartial.cshtml", vm);
+
+        var htmlToPdf = new HtmlToPdfConverter
+        {
+            PageWidth = 210,
+            PageHeight = 297,
+            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
+        };
+
+        var pdfBinary = htmlToPdf.GeneratePdf(html);
+
+        if (download)
+            return File(pdfBinary, "application/pdf", $"Laporan Mingguan");
+
+        return File(pdfBinary, "application/pdf");
+    }
 }
