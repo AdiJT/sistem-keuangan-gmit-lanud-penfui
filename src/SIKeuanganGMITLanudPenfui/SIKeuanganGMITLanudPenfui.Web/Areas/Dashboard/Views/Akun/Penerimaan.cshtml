@@ -106,14 +106,13 @@
                                         <a asp-action="EditJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id" class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <partial name="_DeleteConfirmationModalPartial"
-                                                 model="@(new DeleteConfirmationModalVM
-                                                 {
-                                                    Title = "Hapus Jenis Akun",
-                                                    Url = Url.Action(
-                                                        nameof(AkunController.HapusJenisAkun),
-                                                        new { jenis=Jenis.Penerimaan, tahun=Model.Tahun, id=jenisAkun.Id })!
-                                                 })" />
+                                        <form style="display:inline" asp-action="HapusJenisAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@jenisAkun.Id">
+                                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                                    data-url="@Url.Action("HapusJenisAkun", new { jenis = Jenis.Penerimaan, tahun = Model.Tahun, id = jenisAkun.Id })"
+                                                    title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             }
@@ -188,7 +187,9 @@
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <form style="display:inline" asp-action="HapusKelompokAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@kelompokAkun.Id">
-                                            <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus">
+                                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                                    data-url="@Url.Action("HapusKelompokAkun", new { jenis = Jenis.Penerimaan, tahun = Model.Tahun, id = kelompokAkun.Id })"
+                                                    title="Hapus">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>

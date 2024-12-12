@@ -470,68 +470,81 @@ public class AkunController : Controller
     public async Task<IActionResult> HapusJenisAkun(Jenis jenis, int tahun, int id)
     {
         var jenisAkun = await _repositoriJenisAkun.Get(id);
-        if (jenisAkun is null) return NotFound();
+        if (jenisAkun is null)
+        {
+            return Json(new { success = false, message = "Data tidak ditemukan." });
+        }
 
-        if(jenisAkun.Jenis != jenis || jenisAkun.Tahun.Value != tahun)
-            return BadRequest();
+        if (jenisAkun.Jenis != jenis || jenisAkun.Tahun.Value != tahun)
+        {
+            return Json(new { success = false, message = "Data tidak valid." });
+        }
 
         _repositoriJenisAkun.Delete(jenisAkun);
         var result = await _unitOfWork.SaveChangesAsync();
-        if(result.IsFailure)
+        if (result.IsFailure)
         {
-            _toastrNotificationService.AddNotification(new ToastrNotification
+            return Json(new
             {
-                Title = "Hapus Gagal",
-                Message = result.Error.Message,
-                Type = ToastrNotificationType.Error
-            });
-        }
-        else
-        {
-            _toastrNotificationService.AddNotification(new ToastrNotification
-            {
-                Title = "Hapus Berhasil",
-                Message = "Jenis Akun berhasil dihapus",
-                Type = ToastrNotificationType.Success
+                success = false,
+                message = result.Error.Message
             });
         }
 
-        return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
+        // Kirim notifikasi sukses (opsional)
+        _toastrNotificationService.AddNotification(new ToastrNotification
+        {
+            Title = "Hapus Berhasil",
+            Message = "Jenis Akun berhasil dihapus",
+            Type = ToastrNotificationType.Success
+        });
+
+        return Json(new
+        {
+            success = true,
+            message = "Jenis Akun berhasil dihapus."
+        });
     }
+
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusKelompokAkun(Jenis jenis, int tahun, int id)
     {
         var kelompokAkun = await _repositoriKelompokAkun.Get(id);
-        if (kelompokAkun is null) return NotFound();
+        if (kelompokAkun is null)
+            return Json(new { success = false, message = "Data tidak ditemukan." });
 
         if (kelompokAkun.JenisAkun.Jenis != jenis || kelompokAkun.Tahun.Value != tahun)
-            return BadRequest();
+            return Json(new { success = false, message = "Data tidak valid." });
 
         _repositoriKelompokAkun.Delete(kelompokAkun);
         var result = await _unitOfWork.SaveChangesAsync();
         if (result.IsFailure)
         {
-            _toastrNotificationService.AddNotification(new ToastrNotification
+            return Json(new
             {
-                Title = "Hapus Gagal",
-                Message = result.Error.Message,
-                Type = ToastrNotificationType.Error
-            });
-        }
-        else
-        {
-            _toastrNotificationService.AddNotification(new ToastrNotification
-            {
-                Title = "Hapus Berhasil",
-                Message = "Kelompok Akun berhasil dihapus",
-                Type = ToastrNotificationType.Success
+                success = false,
+                message = result.Error.Message
             });
         }
 
-        return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
+        // Kirim notifikasi sukses (opsional)
+        _toastrNotificationService.AddNotification(new ToastrNotification
+        {
+            Title = "Hapus Berhasil",
+            Message = "Kelompok Akun berhasil dihapus",
+            Type = ToastrNotificationType.Success
+        });
+
+        // Kembalikan JSON respons sukses
+        return Json(new
+        {
+            success = true,
+            message = "Kelompok Akun berhasil dihapus."
+        });
     }
+
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]

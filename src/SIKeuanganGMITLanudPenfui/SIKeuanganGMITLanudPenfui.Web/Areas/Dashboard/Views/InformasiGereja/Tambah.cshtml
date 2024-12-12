@@ -4,27 +4,52 @@
     ViewData["Title"] = "Informasi Gereja - Tambah";
 }
 
-<form asp-action="Tambah">
-    <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
-
-    <div class="col-12 mb-3">
-        <label asp-for="@Model.KetuaMajelisJemaat" class="form-label"></label>
-        <input asp-for="@Model.KetuaMajelisJemaat" class="form-control"/>
-        <span asp-validation-for="@Model.KetuaMajelisJemaat" class="text-danger form-text"></span>
+<!-- Breadcrumb -->
+<div class="row" style="justify-content: center;">
+    <div class="col-12 col-md-6 col-lg-6" style="padding: 0;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Akun</a></li>
+                <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="InformasiGereja" asp-action="Index">Informasi Gereja</a></li>
+                <li class="breadcrumb-item" aria-current="page">Tambah</li>
+            </ol>
+        </nav>
     </div>
+</div>
 
-    <div class="col-12 mb-3">
-        <label asp-for="@Model.Bendahara" class="form-label"></label>
-        <input asp-for="@Model.Bendahara" class="form-control" />
-        <span asp-validation-for="@Model.Bendahara" class="text-danger form-text"></span>
+<div class="section-body">
+    <div class="row" style="justify-content: center;">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h4>Tambah Informasi Gereja</h4>                    
+                </div>
+                <form asp-action="Tambah">
+                    <div class="card-body pt-0">
+                        <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="@Model.KetuaMajelisJemaat">Ketua Majelis Jemaat<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.KetuaMajelisJemaat" class="form-control" />
+                            <span asp-validation-for="@Model.KetuaMajelisJemaat" class="text-danger form-text"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Bendahara">Bendahara<span class="text-danger">*</span></label>
+                            <input asp-for="@Model.Bendahara" class="form-control" />
+                            <span asp-validation-for="@Model.Bendahara" class="text-danger form-text"></span>
+                        </div>
+
+                        <input asp-for="@Model.Tahun" readonly hidden />
+
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>                
+            </div>
+
+        </div>
     </div>
-
-    <input asp-for="@Model.Tahun" readonly hidden/>
-
-    <div class="row">
-        <button class="btn btn-primary">Simpan</button>
-    </div>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
