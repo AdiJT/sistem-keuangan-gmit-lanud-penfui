@@ -724,7 +724,10 @@ public class AkunController : Controller
         var rTahun = Tahun.Create(tahun);
         if (rTahun.IsFailure) return BadRequest();
 
-        var daftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList();
+        var daftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value))
+            .Where(j => j.Jenis == jenis)
+            .OrderBy(j => j.Kode)
+            .ToList();
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Akun/_PreviewAkunPartial.cshtml", daftarJenisAkun);
         var htmlToPdf = new HtmlToPdfConverter
