@@ -659,6 +659,7 @@ $(function () {
             $(".choose-theme li").removeClass("active");
             $(".choose-theme li[title|='white']").addClass("active");
             $(".selectgroup-input[value|='1']").prop("checked", true);
+            localStorage.setItem('layout-color', '1');
         } else {
             $("body").removeClass();
             $("body").addClass("dark");
@@ -668,6 +669,7 @@ $(function () {
             $(".choose-theme li").removeClass("active");
             $(".choose-theme li[title|='black']").addClass("active");
             $(".selectgroup-input[value|='2']").prop("checked", true);
+            localStorage.setItem('layout-color', '2');
         }
     });
 
@@ -694,16 +696,32 @@ $(function () {
     //start up class add
 
     //add default class on body tag
-    jQuery("body").addClass("light");
-    jQuery("body").addClass("light-sidebar");
-    jQuery("body").addClass("theme-white");
-    // set theme default color
-    $(".choose-theme li").removeClass("active");
-    $(".choose-theme li[title|='white']").addClass("active");
-    //set default dark or light layout(1=light, 2=dark)
-    $(".select-layout[value|='1']").prop("checked", true);
-    //set default dark or light sidebar(1=light, 2=dark)
-    $(".select-sidebar[value|='1']").prop("checked", true);
-    // sticky header default set to true
-    $("#sticky_header_setting").prop("checked", true);
+    const layoutColor = localStorage.getItem('layout-color');
+    if (layoutColor == '2') {
+        jQuery("body").addClass("dark");
+        jQuery("body").addClass("dark-sidebar");
+        jQuery("body").addClass("theme-black");
+        // set theme default color
+        $(".choose-theme li").removeClass("active");
+        $(".choose-theme li[title|='black']").addClass("active");
+        //set default dark or light layout(1=light, 2=dark)
+        $(".select-layout[value|='2']").prop("checked", true);
+        //set default dark or light sidebar(1=light, 2=dark)
+        $(".select-sidebar[value|='2']").prop("checked", true);
+        // sticky header default set to true
+        $("#sticky_header_setting").prop("checked", true);
+    } else {
+        jQuery("body").addClass("light");
+        jQuery("body").addClass("light-sidebar");
+        jQuery("body").addClass("theme-white");
+        // set theme default color
+        $(".choose-theme li").removeClass("active");
+        $(".choose-theme li[title|='white']").addClass("active");
+        //set default dark or light layout(1=light, 2=dark)
+        $(".select-layout[value|='1']").prop("checked", true);
+        //set default dark or light sidebar(1=light, 2=dark)
+        $(".select-sidebar[value|='1']").prop("checked", true);
+        // sticky header default set to true
+        $("#sticky_header_setting").prop("checked", true);
+    }
 });
