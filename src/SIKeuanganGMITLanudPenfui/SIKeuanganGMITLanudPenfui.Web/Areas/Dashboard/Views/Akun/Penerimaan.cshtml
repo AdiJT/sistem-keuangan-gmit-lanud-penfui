@@ -266,7 +266,9 @@
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <form style="display:inline" asp-action="HapusGolonganAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@golonganAkun.Id">
-                                            <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus">
+                                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                                    data-url="@Url.Action("HapusGolonganAkun", new { jenis = Jenis.Penerimaan, tahun = Model.Tahun, id = golonganAkun.Id })"
+                                                    title="Hapus">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
@@ -346,7 +348,9 @@
                                         </a>
 
                                         <form style="display:inline" asp-action="HapusAkun" asp-route-jenis="@Jenis.Penerimaan" asp-route-tahun="@Model.Tahun" asp-route-id="@akun.Id">
-                                            <button type="submit" class="btn btn-danger btn-action" data-target="#basicModal2" data-toggle="modal" title="Hapus">
+                                            <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                                    data-url="@Url.Action("HapusAkun", new { jenis = Jenis.Penerimaan, tahun = Model.Tahun, id = akun.Id })"
+                                                    title="Hapus">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>

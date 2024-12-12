@@ -64,7 +64,11 @@
                             <td>
                                 <a asp-action="@nameof(RealisasiController.EditKas)" asp-route-id="@kas.Id" class="btn btn-primary">Edit</a>
                                 <form asp-action="@nameof(RealisasiController.HapusKas)" asp-route-id="@kas.Id" style="display:inline">
-                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                    <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                            data-url="@Url.Action("HapusKas", new { id = kas.Id })"
+                                            title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </form>
                             </td>
                         </tr>

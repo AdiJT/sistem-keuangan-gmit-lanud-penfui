@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.CreateKas;
 using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.EditKas;
+using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.EditTransaksi;
@@ -173,7 +174,14 @@ public class RealisasiController : Controller
     public async Task<IActionResult> Hapus(Jenis jenis, int tahun, int id)
     {
         var transaksi = await _repositoriTransaksi.Get(id);
-        if (transaksi is null) return NotFound();
+        if (transaksi is null)
+        {
+            return Json(new
+            {
+                success = false,
+                message = "Data transaksi tidak ditemukan"
+            });
+        }
 
         var command = new HapusTransaksiCommand(id);
         var result = await _sender.Send(command);
@@ -185,7 +193,7 @@ public class RealisasiController : Controller
                 Message = result.Error.Message,
                 Type = ToastrNotificationType.Error
             });
-        } 
+        }
         else
         {
             _notificationService.AddNotification(new ToastrNotification
@@ -196,7 +204,11 @@ public class RealisasiController : Controller
             });
         }
 
-        return RedirectToAction(nameof(Transaksi), new { jenis, tahun });
+        return Json(new
+        {
+            success = true,
+            message = $"{jenis} '{transaksi.Uraian}' berhasil dihapus"
+        });
     }
 
     [Route("/[area]/[controller]/[action]")]
@@ -268,10 +280,16 @@ public class RealisasiController : Controller
     public async Task<IActionResult> HapusKas(int id)
     {
         var kas = await _repositoriKas.Get(id);
-        if (kas is null) return NotFound();
+        if (kas is null)
+            return Json(new
+            {
+                success = false,
+                message = "Data Kas tidak ditemukan"
+            });
 
         _repositoriKas.Delete(kas);
         var result = await _unitOfWork.SaveChangesAsync();
+
         if (result.IsFailure)
         {
             _notificationService.AddNotification(new ToastrNotification
@@ -291,6 +309,10 @@ public class RealisasiController : Controller
             });
         }
 
-        return RedirectToAction(nameof(Kas));
+        return Json(new
+        {
+            success = true,
+            message = $"Kas \"{kas.Uraian}\" berhasil dihapus"
+        });
     }
 }

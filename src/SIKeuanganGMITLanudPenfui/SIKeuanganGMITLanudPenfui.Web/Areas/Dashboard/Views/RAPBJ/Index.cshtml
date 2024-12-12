@@ -36,8 +36,13 @@
                       asp-route-tahun="@Model.Tahun"
                       asp-route-jenis="@Model.Jenis"
                       method="post"
-                      class="mb-0 pl-2">
-                    <button type="submit" class="btn btn-danger">Hapus Seluruh RAPBJ</button>
+                      class="mb-0 pl-2 pr-2">
+                    <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                            data-url="@Url.Action("HapusRAPBJ", new { tahun = Model.Tahun, jenis = Model.Jenis })"
+                            title="Hapus">
+                        <i class="fas fa-trash"></i>
+                        Hapus Seluruh RAPBJ
+                    </button>
                 </form>
             }
 
@@ -115,7 +120,9 @@
                                 </a>
                                 <form style="display:inline" asp-action="HapusDetailRAPBJ" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
                                       asp-route-id="@detail.Akun.Id">
-                                    <button type="submit" class="btn btn-danger btn-action" data-toggle="tooltip" title="Hapus">
+                                    <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                            data-url="@Url.Action("HapusDetailRAPBJ", new { jenis = Model.Jenis, tahun = Model.Tahun, id = detail.Akun.Id })"
+                                            title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>

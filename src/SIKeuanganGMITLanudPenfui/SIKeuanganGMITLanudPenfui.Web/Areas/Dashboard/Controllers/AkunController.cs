@@ -484,20 +484,23 @@ public class AkunController : Controller
         var result = await _unitOfWork.SaveChangesAsync();
         if (result.IsFailure)
         {
-            return Json(new
+            _toastrNotificationService.AddNotification(new ToastrNotification
             {
-                success = false,
-                message = result.Error.Message
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
             });
         }
-
-        // Kirim notifikasi sukses (opsional)
-        _toastrNotificationService.AddNotification(new ToastrNotification
+        else
         {
-            Title = "Hapus Berhasil",
-            Message = "Jenis Akun berhasil dihapus",
-            Type = ToastrNotificationType.Success
-        });
+            // Kirim notifikasi sukses (opsional)
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Jenis Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }      
 
         return Json(new
         {
@@ -522,20 +525,23 @@ public class AkunController : Controller
         var result = await _unitOfWork.SaveChangesAsync();
         if (result.IsFailure)
         {
-            return Json(new
+            _toastrNotificationService.AddNotification(new ToastrNotification
             {
-                success = false,
-                message = result.Error.Message
+                Title = "Hapus Gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
             });
         }
-
-        // Kirim notifikasi sukses (opsional)
-        _toastrNotificationService.AddNotification(new ToastrNotification
+        else
         {
-            Title = "Hapus Berhasil",
-            Message = "Kelompok Akun berhasil dihapus",
-            Type = ToastrNotificationType.Success
-        });
+            // Kirim notifikasi sukses (opsional)
+            _toastrNotificationService.AddNotification(new ToastrNotification
+            {
+                Title = "Hapus Berhasil",
+                Message = "Kelompok Akun berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }        
 
         // Kembalikan JSON respons sukses
         return Json(new
@@ -543,18 +549,30 @@ public class AkunController : Controller
             success = true,
             message = "Kelompok Akun berhasil dihapus."
         });
-    }
-
+    }    
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusGolonganAkun(Jenis jenis, int tahun, int id)
     {
         var golonganAkun = await _repositoriGolonganAkun.Get(id);
-        if (golonganAkun is null) return NotFound();
+        if (golonganAkun is null)
+        {
+            return Json(new
+            {
+                success = false,
+                message = "Golongan Akun tidak ditemukan."
+            });
+        }
 
         if (golonganAkun.KelompokAkun.JenisAkun.Jenis != jenis || golonganAkun.Tahun.Value != tahun)
-            return BadRequest();
+        {
+            return Json(new
+            {
+                success = false,
+                message = "Data tidak valid atau tidak sesuai dengan parameter yang diberikan."
+            });
+        }
 
         _repositoriGolonganAkun.Delete(golonganAkun);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -570,29 +588,49 @@ public class AkunController : Controller
         }
         else
         {
+            // Kirim notifikasi sukses (opsional)
             _toastrNotificationService.AddNotification(new ToastrNotification
             {
                 Title = "Hapus Berhasil",
                 Message = "Golongan Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }
+        }        
 
-        return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
+        return Json(new
+        {
+            success = true,
+            message = "Golongan Akun berhasil dihapus."
+        });
     }
+
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusAkun(Jenis jenis, int tahun, int id)
     {
         var akun = await _repositoriAkun.Get(id);
-        if (akun is null) return NotFound();
+        if (akun is null)
+        {
+            return Json(new
+            {
+                success = false,
+                message = "Akun tidak ditemukan."
+            });
+        }
 
         if (akun.JenisAkun.Jenis != jenis || akun.Tahun.Value != tahun)
-            return BadRequest();
+        {
+            return Json(new
+            {
+                success = false,
+                message = "Data tidak valid atau tidak sesuai dengan parameter yang diberikan."
+            });
+        }
 
         _repositoriAkun.Delete(akun);
         var result = await _unitOfWork.SaveChangesAsync();
+
         if (result.IsFailure)
         {
             _toastrNotificationService.AddNotification(new ToastrNotification
@@ -604,16 +642,22 @@ public class AkunController : Controller
         }
         else
         {
+            // Kirim notifikasi sukses (opsional)
             _toastrNotificationService.AddNotification(new ToastrNotification
             {
                 Title = "Hapus Berhasil",
                 Message = "Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }
+        }        
 
-        return Redirect(Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!);
+        return Json(new
+        {
+            success = true,
+            message = "Akun berhasil dihapus."
+        });
     }
+
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
