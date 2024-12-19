@@ -9,6 +9,7 @@ using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateBelanjaPa
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.EditTransaksi;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.HapusTransaksi;
+using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.MelunaskanPanjar;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
@@ -447,5 +448,57 @@ public class RealisasiController : Controller
         }
 
         return RedirectToAction(nameof(Panjar), new {tahun});
+    }
+
+    [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
+    public async Task<IActionResult> Lunaskan(int tahun, int id)
+    {
+        var transaksi = await _repositoriTransaksi.Get(id);
+        if (transaksi is null) return NotFound();
+
+        if (transaksi.Tanggal.Year != tahun || transaksi.Jenis != Jenis.Belanja || transaksi.StatusTransaksi != StatusTransaksi.Panjar)
+            return BadRequest();
+
+        return View(new LunaskanVM
+        {
+            IdTransaksi = id,
+            Jumlah = transaksi.Jumlah,
+            Tahun = tahun,
+        });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
+    public async Task<IActionResult> Lunaskan(int tahun, int id, LunaskanVM vm)
+    {
+        if (!ModelState.IsValid) return View(vm);
+
+        if (tahun != vm.Tahun || id != vm.IdTransaksi) return BadRequest();
+
+        var fileBukti = await _fileUploadService.UploadFile<LunaskanVM>(
+           vm.FileBukti,
+           "/filebukti",
+           [".pdf", ".docx", ".jpg", ".jpeg"],
+           long.MinValue,
+           long.MaxValue);
+
+        if (fileBukti.IsFailure)
+        {
+            ModelState.AddModelError(nameof(TambahVM.FileBukti), fileBukti.Error.Message);
+            return View(vm);
+        }
+
+        var command = new MelunaskanPanjarCommand(vm.IdTransaksi, vm.Jumlah, fileBukti.Value, vm.NomorBukti);
+        var result = await _sender.Send(command);
+
+        if (result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, result.Error.Message);
+            return View(vm);
+        }
+
+        _notificationService.AddSuccess("Transaksi berhasil dilunaskan");
+
+        return RedirectToAction(nameof(Panjar), new { tahun });
     }
 }

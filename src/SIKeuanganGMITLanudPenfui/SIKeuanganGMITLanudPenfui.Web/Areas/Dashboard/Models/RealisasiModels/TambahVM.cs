@@ -24,10 +24,10 @@ public class TambahVM
     [Display(Name = "File Bukti")]
     [Required(ErrorMessage = "{0} harus diupload")]
     public IFormFile FileBukti { get; set; }
-    
+
     [Display(Name = "Nomor Bukti")]
     [Required(ErrorMessage = "{0} harus diisi")]
-    public string NomorBukti { get; set; }
+    public string NomorBukti { get; set; } = string.Empty;
 
     [Display(Name = "Jenis")]
     [Required(ErrorMessage = "{0} harus diisi")]

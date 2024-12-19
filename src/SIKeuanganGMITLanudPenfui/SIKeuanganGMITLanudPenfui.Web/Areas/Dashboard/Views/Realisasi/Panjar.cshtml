@@ -45,7 +45,7 @@
                 <div class="align-content-end pb-1 pl-2">
                     <button class="btn btn-secondary buttons-copy button-html5" id="filter">Filter</button>
                 </div>
-            </div>            
+            </div>
 
             <div class="col-auto ml-auto">
                 <select id="tahun" class="form-control">
@@ -91,14 +91,17 @@
                             <td>@transaksi.Kas.Uraian</td>
                             <td class="text-right">@transaksi.Jumlah.ToString("C2", cultureInfo)</td>
                             <td>
-                                <a asp-action="@nameof(RealisasiController.EditPanjar)" 
+                                <a asp-action="@nameof(RealisasiController.EditPanjar)"
                                    asp-route-tahun="@Model.Tahun"
                                    asp-route-id="@transaksi.Id" class="btn btn-primary">Edit</a>
+                                <a asp-action="@nameof(RealisasiController.Lunaskan)"
+                                   asp-route-tahun="@Model.Tahun"
+                                   asp-route-id="@transaksi.Id" class="btn btn-primary">Lunaskan</a>
                                 <form asp-action="@nameof(RealisasiController.HapusPanjar)"
                                       asp-route-tahun="@Model.Tahun"
                                       asp-route-id="@transaksi.Id" style="display:inline">
                                     <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
-                                            data-url="@Url.Action("HapusPanjar", new { tahun = Model.Tahun, id=transaksi.Id })"
+                                            data-url="@Url.Action("HapusPanjar", new { tahun = Model.Tahun, id = transaksi.Id })"
                                             title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -112,7 +115,6 @@
         </div>
     </div>
     <div class="padding-20">
-       
     </div>
 </div>
 
@@ -137,7 +139,7 @@
         const inputEnd = $("input#end");
         const btnFilter = $("button#filter");
 
-        const url2 = '@Url.Action(nameof(RealisasiController.Transaksi), new { tahun=Model.Tahun })';
+        const url2 = '@Url.Action(nameof(RealisasiController.Transaksi), new { tahun = Model.Tahun })';
 
         $(btnFilter).on("click", function () {
             const start = inputStart.val();

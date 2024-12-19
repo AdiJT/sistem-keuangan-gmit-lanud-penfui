@@ -97,15 +97,6 @@ internal class CreateBelanjaPanjarCommandHandler : ICommandHandler<CreateBelanja
         };
         _repositoriTransaksi.Add(transaksi);
 
-        //Update transaksi setelahnya
-        foreach (var transaksiSetelah in daftarTransaksiSetelah)
-        {
-            saldoKasSetelahTransaksi = saldoKasSetelahTransaksi - transaksiSetelah.Jumlah;
-
-            transaksiSetelah.SaldoKas = saldoKasSetelahTransaksi;
-            _repositoriTransaksi.Update(transaksiSetelah);
-        }
-
         //Simpan perubahan
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
         if (result.IsFailure) return result.Error;

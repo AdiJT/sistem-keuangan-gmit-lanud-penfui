@@ -68,6 +68,8 @@ internal class MelunaskanPanjarCommandHandler : ICommandHandler<MelunaskanPanjar
 
         //Update Transaksi
         transaksi.Jumlah = request.Jumlah;
+        transaksi.FileBukti = request.FileBukti;
+        transaksi.NomorBukti = request.NomorBukti;
         transaksi.SaldoKas = saldoKasSetelahTransaksi;
         transaksi.StatusTransaksi = StatusTransaksi.Lunas;
 
