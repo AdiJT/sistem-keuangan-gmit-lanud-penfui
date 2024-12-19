@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Database;
 namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241219051315_TambahStatusTransaksi")]
+    partial class TambahStatusTransaksi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -9908,20 +9911,6 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                             TanggalDitambahkan = new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalDiubah = new DateTime(2024, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Uraian = "Tunjangan Kesehatan Pendeta bulan Mei 2024"
-                        },
-                        new
-                        {
-                            Id = 120,
-                            AkunId = 76,
-                            Jenis = 1,
-                            Jumlah = 100000.0,
-                            KasId = 2,
-                            SaldoKas = 4793500.0,
-                            StatusTransaksi = 0,
-                            Tanggal = new DateTime(2024, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDitambahkan = new DateTime(2024, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalDiubah = new DateTime(2024, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Uraian = "Transaksi Panjar 1"
                         });
                 });
 
@@ -9956,14 +9945,14 @@ namespace SIKeuanganGMITLanudPenfui.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPRVABemTXxtXZocS4JRaQBd1hmsI77kXisFgGpyOi0xK43FBk1mRRD3tse4mwXoew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKI8WnKqisKtQ+hWHEo1XAwZtsOIybGfYHwXfnRyvkPDkdxKyWqtsU4Zny/lFcWNLg==",
                             Role = "Bendahara",
                             UserName = "Bendahara"
                         },
                         new
                         {
                             Id = 2,
-                            PasswordHash = "AQAAAAIAAYagAAAAEHYSXnNvRc1FFWDDxeO+vYUZzeXZOBGRGP8KzP6XaZ6UBJBNcDz+BRG64HeJuKkB2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJXsMvwiT0XzynjexdC2kySRNMpxMEuCV0ouJ0sOD+aeIW3OPy2Qqy3/O3vXmDFPhA==",
                             Role = "Operator",
                             UserName = "Operator"
                         });

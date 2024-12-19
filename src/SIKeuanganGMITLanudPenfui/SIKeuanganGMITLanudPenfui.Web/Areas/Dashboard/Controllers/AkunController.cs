@@ -470,15 +470,9 @@ public class AkunController : Controller
     public async Task<IActionResult> HapusJenisAkun(Jenis jenis, int tahun, int id)
     {
         var jenisAkun = await _repositoriJenisAkun.Get(id);
-        if (jenisAkun is null)
-        {
-            return Json(new { success = false, message = "Data tidak ditemukan." });
-        }
+        if (jenisAkun is null) return NotFound();
 
-        if (jenisAkun.Jenis != jenis || jenisAkun.Tahun.Value != tahun)
-        {
-            return Json(new { success = false, message = "Data tidak valid." });
-        }
+        if (jenisAkun.Jenis != jenis || jenisAkun.Tahun.Value != tahun) return BadRequest();
 
         _repositoriJenisAkun.Delete(jenisAkun);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -500,13 +494,9 @@ public class AkunController : Controller
                 Message = "Jenis Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }      
+        }
 
-        return Json(new
-        {
-            success = true,
-            message = "Jenis Akun berhasil dihapus."
-        });
+        return RedirectToAction(jenis.ToString(), new { tahun });
     }
 
 
@@ -515,11 +505,9 @@ public class AkunController : Controller
     public async Task<IActionResult> HapusKelompokAkun(Jenis jenis, int tahun, int id)
     {
         var kelompokAkun = await _repositoriKelompokAkun.Get(id);
-        if (kelompokAkun is null)
-            return Json(new { success = false, message = "Data tidak ditemukan." });
+        if (kelompokAkun is null) return NotFound();
 
-        if (kelompokAkun.JenisAkun.Jenis != jenis || kelompokAkun.Tahun.Value != tahun)
-            return Json(new { success = false, message = "Data tidak valid." });
+        if (kelompokAkun.JenisAkun.Jenis != jenis || kelompokAkun.Tahun.Value != tahun) return BadRequest();
 
         _repositoriKelompokAkun.Delete(kelompokAkun);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -534,21 +522,15 @@ public class AkunController : Controller
         }
         else
         {
-            // Kirim notifikasi sukses (opsional)
             _toastrNotificationService.AddNotification(new ToastrNotification
             {
                 Title = "Hapus Berhasil",
                 Message = "Kelompok Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }        
+        }
 
-        // Kembalikan JSON respons sukses
-        return Json(new
-        {
-            success = true,
-            message = "Kelompok Akun berhasil dihapus."
-        });
+        return RedirectToAction(jenis.ToString(), new { tahun });
     }    
 
     [HttpPost]
@@ -556,23 +538,10 @@ public class AkunController : Controller
     public async Task<IActionResult> HapusGolonganAkun(Jenis jenis, int tahun, int id)
     {
         var golonganAkun = await _repositoriGolonganAkun.Get(id);
-        if (golonganAkun is null)
-        {
-            return Json(new
-            {
-                success = false,
-                message = "Golongan Akun tidak ditemukan."
-            });
-        }
+        if (golonganAkun is null) return NotFound();
 
-        if (golonganAkun.KelompokAkun.JenisAkun.Jenis != jenis || golonganAkun.Tahun.Value != tahun)
-        {
-            return Json(new
-            {
-                success = false,
-                message = "Data tidak valid atau tidak sesuai dengan parameter yang diberikan."
-            });
-        }
+        if (golonganAkun.KelompokAkun.JenisAkun.Jenis != jenis || golonganAkun.Tahun.Value != tahun) 
+            return BadRequest();
 
         _repositoriGolonganAkun.Delete(golonganAkun);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -595,38 +564,20 @@ public class AkunController : Controller
                 Message = "Golongan Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }        
+        }
 
-        return Json(new
-        {
-            success = true,
-            message = "Golongan Akun berhasil dihapus."
-        });
+        return RedirectToAction(jenis.ToString(), new { tahun });
     }
-
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusAkun(Jenis jenis, int tahun, int id)
     {
         var akun = await _repositoriAkun.Get(id);
-        if (akun is null)
-        {
-            return Json(new
-            {
-                success = false,
-                message = "Akun tidak ditemukan."
-            });
-        }
+        if (akun is null) return NotFound();
 
         if (akun.JenisAkun.Jenis != jenis || akun.Tahun.Value != tahun)
-        {
-            return Json(new
-            {
-                success = false,
-                message = "Data tidak valid atau tidak sesuai dengan parameter yang diberikan."
-            });
-        }
+            return BadRequest();
 
         _repositoriAkun.Delete(akun);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -649,15 +600,10 @@ public class AkunController : Controller
                 Message = "Akun berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }        
+        }
 
-        return Json(new
-        {
-            success = true,
-            message = "Akun berhasil dihapus."
-        });
+        return RedirectToAction(jenis.ToString(), new { tahun });
     }
-
 
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]

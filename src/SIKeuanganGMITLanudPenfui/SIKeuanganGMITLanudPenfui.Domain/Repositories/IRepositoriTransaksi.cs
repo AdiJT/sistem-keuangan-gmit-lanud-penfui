@@ -15,6 +15,10 @@ public interface IRepositoriTransaksi
     Task<List<Transaksi>> GetAllByMonth(int bulan, Jenis jenis);
     Task<List<Transaksi>> GetAllByTahun(int tahun);
     Task<List<Transaksi>> GetAllByTahun(int tahun, Jenis jenis);
+    Task<List<Transaksi>> GetAllPanjar();
+    Task<List<Transaksi>> GetAllPanjarByTahun(int tahun);
+    Task<List<Transaksi>> GetAllPanjarByMonth(int bulan);
+    Task<List<Transaksi>> GetAllPanjarByTanggal(DateTime tanggal);
 
     void Add(Transaksi transaksi);
     void Delete(Transaksi transaksi);

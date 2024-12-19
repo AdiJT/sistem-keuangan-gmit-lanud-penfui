@@ -9,9 +9,10 @@ public class Transaksi : Entity, IAuditableEntity
     public string Uraian { get; set; } = string.Empty;
     public double Jumlah { get; set; }
     public double SaldoKas { get; set; }
-    public Uri FileBukti { get; set; }
-    public string NomorBukti { get; set; } = "SK/1";
+    public Uri? FileBukti { get; set; }
+    public string? NomorBukti { get; set; } = "SK/1";
     public Jenis Jenis { get; set; }
+    public StatusTransaksi StatusTransaksi { get; set; }
     public DateTime TanggalDitambahkan { get; set; }
     public DateTime? TanggalDiubah { get; set; }
 

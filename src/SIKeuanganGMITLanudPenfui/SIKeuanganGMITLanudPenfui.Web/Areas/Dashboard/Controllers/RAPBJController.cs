@@ -149,20 +149,12 @@ public class RAPBJController : Controller
         return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
 
-
     [HttpPost]
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusDetailRAPBJ(Jenis jenis, int tahun, int id)
     {
         var rTahun = Tahun.Create(tahun);
-        if (rTahun.IsFailure)
-        {
-            return Json(new
-            {
-                success = false,
-                message = "Tahun tidak valid."
-            });
-        }
+        if (rTahun.IsFailure) return BadRequest();
 
         var command = new DeleteDetailRAPBJCommand(tahun, id);
         var result = await _sender.Send(command);
@@ -184,13 +176,9 @@ public class RAPBJController : Controller
                 Message = "Akun berhasil dihapus dari RAPBJ",
                 Type = ToastrNotificationType.Success
             });
-        }        
+        }
 
-        return Json(new
-        {
-            success = true,
-            message = "Akun berhasil dihapus dari RAPBJ."
-        });
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
 
     [HttpPost]
@@ -275,12 +263,8 @@ public class RAPBJController : Controller
                 Message = $"RAPBJ tahun {tahun} berhasil dihapus",
                 Type = ToastrNotificationType.Success
             });
-        }       
+        }
 
-        return Json(new
-        {
-            success = true,
-            message = $"RAPBJ tahun {tahun} berhasil dihapus"
-        });
+        return RedirectToAction(nameof(Index), new { jenis, tahun });
     }
 }

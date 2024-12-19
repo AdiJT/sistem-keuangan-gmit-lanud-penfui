@@ -1,55 +1,48 @@
 ﻿using SIKeuanganGMITLanudPenfui.Application.Abstracts;
-using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
 
-namespace SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
+namespace SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateBelanjaPanjar;
 
-internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCommand>
+internal class CreateBelanjaPanjarCommandHandler : ICommandHandler<CreateBelanjaPanjarCommand>
 {
     private readonly IRepositoriTransaksi _repositoriTransaksi;
     private readonly IRepositoriKas _repositoriKas;
     private readonly IRepositoriAkun _repositoriAkun;
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IFileService _fileService;
 
-    public CreateTransaksiCommandHandler(
+    public CreateBelanjaPanjarCommandHandler(
         IRepositoriTransaksi repositoriTransaksi,
         IRepositoriKas repositoriKas,
         IRepositoriAkun repositoriAkun,
-        IUnitOfWork unitOfWork,
-        IFileService fileService)
+        IUnitOfWork unitOfWork)
     {
         _repositoriTransaksi = repositoriTransaksi;
         _repositoriKas = repositoriKas;
         _repositoriAkun = repositoriAkun;
         _unitOfWork = unitOfWork;
-        _fileService = fileService;
     }
 
-    public async Task<Result> Handle(CreateTransaksiCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateBelanjaPanjarCommand request, CancellationToken cancellationToken)
     {
         //Validasi
         var akun = await _repositoriAkun.Get(request.AkunId);
-        if (akun is null) return new Error("CreateTransaksiCommandHandler.AkunTidakDitemukan", $"Akun dengan Id {request.AkunId} tidak ditemukan");
+        if (akun is null) return new Error("CreateBelanjaPanjarCommandHandler.AkunTidakDitemukan", $"Akun dengan Id {request.AkunId} tidak ditemukan");
 
-        if(akun.JenisAkun.Jenis != request.Jenis)
-            return new Error($"CreateTransaksiCommandHandler.BukanAkun{request.Jenis}", $"Akun {akun.Uraian} bukan akun {request.Jenis}");
+        if (akun.JenisAkun.Jenis != Jenis.Belanja)
+            return new Error($"CreateBelanjaPanjarCommandHandler.BukanAkunBelanja", $"Akun {akun.Uraian} bukan akun Belanja");
 
         var kas = await _repositoriKas.Get(request.KasId);
-        if (kas is null) return new Error("CreateTransaksiCommandHandler.KasTidakDitemukan", $"Kas dengan Id {request.KasId} tidak ditemukan");
-
-        if (request.Jenis == Jenis.Belanja && kas.Saldo < request.Jumlah)
-            return new Error("CreateTransaksiCommandHandler.SaldoKasTidakCukup", $"Saldo Kas {kas.Uraian} tidak cukup");
+        if (kas is null) return new Error("CreateBelanjaPanjarCommandHandler.KasTidakDitemukan", $"Kas dengan Id {request.KasId} tidak ditemukan");
 
         if (request.Jumlah < 0)
-            return new Error("CreateTransaksiCommandHandler.JumlahNegatif", "Jumlah transaksi tidak boleh negatif");
+            return new Error("CreateBelanjaPanjarCommandHandler.JumlahNegatif", "Jumlah transaksi tidak boleh negatif");
 
-        if(!_fileService.IsExist(request.FileBukti))
-            return new Error("CreateTransaksiCommandHandler.FileBuktiTidakAda", "File Bukti tidak ada");
-
+        if (kas.Saldo < request.Jumlah)
+            return new Error("CreateBelanjaPanjarCommandHandler.SaldoKasTidakCukup", $"Saldo Kas {kas.Uraian} tidak cukup");
+        
         var tanggal = new DateTime(request.Tanggal.Year, request.Tanggal.Month, request.Tanggal.Day);
         if (request.Jam is not null)
             tanggal = new DateTime(
@@ -88,7 +81,7 @@ internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCo
         else
             saldoKasSebelumTransaksi = kas.Saldo;
 
-        var saldoKasSetelahTransaksi = request.Jenis == Jenis.Penerimaan ? saldoKasSebelumTransaksi + request.Jumlah : saldoKasSebelumTransaksi - request.Jumlah;
+        var saldoKasSetelahTransaksi = saldoKasSebelumTransaksi - request.Jumlah;
 
         //Buat transaksi
         var transaksi = new Transaksi
@@ -96,26 +89,18 @@ internal class CreateTransaksiCommandHandler : ICommandHandler<CreateTransaksiCo
             Tanggal = tanggal,
             Uraian = request.Uraian,
             Jumlah = request.Jumlah,
-            Jenis = request.Jenis,
+            Jenis = Jenis.Belanja,
             SaldoKas = saldoKasSetelahTransaksi,
-            FileBukti = request.FileBukti,
-            NomorBukti = request.NomorBukti,
             Akun = akun,
             Kas = kas,
-            StatusTransaksi = StatusTransaksi.Lunas
+            StatusTransaksi = StatusTransaksi.Panjar
         };
         _repositoriTransaksi.Add(transaksi);
-
-        //Update saldo kas
-        kas.Saldo = request.Jenis == Jenis.Penerimaan ? kas.Saldo + request.Jumlah : kas.Saldo - request.Jumlah;
-        _repositoriKas.Update(kas);
 
         //Update transaksi setelahnya
         foreach (var transaksiSetelah in daftarTransaksiSetelah)
         {
-            saldoKasSetelahTransaksi = transaksiSetelah.Jenis == Jenis.Penerimaan ?
-                saldoKasSetelahTransaksi + transaksiSetelah.Jumlah :
-                saldoKasSetelahTransaksi - transaksiSetelah.Jumlah;
+            saldoKasSetelahTransaksi = saldoKasSetelahTransaksi - transaksiSetelah.Jumlah;
 
             transaksiSetelah.SaldoKas = saldoKasSetelahTransaksi;
             _repositoriTransaksi.Update(transaksiSetelah);

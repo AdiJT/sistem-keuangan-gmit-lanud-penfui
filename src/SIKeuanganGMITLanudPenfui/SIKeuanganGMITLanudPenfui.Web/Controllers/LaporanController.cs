@@ -28,9 +28,8 @@ public class LaporanController : Controller
     public async Task<IActionResult> Index()
     {
         var daftarTransaksi = await _repositoriTransaksi.GetAll();
+        var daftarKas = await _repositoriKas.GetAll();
 
-        var kas = await _repositoriKas.Get(1);
-
-        return View(new IndexVM { DaftarTransaksi = daftarTransaksi, Kas = kas!});
+        return View(new IndexVM { DaftarTransaksi = daftarTransaksi, DaftarKas = daftarKas});
     }
 }

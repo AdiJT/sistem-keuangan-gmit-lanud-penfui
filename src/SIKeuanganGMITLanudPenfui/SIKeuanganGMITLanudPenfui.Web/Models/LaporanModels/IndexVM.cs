@@ -5,7 +5,7 @@ namespace SIKeuanganGMITLanudPenfui.Web.Dashboard.Models.LaporanModels;
 public class IndexVM
 {
     public required List<Transaksi> DaftarTransaksi { get; set; }
-    public required Kas Kas { get; set; }
+    public required List<Kas> DaftarKas { get; set; }
 
     public Dictionary<int, List<Transaksi>> TransaksiPerBulan
     {

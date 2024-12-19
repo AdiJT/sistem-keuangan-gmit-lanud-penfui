@@ -85,30 +85,31 @@
         $(document).on('click', '[data-target="#basicModal2"]', function () {
             // Ambil URL penghapusan dari data-url tombol
             currentDeleteUrl = $(this).data('url');
+            $('#formModalHapus').attr('action', currentDeleteUrl);
         });
 
         // Ketika tombol Hapus di modal diklik
-        $('#modal-btn-hapus').on('click', function () {
-            if (currentDeleteUrl) {
-                $.ajax({
-                    url: currentDeleteUrl,
-                    type: 'POST',
-                    success: function (result) {
-                        if (result.success) {
-                            // Tutup modal
-                            $('#basicModal2').modal('hide');
-                            // Reload halaman atau hapus baris di tabel secara dinamis
-                            location.reload();
-                        } else {
-                            alert(result.message || 'Terjadi kesalahan saat menghapus data.');
-                        }
-                    },
-                    error: function () {
-                        alert('Terjadi kesalahan saat menghapus data.');
-                    }
-                });
-            }
-        });
+        // $('#modal-btn-hapus').on('click', function () {
+        //     if (currentDeleteUrl) {
+        //         $.ajax({
+        //             url: currentDeleteUrl,
+        //             type: 'POST',
+        //             success: function (result) {
+        //                 if (result.success) {
+        //                     // Tutup modal
+        //                     $('#basicModal2').modal('hide');
+        //                     // Reload halaman atau hapus baris di tabel secara dinamis
+        //                     location.reload();
+        //                 } else {
+        //                     alert(result.message || 'Terjadi kesalahan saat menghapus data.');
+        //                 }
+        //             },
+        //             error: function () {
+        //                 alert('Terjadi kesalahan saat menghapus data.');
+        //             }
+        //         });
+        //     }
+        // });
     </script>
 
 

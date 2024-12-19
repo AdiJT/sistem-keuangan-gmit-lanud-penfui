@@ -25,47 +25,7 @@
 
         <div class="laporan__card">
             <h4>Saldo Kas SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)</h4>
-            <p>@Model.Kas.Saldo.ToString("C2", cultureInfo)</p>
-        </div>
-    </div>
-
-    
-   
-    <div class="row mb-3">
-        <div class="col-md-4">
-           @*  <h2 class="section__header"><span>Laporan Keuangan</span> Bulanan</h2>
-            <p class="section__description">
-                Penerimaan dan Pengeluaran Bulan September
-            </p>
-            <div class="laporan__card">
-                <div class="card-header">
-                    Total Penerimaan SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
-                </div>
-                <div class="card-body">
-                    @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
-                </div>
-            </div> *@
-
-        </div>
-        <div class="col-md-4">
-            @* <div class="card">
-                <div class="card-header">
-                    Total Pengeluaran SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
-                </div>
-                <div class="card-body">
-                    @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
-                </div>
-            </div> *@
-        </div>
-        <div class="col-md-4">
-            @* <div class="card">
-                <div class="card-header">
-                    Saldo Kas SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
-                </div>
-                <div class="card-body">
-                    @Model.Kas.Saldo.ToString("C2", cultureInfo)
-                </div>
-            </div> *@
+            <p>@Model.DaftarKas.Sum(k => k.Saldo).ToString("C2", cultureInfo)</p>
         </div>
     </div>
 

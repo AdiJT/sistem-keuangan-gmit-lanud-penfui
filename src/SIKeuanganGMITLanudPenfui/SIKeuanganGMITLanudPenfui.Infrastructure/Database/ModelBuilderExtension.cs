@@ -4292,7 +4292,6 @@ internal static class ModelBuilderExtension
         #region Transaksi
         var daftarTransaksi = new[]
         {
-            
             new
             {
                 Id = 10,
@@ -5682,7 +5681,24 @@ internal static class ModelBuilderExtension
         };
 
         modelBuilder.Entity<Transaksi>().HasData(
-            daftarTransaksi.Select((x, i) => new { Id = i + 1, x.Uraian, x.Jumlah, x.SaldoKas, Tanggal = new DateTime(x.Tanggal.Year, x.Tanggal.Month, x.Tanggal.Day, (i + 1) / 60, (i + 1) % 60, 0), x.TanggalDitambahkan, x.TanggalDiubah, x.FileBukti, x.NomorBukti, x.Jenis, x.AkunId, x.KasId})
+            daftarTransaksi.Select((x, i) => new { Id = i + 1, x.Uraian, x.Jumlah, x.SaldoKas, Tanggal = new DateTime(x.Tanggal.Year, x.Tanggal.Month, x.Tanggal.Day, (i + 1) / 60, (i + 1) % 60, 0), x.TanggalDitambahkan, x.TanggalDiubah, x.FileBukti, x.NomorBukti, x.Jenis, x.AkunId, x.KasId, StatusTransaksi = StatusTransaksi.Lunas})
+        );
+
+        modelBuilder.Entity<Transaksi>().HasData(
+            new
+            {
+                Id = 120,
+                Uraian = "Transaksi Panjar 1",
+                Jumlah = 100_000d,
+                SaldoKas = 4_793_500d,
+                Tanggal = new DateTime(2024, 12, 19, 0, 0, 0),
+                TanggalDitambahkan = new DateTime(2024, 12, 19, 0, 0, 0),
+                TanggalDiubah = new DateTime(2024, 12, 19, 0, 0, 0),
+                StatusTransaksi = StatusTransaksi.Panjar,
+                Jenis = Jenis.Belanja,
+                AkunId = 76,
+                KasId = 2
+            }
         );
         #endregion
 

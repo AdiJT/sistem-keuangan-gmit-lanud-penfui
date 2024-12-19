@@ -44,14 +44,17 @@ internal class HapusTransaksiCommandHandler : ICommandHandler<HapusTransaksiComm
             _repositoriTransaksi.Update(transaksiSetelah); 
         }
 
-        transaksi.Kas.Saldo = transaksi.Jenis == Jenis.Penerimaan ? transaksi.Kas.Saldo - transaksi.Jumlah : transaksi.Kas.Saldo + transaksi.Jumlah;
+        if(transaksi.StatusTransaksi == StatusTransaksi.Lunas)
+            transaksi.Kas.Saldo = transaksi.Jenis == Jenis.Penerimaan ? transaksi.Kas.Saldo - transaksi.Jumlah : transaksi.Kas.Saldo + transaksi.Jumlah;
+
         _repositoriKas.Update(transaksi.Kas);
         _repositoriTransaksi.Delete(transaksi);
 
         var result = await _unitOfWork.SaveChangesAsync(cancellationToken);
         if (result.IsFailure) return result.Error;
 
-        _fileService.Delete(transaksi.FileBukti);
+        if(transaksi.StatusTransaksi == StatusTransaksi.Lunas)
+            _fileService.Delete(transaksi.FileBukti!);
 
         return Result.Success();
     }

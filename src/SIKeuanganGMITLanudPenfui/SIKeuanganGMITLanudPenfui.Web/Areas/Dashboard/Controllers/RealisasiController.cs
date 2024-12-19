@@ -5,6 +5,7 @@ using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.CreateKas;
 using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.EditKas;
 using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.Services;
+using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateBelanjaPanjar;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.EditTransaksi;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.HapusTransaksi;
@@ -314,5 +315,137 @@ public class RealisasiController : Controller
             success = true,
             message = $"Kas \"{kas.Uraian}\" berhasil dihapus"
         });
+    }
+
+    [Route("/[area]/[controller]/[action]/{tahun:int?}")]
+    public async Task<IActionResult> Panjar(int? tahun = null, DateOnly? start = null, DateOnly? end = null)
+    {
+        tahun ??= DateTime.Now.Year;
+
+        if (start is null || start.Value.Year != tahun)
+            start = new DateOnly(tahun.Value, 1, 1);
+
+        if (end is null || end.Value.Year != tahun)
+            end = new DateOnly(tahun.Value, 12, 31);
+
+        var daftarTransaksi = (await _repositoriTransaksi.GetAllPanjarByTahun(tahun.Value))
+            .Where(t => DateOnly.FromDateTime(t.Tanggal) >= start.Value && DateOnly.FromDateTime(t.Tanggal) <= end.Value)
+            .ToList();
+
+        return View(new PanjarVM
+        {
+            Tahun = tahun.Value,
+            DaftarTransaksi = daftarTransaksi.OrderBy(p => p.Tanggal).ToList(),
+            Start = start.Value,
+            End = end.Value
+        });
+    }
+
+    [Route("/[area]/[controller]/[action]/{tahun:int}")]
+    public IActionResult TambahPanjar(int tahun)
+    {
+        return View(new TambahPanjarVM { Tahun = tahun });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/[action]/{tahun:int}")]
+    public async Task<IActionResult> TambahPanjar([FromRoute] int tahun, TambahPanjarVM vm)
+    {
+        if (!ModelState.IsValid) return View(vm);
+
+        if (tahun != vm.Tahun) return BadRequest();
+
+        if (vm.Tanggal.Year != vm.Tahun)
+        {
+            ModelState.AddModelError(nameof(TambahVM.Tanggal), "Tahun salah");
+            return View(vm);
+        }
+
+        var command = new CreateBelanjaPanjarCommand(
+            vm.Tanggal,
+            vm.Jam,
+            vm.Uraian,
+            vm.Jumlah,
+            vm.IdAkun,
+            vm.IdKas);
+
+        var result = await _sender.Send(command);
+        if (result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, result.Error.Message);
+            return View(vm);
+        }
+
+        return RedirectToAction(nameof(Panjar), new { tahun });
+    }
+
+    [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
+    public async Task<IActionResult> EditPanjar(int tahun, int id)
+    {
+        var transaksi = await _repositoriTransaksi.Get(id);
+        if (transaksi is null) return NotFound();
+        if (transaksi.Tanggal.Year != tahun || transaksi.Jenis != Jenis.Belanja || transaksi.StatusTransaksi != StatusTransaksi.Panjar)
+            return BadRequest();
+
+        return View(new EditVM
+        {
+            IdTransaksi = id,
+            Uraian = transaksi.Uraian,
+            IdAkun = transaksi.Akun.Id,
+            Jenis = Jenis.Belanja,
+            Tahun = tahun
+        });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
+    public async Task<IActionResult> EditPanjar([FromRoute] int tahun, [FromRoute] int id, EditVM vm)
+    {
+        if (!ModelState.IsValid) return View(vm);
+
+        if (tahun != vm.Tahun || vm.IdTransaksi != id)
+            return BadRequest();
+
+        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, vm.IdAkun);
+        var result = await _sender.Send(command);
+
+        if (result.IsFailure)
+        {
+            ModelState.AddModelError(string.Empty, result.Error.Message);
+            return View(vm);
+        }
+
+        return RedirectToAction(nameof(Panjar), new { tahun });
+    }
+
+    [HttpPost]
+    [Route("/[area]/[controller]/{tahun:int}/[action]/{id:int}")]
+    public async Task<IActionResult> HapusPanjar(int tahun, int id)
+    {
+        var transaksi = await _repositoriTransaksi.Get(id);
+        if (transaksi is null) return NotFound();
+
+        var command = new HapusTransaksiCommand(id);
+        var result = await _sender.Send(command);
+        if (result.IsFailure)
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus Panjar gagal",
+                Message = result.Error.Message,
+                Type = ToastrNotificationType.Error
+            });
+        }
+        else
+        {
+            _notificationService.AddNotification(new ToastrNotification
+            {
+                Title = $"Hapus Panjar Berhasil",
+                Message = $"Panjar '{transaksi.Uraian}' berhasil dihapus",
+                Type = ToastrNotificationType.Success
+            });
+        }
+
+        return RedirectToAction(nameof(Panjar), new {tahun});
     }
 }

@@ -1,7 +1,7 @@
-﻿@model TransaksiVM
+﻿@model PanjarVM
 
 @{
-    ViewData["Title"] = $"Realisasi | {Model.Jenis}";
+    ViewData["Title"] = $"Realisasi | Panjar";
     var cultureInfo = new CultureInfo("id-ID");
 }
 
@@ -10,19 +10,19 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Realisasi</a></li>
-            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Transaksi)" asp-route-jenis="@Model.Jenis"></a>@Model.Jenis</li>
+            <li class="breadcrumb-item"><a asp-area="Dashboard" asp-controller="Realisasi" asp-action="@nameof(RealisasiController.Panjar)"></a>Panjar</li>
         </ol>
     </nav>
 </div>
 
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Realisasi - @Model.Jenis.ToString() - @Model.Tahun</h4>
+        <h4>Realisasi - Panjar - @Model.Tahun</h4>
     </div>
     <div class="card-body pt-1">
         <div class="row d-flex justify-content-start ml-auto mb-2">
             <div class="col-auto p-0 mt-1">
-                <a asp-action="@nameof(RealisasiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                <a asp-action="@nameof(RealisasiController.TambahPanjar)" asp-route-tahun="@Model.Tahun" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
             </div>
 
             <div class="col-9 d-flex justify-content-center p-l-100">
@@ -32,7 +32,6 @@
                     </div>
                     <div class="col-10 p-0">
                         <input asp-for="@Model.Start" type="date" class="form-control" id="start" />
-
                     </div>
                 </div>
                 <div class="row w-100 pl-4">
@@ -65,20 +64,6 @@
             </div>
         </div>
 
-        @* <div class="row mb-3 justify-content-center">
-            <div class="col-5">
-                <label class="form-label">Start</label>
-                <input asp-for="@Model.Start" type="date" class="form-control" id="start" />
-            </div>
-            <div class="col-5">
-                <label class="form-label">End</label>
-                <input asp-for="@Model.End" type="date" class="form-control" id="end" />
-            </div>
-            <div class="col-2 align-content-end pb-1">
-                <button class="btn btn-primary" id="filter">Filter</button>
-            </div>
-        </div> *@
-
         <div class="table-responsive">
             <table class="table table-striped table-hover nowrap" id="table-akun">
                 <thead>
@@ -88,10 +73,7 @@
                         <th style="width: 150px">Akun</th>
                         <th style="width: 250px">Uraian</th>
                         <th>Kas</th>
-                        <th>File Bukti</th>
-                        <th>Nomor Bukti</th>
                         <th>Jumlah</th>
-                        <th>Saldo Terakhir</th>
                         <th style="width: 100px">Aksi</th>
                     </tr>
                 </thead>
@@ -107,19 +89,16 @@
                             <td>@transaksi.Akun.KodeAkun @transaksi.Akun.Uraian</td>
                             <td>@transaksi.Uraian</td>
                             <td>@transaksi.Kas.Uraian</td>
-                            <td>
-                                <a href="@transaksi.FileBukti.ToString()">File Bukti</a>
-                            </td>
-                            <td>@transaksi.NomorBukti</td>
                             <td class="text-right">@transaksi.Jumlah.ToString("C2", cultureInfo)</td>
-                            <td class="text-right">@transaksi.SaldoKas.ToString("C2", cultureInfo)</td>
                             <td>
-                                <a asp-action="@nameof(RealisasiController.Edit)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                                <a asp-action="@nameof(RealisasiController.EditPanjar)" 
+                                   asp-route-tahun="@Model.Tahun"
                                    asp-route-id="@transaksi.Id" class="btn btn-primary">Edit</a>
-                                <form asp-action="@nameof(RealisasiController.Hapus)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun"
+                                <form asp-action="@nameof(RealisasiController.HapusPanjar)"
+                                      asp-route-tahun="@Model.Tahun"
                                       asp-route-id="@transaksi.Id" style="display:inline">
                                     <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
-                                            data-url="@Url.Action("Hapus", new { jenis = Model.Jenis, tahun = Model.Tahun, id = transaksi.Id })"
+                                            data-url="@Url.Action("HapusPanjar", new { tahun = Model.Tahun, id=transaksi.Id })"
                                             title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -133,8 +112,6 @@
         </div>
     </div>
     <div class="padding-20">
-        
-
        
     </div>
 </div>
@@ -146,7 +123,7 @@
     <script type="text/javascript">
         const selectTahun = $('select#tahun');
 
-        const url = '@Url.Action(nameof(RealisasiController.Transaksi), new { jenis = Model.Jenis })';
+        const url = '@Url.Action(nameof(RealisasiController.Panjar))';
 
         $(selectTahun).on('change', function () {
             const tahun = $(selectTahun).val();
@@ -160,7 +137,7 @@
         const inputEnd = $("input#end");
         const btnFilter = $("button#filter");
 
-        const url2 = '@Url.Action(nameof(RealisasiController.Transaksi), new { jenis = Model.Jenis, tahun=Model.Tahun })';
+        const url2 = '@Url.Action(nameof(RealisasiController.Transaksi), new { tahun=Model.Tahun })';
 
         $(btnFilter).on("click", function () {
             const start = inputStart.val();
