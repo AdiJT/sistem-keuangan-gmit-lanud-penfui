@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Options;
 using SIKeuanganGMITLanudPenfui.Application;
 using SIKeuanganGMITLanudPenfui.Infrastructure;
@@ -26,6 +27,13 @@ builder.Services.AddSession();
 builder.Services.AddScoped<IToastrNotificationService, ToastrNotificationService>();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseStatusCodePagesWithReExecute("/Home/StatusCode{0}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

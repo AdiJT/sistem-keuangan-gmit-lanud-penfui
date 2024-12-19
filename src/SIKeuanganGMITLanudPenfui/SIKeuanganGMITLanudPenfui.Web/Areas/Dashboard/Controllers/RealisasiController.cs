@@ -282,12 +282,7 @@ public class RealisasiController : Controller
     public async Task<IActionResult> HapusKas(int id)
     {
         var kas = await _repositoriKas.Get(id);
-        if (kas is null)
-            return Json(new
-            {
-                success = false,
-                message = "Data Kas tidak ditemukan"
-            });
+        if (kas is null) return NotFound();
 
         _repositoriKas.Delete(kas);
         var result = await _unitOfWork.SaveChangesAsync();
@@ -311,11 +306,7 @@ public class RealisasiController : Controller
             });
         }
 
-        return Json(new
-        {
-            success = true,
-            message = $"Kas \"{kas.Uraian}\" berhasil dihapus"
-        });
+        return RedirectToAction(nameof(Kas));
     }
 
     [Route("/[area]/[controller]/[action]/{tahun:int?}")]

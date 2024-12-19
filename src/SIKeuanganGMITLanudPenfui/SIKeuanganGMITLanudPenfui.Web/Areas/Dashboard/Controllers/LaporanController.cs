@@ -97,7 +97,13 @@ public class LaporanController : Controller
         if (rTahun.IsFailure) return BadRequest();
 
         var rapbj = await _repositoriRAPBJ.Get(rTahun.Value);
-        if(rapbj is null) return NotFound();
+        if (rapbj is null)
+            return View(new RekaptulasiTahunanVM
+            {
+                DaftarTransaksi = [],
+                Tahun = rTahun.Value.Value,
+                RAPBJ = rapbj
+            });
 
         var daftarTransaksi = await _repositoriTransaksi.GetAllByTahun(rTahun.Value.Value);
 

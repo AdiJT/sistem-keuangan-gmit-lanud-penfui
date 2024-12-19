@@ -1,0 +1,26 @@
+﻿.containerku {
+    text-align: center;
+    margin-top: 8rem;
+    font-family: 'poppins';
+    padding-bottom: 50px;
+}
+
+    .containerku h2 {
+        font-size: 25px;
+        margin-top: 10px;
+        font-weight: bold;   
+    }
+
+    .containerku h4 {
+        font-size: 20px;
+        color: var(--dark-text-clr);
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .containerku ::deep img {
+        max-width: 100%;
+        height: auto;
+        filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, .5));
+    }

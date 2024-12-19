@@ -1,0 +1,20 @@
+﻿.containerku {
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'poppins';
+    padding-bottom: 50px;
+}
+
+    .containerku h2 {
+        font-size: 25px;
+        margin-top: 10px; 
+        padding: 0 10px;
+    }
+
+    .containerku h4 {
+        color: var(--dark-text-clr);
+        font-weight: 500;
+        margin-bottom: 20px;
+        padding: 0 14px;
+        font-size: 20px;
+    }
