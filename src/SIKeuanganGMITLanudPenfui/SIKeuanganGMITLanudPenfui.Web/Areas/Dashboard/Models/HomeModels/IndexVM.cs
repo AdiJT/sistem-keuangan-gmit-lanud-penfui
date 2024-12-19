@@ -29,10 +29,11 @@ public class IndexVM
         get
         {
             var dict = new Dictionary<DateTime, List<Transaksi>>();
+            var dateTimeNow = DateTime.Now;
 
-            for (int i = 1; i <= 6; i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(dateTimeNow.Year, dateTimeNow.Month); i++)
             {
-                var tanggal = new DateTime(2024, 1, i);
+                var tanggal = new DateTime(2024, dateTimeNow.Month, i);
                 var daftarTransaksi = DaftarTransaksi
                     .Where(t => t.Tanggal.Date == tanggal.Date)
                     .ToList();

@@ -1,5 +1,5 @@
 ﻿using SIKeuanganGMITLanudPenfui.Application.Abstracts;
-using SIKeuanganGMITLanudPenfui.Domain.Entities;
+using SIKeuanganGMITLanudPenfui.Domain.Abstracts;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
@@ -56,7 +56,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
             if (kelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.KelompokAkunDifferentJenisAkun", "Jenis Akun dari Kelompok Akun berbeda dengan Jenis Akun");
 
-            if (kelompokAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+            if (kelompokAkun.DaftarIAkun.Any(a => (Entity)a != akun && a.Kode == request.Kode))
                 return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di kelompok akun {kelompokAkun.Uraian}");
 
             akun.KelompokAkun = kelompokAkun;
@@ -74,7 +74,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
             if(golonganAkun.KelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
 
-            if (golonganAkun.DaftarAkun.Any(a => a.Kode == request.Kode))
+            if (golonganAkun.DaftarAkun.Any(a => (Entity)a != akun && a.Kode == request.Kode))
                 return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di golongan akun {golonganAkun.Uraian}");
 
             akun.GolonganAkun = golonganAkun;
@@ -92,7 +92,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
             if (golonganAkun.KelompokAkun.JenisAkun != jenisAkun)
                 return new Error("EditAkunCommandHandler.GolonganAkunDifferentJenisAkun", "Jenis Akun dari Golongan Akun berbeda dengan Jenis Akun");
 
-            if (golonganAkun.DaftarAkun.Any(a => a.Kode == request.Kode))
+            if (golonganAkun.DaftarAkun.Any(a => (Entity)a != akun && a.Kode == request.Kode))
                 return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di golongan akun {golonganAkun.Uraian}");
 
             akun.GolonganAkun = golonganAkun;
@@ -100,7 +100,7 @@ internal class EditAkunCommandHandler : ICommandHandler<EditAkunCommand>
         } 
         else
         {
-            if(jenisAkun.DaftarIAkun.Any(a => a.Kode == request.Kode && !a.Equals(akun)))
+            if(jenisAkun.DaftarIAkun.Any(a => (Entity)a != akun && a.Kode == request.Kode && !a.Equals(akun)))
                 return new Error("EditAkunCommandHandler.KodeNotUnique", $"Kode Akun sudah ada di jenis akun {jenisAkun.Uraian}");
 
             akun.KelompokAkun = null;

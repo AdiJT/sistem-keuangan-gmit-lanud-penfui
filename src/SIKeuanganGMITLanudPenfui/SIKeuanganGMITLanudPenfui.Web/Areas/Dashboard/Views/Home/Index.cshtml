@@ -59,24 +59,6 @@
     </div>   
 </div>
 
-@* <div class="card">
-    <div class="card-header">
-        Total Penerimaan SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
-    </div>
-    <div class="card-body">
-        @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Penerimaan).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
-    </div>
-</div>
-
-<div class="card">
-    <div class="card-header">
-        Total Pengeluaran SD @DateTime.Now.ToString("dd MMMM yyyy", cultureInfo)
-    </div>
-    <div class="card-body">
-        @Model.DaftarTransaksi.Where(t => t.Jenis == Jenis.Belanja).Sum(t => t.Jumlah).ToString("C2", cultureInfo)
-    </div>
-</div> *@
-
 <div class="card">
     <div class="card-header">
         Penerimaan
@@ -97,7 +79,7 @@
                     })" />
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    Bulan Januari
+                    Bulan @cultureInfo.DateTimeFormat.GetMonthName(DateTime.Now.Month)
                 </div>
             </div>
             <div class="col-12">
@@ -114,7 +96,7 @@
                     })" />
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    Tahun 2024
+                    Tahun @DateTime.Now.Year
                 </div>
             </div>
             <div class="col-12">
@@ -156,7 +138,7 @@
                     })" />
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    Bulan Januari
+                    Bulan @cultureInfo.DateTimeFormat.GetMonthName(DateTime.Now.Month)
                 </div>
             </div>
             <div class="col-12">
@@ -173,7 +155,7 @@
                     })" />
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    Tahun 2024
+                    Tahun @DateTime.Now.Year
                 </div>
             </div>
             <div class="col-12">

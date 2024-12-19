@@ -42,6 +42,4 @@ public class EditAkunVM
 
     [Required(ErrorMessage = "{0} harus diisi")]
     public required string ReturnUrl { get; set; }
-
-    public List<JenisAkun> DaftarJenisAkun { get; set; } = [];
 }

@@ -2,10 +2,12 @@
 @using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers
 @model TambahGolonganAkunVM
 
-@inject IRepositoriKelompokAkun RepositoriKelompokAkun;
+@inject IRepositoriKelompokAkun RepositoriKelompokAkun
+@inject IRepositoriJenisAkun RepositoriJenisAkun
 
 @{
     ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Tambah Golongan Akun";
+    var daftarJenisAkun = (await RepositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == Model.Tahun && j.Jenis == Model.Jenis).ToList();
 }
 
 <!-- Breadcrumb -->
@@ -48,7 +50,7 @@
                         <div class="form-group">
                             <label>Jenis Akun<span class="text-danger">*</span></label>
                             <select class="form-control selectric" id="idJenisAkun">
-                                @foreach (var jenisAkun in Model.DaftarJenisAkun)
+                                @foreach (var jenisAkun in daftarJenisAkun)
                                 {
                                     <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
                                 }
@@ -58,7 +60,7 @@
                         <div class="form-group mb-0">
                             <label asp-for="@Model.IdKelompokAkun">Kelompok Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control selectric">
-                                @foreach (var kelompokAkun in Model.DaftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(Model.DaftarJenisAkun[0]) : new List<KelompokAkun>())
+                                @foreach (var kelompokAkun in daftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(daftarJenisAkun[0]) : new List<KelompokAkun>())
                                 {
                                     <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
                                 }

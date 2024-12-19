@@ -1,7 +1,10 @@
 ﻿@model EditKelompokAkunVM
 
+@inject IRepositoriJenisAkun RepositoriJenisAkun
+
 @{
     ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Edit Kelompok Akun";
+    var daftarJenisAkun = (await RepositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == Model.Tahun && j.Jenis == Model.Jenis).ToList();
 }
 
 <!-- Breadcrumb -->
@@ -44,7 +47,7 @@
                         <div class="form-group">
                             <label asp-for="@Model.IdJenisAkun">Jenis Akun<span class="text-danger">*</span></label>
                             <select asp-for="@Model.IdJenisAkun" class="form-control selectric">
-                                @foreach (var jenisAkun in Model.DaftarJenisAkun)
+                                @foreach (var jenisAkun in daftarJenisAkun)
                                 {
                                     <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
                                 }

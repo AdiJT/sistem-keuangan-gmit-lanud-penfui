@@ -1,4 +1,5 @@
 ﻿using SIKeuanganGMITLanudPenfui.Application.Abstracts;
+using SIKeuanganGMITLanudPenfui.Domain.Abstracts;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.Shared;
 
@@ -40,7 +41,7 @@ internal class EditKelompokAkunCommandHandler : ICommandHandler<EditKelompokAkun
             return new Error("EditKelompokAkunCommandHandler.JenisJenisAkunDifferent",
                 $"Jenis dari Jenis Akun berbeda dengan Jenis dari Kelompok Akun");
 
-        if(jenisAkun.DaftarIAkun.Any(a => a.Kode == request.Kode))
+        if (jenisAkun.DaftarIAkun.Any(a => (Entity)a != kelompokAkun && a.Kode == request.Kode))
             return new Error("EditKelompokAkunCommandHandler.KodeNotUnique", "Kode tidak unik");
 
         kelompokAkun.Uraian = request.Uraian;

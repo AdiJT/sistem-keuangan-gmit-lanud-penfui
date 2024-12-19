@@ -30,6 +30,4 @@ public class TambahGolonganAkunVM
 
     [Required]
     public required string ReturnURL { get; set; }
-
-    public List<JenisAkun> DaftarJenisAkun { get; set; } = [];
 }

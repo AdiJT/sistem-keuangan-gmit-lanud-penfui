@@ -1,10 +1,12 @@
 ﻿@using SIKeuanganGMITLanudPenfui.Domain.Repositories
 @model EditGolonganAkunVM
 
-@inject IRepositoriKelompokAkun RepositoriKelompokAkun;
+@inject IRepositoriJenisAkun RepositoriJenisAkun
+@inject IRepositoriKelompokAkun RepositoriKelompokAkun
 
 @{
     ViewData["Title"] = $"Akun | {Model.Jenis.ToString()} - Edit Golongan Akun";
+    var daftarJenisAkun = (await RepositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == Model.Tahun && j.Jenis == Model.Jenis).ToList();
     var jenisAkunR = (await RepositoriKelompokAkun.Get(Model.IdKelompokAkun))!.JenisAkun;
 }
 
@@ -48,7 +50,7 @@
                         <div class="form-group">
                             <label>Jenis Akun<span class="text-danger">*</span></label>
                             <select class="form-control selectric" id="idJenisAkun">
-                                @foreach (var jenisAkun in Model.DaftarJenisAkun)
+                                @foreach (var jenisAkun in daftarJenisAkun)
                                 {
                                     @if (jenisAkun.Id == jenisAkunR.Id)
                                     {

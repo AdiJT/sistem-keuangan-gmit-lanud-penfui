@@ -30,10 +30,11 @@ public class IndexVM
         get
         {
             var dict = new Dictionary<DateTime, List<Transaksi>>();
+            var dateTimeNow = DateTime.Now;
 
-            for (int i = 1; i <= 6; i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(dateTimeNow.Year, dateTimeNow.Month); i++)
             {
-                var tanggal = new DateTime(2024, 1, i);
+                var tanggal = new DateTime(2024, dateTimeNow.Month, i);
                 var daftarTransaksi = DaftarTransaksi
                     .Where(t => t.Tanggal.Date == tanggal.Date)
                     .ToList();
@@ -50,10 +51,11 @@ public class IndexVM
         get
         {
             var dict = new Dictionary<(DateTime start, DateTime end), List<Transaksi>>();
+            var dateTimeNow = DateTime.Now;
 
-            var start = new DateTime(DateTime.Now.Year, 1, 1);
+            var start = new DateTime(DateTime.Now.Year, dateTimeNow.Month, 1);
 
-            while (start.Month == 1)
+            while (start.Month == dateTimeNow.Month)
             {
                 var end = start.AddDays(7);
                 dict.Add((start, end), DaftarTransaksi.Where(t => t.Tanggal.Date <= end.Date && t.Tanggal.Date >= start.Date).ToList());

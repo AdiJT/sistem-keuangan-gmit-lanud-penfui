@@ -38,6 +38,4 @@ public class TambahAkunVM
 
     [Display(Name = "Golongan Akun")]
     public int? IdGolonganAkun { get; set; }
-
-    public List<JenisAkun> DaftarJenisAkun { get; set; } = [];
 }

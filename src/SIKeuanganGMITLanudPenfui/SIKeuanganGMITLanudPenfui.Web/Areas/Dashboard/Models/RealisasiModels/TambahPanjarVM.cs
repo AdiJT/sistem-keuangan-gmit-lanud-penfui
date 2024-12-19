@@ -6,7 +6,7 @@ public class TambahPanjarVM
 {
     [Display(Name = "Tanggal")]
     [Required(ErrorMessage = "{0} harus diisi")]
-    public DateOnly Tanggal { get; set; }
+    public DateOnly Tanggal { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
     [Display(Name = "Jam")]
     public TimeOnly? Jam {  get; set; }

@@ -149,11 +149,13 @@ public class AkunController : Controller
             return View(tambahJenisAkunVM);
         }
 
+        _toastrNotificationService.AddSuccess("Jenis akun baru sukses ditambahkan");
+
         return Redirect(tambahJenisAkunVM.ReturnUrl);
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public async Task<IActionResult> TambahKelompokAkun(Jenis jenis, int tahun)
+    public IActionResult TambahKelompokAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
             return BadRequest();
@@ -162,8 +164,7 @@ public class AkunController : Controller
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun, jenis })!,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun, jenis })!
         });
     }
 
@@ -181,15 +182,16 @@ public class AkunController : Controller
         if(result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
-            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Kelompok akun baru sukses ditambahkan");
 
         return Redirect(vm.ReturnURL);
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public async Task<IActionResult> TambahGolonganAkun(Jenis jenis, int tahun)
+    public IActionResult TambahGolonganAkun(Jenis jenis, int tahun)
     {
         if(Tahun.Create(tahun).IsFailure)
             return BadRequest();
@@ -198,8 +200,7 @@ public class AkunController : Controller
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun})!,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun})!
         });
     }
 
@@ -217,15 +218,16 @@ public class AkunController : Controller
         if(result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
-            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Golongan akun baru sukses ditambahkan");
 
         return Redirect(vm.ReturnURL);
     }
 
     [Route("[area]/[controller]/{jenis}/{tahun:int}/[action]")]
-    public async Task<IActionResult> TambahAkun(Jenis jenis, int tahun)
+    public IActionResult TambahAkun(Jenis jenis, int tahun)
     {
         if (Tahun.Create(tahun).IsFailure)
             return BadRequest();
@@ -234,8 +236,7 @@ public class AkunController : Controller
         {
             Jenis = jenis,
             Tahun = tahun,
-            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList()
+            ReturnURL = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { Area = "Dashboard", tahun })!
         });
     }
 
@@ -261,9 +262,10 @@ public class AkunController : Controller
         if (result.IsFailure)
         {
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code = {result.Error.Code}, Message = {result.Error.Message}");
-            vm.DaftarJenisAkun = (await _repositoriJenisAkun.GetAll()).Where(j => j.Tahun.Value == tahun && j.Jenis == jenis).ToList();
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Akun baru sukses ditambahkan");
 
         return Redirect(vm.ReturnURL);
     }
@@ -310,6 +312,8 @@ public class AkunController : Controller
             return View(vm);
         }
 
+        _toastrNotificationService.AddSuccess("Edit Jenis Akun Sukses");
+
         return Redirect(vm.ReturnUrl);
     }
 
@@ -333,7 +337,6 @@ public class AkunController : Controller
             Uraian = kelompokAkun.Uraian,
             Kode = kelompokAkun.Kode,
             IdJenisAkun = kelompokAkun.JenisAkun.Id,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList(),
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
         };
 
@@ -356,6 +359,8 @@ public class AkunController : Controller
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code : {result.Error.Code} Message : {result.Error.Message}");
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Kelompok akun sukses diubah");
 
         return Redirect(vm.ReturnUrl);
     }
@@ -380,7 +385,6 @@ public class AkunController : Controller
             Uraian = golonganAkun.Uraian,
             Kode = golonganAkun.Kode,
             IdKelompokAkun = golonganAkun.KelompokAkun.Id,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList(),
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
         };
 
@@ -403,6 +407,8 @@ public class AkunController : Controller
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code : {result.Error.Code} Message : {result.Error.Message}");
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Golongan akun sukses diubah");
 
         return Redirect(vm.ReturnUrl);
     }
@@ -430,7 +436,6 @@ public class AkunController : Controller
             IdJenisAkun = akun.JenisAkun.Id,
             IdKelompokAkun = akun.KelompokAkun?.Id,
             IdGolonganAkun = akun.GolonganAkun?.Id,
-            DaftarJenisAkun = (await _repositoriJenisAkun.GetAllByTahun(rTahun.Value)).Where(j => j.Jenis == jenis).ToList(),
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
         };
 
@@ -461,6 +466,8 @@ public class AkunController : Controller
             ModelState.AddModelError(string.Empty, $"Error telah terjadi. Code : {result.Error.Code} Message : {result.Error.Message}");
             return View(vm);
         }
+
+        _toastrNotificationService.AddSuccess("Akun sukses diubah");
 
         return Redirect(vm.ReturnUrl);
     }
