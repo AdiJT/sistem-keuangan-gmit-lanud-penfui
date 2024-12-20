@@ -1,8 +1,12 @@
-﻿@model List<Kas>
+﻿@using SIKeuanganGMITLanudPenfui.Infrastructure.Authentication.Contracts
+@model List<Kas>
+
+@inject ISignInManager SignInManager
 
 @{
     ViewData["Title"] = "Realisasi | Kas";
     var cultureInfo = new CultureInfo("id-ID");
+    var user = (await SignInManager.GetUser())!;
 }
 
 <!-- Breadcrumb -->
@@ -20,11 +24,14 @@
         <h4>Kas</h4>
     </div>
     <div class="padding-20">
-        <div class="d-flex justify-content-start ml-auto mb-2">
-            <div class="mb-0">
-                <a asp-action="@nameof(RealisasiController.TambahKas)" class="btn btn-primary" data-toggle="tooltip" title="Tambah Kas"><i class="fas fa-plus"></i> Tambah</a>
+        @if (user.Role == UserRoles.Bendahara)
+        {
+            <div class="d-flex justify-content-start ml-auto mb-2">
+                <div class="mb-0">
+                    <a asp-action="@nameof(RealisasiController.TambahKas)" class="btn btn-primary" data-toggle="tooltip" title="Tambah Kas"><i class="fas fa-plus"></i> Tambah</a>
+                </div>
             </div>
-        </div>
+        }
 
         <div class="table-responsive">
             <table class="table table-striped table-hover" id="table-akun-1">
@@ -35,7 +42,10 @@
                         <th>Keterangan</th>
                         <th>Saldo</th>
                         <th>Terakhir Berubah</th>
-                        <th>Aksi</th>
+                        @if (user.Role == UserRoles.Bendahara)
+                        {
+                            <th>Aksi</th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -61,22 +71,26 @@
                             {
                                 <td></td>
                             }
-                            <td>
-                                <a asp-action="@nameof(RealisasiController.EditKas)" asp-route-id="@kas.Id" class="btn btn-primary">Edit</a>
-                                <form asp-action="@nameof(RealisasiController.HapusKas)" asp-route-id="@kas.Id" style="display:inline">
-                                    <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
-                                            data-url="@Url.Action("HapusKas", new { id = kas.Id })"
-                                            title="Hapus">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
+
+                            @if (user.Role == UserRoles.Bendahara)
+                            {
+                                <td>
+                                    <a asp-action="@nameof(RealisasiController.EditKas)" asp-route-id="@kas.Id" class="btn btn-primary">Edit</a>
+                                    <form asp-action="@nameof(RealisasiController.HapusKas)" asp-route-id="@kas.Id" style="display:inline">
+                                        <button type="button" class="btn btn-danger btn-action" data-toggle="modal" data-target="#basicModal2"
+                                                data-url="@Url.Action("HapusKas", new { id = kas.Id })"
+                                                title="Hapus">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            }
                         </tr>
                         no++;
                     }
                 </tbody>
             </table>
         </div>
-    </div>    
+    </div>
 </div>
 

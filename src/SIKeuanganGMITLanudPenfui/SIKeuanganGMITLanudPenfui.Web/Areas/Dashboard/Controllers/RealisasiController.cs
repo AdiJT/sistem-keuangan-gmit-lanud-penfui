@@ -22,7 +22,6 @@ using System.Drawing;
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
 [Area("Dashboard")]
-[Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
 public class RealisasiController : Controller
 {
     private readonly IRepositoriTransaksi _repositoriTransaksi;
@@ -51,6 +50,7 @@ public class RealisasiController : Controller
         _notificationService = notificationService;
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int?}")]
     public async Task<IActionResult> Transaksi(Jenis jenis, int? tahun = null, DateOnly? start = null, DateOnly? end = null)
     {
@@ -76,6 +76,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]")]
     public IActionResult Tambah(Jenis jenis, int tahun)
     {
@@ -86,6 +87,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]")]
     public async Task<IActionResult> Tambah([FromRoute] Jenis jenis, [FromRoute] int tahun, [FromForm] TambahVM vm)
@@ -136,6 +138,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Transaksi), new { jenis, tahun });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> Edit(Jenis jenis, int tahun, int id)
     {
@@ -153,6 +156,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] Jenis jenis, [FromRoute] int tahun, [FromRoute] int id, [FromForm] EditVM vm)
@@ -175,6 +179,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Transaksi), new { tahun, jenis });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/{jenis:required}/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> Hapus(Jenis jenis, int tahun, int id)
@@ -206,6 +211,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Transaksi), new {tahun, jenis});
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/[action]")]
     public async Task<IActionResult> Kas()
     {
@@ -213,12 +219,14 @@ public class RealisasiController : Controller
         return View(daftarKas);
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}")]
     [Route("/[area]/[controller]/Kas/Tambah")]
     public IActionResult TambahKas()
     {
         return View(new TambahKasVM());
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}")]
     [HttpPost]
     [Route("/[area]/[controller]/Kas/Tambah")]
     public async Task<IActionResult> TambahKas(TambahKasVM vm)
@@ -238,6 +246,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Kas));
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}")]
     [Route("/[area]/[controller]/Kas/Edit/{id:int}")]
     public async Task<IActionResult> EditKas(int id)
     {
@@ -252,6 +261,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}")]
     [HttpPost]
     [Route("/[area]/[controller]/Kas/Edit/{id:int}")]
     public async Task<IActionResult> EditKas(EditKasVM vm, int id)
@@ -274,6 +284,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Kas));
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}")]
     [HttpPost]
     [Route("/[area]/[controller]/Kas/Hapus/{id:int}")]
     public async Task<IActionResult> HapusKas(int id)
@@ -306,6 +317,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Kas));
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/[action]/{tahun:int?}")]
     public async Task<IActionResult> Panjar(int? tahun = null, DateOnly? start = null, DateOnly? end = null)
     {
@@ -330,12 +342,14 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/[action]/{tahun:int}")]
     public IActionResult TambahPanjar(int tahun)
     {
         return View(new TambahPanjarVM { Tahun = tahun });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/[action]/{tahun:int}")]
     public async Task<IActionResult> TambahPanjar([FromRoute] int tahun, TambahPanjarVM vm)
@@ -370,6 +384,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Panjar), new { tahun });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
     public async Task<IActionResult> EditPanjar(int tahun, int id)
     {
@@ -388,6 +403,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
     public async Task<IActionResult> EditPanjar([FromRoute] int tahun, [FromRoute] int id, EditVM vm)
@@ -411,6 +427,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Panjar), new { tahun });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/{tahun:int}/[action]/{id:int}")]
     public async Task<IActionResult> HapusPanjar(int tahun, int id)
@@ -442,6 +459,7 @@ public class RealisasiController : Controller
         return RedirectToAction(nameof(Panjar), new {tahun});
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
     public async Task<IActionResult> Lunaskan(int tahun, int id)
     {
@@ -459,6 +477,7 @@ public class RealisasiController : Controller
         });
     }
 
+    [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
     public async Task<IActionResult> Lunaskan(int tahun, int id, LunaskanVM vm)
