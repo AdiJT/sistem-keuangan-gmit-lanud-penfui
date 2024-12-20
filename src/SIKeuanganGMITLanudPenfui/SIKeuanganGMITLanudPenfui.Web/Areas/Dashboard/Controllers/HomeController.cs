@@ -59,11 +59,7 @@ public class HomeController : Controller
             return View(loginVM);
         }
 
-        _toastrNotificationService.AddNotification(new ToastrNotification
-        {
-            Title = $"Selamat Datang",
-            Type = ToastrNotificationType.Info
-        });
+        _toastrNotificationService.AddInformation($"Welcome {loginVM.Username}");
 
         return Redirect(loginVM.ReturnUrl);
     }

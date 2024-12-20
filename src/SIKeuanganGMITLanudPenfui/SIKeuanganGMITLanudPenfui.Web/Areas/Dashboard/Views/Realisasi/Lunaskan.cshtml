@@ -19,7 +19,7 @@
                     <h4>Lunaskan Panjar - @Model.Tahun</h4>
                 </div>
                 <form asp-action="@nameof(RealisasiController.Lunaskan)" asp-route-id="@Model.IdTransaksi" asp-route-tahun="@Model.Tahun" enctype="multipart/form-data">
-                    <div class="card-body">                         
+                    <div class="card-body">
                         <div asp-validation-summary="ModelOnly"></div>
 
                         <div class="form-group">
@@ -49,9 +49,9 @@
                             </div>
                             <span asp-validation-for="@Model.Jumlah" class="form-text text-danger"></span>
                         </div>
-                                
+
                         <input asp-for="@Model.IdTransaksi" readonly hidden />
-                        <input asp-for="@Model.Tahun" readonly hidden />                        
+                        <input asp-for="@Model.Tahun" readonly hidden />
                     </div>
 
                     <div class="card-footer text-right">
@@ -66,4 +66,14 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script type="text/javascript">
+        $(function () {
+            $('input.custom-file-input').on('change', function (e) {
+                const fileName = e.target.files[0].name;
+                console.log(fileName);
+                $(e.target).siblings('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
 }

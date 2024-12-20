@@ -24,7 +24,7 @@
                     <h4>Tambah @Model.Jenis - @Model.Tahun</h4>
                 </div>
                 <form asp-action="@nameof(RealisasiController.Tambah)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" enctype="multipart/form-data">
-                    <div class="card-body">                         
+                    <div class="card-body">
                         <div asp-validation-summary="ModelOnly"></div>
 
                         <div class="form-group">
@@ -100,9 +100,9 @@
                             <input asp-for="@Model.Jam" type="time" class="form-control" />
                             <span asp-validation-for="@Model.Jam" class="form-text text-danger"></span>
                         </div>
-                                                                  
+
                         <input asp-for="@Model.Jenis" readonly hidden />
-                        <input asp-for="@Model.Tahun" readonly hidden />                        
+                        <input asp-for="@Model.Tahun" readonly hidden />
                     </div>
 
                     <div class="card-footer text-right">
@@ -115,9 +115,16 @@
     </div>
 </div>
 
-
-
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script type="text/javascript">
+        $(function () {
+            $('input.custom-file-input').on('change', function (e) {
+                const fileName = e.target.files[0].name;
+                console.log(fileName);
+                $(e.target).siblings('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
 }

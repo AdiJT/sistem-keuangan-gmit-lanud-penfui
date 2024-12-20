@@ -131,6 +131,8 @@ public class RealisasiController : Controller
             return View(vm);
         }
 
+        _notificationService.AddSuccess("Transaksi baru sukses ditambahkan");
+
         return RedirectToAction(nameof(Transaksi), new { jenis, tahun });
     }
 
@@ -167,6 +169,8 @@ public class RealisasiController : Controller
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
         }
+
+        _notificationService.AddSuccess("Transaksi sukses diubah");
 
         return RedirectToAction(nameof(Transaksi), new { tahun, jenis });
     }
@@ -229,6 +233,8 @@ public class RealisasiController : Controller
             return View(vm);
         }
 
+        _notificationService.AddSuccess("Kas baru sukses ditambahkan");
+
         return RedirectToAction(nameof(Kas));
     }
 
@@ -262,6 +268,8 @@ public class RealisasiController : Controller
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
         }
+
+        _notificationService.AddSuccess("Kas sukses diubah");
 
         return RedirectToAction(nameof(Kas));
     }
@@ -357,6 +365,8 @@ public class RealisasiController : Controller
             return View(vm);
         }
 
+        _notificationService.AddSuccess("Panjar baru sukses ditambah");
+
         return RedirectToAction(nameof(Panjar), new { tahun });
     }
 
@@ -395,6 +405,8 @@ public class RealisasiController : Controller
             ModelState.AddModelError(string.Empty, result.Error.Message);
             return View(vm);
         }
+
+        _notificationService.AddSuccess("Panjar sukses diubah");
 
         return RedirectToAction(nameof(Panjar), new { tahun });
     }
