@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.CreateKas;
 using SIKeuanganGMITLanudPenfui.Application.KasCQ.Commands.EditKas;
-using SIKeuanganGMITLanudPenfui.Application.RAPBJCQ.Commands.DeleteRAPBJ;
 using SIKeuanganGMITLanudPenfui.Application.Services;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateBelanjaPanjar;
 using SIKeuanganGMITLanudPenfui.Application.TransaksiCQ.Commands.CreateTransaksi;
@@ -17,7 +16,6 @@ using SIKeuanganGMITLanudPenfui.Infrastructure.Services.FileUpload;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.RealisasiModels;
 using SIKeuanganGMITLanudPenfui.Web.Models;
 using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
-using System.Drawing;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -149,6 +147,7 @@ public class RealisasiController : Controller
         return View(new EditVM
         {
             IdTransaksi = id,
+            NomorBukti = transaksi.NomorBukti!,
             Uraian = transaksi.Uraian,
             IdAkun = transaksi.Akun.Id,
             Jenis = jenis,
@@ -165,7 +164,20 @@ public class RealisasiController : Controller
 
         if (jenis != vm.Jenis || tahun != vm.Tahun || vm.IdTransaksi != id) return BadRequest();
 
-        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, vm.IdAkun);
+        var fileBukti = await _fileUploadService.UploadFile<TambahVM>(
+           vm.FileBukti,
+           "/filebukti",
+           [".pdf", ".docx", ".jpg", ".jpeg"],
+           long.MinValue,
+           long.MaxValue);
+
+        if (fileBukti.IsFailure)
+        {
+            ModelState.AddModelError(nameof(TambahVM.FileBukti), fileBukti.Error.Message);
+            return View(vm);
+        }
+
+        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, fileBukti.Value, vm.NomorBukti, vm.IdAkun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure)
@@ -393,12 +405,11 @@ public class RealisasiController : Controller
         if (transaksi.Tanggal.Year != tahun || transaksi.Jenis != Jenis.Belanja || transaksi.StatusTransaksi != StatusTransaksi.Panjar)
             return BadRequest();
 
-        return View(new EditVM
+        return View(new EditPanjarVM
         {
             IdTransaksi = id,
             Uraian = transaksi.Uraian,
             IdAkun = transaksi.Akun.Id,
-            Jenis = Jenis.Belanja,
             Tahun = tahun
         });
     }
@@ -406,14 +417,14 @@ public class RealisasiController : Controller
     [Authorize(Roles = $"{UserRoles.Bendahara}, {UserRoles.Operator}")]
     [HttpPost]
     [Route("/[area]/[controller]/[action]/{tahun:int}/{id:int}")]
-    public async Task<IActionResult> EditPanjar([FromRoute] int tahun, [FromRoute] int id, EditVM vm)
+    public async Task<IActionResult> EditPanjar([FromRoute] int tahun, [FromRoute] int id, EditPanjarVM vm)
     {
         if (!ModelState.IsValid) return View(vm);
 
         if (tahun != vm.Tahun || vm.IdTransaksi != id)
             return BadRequest();
 
-        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, vm.IdAkun);
+        var command = new EditTransaksiCommand(vm.IdTransaksi, vm.Uraian, new Uri("https://filebukti.com/1") , string.Empty, vm.IdAkun);
         var result = await _sender.Send(command);
 
         if (result.IsFailure)

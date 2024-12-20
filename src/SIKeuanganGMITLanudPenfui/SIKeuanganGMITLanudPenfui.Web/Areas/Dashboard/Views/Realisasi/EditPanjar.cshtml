@@ -1,4 +1,4 @@
-﻿@model EditVM
+﻿@model EditPanjarVM
 
 @inject IRepositoriKas RepositoriKas
 @inject IRepositoriAkun RepositoriAkun
@@ -21,9 +21,9 @@
         <div class="col-12 col-md-6 col-lg-6">
             <div class="card card-primary">
                 <div class="card-header" style="padding-top: 20px;">
-                    <h4>Edit @Model.Jenis - @Model.Tahun</h4>
+                    <h4>Edit Panjar - @Model.Tahun</h4>
                 </div>
-                <form asp-action="@nameof(RealisasiController.EditPanjar)" asp-route-jenis="@Model.Jenis" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.IdTransaksi" method="post">
+                <form asp-action="@nameof(RealisasiController.EditPanjar)" asp-route-tahun="@Model.Tahun" asp-route-id="@Model.IdTransaksi" method="post">
                     <div class="card-body">
                         <div asp-validation-summary="ModelOnly"></div>
 
@@ -48,7 +48,6 @@
                         </div>
 
                         <input asp-for="@Model.IdTransaksi" readonly hidden />
-                        <input asp-for="@Model.Jenis" readonly hidden />
                         <input asp-for="@Model.Tahun" readonly hidden />
                     </div>
 
