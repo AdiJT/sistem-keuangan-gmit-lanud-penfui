@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using SIKeuanganGMITLanudPenfui.Application;
 using SIKeuanganGMITLanudPenfui.Infrastructure;
 using SIKeuanganGMITLanudPenfui.Infrastructure.Configurations;
+using SIKeuanganGMITLanudPenfui.Web.Services.PDFGenerator;
 using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services.AddScoped((sp) =>
 builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
+
+builder.Services.AddSingleton<IPDFGeneratorService, PDFGeneratorService>();
 
 builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
 

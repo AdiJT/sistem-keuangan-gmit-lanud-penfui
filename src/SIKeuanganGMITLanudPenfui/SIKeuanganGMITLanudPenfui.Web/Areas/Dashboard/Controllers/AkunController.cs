@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NReco.PdfGenerator;
 using Razor.Templating.Core;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkun;
 using SIKeuanganGMITLanudPenfui.Application.AkunCQ.Commands.CreateAkunOnTahunFromTahun;
@@ -17,10 +16,9 @@ using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.AkunModels;
-using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.LaporanModels;
 using SIKeuanganGMITLanudPenfui.Web.Models;
+using SIKeuanganGMITLanudPenfui.Web.Services.PDFGenerator;
 using SIKeuanganGMITLanudPenfui.Web.Services.Toastr;
-using System.Drawing;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -38,6 +36,7 @@ public class AkunController : Controller
     private readonly ISender _sender;
     private readonly IToastrNotificationService _toastrNotificationService;
     private readonly IRazorTemplateEngine _razorTemplateEngine;
+    private readonly IPDFGeneratorService _pDFGeneratorService;
     private readonly JsonSerializerOptions serializerSettings = new(){ ReferenceHandler = ReferenceHandler.IgnoreCycles };
 
     public AkunController(
@@ -48,7 +47,8 @@ public class AkunController : Controller
         ISender sender,
         IUnitOfWork unitOfWork,
         IToastrNotificationService toastrNotificationService,
-        IRazorTemplateEngine razorTemplateEngine)
+        IRazorTemplateEngine razorTemplateEngine,
+        IPDFGeneratorService pDFGeneratorService)
     {
         _repositoriAkun = repositoriAkun;
         _repositoriJenisAkun = repositoriJenisAkun;
@@ -58,6 +58,7 @@ public class AkunController : Controller
         _unitOfWork = unitOfWork;
         _toastrNotificationService = toastrNotificationService;
         _razorTemplateEngine = razorTemplateEngine;
+        _pDFGeneratorService = pDFGeneratorService;
     }
 
     [Route("[area]/[controller]/[action]/{tahun:int?}")]
@@ -740,14 +741,7 @@ public class AkunController : Controller
             .ToList();
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Akun/_PreviewAkunPartial.cshtml", daftarJenisAkun);
-        var htmlToPdf = new HtmlToPdfConverter
-        {
-            PageWidth = 210,
-            PageHeight = 297,
-            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
-        };
-
-        var pdfBinary = htmlToPdf.GeneratePdf(html);
+        var pdfBinary = await _pDFGeneratorService.GeneratePDF(html, $"PreviewAkun{jenis}{tahun}");
 
         return File(pdfBinary, "application/pdf");
     }

@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NReco.PdfGenerator;
+using PuppeteerSharp;
+using PuppeteerSharp.Media;
 using Razor.Templating.Core;
 using SIKeuanganGMITLanudPenfui.Domain.Entities;
 using SIKeuanganGMITLanudPenfui.Domain.Enums;
 using SIKeuanganGMITLanudPenfui.Domain.Repositories;
 using SIKeuanganGMITLanudPenfui.Domain.ValueObjects;
 using SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Models.LaporanModels;
+using SIKeuanganGMITLanudPenfui.Web.Services.PDFGenerator;
 
 namespace SIKeuanganGMITLanudPenfui.Web.Areas.Dashboard.Controllers;
 
@@ -18,17 +20,21 @@ public class LaporanController : Controller
     private readonly IRepositoriRAPBJ _repositoriRAPBJ;
     private readonly IRazorTemplateEngine _razorTemplateEngine;
     private readonly IRepositoriTransaksi _repositoriTransaksi;
+    private readonly IPDFGeneratorService _pDFGeneratorService;
 
     public LaporanController(
         IRepositoriJenisAkun repositoriJenisAkun,
         IRepositoriRAPBJ repositoriRAPBJ,
         IRazorTemplateEngine razorTemplateEngine,
-        IRepositoriTransaksi repositoriTransaksi)
+        IRepositoriTransaksi repositoriTransaksi,
+        IWebHostEnvironment webHostEnvironment,
+        IPDFGeneratorService pDFGeneratorService)
     {
         _repositoriJenisAkun = repositoriJenisAkun;
         _repositoriRAPBJ = repositoriRAPBJ;
         _razorTemplateEngine = razorTemplateEngine;
         _repositoriTransaksi = repositoriTransaksi;
+        _pDFGeneratorService = pDFGeneratorService;
     }
 
     public async Task<IActionResult> RAPBJ(int? tahun = null)
@@ -76,17 +82,10 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRAPBJPartial.cshtml", vm);
-        var htmlToPdf = new HtmlToPdfConverter
-        {
-            PageWidth = 210,
-            PageHeight = 297,
-            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
-        };
-
-        var pdfBinary = htmlToPdf.GeneratePdf(html);
+        var pdfBinary = await _pDFGeneratorService.GeneratePDF(html, $"LaporanRAPBJ{vm.Tahun}");
 
         if (download)
-            return File(pdfBinary, "application/pdf", $"RAPBJ - {vm.Tahun}");
+            return File(pdfBinary, "application/pdf", fileDownloadName: $"RAPBJ - Tahun {vm.Tahun}");
 
         return File(pdfBinary, "application/pdf");
     }
@@ -134,15 +133,7 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanRekaptulasiTahunanPartial.cshtml", vm);
-
-        var htmlToPdf = new HtmlToPdfConverter
-        {
-            PageWidth = 210,
-            PageHeight = 297,
-            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
-        };
-
-        var pdfBinary = htmlToPdf.GeneratePdf(html);
+        var pdfBinary = await _pDFGeneratorService.GeneratePDF(html, $"RekaptulasiTahunan{vm.Tahun}");
 
         if (download)
             return File(pdfBinary, "application/pdf", $"Rekaptulasi Tahunan - {vm.Tahun}");
@@ -154,13 +145,13 @@ public class LaporanController : Controller
     {
         tahun ??= DateTime.Now.Year;
 
-        if(bulan <= 0 || bulan > 12) return BadRequest();
+        if (bulan <= 0 || bulan > 12) return BadRequest();
 
         var daftarTransaksi = (await _repositoriTransaksi.GetAllByTahun(tahun.Value)).Where(t => t.Tanggal.Month == bulan).ToList();
 
-        return View(new BKUVM 
-        { 
-            Bulan = bulan, 
+        return View(new BKUVM
+        {
+            Bulan = bulan,
             DaftarTransaksi = daftarTransaksi,
             Tahun = tahun.Value
         });
@@ -183,18 +174,10 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanBKUPartial.cshtml", vm);
-
-        var htmlToPdf = new HtmlToPdfConverter
-        {
-            PageWidth = 210,
-            PageHeight = 297,
-            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
-        };
-
-        var pdfBinary = htmlToPdf.GeneratePdf(html);
+        var pdfBinary = await _pDFGeneratorService.GeneratePDF(html, $"BKU{vm.Tahun}_{vm.Bulan}");
 
         if (download)
-            return File(pdfBinary, "application/pdf", $"Rekaptulasi Tahunan - {vm.Tahun}");
+            return File(pdfBinary, "application/pdf", $"BKU - {vm.Bulan}/{vm.Tahun}");
 
         return File(pdfBinary, "application/pdf");
     }
@@ -238,15 +221,7 @@ public class LaporanController : Controller
         };
 
         var html = await _razorTemplateEngine.RenderAsync("Areas/Dashboard/Views/Laporan/_LaporanMingguanPartial.cshtml", vm);
-
-        var htmlToPdf = new HtmlToPdfConverter
-        {
-            PageWidth = 210,
-            PageHeight = 297,
-            Margins = new PageMargins { Top = 25.4f, Bottom = 25.4f, Left = 31.8f, Right = 31.8f }
-        };
-
-        var pdfBinary = htmlToPdf.GeneratePdf(html);
+        var pdfBinary = await _pDFGeneratorService.GeneratePDF(html, $"LaporanMingguan{vm.Dari.Year}");
 
         if (download)
             return File(pdfBinary, "application/pdf", $"Laporan Mingguan");
