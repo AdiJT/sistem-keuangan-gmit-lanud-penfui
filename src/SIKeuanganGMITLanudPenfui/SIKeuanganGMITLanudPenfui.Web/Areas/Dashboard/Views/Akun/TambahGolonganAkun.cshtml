@@ -52,7 +52,7 @@
                             <select class="form-control selectric" id="idJenisAkun">
                                 @foreach (var jenisAkun in daftarJenisAkun)
                                 {
-                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                    <option value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -62,7 +62,7 @@
                             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control selectric">
                                 @foreach (var kelompokAkun in daftarJenisAkun.Count > 0 ? await RepositoriKelompokAkun.GetAllByJenis(daftarJenisAkun[0]) : new List<KelompokAkun>())
                                 {
-                                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
+                                    <option value="@kelompokAkun.Id">@kelompokAkun.KodeAkun @kelompokAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -105,7 +105,7 @@
                     selectIdKelompokAkun.html('');
 
                     for (let kelompokAkun of json) {
-                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.Uraian}</option>`);
+                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.KodeAkun} ${kelompokAkun.Uraian}</option>`);
                     }
                 }
 

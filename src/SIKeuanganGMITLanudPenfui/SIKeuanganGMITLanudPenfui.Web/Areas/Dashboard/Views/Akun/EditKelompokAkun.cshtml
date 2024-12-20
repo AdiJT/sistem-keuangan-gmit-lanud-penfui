@@ -49,7 +49,7 @@
                             <select asp-for="@Model.IdJenisAkun" class="form-control selectric">
                                 @foreach (var jenisAkun in daftarJenisAkun)
                                 {
-                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                    <option value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
                                 }
                             </select>
                         </div>

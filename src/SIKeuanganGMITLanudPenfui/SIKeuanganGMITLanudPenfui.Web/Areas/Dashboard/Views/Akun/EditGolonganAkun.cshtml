@@ -54,9 +54,12 @@
                                 {
                                     @if (jenisAkun.Id == jenisAkunR.Id)
                                     {
-                                        <option selected value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                        <option selected value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
                                     }
-                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                    else
+                                    {
+                                        <option value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
+                                    }
                                 }
                             </select>
                         </div>
@@ -66,7 +69,7 @@
                             <select asp-for="@Model.IdKelompokAkun" id="idKelompokAkun" class="form-control selectric">
                                 @foreach (var kelompokAkun in await RepositoriKelompokAkun.GetAllByJenis(jenisAkunR))
                                 {
-                                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
+                                    <option value="@kelompokAkun.Id">@kelompokAkun.KodeAkun @kelompokAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -99,15 +102,17 @@
             const idJenisAkun = selectIdJenisAkun.val();
 
             try {
+                selectIdKelompokAkun.html('');
+                selectIdKelompokAkun.append(`<option value="null">Pilih Kelompok Akun...</option>`);
+
                 const response = await fetch(`${url}?idJenisAkun=${idJenisAkun}`);
 
                 if (response.ok) {
                     const json = await response.json();
 
-                    selectIdKelompokAkun.html('');
 
                     for (let kelompokAkun of json) {
-                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.Uraian}</option>`);
+                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.KodeAkun} ${kelompokAkun.Uraian}</option>`);
                     }
                 }
 

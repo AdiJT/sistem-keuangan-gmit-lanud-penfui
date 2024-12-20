@@ -50,7 +50,7 @@
                                 <option value="@null">Pilih Jenis Akun...</option>
                                 @foreach (var jenisAkun in daftarJenisAkun)
                                 {
-                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                    <option value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
                                 }
                             </select>
                         </div>

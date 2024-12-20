@@ -58,7 +58,7 @@
                             <select asp-for="@Model.IdJenisAkun" class="form-control selectric" id="idJenisAkun">
                                 @foreach (var jenisAkun in daftarJenisAkun)
                                 {
-                                    <option value="@jenisAkun.Id">@jenisAkun.Uraian</option>
+                                    <option value="@jenisAkun.Id">@jenisAkun.KodeAkun @jenisAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -69,7 +69,7 @@
                                 <option value="@null">Pilih Kelompok Akun...</option>
                                 @foreach (var kelompokAkun in daftarKelompokAkun)
                                 {
-                                    <option value="@kelompokAkun.Id">@kelompokAkun.Uraian</option>
+                                    <option value="@kelompokAkun.Id">@kelompokAkun.KodeAkun @kelompokAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -80,7 +80,7 @@
                                 <option value="@null">Pilih Golongan Akun...</option>
                                 @foreach (var golonganAkun in daftarGolonganAkun)
                                 {
-                                    <option value="@golonganAkun.Id">@golonganAkun.Uraian</option>
+                                    <option value="@golonganAkun.Id">@golonganAkun.KodeAkun @golonganAkun.Uraian</option>
                                 }
                             </select>
                         </div>
@@ -145,7 +145,7 @@
                     const json = await response.json();
 
                     for (let kelompokAkun of json) {
-                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.Uraian}</option>`);
+                        selectIdKelompokAkun.append(`<option value="${kelompokAkun.Id}">${kelompokAkun.KodeAkun} ${kelompokAkun.Uraian}</option>`);
                     }
                 }
 
@@ -166,7 +166,7 @@
                 if (response.ok) {
                     const json = await response.json();
                     for (let golonganAkun of json) {
-                        selectIdGolonganAkun.append(`<option value="${golonganAkun.Id}">${golonganAkun.Uraian}</option>`);
+                        selectIdGolonganAkun.append(`<option value="${golonganAkun.Id}">${golonganAkun.KodeAkun} ${golonganAkun.Uraian}</option>`);
                     }
                 }
 
