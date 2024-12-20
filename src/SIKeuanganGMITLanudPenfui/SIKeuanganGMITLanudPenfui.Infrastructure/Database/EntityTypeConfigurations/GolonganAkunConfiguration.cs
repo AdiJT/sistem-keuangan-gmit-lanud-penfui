@@ -11,7 +11,7 @@ internal class GolonganAkunConfiguration : IEntityTypeConfiguration<GolonganAkun
     {
         builder.HasKey(g => g.Id);
         builder.HasOne(g => g.KelompokAkun).WithMany(k => k.DaftarGolonganAkun).IsRequired();
-        builder.HasMany(g => g.DaftarAkun).WithOne(a => a.GolonganAkun).IsRequired(false);
+        builder.HasMany(g => g.DaftarAkun).WithOne(a => a.GolonganAkun).IsRequired(false).OnDelete(DeleteBehavior.Cascade);
         builder.Property(g => g.Tahun).HasConversion<TahunIntConverter>();
     }
 }

@@ -11,8 +11,8 @@ internal class KelompokAkunConfiguration : IEntityTypeConfiguration<KelompokAkun
     {
         builder.HasKey(k => k.Id);
         builder.HasOne(k => k.JenisAkun).WithMany(j => j.DaftarKelompokAkun).IsRequired();
-        builder.HasMany(k => k.DaftarGolonganAkun).WithOne(g => g.KelompokAkun).IsRequired();
-        builder.HasMany(k => k.DaftarAkun).WithOne(a => a.KelompokAkun).IsRequired(false);
+        builder.HasMany(k => k.DaftarGolonganAkun).WithOne(g => g.KelompokAkun).IsRequired().OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(k => k.DaftarAkun).WithOne(a => a.KelompokAkun).IsRequired(false).OnDelete(DeleteBehavior.Cascade);
         builder.Property(k => k.Tahun).HasConversion<TahunIntConverter>();
     }
 }
