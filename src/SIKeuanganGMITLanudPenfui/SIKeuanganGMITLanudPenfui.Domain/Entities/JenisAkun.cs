@@ -25,7 +25,7 @@ public class JenisAkun : Entity, IAkun
 
             foreach (var akun in DaftarAkun)
             {
-                if (akun.KelompokAkun is null && akun.GolonganAkun is null)
+                if (akun is { KelompokAkun: null, GolonganAkun: null})
                     daftarIAkun.Add(akun);
             }
 
