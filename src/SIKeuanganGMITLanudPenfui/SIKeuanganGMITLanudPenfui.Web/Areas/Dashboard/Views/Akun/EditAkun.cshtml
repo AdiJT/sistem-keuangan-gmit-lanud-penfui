@@ -134,10 +134,10 @@
 
             try {
                 selectIdKelompokAkun.html('');
-                selectIdKelompokAkun.append(`<option value="null">Pilih Kelompok Akun...</option>`);
+                selectIdKelompokAkun.append(`<option value="@null">Pilih Kelompok Akun...</option>`);
 
                 selectIdGolonganAkun.html('');
-                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun...</option>`);
+                selectIdGolonganAkun.append(`<option value="@null">Pilih Golongan Akun...</option>`);
 
                 const response = await fetch(`${urlKelompokAkun}?idJenisAkun=${idJenisAkun}`);
 

@@ -132,9 +132,9 @@
 
             try {
                 selectIdGolonganAkun.html('');
-                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun...</option>`);
+                selectIdGolonganAkun.append(`<option value="@null">Pilih Golongan Akun...</option>`);
                 selectIdKelompokAkun.html('');
-                selectIdKelompokAkun.append(`<option value="null">Pilih Kelompok Akun...</option>`);
+                selectIdKelompokAkun.append(`<option value="@null">Pilih Kelompok Akun...</option>`);
                 const response = await fetch(`${urlKelompokAkun}?idJenisAkun=${idJenisAkun}`);
 
 
@@ -156,7 +156,7 @@
 
             try {
                 selectIdGolonganAkun.html('');
-                selectIdGolonganAkun.append(`<option value="null">Pilih Golongan Akun...</option>`);
+                selectIdGolonganAkun.append(`<option value="@null">Pilih Golongan Akun...</option>`);
                 const response = await fetch(`${urlGolonganAkun}?idKelompokAkun=${idKelompokAkun}`);
 
                 if (response.ok) {
