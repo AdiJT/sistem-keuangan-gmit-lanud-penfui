@@ -47,15 +47,15 @@ internal class CreateDetailRAPBJCommandHandler : ICommandHandler<CreateDetailRAP
                 "CreateDetailRAPBJCommandHandler.DetailRAPBJAlreadyExists",
                 $"RAPBJ tahun {request.Tahun} sudah memiliki detail dengan IdAkun {request.IdAkun}");
 
-        if (request.Volume <= 0)
+        if (request.Volume < 0)
             return new Error(
                 "CreateDetailRAPBJCommandHandler.VolumeZeroOrNegative",
-                "Volume tidak boleh nol atau negatif");
+                "Volume tidak boleh negatif");
 
-        if (request.HargaSatuan <= 0)
+        if (request.HargaSatuan < 0)
             return new Error(
                 "CreateDetailRAPBJCommandHandler.HargaSatuanZeroOrNegative",
-                "Harga Satuan tidak boleh nol atau negatif");
+                "Harga Satuan tidak boleh negatif");
 
         if (string.IsNullOrWhiteSpace(request.Satuan))
             return new Error(

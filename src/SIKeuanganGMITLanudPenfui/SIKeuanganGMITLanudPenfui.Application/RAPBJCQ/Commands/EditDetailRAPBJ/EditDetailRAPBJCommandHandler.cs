@@ -41,15 +41,15 @@ internal class EditDetailRAPBJCommandHandler : ICommandHandler<EditDetailRAPBJCo
                 "EditDetailRAPBJCommandHandler.AkunTahunDifferent",
                 $"Akun tahun {akun.Tahun.Value} tidak dapat digunakan untuk RAPBJ tahun {tahun.Value}");
 
-        if (request.Volume <= 0)
+        if (request.Volume < 0)
             return new Error(
                 "EditDetailRAPBJCommandHandler.VolumeZeroOrNegative",
-                "Volume tidak boleh nol atau negatif");
+                "Volume tidak boleh negatif");
 
-        if (request.HargaSatuan <= 0)
+        if (request.HargaSatuan < 0)
             return new Error(
                 "EditDetailRAPBJCommandHandler.HargaSatuanZeroOrNegative",
-                "Harga Satuan tidak boleh nol atau negatif");
+                "Harga Satuan tidak boleh negatif");
 
         if (string.IsNullOrWhiteSpace(request.Satuan))
             return new Error(
