@@ -435,7 +435,13 @@ public class AkunController : Controller
             SetoranSinode = akun.SetoranSinode ?? false,
             Kode = akun.Kode,
             IdJenisAkun = akun.JenisAkun.Id,
-            IdKelompokAkun = akun.KelompokAkun?.Id,
+            IdKelompokAkun = akun switch
+            {
+                { KelompokAkun: null, GolonganAkun: null } => null,
+                { KelompokAkun: not null, GolonganAkun: null} => akun.KelompokAkun.Id,
+                { KelompokAkun: null, GolonganAkun: not null} => akun.GolonganAkun.KelompokAkun.Id,
+                { KelompokAkun: not null, GolonganAkun: not null} => akun.KelompokAkun.Id
+            },
             IdGolonganAkun = akun.GolonganAkun?.Id,
             ReturnUrl = Url.Action(jenis == Jenis.Penerimaan ? nameof(Penerimaan) : nameof(Belanja), "Akun", new { tahun, Area = "Dashboard" })!
         };
